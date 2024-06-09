@@ -13,8 +13,8 @@
 <body>
   <header>
     <div class="logo">로고</div>
-    <a href="loginForm.html">로그인/</a>
-    <a href="newUserForm.html">회원가입</a>
+    <div id="login">로그인/</div>
+    <div id="userjoin">회원가입</div>
     <ul class="menuBar">
       <div class="menuBarBox">
         <li>도서관 이용</li>
