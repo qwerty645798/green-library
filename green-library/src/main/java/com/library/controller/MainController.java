@@ -11,8 +11,8 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping("dataRule")
-	public String dataRule() {
-		return "dataRule";
+	@GetMapping("facilityInfo")
+	public String facilityInfo() {
+		return "facilityInfo";
 	}
 }
