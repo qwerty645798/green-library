@@ -1,0 +1,57 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+   /*  align-items: center; */
+    height: 4000px;
+    font-weight:lighter;
+    line-height: 2;
+}
+/* .policyList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+h3{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+ul, ol{
+    margin-left: 40px;
+}
+.policyPart{
+    color:mediumseagreen;
+    font-weight: bold;
+}
+.listNumber>li{
+    list-style-type: decimal;
+    margin-bottom: 40px;
+}
+.listNumber>li::marker{
+    color:mediumseagreen;
+    font-weight: bold;
+}
+.listAlphabet{
+    list-style-type: lower-alpha;
+}
+.listAlphabet>li::marker{
+    font-weight: bold;
+}
+.SemiBold{
+    font-weight: 500;
+}
+.privacyCommittee{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;  
+}
+.privacyKeeper{
+    color: firebrick;
+}
+ul{
+    list-style-type: disc;
+}

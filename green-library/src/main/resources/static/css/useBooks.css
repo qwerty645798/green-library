@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table{
+    width: 800px;
+    height: 400px;
+}
+table, tr, td{
+    border: 1px solid black;
+   
+}
+td{
+    vertical-align: middle;
+}
+.useTableItem{
+    width: 150px;
+    height: 75px;
+    text-align: center;
+    font-weight: bold;
+    background-color: lightgreen;
+}

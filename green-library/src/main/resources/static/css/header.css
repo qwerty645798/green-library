@@ -1,0 +1,33 @@
+.logo{
+    color: white;
+    width: 100px;
+    height: 80px;
+    background-color: green;
+}
+a{
+    position:relative;
+    color: black;
+    top:-30px;
+    left: 1000px;
+    text-decoration-line: none;
+}
+.menuBar{
+    display: flex;
+}
+.menuBarBox{
+    display: flex;
+    flex-direction: column;
+}
+ul>li{
+   
+    list-style-type: none;
+}
+.menuBarBox>li{
+    display: flex;
+    flex-direction: column;
+    background-color: palegreen;
+}
+.subMenu>li{
+    display:list-item;
+}
+
