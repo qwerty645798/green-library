@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reset/reset.css">
+    <link rel="stylesheet" href="./adminLogin.css">
+    <title>관리자</title>
+</head>
+<body>
+    <main>
+        <h1>admin page login</h1>
+        <div>
+            <div class="adminLogo"><img src="" alt=""></div>
+            
+            <form class="loginContainer" action="" method="post">
+                <div>
+                    <label for="adminID">ID</label>
+                    <input type="text" name="adminID" id="adminID">
+                </div>
+
+                <div>
+                    <label for="adminPASS">PASS</label>
+                    <input type="password" name="adminPASS" id="adminPASS" autocomplete="current-password">
+                </div>
+                
+                <div class="autoLoginBox">
+                    <input type="checkbox" id="autoLogin" name="autoLogin">
+                    <label for="autoLogin">자동 로그인</label>
+                </div>
+
+                <button type="submit">로그인</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
