@@ -8,6 +8,11 @@ public class MainController {
 
 	@GetMapping("/")
 	public String home () {
-		return "home";
+		return "index";
+	}
+	
+	@GetMapping("dataRule")
+	public String dataRule() {
+		return "dataRule";
 	}
 }
