@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<header id="header" class="header"></header>
+
+<main>
 <input type="checkbox">
 <label for="selectAll">일괄 대출 연장</label>
 
@@ -106,7 +109,9 @@
     	</div>
     </div>
 </div>
+</main>
 
+<footer id="footer" class="footer"></footer>
 
 </body>
 </html>

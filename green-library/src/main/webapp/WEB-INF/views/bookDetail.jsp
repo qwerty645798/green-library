@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<header id="header" class="header"></header>
+
+<main>
+
 
 <div><!-- 좌 이미지 우 테이블 -->
 	<div>
@@ -50,6 +54,10 @@
 	<hr>
 	내용
 </div>
+
+</main>
+
+<footer id="footer" class="footer"></footer>
 
 
 </body>
