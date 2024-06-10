@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>신착 도서</title>
 </head>
 <body>
 
 <header id="header" class="header"></header>
 
-<main>
+<main><!-- 현재 한 줄에 2권, 3줄만 만들어둠 -->
 
 <!-- 한줄 기본 폼 -->
 <div>
