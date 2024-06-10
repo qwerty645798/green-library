@@ -8,11 +8,16 @@ public class UserController {
 
 	@GetMapping("/userJoin")
 	public String userJoin() {
-		return "userJoin";
+		return "user/userJoin";
 	}
 	
 	@GetMapping("/userLogin")
 	public String userLogin() {
-		return "userLogin";
+		return "user/userLogin";
+	}
+	
+	@GetMapping("/userFinding")
+	public String userFinding() {
+		return "user/userFinding";
 	}
 }

@@ -29,7 +29,7 @@ nav{
 	border: none; 
 	display: flex; 
 	justify-content: center; 
-	background: #DFD9D0;
+	background:   #ECD9BC;
 }
 form > div.container{
 	display:flex;
@@ -46,7 +46,7 @@ td.text{
 	width:160px;
 	background:#f2f2f2;
 	color:#777977;
-	font-weight:bold;
+	font-weight:600;
 	vertical-align:top;
 	padding:0;
 }
@@ -129,7 +129,7 @@ input.brief{
 					<br>
 					<div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합)
 					<br>
-					<span style="font-size:1.1em; font-weight:bold;">입력가능한 특수문자는 [ 사용가능 특수문자 : <span style="color:red;">!@#^*_</span>]입니다.
+					<span style="font-size:1.1em; font-weight:600;">입력가능한 특수문자는 [ 사용가능 특수문자 : <span style="color:red;">!@#^*_</span>]입니다.
 					<br>
 					(지정된 특수문자 외는 입력이 불가능합니다.)</span>
 					</div>
