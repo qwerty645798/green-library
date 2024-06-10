@@ -108,7 +108,8 @@ td, th{
 				<td colspan="4">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
 			</tr>
 			<tr>
-				<th colspan="4"><a href="bookDetail.jsp">자세히 보기</a></th>
+				<!-- form-submit? 아니면 그냥 button?  -->
+				<th colspan="4"><a href="bookDetail.jsp">자세히 보기</a></th> 
 			</tr>
 		</table>
 	</div>
@@ -137,7 +138,8 @@ td, th{
 				<td colspan="4">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
 			</tr>
 			<tr>
-				<th colspan="4"><a href="bookDetail.jsp">자세히 보기</a></th>
+				<!-- form-submit? 아니면 그냥 button?  -->
+				<th colspan="4"><a href="bookDetail.jsp">자세히 보기</a></th> 
 			</tr>
 		</table>
 	</div>
