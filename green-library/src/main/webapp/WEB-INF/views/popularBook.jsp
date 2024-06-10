@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>인기 도서</title>
 </head>
 <body>
 
 <header id="header" class="header"></header>
 
-<main>
+<main><!-- 페이지내 들어갈 개수 / 현재(3개) -->
 
 <!-- 개별 기본 폼 -->
 <div>

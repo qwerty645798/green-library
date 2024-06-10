@@ -4,8 +4,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script src=""></script>
+<title>대출 연장</title>
+<!-- <script src="src/main/resources/static/js/bookLoanExtension_chxbox.js"></script> -->
+
+<script>
+function toggleAllChxbox(src){
+	const chxboxes = document.querySelectorAll('.book-chxbox');
+    chxboxes.forEach((checkbox) => {
+        checkbox.checked = src.checked;
+    });
+	
+}
+
+function extendEachBook(book_sel){
+	//book_sel로 대출 연장 기능 작성
+	alert("선택하신 책의 대출이 연장되었습니다.");
+}
+
+function extendAllCheckedbox(){
+
+	const chxboxes = document.querySelectorAll(".book_chxbox:checked");
+	chxboxes.forEach((checkbox)=>{
+		extendEachBook(checkbox.value);
+	});
+
+	alert("선택하신 책들의 대출이 연장되었습니다.");
+}
+</script>
+
+<style>
+
+
+</style>
+
 </head>
 
 
@@ -13,12 +44,13 @@
 
 <header id="header" class="header"></header>
 
-<main>
+<main><!-- 총 몇권 대출 가능인지 확인 후 개수 추가(현재3개) -->
 
 <label for="selectAllBook">
 <input type="checkbox" id="selectAllBook" onclick="toggleAllChxbox(this)">
 </label>
 <input type="button" value="일괄 대출 연장" onclick="extendAllCheckedbox()">
+
 
 <div>
     <div>
