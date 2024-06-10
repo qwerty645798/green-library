@@ -14,11 +14,6 @@ a:hover{
 	text-decoration:underline;
 	color:dodgerblue;
 }
-.clearfix::after {
-	content: "";
-	display: table;
-	clear: both;
-}
 .roundbox{
 	border-radius:20px;
 }
@@ -35,33 +30,22 @@ a:hover{
 	height:100%;
 	width:auto;
 }
+nav{
+	height:90px;
+	border: none;
+	display:flex; 
+	justify-content:center;
+	background:#DFD9D0;
+}
 </style>
 </head>
 <body>
 	<header id="header" class="header"></header>
-		<nav style="
-			height:90px;
-			border: 1px black solid;
-			display:flex; 
-			justify-content:center;
-			background:powderblue;
-			" 
-			class="roundbox">
-			<div style="
-				width:50%;
-				display:flex; 
-				justify-content:center;
-				position:relative
-			">
-				<div style="
-					font-size:3em; 
-					margin-top:10px;
-				">부대시설 안내</div>
-				<div style="float:right;
-					position:absolute;
-					right:20px;
-					margin-top:60px;
-				"><a href="index">홈</a>>부대시설안내
+		<nav class="roundbox">
+			<div style="width:50%;display:flex; justify-content:center;position:relative">
+				<div style="font-size:3em; margin-top:10px;">부대시설 안내</div>
+				<div style="float:right;position:absolute;right:20px;margin-top:60px;">
+				<a href="index">홈</a>>부대시설안내
 				</div>
 			</div>
 		</nav><br><br>

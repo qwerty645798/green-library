@@ -1,26 +1,67 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.bookSearchText{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+input[text]{
+    width: 768px;
+    height: 10px;
+}
 .searchArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 768px;
     height: 10px;
     background-color: lightgray;
 }
+.quickBundle{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 .quickPage{
-    display: inline-block;
-    border-radius: 5px;
-    border-color: aliceblue;
-    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: 40px;
+    border-radius: 20px;
+    border: 10px solid #ecd9bC;
+    font-weight: bold;
+    background-color: white;
+}
+.newPopular{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
 }
 .newBooks{
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
+    margin: 50px;
     background-color: mediumaquamarine;
 }
 .popularBooks{
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
+    margin: 50px;
     background-color: mediumaquamarine;
 }
 .infoBoard{
     width: 960px;
-    height: 400px;
+    height: 300px;
     background-color: mediumaquamarine;
 }

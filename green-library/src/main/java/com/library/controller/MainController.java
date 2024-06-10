@@ -41,4 +41,9 @@ public class MainController {
 		return "placeUsetime";
 	}
 	
+	@GetMapping("/bookLoanExtension")
+	public String bookLoanExtension () {
+		return "bookLoanExtension";
+	}
+	
 }

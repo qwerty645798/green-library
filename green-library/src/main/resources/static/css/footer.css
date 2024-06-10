@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}/*header와 중복*/
+.footBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 7672px;
+    height: 176px;
+    background-color:#6c5a3f;
+   
+}
+.bottomInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    width: 1260px;
+    height: 176px;
+    font-size: 12pt;
+    color: white;
+    background-color: #6c5a3f;
+}
+.bold{
+    width: 500px;
+    font-size: 12pt;
+    font-weight: bold;
+}
+p{
+    width: 500px;
+    font-size: 10pt;
+}
+.footCopyright{
+    font-size: 10pt;
+    color: #8a7e6d;
+}
+.footerLogo{
+    width: 100px;
+    height: 80px;
+    float: right;
+    background-color: lightgray;
+}
+
+
