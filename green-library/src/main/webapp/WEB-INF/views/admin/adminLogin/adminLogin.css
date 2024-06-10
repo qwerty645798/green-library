@@ -1,0 +1,57 @@
+main>div{
+    margin: 0 auto;
+    width: 800px;
+    height: 300px;
+    border: 1px solid;
+    display: flex;
+}
+
+h1{
+    margin: 0 auto;
+    width: 400px;
+    padding-top: 200px;
+    font-size: 3rem;
+    font-style: italic;
+}
+
+/* 로고이미지 */
+main>div .adminLogo{
+    width: 50%;
+    height: 200px;
+}
+
+
+/* form 태그 */
+main>div .loginContainer{
+    width: 50%;
+    border: 1px solid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ID, PW 입력란 및 자동로그인 체크 */
+main>div .loginContainer>div{
+    display: flex;
+    justify-content: center;
+
+    border: 1px solid;
+}
+
+main>div .loginContainer>div.autoLoginBox label{
+    width: auto;
+}
+
+main>div .loginContainer>div label{
+    width: 50px;
+}
+
+/* 로그인버튼 */
+main>div .loginContainer>button{
+    display: block;
+    margin: 0 auto;
+}
+
+

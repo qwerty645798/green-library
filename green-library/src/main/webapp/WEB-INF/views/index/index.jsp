@@ -9,7 +9,9 @@
 </head>
 <body>
 
-    <input type="text" name="search"><br><br>
+    <div class="searchArea"><input type="text" name="search"></div>
+    
+    <br><br>
 
     <div class="quickPage">이용 시간</div>
     <div class="quickPage">대출 연장</div>

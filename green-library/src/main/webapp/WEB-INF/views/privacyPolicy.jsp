@@ -148,9 +148,8 @@
     </ol>
        
     <div class="privacyCommittee">
-        
+        <p class="privacyKeeper">기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.</p>
         <ul>
-            <p class="privacyKeeper">기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.</p>
             <li>개인분쟁조정위원회 (www.1336.or.kr, 1336)</li>
             <li>정보보호마크인증위원회 (www.eprivacy.or.kr, 02-580-0533)</li>
             <li>대검찰청 인터넷범죄수사센터 (icic.sppo.go.kr, 02-3480-3600)</li>

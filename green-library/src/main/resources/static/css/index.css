@@ -1,0 +1,26 @@
+.searchArea{
+    width: 768px;
+    height: 10px;
+    background-color: lightgray;
+}
+.quickPage{
+    display: inline-block;
+    border-radius: 5px;
+    border-color: aliceblue;
+    background-color: aliceblue;
+}
+.newBooks{
+    width: 400px;
+    height: 400px;
+    background-color: mediumaquamarine;
+}
+.popularBooks{
+    width: 400px;
+    height: 400px;
+    background-color: mediumaquamarine;
+}
+.infoBoard{
+    width: 960px;
+    height: 400px;
+    background-color: mediumaquamarine;
+}

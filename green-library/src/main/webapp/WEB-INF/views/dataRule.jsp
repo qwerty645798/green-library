@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +42,7 @@
             <td class="useTableItem">대출 연체 및 정지</td>
             <td>연체할 경우 연체한 기간 동안 대출이 불가하며 대출 연장을 하실 수 없습니다. 
                 3개월이 지나면 연체 이력이 삭제됩니다. 
-                연체 이력이 3회 이상 누적되거나 장기 연체(6개월 이상) 경우 해당 회원은 회원 자격을 박탈당합니다.</td>
+                장기 연체(3개월 이상) 경우 해당 회원은 회원 자격을 박탈당합니다.</td>
         </tr>
 
         <tr>
