@@ -29,6 +29,7 @@ a:hover {
 .floor > input.text{
 	width:400px;
 	height:50px;
+	font-size:1.5em;
 	border-radius:10px;
 	border:1px #AAAAAA solid;
 	outline:none;
@@ -55,12 +56,12 @@ nav{
 		</div>
 	</nav>
 	<br><br>
-	<h1 style="text-align:center; font-size:3em;">Member Login <br>
-	<span style="font-size:0.3em;">로그인을 하시면 더 많은 도서관 서비스를 이용할 수 있습니다.</span>
+	<h1 style="text-align:center; font-size:3em; margin-bottom:0px;">Member Login<br>
+	<span style="font-size:0.3em;color:#999999; margin:0px;">로그인을 하시면 더 많은 도서관 서비스를 이용할 수 있습니다.</span>
 	</h1>
 	<main style="display:flex; justify-content:center;">
 		
-		<form>
+		<form action="userLogin-perform" method="post">
 		<div style=" width:550px; height:350px; padding:0px;">
 			<div class="floor"><input type="text" placeholder="아이디" name="#" class="text"><br></div>
 			<div class="floor"><input type="password" placeholder="비밀번호" name="#" class="text"><br></div>
