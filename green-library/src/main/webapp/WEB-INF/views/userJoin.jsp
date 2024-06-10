@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+.comment{
+	font-size:0.8em; margin:3px; auto;
+}
 a {
 	text-decoration: none;
 	color: black;
@@ -16,18 +19,10 @@ a:hover {
 	color: dodgerblue;
 }
 
-.clearfix::after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
 .roundbox {
 	border-radius: 20px;
 }
-.comment{
-	font-size:0.8em; margin:3px; auto;
-}
+
 nav{
 	width:1520px; 
 	height: 90px; 
@@ -102,6 +97,7 @@ input.brief{
 	</nav>
 	<br>
 	<br>
+	<main>
 	<form action="userJoin-perform" method="post">
 		<div class="container">
 		<table style="border-collapse:collapse;">
@@ -158,8 +154,7 @@ input.brief{
 		
 		</div>
 	</form>
-
-
+	</main>
 	<footer id="footer" class="footer"></footer>
 </body>
 </html>
