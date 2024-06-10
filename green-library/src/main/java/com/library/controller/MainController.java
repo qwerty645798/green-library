@@ -11,8 +11,34 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping("facilityInfo")
+	@GetMapping("/facilityInfo")
 	public String facilityInfo() {
 		return "facilityInfo";
 	}
+	
+	@GetMapping("/privacyPolicy")
+	public String privacyPolicy () {
+		return "privacyPolicy";
+	}
+	
+	@GetMapping("/floorInfo")
+	public String floorInfo () {
+		return "floorInfo";
+	}
+	
+	@GetMapping("/dataRule")
+	public String dataRule () {
+		return "dataRule";
+	}
+	
+	@GetMapping("/hopeBookApply")
+	public String hopeBookApply () {
+		return "hopeBookApply";
+	}
+	
+	@GetMapping("/placeUsetime")
+	public String placeUsetime () {
+		return "placeUsetime";
+	}
+	
 }
