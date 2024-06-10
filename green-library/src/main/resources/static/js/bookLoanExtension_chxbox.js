@@ -2,7 +2,7 @@
 //jsp로 이동하면 bookLoanExtension.jsp로
 
 function toggleAllChxbox(src){
-	const chxboxes = document.querySelectorAll('.book-chxbox');
+	const chxboxes = document.querySelectorAll('.book_chxbox');
     chxboxes.forEach((checkbox) => {
         checkbox.checked = src.checked;
     });
