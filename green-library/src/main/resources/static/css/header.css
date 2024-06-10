@@ -1,33 +1,85 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    flex: box;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 146px;
+}
+.subBody{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1260px;
+}
+.headerTop{
+    width: 1260px;
+}
 .logo{
     color: white;
-    width: 100px;
+    width: 150px;
     height: 80px;
     background-color: green;
 }
-a{
-    position:relative;
-    color: black;
-    top:-30px;
-    left: 1000px;
-    text-decoration-line: none;
+.loginLink, .joinLink{
+    position: relative;
+    width: 70px;
+    top: -15px;
+    float: right;
+}
+.headerBottom{
+    display: flex;
+    justify-content: center;
+    width: 7672px;
+    overflow: visible;
+    background-color:palegreen;
+}
+.subMenuTop{
+    margin-left: 0px;
+    width: 1260px;
+    text-align: center;
+}
+.subMenuTop>li{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 252px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    background-color: palegreen;
+}
+.noname3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: lightgray;
 }
 .menuBar{
     display: flex;
-}
-.menuBarBox{
-    display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 250px;
+    margin-left: 0px;
+    padding-left: 76px;
+    padding-right: 76px;
+    background-color: aliceblue;
+}
+.menuBar>li{
+    font-size: 11pt;
+    font-weight: bold;
+    line-height: 3em;
+}
+ul{
+    font-size: 0pt;
 }
 ul>li{
-   
     list-style-type: none;
+    font-size: 15pt;
 }
-.menuBarBox>li{
-    display: flex;
-    flex-direction: column;
-    background-color: palegreen;
-}
-.subMenu>li{
-    display:list-item;
-}
-
