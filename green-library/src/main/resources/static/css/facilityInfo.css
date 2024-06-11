@@ -1,0 +1,31 @@
+a{
+	text-decoration:none;
+	color:black;
+}
+a:hover{
+	text-decoration:underline;
+	color:dodgerblue;
+}
+.roundbox{
+	border-radius:20px;
+}
+.map{
+	height:300px;
+	border:1px black solid;
+	padding:10px;
+	margin:10px 400px;
+}
+.explain{
+	margin:10px 400px;
+}
+.image{
+	height:100%;
+	width:auto;
+}
+nav{
+	height:90px;
+	border: none;
+	display:flex; 
+	justify-content:center;
+	background: #ECD9BC;
+}

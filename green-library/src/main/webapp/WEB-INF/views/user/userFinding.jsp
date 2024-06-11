@@ -1,130 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-a {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: dodgerblue;
-}
-
-.roundbox {
-	border-radius: 20px;
-}
-.container{
-	display:flex;
-	justify-content:center;
-}
-nav{
-	width:1520px; 
-	height: 90px; 
-	border: none; 
-	display: flex; 
-	justify-content: center; 
-	background:   #ECD9BC;
-}
-main{
-	padding-top:30px;
-}
-input{
-	width:400px;
-	height:40px;
-	box-sizing:border-box;
-	font-size:1.3em;
-	border:none;
-	outline:none;
-	cursor:pointer;
-}
-input#id{
-	background:#0D2E8C;
-	color:white;
-}
-input#pw{
-	background:#EBEBEB;
-	color:black
-}
-</style>
-<script>
-	let idconut = 1 , pwcount = 0;
-	function ID(){
-		if(idconut == 0){
-			idconut++;
-			pwcount--;
-			let span = document.getElementsByClassName("mainName");
-			for(let i=0; i<span.length; i++){
-				span[i].innerHTML = "아이디 찾기";
-			}
-			let id = document.getElementById("id");
-			let pw = document.getElementById("pw");
-			
-			id.style.color = "white";
-			id.style.background = "#0D2E8C";
-			
-			pw.style.color = "black";
-			pw.style.background = "#EBEBEB";
-			
-			let choose = document.getElementById("choose");
-			choose.innerHTML = "아이디 찾기 본인인증";
-			
-			let link = document.getElementById("link");
-			link.href = "#id";
-		}
-	}
-	function PW(){
-		if(pwcount == 0){
-			pwcount++;
-			idconut--;
-			let span = document.getElementsByClassName("mainName");
-			for(let i=0; i<span.length; i++){
-				span[i].innerHTML = "비밀번호 찾기";
-			}
-			let id = document.getElementById("id");
-			let pw = document.getElementById("pw");
-			
-			pw.style.color = "white";
-			pw.style.background = "#0D2E8C";
-			
-			id.style.color = "black";
-			id.style.background = "#EBEBEB";
-			
-			let choose = document.getElementById("choose");
-			choose.innerHTML = "비밀번호 찾기 본인인증";
-			
-			let link = document.getElementById("link");
-			link.href = "#pw";
-		}
-	}
-</script>
+<title>userFinding</title>
+<link href="css/userFinding.css" type="text/css" rel="stylesheet">
+<script src="js/userFinding.js"></script>
 </head>
 <body>
 	<header id="header" class="header"></header>
 	<nav class="roundbox">
-		<div style="width: 50%; display: flex; justify-content: center; position: relative">
-			<div style="font-size: 2.5em; margin-top: 10px;"><span class="mainName">아이디 찾기</span></div>
-			<div style="float: right; position: absolute; right: 20px; margin-top: 60px;">
+		<div
+			style="width: 1200px; display: flex; justify-content: center; position: relative">
+			<div style="font-size: 2.5em; margin-top: 10px;">
+				<span class="mainName">아이디 찾기</span>
+			</div>
+			<div
+				style="float: right; position: absolute; right: 20px; margin-top: 60px;">
 				<a href="index">홈</a>><span class="mainName">아이디 찾기</span>
 			</div>
 		</div>
-	</nav>
+	</nav><Br><Br>
 	<main>
 		<div class="container">
-		<input type="button" onclick="ID()" value="아이디 찾기" id="id"><input type="button" onclick="PW()" value="비밀번호 찾기" id="pw">
-		</div><br><br><br>
+			<input type="button" onclick="ID()" value="아이디 찾기" id="id" class="btn"><input
+				type="button" onclick="PW()" value="비밀번호 찾기" id="pw" class="btn">
+		</div>
+		<br> <br> <br>
 		<div class="container">
-			<div style="display:inline-block; width:25px; height:25px"><img src="images/check-button.jpg" style="width:100%; height:auto;"></div><span style="font-size:1em; font-weight:600;" id="choose">아이디 찾기 본인인증</span>
-		</div><Br><br>
-		<div style="text-align:center; background:#F5F5F5; height:100px;">
-			<a id="link" href="#id" style="height:100px; width:100px; cursor:pointer;"><img src="images/userfind.png" style="height:100%; width:auto;"></a>
+			<div style="display: inline-block; width: 25px; height: 25px;">
+				<img src="images/check-button.jpg"
+					style="width: 100%; height: auto;">
+			</div>
+			<span style="font-size: 1em; font-weight: 600;" id="choose">아이디
+				찾기 본인인증</span>
+		</div>
+		<Br> <br><Br>
+		<div class="container">
+			<div
+				style="width: 1200px; height: 150px; background: #F5F5F5; text-align: center;">
+				<a id="modalOpenButton"
+					style="height: 100px; width: 100px; cursor: pointer;"><img
+					src="images/userfind.png" style="height: 100%; width: auto;"></a>
+			</div>
 		</div>
 	</main>
+	<div class="container"
+		style="color:#EE0000; margin-top: 10px; font-weight:600;">
+		<span>인증을 해주세요.</span>
+	</div>
+
+
+	<div id="modalContainer" class="hidden">
+		<div id="modalContent">
+			<h3 style="text-align:center;"><b class="mainName">아이디 찾기</b></h3>
+			<br>
+			<form action="userFinding-perform" method="post">
+				<table id="table" style="border-collapse:collapse;">
+					<tr>
+						<td class="text"><div>이메일</div></td>
+						<td class="input"><input type="text" name="#" class="short"> @ <input type="text" name="#" class="short"></td>
+					</tr>
+					<tr>
+						<td class="text"><div>성명</div></td>
+						<td class="input"><input type="text" name="#"></td>
+					</tr>
+					<tr>
+						<td class="text"><div>생년월일</div></td>
+						<td class="input"><input type="text" name="#"><br>
+							<span style="color:#DD0000; font-size:0.8em; font-weight:600;">* 입력 예 : 2000-10-10</span>
+						</td>
+					</tr>
+				</table>
+				<div style="display:flex; justify-content:center;"><input type="submit" value="확인" style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></div>
+			</form>
+			<button id="modalCloseButton"><img src="images/x-icon.png" style="width:100%; height:auto;"></button>
+		</div>
+	</div>
+	<script src="js/userFindingModal.js"></script>
 	<footer id="footer" class="footer"></footer>
 </body>
 </html>
