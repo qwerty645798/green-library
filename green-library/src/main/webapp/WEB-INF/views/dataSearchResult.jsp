@@ -206,7 +206,7 @@ td, th{
 
 </style>
 
-<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/nav_hyun.css">
+<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
 
 </head>
 

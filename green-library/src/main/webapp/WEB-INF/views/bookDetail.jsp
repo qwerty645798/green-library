@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>도서 상세 정보</title>
 
-<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/bookDetail.css">
+<link rel="stylesheet" type="text/css" href="css/bookDetail.css">
 
 </head>
 <body>
