@@ -45,5 +45,8 @@ public class MainController {
 	public String bookLoanExtension () {
 		return "bookLoanExtension";
 	}
-	
+	@GetMapping("/wayToCome")
+	public String wayToCome () {
+		return "wayToCome";
+	}
 }
