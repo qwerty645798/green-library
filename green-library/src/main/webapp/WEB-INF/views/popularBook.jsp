@@ -7,46 +7,7 @@
 <meta charset="UTF-8">
 <title>인기 도서</title>
 
-<style>
-
-.book_container {
-    display: flex;
-    width: 1600px;
-    height: 300px;
-    margin: 0 auto;
-	margin-top: 10px;
-}
-
-.book_image {
-    width: 200px;
-    border: 2px solid red;
-}
-
-.book_table {
-    width: 1400px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 1200px;
-	height: 300px;
-    margin: 0 auto;
-}
-
-td {
-    width: 300px;
-}
-
-th {
-    width: 300px;
-    text-align: center;
-}
-
-td, th{
-    border: 1px solid gray;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/popularBook.css">
 
 </head>
 <body>
