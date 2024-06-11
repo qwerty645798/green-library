@@ -7,30 +7,7 @@
 <meta charset="UTF-8">
 <title>신착 도서</title>
 
-<style>
-
-.image_container {
-    display: flex;
-    width: 1600px;
-    height: 500px;
-    margin: 0 auto;
-}
-
-.image_box{
-	display: flex;
-	width: 800px;
-	height: 500px;
-	align-items: center;
-    justify-content: center;
-	border:1px solid gray;
-}
-
-.image_box img{
-	width: 250px;
-	height: 375px;
-	object-fit: cover; /*fill?*/
-}
-</style>
+<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/initiativeBook.css">
 
 </head>
 <body>
