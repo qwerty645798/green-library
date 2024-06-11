@@ -206,9 +206,22 @@ td, th{
 
 </style>
 
+<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/nav_hyun.css">
+
 </head>
 
 <body>
+
+<header id="header" class="header"></header>
+
+<nav class="navnav">
+	<div class="hyun">
+		<div class="big_name">통합 자료 검색</div> 
+		<div class="small_name">홈 > 자료 검색 > 통합 자료 검색</div>
+	</div>
+</nav>
+
+<main>
 
 <div class="zero_container">
 	<div class="sel_box">
@@ -347,6 +360,9 @@ td, th{
 		</div>
 	</div>
 </div>
+
+</main>
+<footer id="footer" class="footer"></footer>
 
 </body>
 </html>
