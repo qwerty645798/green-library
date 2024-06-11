@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>대출 연장</title>
-<!-- <script src="src/main/resources/static/js/bookLoanExtension_chxbox.js"></script> -->
 
 <script>
 function toggleAllChxbox(src){
