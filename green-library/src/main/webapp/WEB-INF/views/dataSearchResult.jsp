@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,6 +78,110 @@ function lets_search(event){
 	width: 140px;
 }
 
+.first_container{
+	display: flex; 
+	width:1600px;
+	border: 1px solid red;
+
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;
+}
+
+.text_box{
+	display: flex;
+	border: 1px solid brown;
+	height: 30px;
+	width: 700px;
+	margin: auto;
+}
+
+.text_box1, .text_box2 {
+	display: flex;
+	height:30px;
+}
+.text_box1{
+	width:550px;
+}
+.text_box2{
+	width:150px;
+}
+.text_box2 input[type="button"]{
+	margin:0 auto;
+	width: 140px;
+}
+
+.second_container{
+	display: flex; 
+	width:1600px;
+	border: 1px solid red;
+
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;
+
+	flex-direction: column;
+}
+
+.book_container{
+	display: flex;
+	width: 1600px;
+    height: 300px;
+	margin: 0 auto;
+	margin-top:20px;
+}
+
+.book_image{
+    margin-left: 10px;
+	width: 200px;
+    border: 2px solid red;
+}
+
+.book_table{
+	width: 1400px;
+}
+
+table{
+	border-collapse: collapse;
+	width: 1200px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+td{
+    width: 300px;
+}
+
+th {
+    width: 300px;
+	text-align: center;
+}
+
+td, th{
+    border: 1px solid gray;
+}
+
+.third_container{
+	display: flex;
+	width: 1600px;
+	margin: 0 auto;
+	border: 1px solid red;
+
+	padding:10px;
+	box-sizing: border-box;
+}
+
+.button_box{
+	display: flex;
+	border: 1px solid brown;
+	height: 30px;
+	width: 700px;
+	margin: auto;
+
+	align-items: center;
+	justify-content: center;
+}
+
 </style>
 
 </head>
@@ -101,6 +206,122 @@ function lets_search(event){
 		</div>
 		<div class="sel_box3">
 			<input type="button" value="검색" onclick="lets_search(event)">
+		</div>
+	</div>
+</div>
+
+<div class="first_container">
+	<div class="text_box">
+		<div class="text_box1">
+			&nbsp;"select된 값" 으로 검색 된 결과 : "??"개
+		</div>
+		<div class="text_box2">
+			<input type="button" value="??개씩 보기">
+		</div>
+	</div>
+</div>
+
+<div class="second_container">
+	
+	<div class="book_container">
+		<div class="book_image">
+			<!-- 이미지 -->
+		</div>
+		<div class="book_table">
+			<table>
+				<tr>
+					<th>도서명</th>
+					<td></td>
+					<th>재고현황</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>저자</th>
+					<td></td>
+					<th>위치</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>출판사</th>
+					<td colspan="3"></td>
+				</tr>
+				<tr>
+					<th>ISBN</th>
+					<td colspan="3"></td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td colspan="3">모시깽이</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="book_container">
+		<div class="book_image">
+			<!-- 이미지 -->
+		</div>
+		<div class="book_table">
+			<table>
+				<tr>
+					<th>도서명</th>
+					<td></td>
+					<th>재고현황</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>저자</th>
+					<td></td>
+					<th>위치</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>출판사</th>
+					<td colspan="3"></td>
+				</tr>
+				<tr>
+					<th>ISBN</th>
+					<td colspan="3"></td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td colspan="3">모시깽이</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</div>
+
+<div class="third_container">
+	<div class="button_box">
+		<div class="button_box1">
+			<input type="button" value="<<">
+		</div>
+		<div class="button_box2">
+			<input type="button" value="<">
+		</div>
+		<div>
+			<div class="button_box5">
+				<input type="button" value="1">
+			</div>
+			<div class="button_box6">
+				<input type="button" value="1">
+			</div>
+			<div class="button_box7">
+				<input type="button" value="1">
+			</div>
+			<div class="button_box8">
+				<input type="button" value="1">
+			</div>
+			<div class="button_box9">
+				<input type="button" value="1">
+			</div>
+		</div>
+		<div class="button_box3">
+			<input type="button" value=">">
+		</div>
+		<div class="button_box4">
+			<input type="button" value=">>">
 		</div>
 	</div>
 </div>
