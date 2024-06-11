@@ -102,6 +102,7 @@ function lets_search(event){
 }
 .text_box1{
 	width:550px;
+	align-items: center; /* 텍스트를 수직 가운데 */
 }
 .text_box2{
 	width:150px;
@@ -174,12 +175,33 @@ td, th{
 .button_box{
 	display: flex;
 	border: 1px solid brown;
-	height: 30px;
+	height: 50px;
 	width: 700px;
 	margin: auto;
 
 	align-items: center;
 	justify-content: center;
+}
+
+.button_box1, .button_box2, .button_box4, .button_box5{
+	height: 30px;
+	border : 1px solid yellowgreen;
+}
+
+.button_box3{
+	display: flex;
+	height: 30px;
+	border : 1px solid yellowgreen;
+}
+
+.button_inbox{
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.button_box1 input, .button_box2 input, .button_box4 input, .button_box5 input{
+	margin-right: 2px;
+	margin-left: 2px;
 }
 
 </style>
@@ -213,7 +235,7 @@ td, th{
 <div class="first_container">
 	<div class="text_box">
 		<div class="text_box1">
-			&nbsp;"select된 값" 으로 검색 된 결과 : "??"개
+			&nbsp;"select된 값" 으로 검색 된 결과 : "??"개 <!-- 이건 나중에 데이터 할 때 구현-->
 		</div>
 		<div class="text_box2">
 			<input type="button" value="??개씩 보기">
@@ -300,27 +322,27 @@ td, th{
 		<div class="button_box2">
 			<input type="button" value="<">
 		</div>
-		<div>
-			<div class="button_box5">
-				<input type="button" value="1">
-			</div>
-			<div class="button_box6">
-				<input type="button" value="1">
-			</div>
-			<div class="button_box7">
-				<input type="button" value="1">
-			</div>
-			<div class="button_box8">
-				<input type="button" value="1">
-			</div>
-			<div class="button_box9">
-				<input type="button" value="1">
-			</div>
-		</div>
 		<div class="button_box3">
-			<input type="button" value=">">
+			<div class="button_inbox">
+				<input type="button" value="1">
+			</div>
+			<div class="button_inbox">
+				<input type="button" value="2">
+			</div>
+			<div class="button_inbox">
+				<input type="button" value="3">
+			</div>
+			<div class="button_inbox">
+				<input type="button" value="4">
+			</div>
+			<div class="button_inbox">
+				<input type="button" value="5">
+			</div>
 		</div>
 		<div class="button_box4">
+			<input type="button" value=">">
+		</div>
+		<div class="button_box5">
 			<input type="button" value=">>">
 		</div>
 	</div>
