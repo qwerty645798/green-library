@@ -7,8 +7,10 @@
 <meta charset="UTF-8">
 <title>신착 도서</title>
 
+
 <link rel="stylesheet" type="text/css" href="css/initiativeBook.css">
 <link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
+
 
 </head>
 <body>

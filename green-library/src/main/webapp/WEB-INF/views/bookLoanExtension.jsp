@@ -7,9 +7,11 @@
 <meta charset="UTF-8">
 <title>대출 연장</title>
 
+
 <script src="js/bookLoanExtension.js"></script>
 <link rel="stylesheet" type="text/css" href="css/bookLoanExtension.css">
 <link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
+
 
 </head>
 
