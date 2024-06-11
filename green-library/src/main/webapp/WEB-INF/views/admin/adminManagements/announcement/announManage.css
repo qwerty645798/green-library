@@ -80,3 +80,9 @@ div h2 {
     padding-left: 10px;
     font-weight: 900;
 }
+
+/* main */
+main {
+    background-color: #ffffff;
+    height: 100vh;
+}

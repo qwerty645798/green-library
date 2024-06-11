@@ -1,43 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>header</title>
-    <link rel="stylesheet" href="../reset/reset.css">
-    <link rel="stylesheet" href="./adminHeader.css">
-</head>
-<body>
-    <header>
-        <ul>
-            <li>
-                <div class="accountContainer">
-                    <h1 class="adminLogo"><img src="" alt=""></h1>
-                    <p>관리자 ${adminID}님</p>
-                    <button class="editBtn" id="editBtn">정보 수정</button>
-                    <button class="logoutBtn" id="logoutBtn">로그아웃</button>
-                </div>
-            </li>
-            <li class="navSection">
+<div class="accountContainer">
+    <h1 class="adminLogo">
+        <img src="../../util/image.png" alt="">
+    </h1>
+    <div>
+        <p>관리자 ${adminID}</p>
+        <button type="button" class="btn btn-outline-success" id="editBtn">정보 확인</button>
+        <button type="button" class="btn btn-outline-success" id="logoutBtn">로그아웃</button>
+    </div>
+</div>
+<nav>
+    <ul>
+        <li class="navSection">
+            <div>
                 <h2>게시판 관리</h2>
-                <ul>
-                    <li><a href="">문의사항</a></li>
-                    <li><a href="">공지사항</a></li>
-                </ul>
-            </li>
-            <li class="navSection">
+            </div>
+            <ul>
+                <li><a href="#">문의사항</a></li>
+                <li><a href="#">공지사항</a></li>
+            </ul>
+        </li>
+        <li class="navSection">
+            <div>
                 <h2>도서 관리</h2>
-                <ul>
-                    <li><a href="">도서 목록</a></li>
-                </ul>
-            </li>
-            <li class="navSection">
+            </div>
+            <ul>
+                <li><a href="#">도서 목록</a></li>
+            </ul>
+        </li>
+        <li class="navSection">
+            <div>
                 <h2>유저 관리</h2>
-                <ul>
-                    <li><a href="">유저 목록</a></li>
-                </ul>
-            </li>
-        </ul>
-    </header>
-</body>
-</html>
+            </div>
+            <ul>
+                <li><a href="#">유저 목록</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

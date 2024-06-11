@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>modified</title>
+        <link rel="stylesheet" href="../util/reset.css">
+        <link rel="stylesheet" href="./adminInfo.css">
+    </head>
+
+    <body>
+        <header class="header" id="header">
+            <div class="accountContainer">
+                <h1 class="adminLogo">
+                    <img src="../../util/image.png" alt="">
+                </h1>
+                <div>
+                    <p>관리자 ${adminID}</p>
+                    <button type="button" class="btn btn-outline-success" id="editBtn">정보 확인</button>
+                    <button type="button" class="btn btn-outline-success" id="logoutBtn">로그아웃</button>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li class="navSection">
+                        <div>
+                            <h2>게시판 관리</h2>
+                        </div>
+                        <ul>
+                            <li><a href="">문의사항</a></li>
+                            <li><a href="">공지사항</a></li>
+                        </ul>
+                    </li>
+                    <li class="navSection">
+                        <div>
+                            <h2>도서 관리</h2>
+                        </div>
+                        <ul>
+                            <li><a href="">도서 목록</a></li>
+                        </ul>
+                    </li>
+                    <li class="navSection">
+                        <div>
+                            <h2>유저 관리</h2>
+                        </div>
+                        <ul>
+                            <li><a href="">유저 목록</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h3 class="representation">
+                    <img src="../../util/image.png" alt="">
+                </h3>
+                <div>
+                    <p class="info">ID : ${admin.adminID}</p>
+                    <div>
+                        <p class="info">PASS : ㅁㅁㅁㅁㅁ</p>
+                        <button value="visibility"></button>
+                    </div>
+                    <p class="info">EMAIL : </p>
+                    <p class="info">GRANT : </p>
+                </div>
+            </section>
+            <div class="basicInfo">
+                <img src="../util/image.png" alt="대표이미지">
+                <div class="renameInfo">
+                    <input type="text" name="adminId" id="" value="admin0000">
+                    <input type="text" name="adminPass" id="" value="adminpass">
+                    <input type="email" name="adminEmail" id="" value="admin@admin.com">
+                </div>
+            </div>
+            <div class="legacy">뭘 넣어야할지 모르겠음</div>
+            <div>
+                <input type="button" value="reset">
+                <input type="button" value="complete">
+            </div>
+        </main>
+    </body>
+
+</html>

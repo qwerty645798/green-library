@@ -1,10 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>book details</title>
+<title>도서 상세 정보</title>
+
+<style>
+
+.book_container {
+    display: flex;
+    width: 1600px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.book_image {
+    width: 200px;
+    border: 2px solid red;
+}
+
+.book_table {
+    width: 1400px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 1200px;
+	height: 300px;
+    margin: 0 auto;
+}
+
+td {
+    width: 300px;
+}
+
+th {
+    width: 300px;
+    text-align: center;
+}
+
+.book_container2 {
+    display: flex;
+    flex-direction: column;
+    width: 1600px;
+    margin: 0 auto;
+	margin-top: 10px;
+	padding: 10px;
+    border: 2px solid gray;
+}
+
+.book_container2 hr {
+    width: 1580px;
+	color: gray;
+}
+
+td, th{
+    border: 1px solid gray;
+}
+
+</style>
+
 </head>
 <body>
 
@@ -13,11 +70,11 @@
 <main>
 
 
-<div><!-- 좌 이미지 우 테이블 -->
-	<div>
+<div class="book_container"><!-- 좌 이미지 우 테이블 -->
+	<div class="book_image">
 		<!-- 이미지 -->
 	</div>
-	<div>
+	<div class="book_table">
 		<table>
 			<tr>
 				<th>대출도서명</th>
@@ -38,21 +95,21 @@
 				<td colspan="3"></td>
 			</tr>
 			<tr>
-				
-				<td colspan="4">
+				<td colspan="4" align="center"><!-- 예약 기능 구현 후 수정 -->
 					<form action="" method="">
 					<input type="submit" value="대출 예약">
 					</form>
 				</td>
-			<tr>			
+			</tr>			
 		</table>
 	</div>
 </div>
 
-<div>
-	<h2>책소개</h2>
+<div class="book_container2">
+	<h2>&nbsp;&nbsp;&nbsp;책소개</h2>
 	<hr>
-	내용
+	&nbsp;&nbsp;&nbsp;가나다<br>라<br>바사
+	<!-- 책소개 내용 -->
 </div>
 
 </main>
@@ -61,4 +118,4 @@
 
 
 </body>
-</html>
+</html> 
