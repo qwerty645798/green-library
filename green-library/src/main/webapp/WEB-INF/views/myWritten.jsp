@@ -27,7 +27,7 @@
 	<div class="container">
 		<table class="container_table">
 			<tr>
-				<td style="height: 30px; border-bottom: 1px solid green;">&nbsp;&nbsp;&nbsp;신청 내역</td>				
+				<td style="height: 30px; border-bottom: 1px solid green;">&nbsp;&nbsp;&nbsp;희망 도서 신청 내역</td>				
 			</tr>
 			<tr>
 				<td>
