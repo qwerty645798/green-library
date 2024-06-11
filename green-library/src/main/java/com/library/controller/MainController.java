@@ -41,12 +41,39 @@ public class MainController {
 		return "placeUsetime";
 	}
 	
+	@GetMapping("/wayToCome")
+	public String wayToCome () {
+		return "wayToCome";
+	}
+	
+	//david
 	@GetMapping("/bookLoanExtension")
 	public String bookLoanExtension () {
 		return "bookLoanExtension";
 	}
-	@GetMapping("/wayToCome")
-	public String wayToCome () {
-		return "wayToCome";
+	
+	@GetMapping("/myWritten")
+	public String myWritten () {
+		return "myWritten";
+	}
+	
+	@GetMapping("/popularBook")
+	public String popularBook () {
+		return "popularBook";
+	}
+	
+	@GetMapping("/initiativeBook")
+	public String initiativeBook () {
+		return "initiativeBook";
+	}
+	
+	@GetMapping("/dataSearch")
+	public String dataSearch () {
+		return "dataSearch";
+	}
+	
+	@GetMapping("/dataSearchResult")
+	public String dataSearchResult () {
+		return "dataSearchResult";
 	}
 }
