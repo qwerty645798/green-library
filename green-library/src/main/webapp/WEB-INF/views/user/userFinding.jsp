@@ -125,6 +125,7 @@ input#pw{
 			<a id="link" href="#id" style="height:100px; width:100px; cursor:pointer;"><img src="images/userfind.png" style="height:100%; width:auto;"></a>
 		</div>
 	</main>
+	
 	<footer id="footer" class="footer"></footer>
 </body>
 </html>
