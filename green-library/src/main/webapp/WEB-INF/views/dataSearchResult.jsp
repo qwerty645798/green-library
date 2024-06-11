@@ -7,9 +7,11 @@
 <meta charset="utf-8">
 <title>자료 검색 결과</title>
 
+
 <script src="js/dataSearch.js"></script>
 <link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
 <link rel="stylesheet" type="text/css" href="css/dataSearchResult.css">
+
 
 </head>
 

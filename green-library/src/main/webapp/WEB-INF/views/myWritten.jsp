@@ -6,8 +6,10 @@
 <meta charset="UTF-8">
 <title>내가 쓴 글</title>
 
+
 <link rel="stylesheet" type="text/css" href="css/myWritten.css">
 <link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
+
 
 </head>
 
