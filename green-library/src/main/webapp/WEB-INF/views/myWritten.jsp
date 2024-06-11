@@ -11,6 +11,7 @@
 <title>내가 쓴 글</title>
 
 <link rel="stylesheet" type="text/css" href="src/main/resources/static/css/myWritten.css">
+<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/nav_hyun.css">
 
 </head>
 
@@ -18,6 +19,13 @@
 <body>
 
 <header id="header" class="header"></header>
+
+<nav class="navnav">
+	<div class="hyun">
+		<div class="big_name">내가 쓴 글</div> 
+		<div class="small_name">홈 > 마이 페이지 > 내가 쓴 글</div>
+	</div>
+</nav>
 
 <main>
 	<div class="container">

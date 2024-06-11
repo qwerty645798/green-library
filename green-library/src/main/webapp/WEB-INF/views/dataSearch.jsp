@@ -97,7 +97,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	
-	background-color: aqua;
+	background-color: #ECD9BC;
 }
 
 .second_container{
@@ -112,9 +112,22 @@
 
 </style>
 
+<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/nav_hyun.css">
+
 </head>
 
 <body>
+
+<header id="header" class="header"></header>
+
+<nav class="navnav">
+	<div class="hyun">
+		<div class="big_name">통합 자료 검색</div> 
+		<div class="small_name">홈 > 자료 검색 > 통합 자료 검색</div>
+	</div>
+</nav>
+
+<main>
 
 <div class="zero_container">
 	<div class="sel_box">
@@ -157,6 +170,9 @@
 	<!-- 여기는 종류별 분류 겹쳐놓고 위에서 클릭하면 분류 젤 위로(z-index)  -->
 	아아
 </div>
+
+</main>
+<footer id="footer" class="footer"></footer>
 
 </body>
 </html>

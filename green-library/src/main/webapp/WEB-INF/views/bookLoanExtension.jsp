@@ -9,6 +9,7 @@
 
 <script src="src/main/resources/static/js/bookLoanExtension.js"></script>
 <link rel="stylesheet" type="text/css" href="src/main/resources/static/css/bookLoanExtension.css">
+<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/nav_hyun.css">
 
 </head>
 
@@ -16,6 +17,13 @@
 <body>
 
 <header id="header" class="header"></header>
+
+<nav class="navnav">
+	<div class="hyun">
+		<div class="big_name">도서대출 연장</div> 
+		<div class="small_name">홈 > 마이페이지 > 도서대출 연장</div>
+	</div>
+</nav>
 
 <main><!-- 총 몇권 대출 가능인지 확인 후 개수 추가(현재3개) -->
 
@@ -29,8 +37,10 @@
 
 <div class="bigbigDiv">
     <div class="bigDiv">
-    	<label><input type="checkbox" class="book_chxbox" value="book1"></label>
     	<div class="book_container">
+			<div class="book_label">
+				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
+			</div>
     		<div class="book_image">
     			<!-- 이미지 -->
     		</div>
@@ -52,7 +62,7 @@
     					<td colspan="3"></td>
     				</tr>
     				<tr>
-    					<td colspan="4" align="right">
+    					<td colspan="4" align="right" class="extends">
                             <input type="button" value="대출 연장" onclick="extendEachBook('book1')">&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
     					<!-- 기능 어떻게 넣을 지 몰라서 일단 버튼으로 생성해둠 -->
@@ -62,8 +72,10 @@
     	</div>
     </div>
     <div class="bigDiv">
-    	<label><input type="checkbox" class="book_chxbox" value="book2"></label>
     	<div class="book_container">
+			<div class="book_label">
+				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
+			</div>
     		<div class="book_image">
     			<!-- 이미지 -->
     		</div>
@@ -85,8 +97,8 @@
     					<td colspan="3"></td>
     				</tr>
     				<tr>
-    					<td colspan="4" align="right">
-                            <input type="button" value="대출 연장" onclick="extendEachBook('book2')">&nbsp;&nbsp;&nbsp;&nbsp;
+    					<td colspan="4" align="right" class="extends">
+                            <input type="button" value="대출 연장" onclick="extendEachBook('book1')">&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
     					<!-- 기능 어떻게 넣을 지 몰라서 일단 버튼으로 생성해둠 -->
     				</tr>
@@ -95,8 +107,10 @@
     	</div>
     </div>
     <div class="bigDiv">
-    	<label><input type="checkbox" class="book_chxbox" value="book3"></label>
     	<div class="book_container">
+			<div class="book_label">
+				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
+			</div>
     		<div class="book_image">
     			<!-- 이미지 -->
     		</div>
@@ -118,8 +132,8 @@
     					<td colspan="3"></td>
     				</tr>
     				<tr>
-    					<td colspan="4" align="right">
-                            <input type="button" value="대출 연장" onclick="extendEachBook('book3')">&nbsp;&nbsp;&nbsp;&nbsp;
+    					<td colspan="4" align="right" class="extends">
+                            <input type="button" value="대출 연장" onclick="extendEachBook('book1')">&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
     					<!-- 기능 어떻게 넣을 지 몰라서 일단 버튼으로 생성해둠 -->
     				</tr>
