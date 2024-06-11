@@ -1,0 +1,18 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}/*header와 중복*/
+.floorPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.floor{
+    width: 960px;
+    height: 300px;
+    margin: 20px;
+    background-color: skyblue;
+}

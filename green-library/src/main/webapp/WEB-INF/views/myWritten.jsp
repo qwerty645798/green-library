@@ -6,39 +6,7 @@
 <meta charset="UTF-8">
 <title>내가 쓴 글</title>
 
-<style>
-.container{
-    padding: 10px;
-    display: flex;
-    width: 1600px;
-    margin: 0 auto;
-    margin-top: 30px;
-    flex-direction: column;
-    border: 1px solid skyblue;
-}
-
-.container_table{
-    width: 1500px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.innerContainer{
-    margin: 0 auto;
-    width: 1400px;
-    border-collapse: seperate;
-    border-spacing: 0px 15px;
-    table-layout: fixed;
-
-}
-
-.innerContainer th, .innerContainer td{
-    border: 2px solid #6c5a3f;
-    background-color: #ecd9bc;
-    word-break: break-all;
-    overflow-wrap: break-word;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="src/main/resources/static/css/myWritten.css">
 
 </head>
 
@@ -80,7 +48,7 @@
 						</tr>
                         <tr>
 							<td>1</td>
-							<td>2</td>
+							<td>2....</td>
 							<td>3</td>
 							<td>46666666666666666666666<br>66<br>6666666666666666 666666666666666 6666 6666666666666666666666666666666666666666666666666666666666666666666666666666</td>
 							<td>5</td>
