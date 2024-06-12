@@ -84,4 +84,10 @@ public class MainController {
 	public String dataSearchResult () {
 		return "dataSearchResult";
 	}
+	
+	@GetMapping("/notification")
+	public String notification () {
+		return "notification";
+	}
+	
 }
