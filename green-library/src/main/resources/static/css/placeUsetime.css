@@ -1,9 +1,15 @@
-body{
+/* body{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}/*header와 중복*/
+}/*header와 중복*/ */
+.noname{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 .usetimePage{
     display: flex;
     flex-direction: column;
@@ -11,18 +17,22 @@ body{
     align-items: center;
 }
 table{
-    width: 720px;
-    height: 860px;
-    border: 1px solid black;
+    width: 1000px;
+    height: 500px;
+    margin: 100px;
 }
 tr, td{
-    border: 1px solid black;
+    border-bottom: 1px solid #a0cab0;
+    border-top: 1px solid #a0cab0;
     text-align: center;
     vertical-align: middle;
+}
+tr td:not(:first-of-type){
+    border-left: 1px solid #a0cab0;
 }
 .itemBold{
     width: 100px;
     height: 10px;
     font-weight: bold;
-    background-color: #64b883;
+    background-color: #d8e9d9;
 }
