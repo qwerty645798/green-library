@@ -47,6 +47,11 @@ public class MainController {
 	}
 	
 	//david
+	@GetMapping("/bookDetail")
+	public String bookDetail () {
+		return "bookDeatil";
+	}
+	
 	@GetMapping("/bookLoanExtension")
 	public String bookLoanExtension () {
 		return "bookLoanExtension";
