@@ -8,7 +8,7 @@
 <title>자료 검색</title>
 
 <script src="js/dataSearch.js"></script>
-<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
+<link rel="stylesheet" type="text/css" href="css/public/nav.css">
 <link rel="stylesheet" type="text/css" href="css/dataSearch.css">
 
 
@@ -18,12 +18,11 @@
 
 <header id="header" class="header"></header>
 
-<nav class="navnav">
-	<div class="hyun">
-		<div class="big_name">통합 자료 검색</div> 
-		<div class="small_name">홈 > 자료 검색 > 통합 자료 검색</div>
-	</div>
-</nav>
+<div class="bannerBgr">
+    <div class="Banner">
+        <div class="pageTitle">통합 자료 검색</div> <div class="pageRoute">홈 > 자료 검색 > 통합 자료 검색</div>
+    </div>
+</div>
 
 <main>
 

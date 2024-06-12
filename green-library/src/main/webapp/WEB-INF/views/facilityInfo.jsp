@@ -5,18 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>facilityInfo</title>
+<link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/facilityInfo.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<header id="header" class="header"></header>
-		<nav class="roundbox">
-			<div style="width:930px;display:flex; justify-content:center;position:relative">
-				<div style="font-size:3em; margin-top:10px;">부대시설 안내</div>
-				<div style="float:right;position:absolute;right:20px;margin-top:60px;">
-				<a href="index">홈</a>>부대시설안내
-				</div>
-			</div>
-		</nav><br><br>
+		<nav class="bannerBgr">
+		<div class="Banner">
+			<div class="pageTitle">부대시설 안내</div>
+			<div class="pageRoute">홈 > 부대시설 안내</div>
+		</div>
+	</nav><br><br>
 		<main>
 			<div class="explain">1F</div>
 			<div class="map roundbox">

@@ -8,20 +8,10 @@ a:hover {
 	color: dodgerblue;
 }
 
-.roundbox {
-	border-radius: 20px;
-}
+
 .container{
 	display:flex;
 	justify-content:center;
-}
-nav{
-	width:1520px; 
-	height: 90px; 
-	border: none; 
-	display: flex; 
-	justify-content: center; 
-	background:   #ECD9BC;
 }
 main{
 	padding-top:30px;

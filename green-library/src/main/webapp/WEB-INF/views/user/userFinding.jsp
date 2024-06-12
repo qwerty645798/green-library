@@ -6,20 +6,15 @@
 <meta charset="UTF-8">
 <title>userFinding</title>
 <link href="css/userFinding.css" type="text/css" rel="stylesheet">
+<link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <script src="js/userFinding.js"></script>
 </head>
 <body>
 	<header id="header" class="header"></header>
-	<nav class="roundbox">
-		<div
-			style="width: 1200px; display: flex; justify-content: center; position: relative">
-			<div style="font-size: 2.5em; margin-top: 10px;">
-				<span class="mainName">아이디 찾기</span>
-			</div>
-			<div
-				style="float: right; position: absolute; right: 20px; margin-top: 60px;">
-				<a href="index">홈</a>><span class="mainName">아이디 찾기</span>
-			</div>
+	<nav class="bannerBgr">
+		<div class="Banner">
+			<div class="pageTitle"><span class="mainName">아이디 찾기</span></div>
+			<div class="pageRoute">홈 > <span class="mainName">아이디 찾기</span></div>
 		</div>
 	</nav><Br><Br>
 	<main>

@@ -6,9 +6,6 @@ a:hover{
 	text-decoration:underline;
 	color:dodgerblue;
 }
-.roundbox{
-	border-radius:20px;
-}
 .map{
 	height:300px;
 	border:1px black solid;
@@ -21,11 +18,4 @@ a:hover{
 .image{
 	height:100%;
 	width:auto;
-}
-nav{
-	height:90px;
-	border: none;
-	display:flex; 
-	justify-content:center;
-	background: #ECD9BC;
 }
