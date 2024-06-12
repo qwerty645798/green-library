@@ -4,18 +4,11 @@
 	display: flex;
 	width: 1260px;
 	align-items: center;
-	justify-content: center;
 	margin: 0 auto;
 	margin-top:20px;	
 	
-	
-}
-
-.title_name{
-	width: 800px;
 	font-size:24pt;
 }
-
 
 
 .first_container{

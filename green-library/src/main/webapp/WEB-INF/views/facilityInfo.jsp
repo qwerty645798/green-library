@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>facilityInfo</title>
+<link href="css/public/header.css" type="text/css" rel="stylesheet">
+<link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/facilityInfo.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<header id="header" class="header"></header>
+	<jsp:include page="index/header.jsp" />
 		<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">부대시설 안내</div>
@@ -40,7 +42,6 @@
 			</div>
 			
 		</main>
-
-		<footer id="footer" class="footer"></footer>
+		<jsp:include page="index/footer.jsp" />
 </body>
 </html>
