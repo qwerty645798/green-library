@@ -10,7 +10,7 @@
 
 <script src="js/bookLoanExtension.js"></script>
 <link rel="stylesheet" type="text/css" href="css/bookLoanExtension.css">
-<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
+<link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
 
 </head>
@@ -20,12 +20,12 @@
 
 <header id="header" class="header"></header>
 
-<nav class="navnav">
-	<div class="hyun">
-		<div class="big_name">도서대출 연장</div> 
-		<div class="small_name">홈 > 마이페이지 > 도서대출 연장</div>
-	</div>
-</nav>
+
+<div class="bannerBgr">
+    <div class="Banner">
+        <div class="pageTitle">도서대출 연장</div> <div class="pageRoute">홈 > 마이페이지 > 도서대출 연장</div>
+    </div>
+</div>
 
 <main><!-- 총 몇권 대출 가능인지 확인 후 개수 추가(현재3개) -->
 
@@ -44,7 +44,7 @@
 				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
 			</div>
     		<div class="book_image">
-    			<!-- 이미지 -->
+    			<img src="images\exex.jpg">
     		</div>
     		<div class="book_table">
     			<table>
@@ -79,7 +79,7 @@
 				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
 			</div>
     		<div class="book_image">
-    			<!-- 이미지 -->
+    			<img src="images\exex.jpg">
     		</div>
     		<div class="book_table">
     			<table>
@@ -114,7 +114,7 @@
 				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
 			</div>
     		<div class="book_image">
-    			<!-- 이미지 -->
+    			<img src="images\exex.jpg">
     		</div>
     		<div class="book_table">
     			<table>

@@ -2,18 +2,20 @@
 
 .image_container {
     display: flex;
-    width: 1600px;
+    width: 1260px;
     height: 500px;
     margin: 0 auto;
 }
 
 .image_box{
 	display: flex;
-	width: 800px;
+	width: 630px;
 	height: 500px;
 	align-items: center;
     justify-content: center;
 	border:1px solid gray;
+	
+	margin-top:10px;
 }
 
 .image_box img{
