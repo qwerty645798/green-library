@@ -2,15 +2,15 @@
 	function want_search(event){
 		if(event.target.value==="검색어를 입력하세요"){
 			event.target.value="";
-			event.target.opacity="1";
-			event.target.border="none";
+			event.target.style.opacity="1";
+			event.target.style.border="none";
 		}
 	}
 
 	function zero_back(event){
 		if(event.target.value===""){
 			event.target.value="검색어를 입력하세요";
-			event.target.opacity="0.5";
+			event.target.style.opacity="0.5";
 		}
 	}
 

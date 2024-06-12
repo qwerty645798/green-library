@@ -90,4 +90,14 @@ public class MainController {
 		return "notification";
 	}
 	
+	@GetMapping("/vision")
+	public String vision () {
+		return "vision";
+	}
+	
+	@GetMapping("/businessStructure")
+	public String businessStructure () {
+		return "businessStructure";
+	}
+	
 }

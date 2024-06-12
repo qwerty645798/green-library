@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>공지사항</title>
 
 <script src="js/notification.js"></script>
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
