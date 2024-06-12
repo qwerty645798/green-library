@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+.title_vision{
+	display: flex;
+	width: 1260px;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	margin-top:20px;	
+	
+	
+}
+
+.title_name{
+	width: 800px;
+	font-size:24pt;
+}
+
+
+
+.first_container{
+	display: flex;
+	width: 1260px;
+	justify-content:center;
+	margin: 0 auto;
+	margin-top:20px;
+}
+
+.img_box{
+	display: flex;
+	width: 800px;
+	height: 600px;
+	align-items: center;
+    justify-content: center;
+	
+	margin-top: 20px;
+}
+
+.img_box img{
+	width: 700px;
+	height: 540px;
+	object-fit: cover; /*fill?*/
+}

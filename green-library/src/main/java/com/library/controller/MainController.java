@@ -84,4 +84,20 @@ public class MainController {
 	public String dataSearchResult () {
 		return "dataSearchResult";
 	}
+	
+	@GetMapping("/notification")
+	public String notification () {
+		return "notification";
+	}
+	
+	@GetMapping("/vision")
+	public String vision () {
+		return "vision";
+	}
+	
+	@GetMapping("/businessStructure")
+	public String businessStructure () {
+		return "businessStructure";
+	}
+	
 }
