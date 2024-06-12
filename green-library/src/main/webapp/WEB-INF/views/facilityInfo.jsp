@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>facilityInfo</title>
 <link href="css/facilityInfo.css" type="text/css" rel="stylesheet">
 </head>
 <body>

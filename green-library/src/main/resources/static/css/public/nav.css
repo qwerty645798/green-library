@@ -1,0 +1,31 @@
+.bannerBgr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7672px;
+    height: 90px;
+    background-color: #ecd9bc;
+}
+.Banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1260px;
+    height: 90px;
+    vertical-align: middle;
+    background-color: #ecd9bc;
+}
+.pageTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 60px;
+    font-weight: bold;
+    font-size: 18pt;
+    text-align: center;
+}
+.pageRoute{
+    height: 30px;
+    padding-top: 3px;
+    text-align: right;
+}

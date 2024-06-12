@@ -1,6 +1,6 @@
-const modalOpenButton = document.getElementById('modalOpenButton');
-const modalCloseButton = document.getElementById('modalCloseButton');
-const modal = document.getElementById('modalContainer');
+let modalOpenButton = document.getElementById('modalOpenButton');
+let modalCloseButton = document.getElementById('modalCloseButton');
+let modal = document.getElementById('modalContainer');
 
 modalOpenButton.addEventListener('click', () => {
   modal.classList.remove('hidden');
