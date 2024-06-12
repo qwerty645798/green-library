@@ -1,4 +1,4 @@
-let condition = "${condition}"
+
 let table = document.getElementById("board");
 let tr = document.createElement("tr");
 let th1, th2, th3, th4, th5, th6, th7;
@@ -45,12 +45,12 @@ else if(condition == "interest"){
 	caption.innerHTML = "관심도서 조회";
 }
 tr.innerHTML = `
-       <th>\${th1}</th>
-       <th>\${th2}</th>
-       <th>\${th3}</th>
-       <th>\${th4}</th>
-       <th>\${th5}</th>
-       <th>\${th6}</th>
-       <th>\${th7}</th>
+       <th>${th1}</th>
+       <th>${th2}</th>
+       <th>${th3}</th>
+       <th>${th4}</th>
+       <th>${th5}</th>
+       <th>${th6}</th>
+       <th>${th7}</th>
    `;
 table.appendChild(tr);

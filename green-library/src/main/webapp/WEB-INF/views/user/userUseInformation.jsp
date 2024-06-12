@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>userUseInformation</title>
-<link href="css/public/userUseInformation.css" type="text/css" rel="stylesheet">
+<link href="css/userUseInformation.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 </head>
 <body>
@@ -79,6 +79,7 @@
 		</main>
 	</div>
 	<footer id="footer" class="footer"></footer>
+	<script>let condition = "${condition}"</script>
 	<script src="js/userUseInformation.js"></script>
 </body>
 </html>
