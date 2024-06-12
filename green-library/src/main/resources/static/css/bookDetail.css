@@ -21,16 +21,16 @@
 
 .book_image {
 	margin-left:50px;
-    width: 14%;
+    width: 200px;
 }
 
 .book_table {
-    width: 70%;
+    width: 1000px;
 }
 
 table {
     border-collapse: collapse;
-    width: 90%px;
+    width: 800px;
 	height: 300px;
     margin: 0 auto;
 }
@@ -51,11 +51,11 @@ td, th{
 .book_container2 {
     display: flex;
     flex-direction: column;
-    width: 1250px;
+    width: 1260px;
     margin: 0 auto;
 	margin-top: 20px;
 	padding: 10px;
-    border: 1px solid gray;
+    border: 2px solid gray;
 }
 
 .book_container2 hr {
