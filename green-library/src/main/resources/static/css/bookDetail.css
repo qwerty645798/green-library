@@ -2,7 +2,7 @@
 
 .bigDiv{
     display: flex;
-    width: 1600px;
+    width: 1260px;
     height: 340px;
     margin: 0 auto;
 	margin-top: 20px;
@@ -12,7 +12,7 @@
 
 .book_container {
  	display: flex;
-	width: 1600px;
+	width: 1260;
     height: 300px;
 	margin: 0 auto;
 	margin-top: 20px;
@@ -25,22 +25,22 @@
 }
 
 .book_table {
-    width: 1300px;
+    width: 1000px;
 }
 
 table {
     border-collapse: collapse;
-    width: 1200px;
+    width: 800px;
 	height: 300px;
     margin: 0 auto;
 }
 
 td {
-    width: 300px;
+    width: 150px;
 }
 
 th {
-    width: 300px;
+    width: 100px;
     text-align: center;
 }
 
@@ -51,15 +51,15 @@ td, th{
 .book_container2 {
     display: flex;
     flex-direction: column;
-    width: 1600px;
+    width: 1250px;
     margin: 0 auto;
 	margin-top: 20px;
 	padding: 10px;
-    border: 2px solid gray;
+    border: 1px solid gray;
 }
 
 .book_container2 hr {
-    width: 1580px;
+    width: 1250px;
 	color: gray;
 }
 
