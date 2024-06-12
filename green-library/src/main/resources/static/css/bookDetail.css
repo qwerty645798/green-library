@@ -21,16 +21,16 @@
 
 .book_image {
 	margin-left:50px;
-    width: 200px;
+    width: 14%;
 }
 
 .book_table {
-    width: 1000px;
+    width: 70%;
 }
 
 table {
     border-collapse: collapse;
-    width: 800px;
+    width: 90%px;
 	height: 300px;
     margin: 0 auto;
 }

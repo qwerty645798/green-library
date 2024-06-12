@@ -8,19 +8,18 @@
 <title>도서 상세 정보</title>
 
 <link rel="stylesheet" type="text/css" href="css/bookDetail.css">
-<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
+<link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
 </head>
 <body>
 
 <header id="header" class="header"></header>
 
-<nav class="navnav">
-	<div class="hyun">
-		<div class="big_name">도서 상세 정보</div> 
-		<div class="small_name">홈 > 도서 상세 정보</div>
-	</div>
-</nav>
+<div class="bannerBgr">
+    <div class="Banner">
+        <div class="pageTitle">도서 상세 정보</div> <div class="pageRoute">홈 > 도서 상세 정보</div>
+    </div>
+</div>
 
 <main>
 
