@@ -139,6 +139,7 @@
 
 <!-- 여기 버튼 박스 구현 해야됨 복잡할듯? -->
 <!-- 위에 리스트 n개씩 출력, 그에 맞춰서 5개씩 페이지 버튼 출력 -->
+<!-- 제일 앞에서는 << < 두개 없이, 제일 뒤에서는 > >> 없이 -->
 <div class="third_container">
 	<div class="button_box">
 		<div class="button_box1">
