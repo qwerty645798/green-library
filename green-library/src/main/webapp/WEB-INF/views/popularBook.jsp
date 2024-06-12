@@ -7,51 +7,22 @@
 <meta charset="UTF-8">
 <title>인기 도서</title>
 
-<style>
 
-.book_container {
-    display: flex;
-    width: 1600px;
-    height: 300px;
-    margin: 0 auto;
-	margin-top: 10px;
-}
+<link rel="stylesheet" type="text/css" href="css/popularBook.css">
+<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
 
-.book_image {
-    width: 200px;
-    border: 2px solid red;
-}
-
-.book_table {
-    width: 1400px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 1200px;
-	height: 300px;
-    margin: 0 auto;
-}
-
-td {
-    width: 300px;
-}
-
-th {
-    width: 300px;
-    text-align: center;
-}
-
-td, th{
-    border: 1px solid gray;
-}
-
-</style>
 
 </head>
 <body>
 
 <header id="header" class="header"></header>
+
+<nav class="navnav">
+	<div class="hyun">
+		<div class="big_name">인기도서</div> 
+		<div class="small_name">홈 > 자료 검색 > 인기도서</div>
+	</div>
+</nav>
 
 <main><!-- 페이지내 들어갈 개수 / 현재(3개) -->
 

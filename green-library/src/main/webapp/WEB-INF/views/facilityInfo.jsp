@@ -5,44 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-a{
-	text-decoration:none;
-	color:black;
-}
-a:hover{
-	text-decoration:underline;
-	color:dodgerblue;
-}
-.roundbox{
-	border-radius:20px;
-}
-.map{
-	height:300px;
-	border:1px black solid;
-	padding:10px;
-	margin:10px 400px;
-}
-.explain{
-	margin:10px 400px;
-}
-.image{
-	height:100%;
-	width:auto;
-}
-nav{
-	height:90px;
-	border: none;
-	display:flex; 
-	justify-content:center;
-	background:#DFD9D0;
-}
-</style>
+<link href="css/facilityInfo.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<header id="header" class="header"></header>
 		<nav class="roundbox">
-			<div style="width:50%;display:flex; justify-content:center;position:relative">
+			<div style="width:930px;display:flex; justify-content:center;position:relative">
 				<div style="font-size:3em; margin-top:10px;">부대시설 안내</div>
 				<div style="float:right;position:absolute;right:20px;margin-top:60px;">
 				<a href="index">홈</a>>부대시설안내

@@ -1,0 +1,56 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: dodgerblue;
+}
+
+.roundbox {
+	border-radius: 20px;
+}
+.container{
+	display:flex;
+	justify-content:center;
+}
+.borderbox{
+	box-sizing:border-box;
+	font-size:1.3em;
+}
+nav{
+	width:1520px; 
+	height: 90px; 
+	border: none; 
+	display: flex; 
+	justify-content: center; 
+	background:   #ECD9BC;
+}
+table{
+	width:800px;
+	border-collapse:collapse;
+}
+
+caption{
+	text-align:left;
+}
+
+.text{
+	width:300px;
+	text-align:left;
+	padding-left:20px;
+}
+.input{
+	width:500px;
+}
+th{
+	background:#F1F5FA;
+	border:1px #E2E2E2 solid;
+	height:30px;
+}
+td{
+	text-align:center;
+	border:1px #E2E2E2 solid;
+	height:30px;
+}

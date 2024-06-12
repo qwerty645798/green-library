@@ -7,35 +7,22 @@
 <meta charset="UTF-8">
 <title>신착 도서</title>
 
-<style>
 
-.image_container {
-    display: flex;
-    width: 1600px;
-    height: 500px;
-    margin: 0 auto;
-}
+<link rel="stylesheet" type="text/css" href="css/initiativeBook.css">
+<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
 
-.image_box{
-	display: flex;
-	width: 800px;
-	height: 500px;
-	align-items: center;
-    justify-content: center;
-	border:1px solid gray;
-}
-
-.image_box img{
-	width: 250px;
-	height: 375px;
-	object-fit: cover; /*fill?*/
-}
-</style>
 
 </head>
 <body>
 
 <header id="header" class="header"></header>
+
+<nav class="navnav">
+	<div class="hyun">
+		<div class="big_name">신착도서</div> 
+		<div class="small_name">홈 > 자료 검색 > 신착도서</div>
+	</div>
+</nav>
 
 <main><!-- 현재 한 줄에 2권, 3줄만 만들어둠 -->
 

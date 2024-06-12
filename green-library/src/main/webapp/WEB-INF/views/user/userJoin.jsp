@@ -4,91 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-.comment{
-	font-size:0.8em; margin:3px; auto;
-}
-a {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: dodgerblue;
-}
-
-.roundbox {
-	border-radius: 20px;
-}
-
-nav{
-	width:1520px; 
-	height: 90px; 
-	border: none; 
-	display: flex; 
-	justify-content: center; 
-	background:   #ECD9BC;
-}
-form > div.container{
-	display:flex;
-	justify-content:center;
-	margin:10px 310px;
-	width:900px;
-	padding:0px
-}
-td{
-	border:1px #E2E2E2 solid;
-	height:30px;
-}
-td.text{
-	width:160px;
-	background:#f2f2f2;
-	color:#777977;
-	font-weight:600;
-	vertical-align:top;
-	padding:0;
-}
-td.text > div{
-	margin-left:20px;
-	margin-top:2px;
-}
-td.input{
-	width:720px;
-	padding-left:20px;
-}
-input{
-	outline:none;
-	height:25px;
-	border:1px #B2B2B2 solid;
-}
-input::placeholder{
-	color:#B3B3B3;
-}
-input.long{
-	width:240px;
-	height:30px;
-	border:none;
-}
-input.middle{
-	width:200px;
-	
-}
-input.short{
-	width:160px;
-	text-align:center;
-}
-input.brief{
-	width:60px;
-	text-align:center;
-}
-</style>
+<title>userJoin</title>
+<link href="css/userJoin.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<header id="header" class="header"></header>
 	<nav class="roundbox">
-		<div style="width: 50%; display: flex; justify-content: center; position: relative">
+		<div style="width: 930px; display: flex; justify-content: center; position: relative">
 			<div style="font-size: 2.5em; margin-top: 10px;">회원가입</div>
 			<div style="float: right; position: absolute; right: 20px; margin-top: 60px;">
 				<a href="index">홈</a>>회원가입
@@ -151,7 +73,6 @@ input.brief{
 				<td colspan="2" style="border:none;text-align:center;"><input type="submit" value="확인" style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></td>
 			</tr>
 		</table>
-		
 		</div>
 	</form>
 	</main>

@@ -4,46 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-a {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: dodgerblue;
-}
-
-.roundbox {
-	border-radius: 20px;
-}
-
-.floor{
-	width:400px;
-	height:50px;
-	margin:20px 75px;
-	font-size:0.8em;
-}
-.floor > input.text{
-	width:400px;
-	height:50px;
-	font-size:1.5em;
-	border-radius:10px;
-	border:1px #AAAAAA solid;
-	outline:none;
-}
-nav{
-	width:1520px; 
-	height: 90px; 
-	border: none; 
-	display: flex; 
-	justify-content: center; 
-	background: #DFD9D0;
-}
-
-</style>
+<title>userLogin</title>
+<link href="css/userLogin.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<header id="header" class="header"></header>

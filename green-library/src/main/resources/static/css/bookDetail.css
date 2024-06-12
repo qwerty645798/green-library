@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+
+.book_container {
+    display: flex;
+    width: 1600px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.book_image {
+    width: 200px;
+    border: 2px solid red;
+}
+
+.book_table {
+    width: 1400px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 1200px;
+	height: 300px;
+    margin: 0 auto;
+}
+
+td {
+    width: 300px;
+}
+
+th {
+    width: 300px;
+    text-align: center;
+}
+
+.book_container2 {
+    display: flex;
+    flex-direction: column;
+    width: 1600px;
+    margin: 0 auto;
+	margin-top: 10px;
+	padding: 10px;
+    border: 2px solid gray;
+}
+
+.book_container2 hr {
+    width: 1580px;
+	color: gray;
+}
+
+td, th{
+    border: 1px solid gray;
+}
