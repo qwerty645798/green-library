@@ -24,7 +24,7 @@ input[type="checkbox"] {
     margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	border:1px solid burlywood;
+	border:1px solid #ECD9BC;
 }
 
 .book_container{
@@ -47,7 +47,6 @@ input[type="checkbox"] {
 .book_image{
     margin-left: 10px;
 	width: 200px;
-    border: 2px solid red;
 }
 
 .book_table{
@@ -72,4 +71,10 @@ th {
 
 td, th{
     border: 1px solid gray;
+}
+
+img{
+	width:200px;
+	height:300px;
+	object-fit: cover;
 }
