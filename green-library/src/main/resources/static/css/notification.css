@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+
+.first_container{
+	display: flex; 
+
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;
+	margin-top: 20px;
+}
+
+.text_box{
+	display: flex;
+	height: 30px;
+	width: 1260px;
+	margin: auto;
+}
+
+.text_box1, .text_box2 {
+	display: flex;
+	height:30px;
+}
+.text_box1{
+	width:830px;
+	align-items: center; /* 텍스트를 수직 가운데 */
+}
+.text_box2{
+	width:80px;
+}
+.text_box2 select{
+	width: 70px;
+}
+.text_box3{
+	display: flex;
+	width:100px;
+}
+.text_box3 select{
+	width: 90px;
+}
+.text_box4{
+	display:flex;
+	width:250px;
+	border: 1px solid gray;
+}
+.text_box4 input[type="text"]{
+	border: none;
+	outline: none;
+	width:200px;
+	opacity: 0.5;
+}
+.text_box4 input[type="button"]{
+	width:50px;
+	cursor:pointer;
+}
+
+
+
+
+.second_container{
+	display: flex; 
+
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;
+}
+
+.notice_table{
+	margin:0 auto;
+	border-collapse: collapse;
+	width: 1260px;
+	margin-top: 20px;
+}
+
+.notice_table tr{
+	border-top: 1px solid green;
+	border-bottom: 1px solid green;
+	height: 60px;
+}
+
+.notice_table tr:not(:first-child){
+	height: 40px;
+}
+
+.notice_table .num_table{
+	width: 110px;
+	text-align :center;
+}
+.notice_table .name_table{
+	width: 150px;
+	text-align :center;
+}
+.notice_table .title_table{
+	width: 800px;
+}
+.notice_table .date_table{
+	width: 200px;
+	text-align :center;
+}
+
+tr:not(:first-child):hover{
+	background-color: lightgreen;
+}
+
+
+
+.third_container{
+	display: flex;
+	margin: 0 auto;
+
+	padding:10px;
+	box-sizing: border-box;
+}
+
+.button_box{
+	display: flex;
+	border: 1px solid brown;
+	height: 50px;
+	width: 700px;
+	margin: auto;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.button_box1, .button_box2, .button_box4, .button_box5{
+	height: 30px;
+	border : 1px solid yellowgreen;
+}
+
+.button_box3{
+	display: flex;
+	height: 30px;
+	border : 1px solid yellowgreen;
+}
+
+.button_inbox{
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.button_box1 input, .button_box2 input, .button_box4 input, .button_box5 input{
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+
