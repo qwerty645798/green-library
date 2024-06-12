@@ -6,12 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>userUseInformation</title>
-
+<link href="css/public/header.css" type="text/css" rel="stylesheet">
+<link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/userUseInformation.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<header id="header" class="header"></header>
+	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">도서 이용정보</div>
@@ -80,7 +81,7 @@
 			</div>
 		</main>
 	</div>
-	<footer id="footer" class="footer"></footer>
+	<jsp:include page="../index/footer.jsp" />
 	<script>let condition = "${condition}"</script>
 	<script src="js/userUseInformation.js"></script>
 </body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>userJoin</title>
+<title>userInfoModification</title>
 <link href="css/public/header.css" type="text/css" rel="stylesheet">
 <link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
@@ -14,37 +14,31 @@
 	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
-			<div class="pageTitle">회원가입</div>
-			<div class="pageRoute">홈 > 회원가입</div>
+			<div class="pageTitle">회원정보수정</div>
+			<div class="pageRoute">홈 > 회원정보수정</div>
 		</div>
 	</nav>
 	<br>
 	<br>
 	<main>
-	<form action="userJoin-perform" method="post">
+	<form action="userInfoModification-perform" method="post">
 		<div class="container">
 		<table style="border-collapse:collapse;">
 			<tr>
 				<td class="text"><div>이름</div></td>
-				<td class="input"><input type="text" name="#" placeholder="홍길동" class="long"></td>
+				<td class="input">${userName}</td>
 			</tr>
 			<tr>
 				<td class="text"><div>생년월일</div></td>
-				<td class="input"><input type="text" name="#" placeholder="2000-01-01" class="long"></td>
+				<td class="input">${userBirth}</td>
 			</tr>
 			<tr>
 				<td class="text"><div>성별</div></td>
-				<td class="input"><input type="text" name="#" placeholder="남" class="long"></td>
+				<td class="input">${userGender}</td>
 			</tr>
 			<tr>
 				<td class="text"><div>아이디</div></td>
-				<td class="input">
-					<input type="text" name="#" class="middle">
-					<input type="button" value="아이디 중복 확인" style="color:white; background:#786C67; border:none; height:30px; cursor:pointer;">
-					<br>
-					<div class="comment">아이디는 영문 또는 숫자(개별 또는 혼용) 5자 이상 가능합니다. 아이디 영문은 모두 소문자입니다.</div>
-				</td>
-				
+				<td class="input">${userId}</td>
 			</tr>
 			<tr>
 				<td class="text"><div>비밀번호</div></td>
