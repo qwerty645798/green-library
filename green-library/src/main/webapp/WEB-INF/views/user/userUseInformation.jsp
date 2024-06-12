@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>userUseInformation</title>
+
 <link href="css/userUseInformation.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 </head>
@@ -52,6 +53,7 @@
 						</tr>
 					</table>
 				</div>
+
 			</div>
 			<div class="container" style="margin-top: 48px;">
 				<div class="center Dheader"

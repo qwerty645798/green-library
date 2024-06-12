@@ -9,7 +9,7 @@
 
 
 <script src="js/dataSearch.js"></script>
-<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
+<link rel="stylesheet" type="text/css" href="css/public/nav.css">
 <link rel="stylesheet" type="text/css" href="css/dataSearchResult.css">
 
 
@@ -19,12 +19,12 @@
 
 <header id="header" class="header"></header>
 
-<nav class="navnav">
-	<div class="hyun">
-		<div class="big_name">통합 자료 검색</div> 
-		<div class="small_name">홈 > 자료 검색 > 통합 자료 검색</div>
-	</div>
-</nav>
+
+<div class="bannerBgr">
+    <div class="Banner">
+        <div class="pageTitle">통합 자료 검색</div> <div class="pageRoute">홈 > 자료 검색 > 통합 자료 검색</div>
+    </div>
+</div>
 
 <main>
 
@@ -137,7 +137,9 @@
 
 </div>
 
-<!-- 여기 버튼 박스 구현 복잡할듯? -->
+<!-- 여기 버튼 박스 구현 해야됨 복잡할듯? -->
+<!-- 위에 리스트 n개씩 출력, 그에 맞춰서 5개씩 페이지 버튼 출력 -->
+<!-- 제일 앞에서는 << < 두개 없이, 제일 뒤에서는 > >> 없이 -->
 <div class="third_container">
 	<div class="button_box">
 		<div class="button_box1">
