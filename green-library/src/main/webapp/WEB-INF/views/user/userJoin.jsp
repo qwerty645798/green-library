@@ -5,16 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>userJoin</title>
+<link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userJoin.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<header id="header" class="header"></header>
-	<nav class="roundbox">
-		<div style="width: 930px; display: flex; justify-content: center; position: relative">
-			<div style="font-size: 2.5em; margin-top: 10px;">회원가입</div>
-			<div style="float: right; position: absolute; right: 20px; margin-top: 60px;">
-				<a href="index">홈</a>>회원가입
-			</div>
+	<nav class="bannerBgr">
+		<div class="Banner">
+			<div class="pageTitle">회원가입</div>
+			<div class="pageRoute">홈 > 회원가입</div>
 		</div>
 	</nav>
 	<br>
