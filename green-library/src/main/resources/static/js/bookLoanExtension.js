@@ -1,6 +1,4 @@
 
-//jsp로 이동하면 bookLoanExtension.jsp로
-
 function toggleAllChxbox(src){
 	const chxboxes = document.querySelectorAll('.book_chxbox');
     chxboxes.forEach((checkbox) => {
@@ -9,16 +7,18 @@ function toggleAllChxbox(src){
 	
 }
 
-function extendEachBook(book_sel){
+function extendEachBook(book_sel, more=false){
 	//book_sel로 대출 연장 기능 작성
-	alert("선택하신 책의 대출이 연장되었습니다.");
+	if(!more){
+		alert("선택하신 책의 대출이 연장되었습니다.");
+	}
 }
 
 function extendAllCheckedbox(){
 
 	const chxboxes = document.querySelectorAll(".book_chxbox:checked");
 	chxboxes.forEach((checkbox)=>{
-		extendEachBook(checkbox.value);
+		extendEachBook(checkbox.value, true);
 	});
 
 	alert("선택하신 책들의 대출이 연장되었습니다.");

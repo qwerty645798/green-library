@@ -7,65 +7,20 @@
 <meta charset="UTF-8">
 <title>도서 상세 정보</title>
 
-<style>
-
-.book_container {
-    display: flex;
-    width: 1600px;
-    height: 300px;
-    margin: 0 auto;
-}
-
-.book_image {
-    width: 200px;
-    border: 2px solid red;
-}
-
-.book_table {
-    width: 1400px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 1200px;
-	height: 300px;
-    margin: 0 auto;
-}
-
-td {
-    width: 300px;
-}
-
-th {
-    width: 300px;
-    text-align: center;
-}
-
-.book_container2 {
-    display: flex;
-    flex-direction: column;
-    width: 1600px;
-    margin: 0 auto;
-	margin-top: 10px;
-	padding: 10px;
-    border: 2px solid gray;
-}
-
-.book_container2 hr {
-    width: 1580px;
-	color: gray;
-}
-
-td, th{
-    border: 1px solid gray;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="css/bookDetail.css">
+<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
 
 </head>
 <body>
 
 <header id="header" class="header"></header>
+
+<nav class="navnav">
+	<div class="hyun">
+		<div class="big_name">도서 상세 정보</div> 
+		<div class="small_name">홈 > 도서 상세 정보</div>
+	</div>
+</nav>
 
 <main>
 

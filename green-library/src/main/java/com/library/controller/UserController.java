@@ -20,4 +20,9 @@ public class UserController {
 	public String userFinding() {
 		return "user/userFinding";
 	}
+	
+	@GetMapping("/userUseInformation")
+	public String userUseInformation() {
+		return "user/userUseInformation";
+	}
 }
