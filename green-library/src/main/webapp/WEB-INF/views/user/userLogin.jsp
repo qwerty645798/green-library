@@ -5,12 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>userLogin</title>
+<link href="css/public/header.css" type="text/css" rel="stylesheet">
+<link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userLogin.css" type="text/css" rel="stylesheet">
 </head>
 <body> 
 	<img src="images/wood.png" style="width:99%; height:auto; position:absolute; z-index:-1;">
-	<header id="header" class="header"></header>
+	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">로그인</div>
@@ -33,6 +35,6 @@
 		</div>
 		</form>
 	</main>
-	<footer id="footer" class="footer"></footer>
+	<jsp:include page="../index/footer.jsp" />
 </body>
 </html>

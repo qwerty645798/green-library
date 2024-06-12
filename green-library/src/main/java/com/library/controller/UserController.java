@@ -14,6 +14,11 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@GetMapping("/userAgreement")
+	public String userAgreement() {
+		return "user/userAgreement";
+	}
+	
 	@GetMapping("/userJoin")
 	public String userJoin() {
 		return "user/userJoin";
@@ -27,6 +32,11 @@ public class UserController {
 	@GetMapping("/userFinding")
 	public String userFinding() {
 		return "user/userFinding";
+	}
+	
+	@GetMapping("/userInfoModification")
+	public String userInfoModification() {
+		return "user/userInfoModification";
 	}
 	
 	@GetMapping("/userUseInformation")

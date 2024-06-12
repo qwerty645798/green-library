@@ -1,0 +1,21 @@
+main{
+	display:flex;
+	flex-direction:column;
+	width:1260px;
+}
+.container{
+	display:flex;
+	justify-content:center;
+}
+.content{
+	width:1260px;
+	height:260px;
+	background:#F2F2F2;
+	color:#646464;
+	overflow: auto;
+	padding:30px;
+	font-weight:600;
+}
+input{
+	cursor:pointer;
+}

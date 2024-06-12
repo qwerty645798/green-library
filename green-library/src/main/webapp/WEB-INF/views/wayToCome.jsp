@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>wayToCome</title>
+<link href="css/public/header.css" type="text/css" rel="stylesheet">
+<link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/wayToCome.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<header id="header" class="header"></header>
+	<jsp:include page="index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">오시는 길</div>
@@ -64,6 +66,6 @@
 		</tr>
 	</table>
 	</div>
-	<footer id="footer" class="footer"></footer>
+	<jsp:include page="index/footer.jsp" />
 </body>
 </html>
