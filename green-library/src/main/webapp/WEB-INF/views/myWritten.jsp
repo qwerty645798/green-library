@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="css/myWritten.css">
-<link rel="stylesheet" type="text/css" href="css/nav_hyun.css">
+<link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
 
 </head>
@@ -18,12 +18,12 @@
 
 <header id="header" class="header"></header>
 
-<nav class="navnav">
-	<div class="hyun">
-		<div class="big_name">내가 쓴 글</div> 
-		<div class="small_name">홈 > 마이 페이지 > 내가 쓴 글</div>
-	</div>
-</nav>
+
+<div class="bannerBgr">
+    <div class="Banner">
+        <div class="pageTitle">내가 쓴 글</div> <div class="pageRoute">홈 > 마이 페이지 > 내가 쓴 글</div>
+    </div>
+</div>
 
 <main>
 	<div class="container">
