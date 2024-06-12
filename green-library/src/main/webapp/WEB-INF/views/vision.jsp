@@ -7,6 +7,7 @@
 <title>비전</title>
 
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="css/vision.css">
 
 </head>
 
@@ -21,6 +22,18 @@
 <header id="header" class="header"></header>
 
 <main>
+
+<div class="title_vision">
+	<div class="title_name">
+		<p>비전</p>
+	</div>	
+</div>
+
+<div class="first_container">
+	<div class="img_box">
+		<img src="images/vision.png">
+	</div>
+</div>
 
 </main>
 
