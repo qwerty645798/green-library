@@ -1,38 +1,69 @@
 @charset "utf-8";
 
-.book_container {
+.bigDiv{
     display: flex;
-    width: 1600px;
-    height: 300px;
+    width: 1260px;
+    height: 340px;
     margin: 0 auto;
-	margin-top: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border:1px solid #ECD9BC;
+}
+
+.book_container {
+ 	display: flex;
+	width: 1260;
+    height: 300px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;	
 }
 
 .book_image {
+	margin-left:50px;
     width: 200px;
-    border: 2px solid red;
 }
 
 .book_table {
-    width: 1400px;
+    width: 1000px;
 }
 
 table {
     border-collapse: collapse;
-    width: 1200px;
+    width: 800px;
 	height: 300px;
     margin: 0 auto;
 }
 
 td {
-    width: 300px;
+    width: 150px;
 }
 
 th {
-    width: 300px;
+    width: 100px;
     text-align: center;
 }
 
 td, th{
     border: 1px solid gray;
+}
+
+.moreInf{
+	width: 700px;
+	height: 40px;
+	border: none;	
+	background-color: #ECD9BC;
+	cursor: pointer;
+	text-align: center;
+	font-size: 14pt;
+}
+
+.moreInf:hover{
+	background-color: #ECD9CC;
+}
+
+img{
+	width:200px;
+	height:300px;
+	object-fit: cover;
 }
