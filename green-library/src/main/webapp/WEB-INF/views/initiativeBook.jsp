@@ -29,27 +29,13 @@
 <!-- 한줄 기본 폼 -->
 <div class="image_container">
 	<div class="image_box">
-		<a href="bookDetail.jsp">
-			<img src="src\main\resources\static\images\exex.jpg">
+		<a href="bookDetail">
+			<img src="images\exex.jpg">
 		</a>
 	</div>
 	<div class="image_box">
-		<a href="bookDetail.jsp">
-			<img src="src\main\resources\static\images\exex.jpg">
-		</a>
-	</div>
-</div>
-
-<!-- 한줄 기본 폼 -->
-<div class="image_container">
-	<div class="image_box">
-		<a href="bookDetail.jsp">
-			<img src="src\main\resources\static\images\exex.jpg">
-		</a>
-	</div>
-	<div class="image_box">
-		<a href="bookDetail.jsp">
-			<img src="src\main\resources\static\images\exex.jpg">
+		<a href="bookDetail">
+			<img src="images\exex.jpg">
 		</a>
 	</div>
 </div>
@@ -57,13 +43,27 @@
 <!-- 한줄 기본 폼 -->
 <div class="image_container">
 	<div class="image_box">
-		<a href="bookDetail.jsp">
-			<img src="src\main\resources\static\images\exex.jpg">
+		<a href="bookDetail">
+			<img src="images\exex.jpg">
 		</a>
 	</div>
 	<div class="image_box">
-		<a href="bookDetail.jsp">
-			<img src="src\main\resources\static\images\exex.jpg">
+		<a href="bookDetail">
+			<img src="images\exex.jpg">
+		</a>
+	</div>
+</div>
+
+<!-- 한줄 기본 폼 -->
+<div class="image_container">
+	<div class="image_box">
+		<a href="bookDetail">
+			<img src="images\exex.jpg">
+		</a>
+	</div>
+	<div class="image_box">
+		<a href="bookDetail">
+			<img src="images\exex.jpg">
 		</a>
 	</div>
 </div>

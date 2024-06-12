@@ -44,7 +44,7 @@
 				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
 			</div>
     		<div class="book_image">
-    			<!-- 이미지 -->
+    			<img src="images\exex.jpg">
     		</div>
     		<div class="book_table">
     			<table>
@@ -79,7 +79,7 @@
 				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
 			</div>
     		<div class="book_image">
-    			<!-- 이미지 -->
+    			<img src="images\exex.jpg">
     		</div>
     		<div class="book_table">
     			<table>
@@ -114,7 +114,7 @@
 				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
 			</div>
     		<div class="book_image">
-    			<!-- 이미지 -->
+    			<img src="images\exex.jpg">
     		</div>
     		<div class="book_table">
     			<table>
