@@ -5,20 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>wayToCome</title>
+<link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/wayToCome.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<header id="header" class="header"></header>
-	<nav class="roundbox">
-		<div
-			style="width: 800px; display: flex; justify-content: center; position: relative">
-			<div style="font-size: 2.5em; margin-top: 10px;">
-				오시는길
-			</div>
-			<div
-				style="float: right; position: absolute; right: 20px; margin-top: 60px;">
-				<a href="index">홈</a>>오시는길
-			</div>
+	<nav class="bannerBgr">
+		<div class="Banner">
+			<div class="pageTitle">오시는 길</div>
+			<div class="pageRoute">홈 > 오시는 길</div>
 		</div>
 	</nav><Br><br>
 	<main>

@@ -8,9 +8,7 @@ a:hover {
 	color: dodgerblue;
 }
 
-.roundbox {
-	border-radius: 20px;
-}
+
 .container{
 	display:flex;
 	justify-content:center;
@@ -19,14 +17,7 @@ a:hover {
 	box-sizing:border-box;
 	font-size:1.3em;
 }
-nav{
-	width:1520px; 
-	height: 90px; 
-	border: none; 
-	display: flex; 
-	justify-content: center; 
-	background:   #ECD9BC;
-}
+
 table{
 	width:800px;
 	border-collapse:collapse;

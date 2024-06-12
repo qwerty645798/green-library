@@ -11,18 +11,9 @@ a:hover {
 	color: dodgerblue;
 }
 
-.roundbox {
-	border-radius: 20px;
-}
 
-nav{
-	width:1520px; 
-	height: 90px; 
-	border: none; 
-	display: flex; 
-	justify-content: center; 
-	background:   #ECD9BC;
-}
+
+
 form > div.container{
 	display:flex;
 	justify-content:center;
