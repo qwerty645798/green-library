@@ -1,17 +1,17 @@
-body{
+/* body{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
+} */
 header{
-    flex: box;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 146px;
 }
-.subBody{
+.header1{
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -25,7 +25,7 @@ header{
     color: white;
     width: 150px;
     height: 80px;
-    background-color: green;
+    background-color: #64b883;
 }
 .loginLink, .joinLink{
     position: relative;
@@ -36,14 +36,17 @@ header{
 .headerBottom{
     display: flex;
     justify-content: center;
-    width: 7672px;
     overflow: visible;
-    background-color:palegreen;
+    background-color:#16722a;
 }
 .subMenuTop{
     margin-left: 0px;
     width: 1260px;
     text-align: center;
+}
+.subMenuTop:hover ~.menuBar{
+    height: 250px;
+    transition: 2s ease-in-out;
 }
 .subMenuTop>li{
     display: inline-block;
@@ -51,14 +54,16 @@ header{
     width: 252px;
     padding-top: 15px;
     padding-bottom: 15px;
+    list-style-type: none;
+    font-size: 15pt;
     font-weight: bold;
-    background-color: palegreen;
+    background-color:#16722a;
 }
-.noname3{
+.menuBarBackground{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: lightgray;
+    background-color: aliceblue;
 }
 .menuBar{
     display: flex;
@@ -66,20 +71,25 @@ header{
     align-items: center;
     width: 100px;
     height: 250px;
+    /* height: 0px; */
+    /* overflow: hidden; */
     margin-left: 0px;
     padding-left: 76px;
     padding-right: 76px;
-    background-color: aliceblue;
+    background-color:#ecd9bc;
 }
 .menuBar>li{
     font-size: 11pt;
     font-weight: bold;
     line-height: 3em;
+    list-style-type: none;
 }
-ul{
+.subMenuTop, .menuBar{
     font-size: 0pt;
 }
-ul>li{
-    list-style-type: none;
-    font-size: 15pt;
-}
+
+
+
+
+
+

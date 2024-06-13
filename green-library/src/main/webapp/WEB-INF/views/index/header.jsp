@@ -7,12 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Green Library</title>
         <link href="/reset/reset.css" type="text/css" rel="stylesheet">
-        <link href="/CSS/header.css" type="text/css" rel="stylesheet">
-        <script src="/JS/header.js" type="text/javascript"></script>
+        <link href="/css/public/header.css" type="text/css" rel="stylesheet">
+        
     </head>
     <body>
     <header id="header" class="header">
-      <div class="subBody">
+      <div class="header1">
         <div class="headerTop">
           <div class="logo">로고</div>
           <div id="login" class="loginLink">로그인 /</div>
@@ -31,7 +31,7 @@
               </ul>
             </div>
           
-            <div class="noname3">
+            <div class="menuBarBackground">
               <ul class="menuBar">
                 <li>도서관 비전</li>
                 <li>사업 구조</li>
@@ -43,7 +43,7 @@
               <ul class="menuBar">
                 <li>오시는 길</li>
                 <li>이용시간 안내</li>
-                <li>자료이용규칙</li>
+                <li>자료이용 안내</li>
                 <li>부대시설 소개</li>
                 <li>희망도서 신청</li>
               </ul>
@@ -80,6 +80,7 @@
       
     </header>
     
+    <script defer src="/JS/header.js" type="text/javascript"></script>
       
     </body>
     </html>
