@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +15,19 @@
 
 	
 
-	<div class="testContainer"><!-- IHM 임의로 추가한 컨테이너 박스 -->
+	<div class="testContainer"><!-- IHM ììë¡ ì¶ê°í ì»¨íì´ë ë°ì¤ -->
 
 		<header id="header" class="footer"></header>
 		<nav class="bannerBgr">
 			<div class="Banner">
-				<div class="pageTitle"><span class="mainName">아이디 찾기</span></div>
-				<div class="pageRoute">홈 > <span class="mainName">아이디 찾기</span></div>
+				<div class="pageTitle"><span class="mainName">ìì´ë ì°¾ê¸°</span></div>
+				<div class="pageRoute">í > <span class="mainName">ìì´ë ì°¾ê¸°</span></div>
 			</div>
 		</nav><Br><Br>
 		<main>
 			<div class="container">
-				<input type="button" onclick="ID()" value="아이디 찾기" id="id" class="btn"><input
-					type="button" onclick="PW()" value="비밀번호 찾기" id="pw" class="btn">
+				<input type="button" onclick="ID()" value="ìì´ë ì°¾ê¸°" id="id" class="btn"><input
+					type="button" onclick="PW()" value="ë¹ë°ë²í¸ ì°¾ê¸°" id="pw" class="btn">
 			</div>
 			<br> <br> <br>
 			<div class="container">
@@ -34,8 +35,8 @@
 					<img src="/images/check-button.jpg"
 						style="width: 100%; height: auto;">
 				</div>
-				<span class="choose" id="choose">아이디
-					찾기 본인인증</span>
+				<span class="choose" id="choose">ìì´ë
+					ì°¾ê¸° ë³¸ì¸ì¸ì¦</span>
 			</div>
 			<Br> <br><Br>
 			<div class="container">
@@ -44,8 +45,8 @@
 						src="/images/userfind.png" style="height: 100%; width: auto;"></a>
 				</div>
 			</div>
-			<div class="container"> <!-- 위치를 main 바깥에서 main 안으로 변경 -->
-				<span class="choose">인증을 해주세요.</span>
+			<div class="container"> <!-- ìì¹ë¥¼ main ë°ê¹¥ìì main ìì¼ë¡ ë³ê²½ -->
+				<span class="choose">ì¸ì¦ì í´ì£¼ì¸ì.</span>
 			</div>
 		</main>
 	
@@ -53,26 +54,26 @@
 	
 		<div id="modalContainer" class="hidden">
 			<div id="modalContent" class="modalContent">
-				<h3 style="text-align:center;"><b class="mainName">아이디 찾기</b></h3>
+				<h3 style="text-align:center;"><b class="mainName">ìì´ë ì°¾ê¸°</b></h3>
 				<br>
 				<form action="userFinding-perform" method="post">
 					<table id="table">
 						<tr>
-							<td class="text"><div>이메일</div></td>
+							<td class="text"><div>ì´ë©ì¼</div></td>
 							<td class="input"><input type="text" name="#" class="short"> @ <input type="text" name="#" class="short"></td>
 						</tr>
 						<tr>
-							<td class="text"><div>성명</div></td>
+							<td class="text"><div>ì±ëª</div></td>
 							<td class="input"><input type="text" name="#"></td>
 						</tr>
 						<tr>
-							<td class="text"><div>생년월일</div></td>
+							<td class="text"><div>ìëìì¼</div></td>
 							<td class="input"><input type="text" name="#"><br>
-								<span>* 입력 예 : 2000-10-10</span>
+								<span>* ìë ¥ ì : 2000-10-10</span>
 							</td>
 						</tr>
 					</table>
-					<div class="submitBtn"><input type="submit" value="확인"></div>
+					<div class="submitBtn"><input type="submit" value="íì¸"></div>
 				</form>
 				<button id="modalCloseButton"><img src="/images/x-icon.png" style="width:100%; height:auto;"></button>
 			</div>
@@ -80,7 +81,7 @@
 
 		<footer id="footer" class="footer"></footer>
 
-	</div><!-- 여기까지가 테스트 컨테이너 -->
+	</div><!-- ì¬ê¸°ê¹ì§ê° íì¤í¸ ì»¨íì´ë -->
 	
 	
 
