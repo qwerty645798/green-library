@@ -105,8 +105,5 @@ public class MainController {
 		return "schedule";
 	}
 	
-	@GetMapping("/userCreateInquiry")
-	public String userCreateInquiry () {
-		return "userCreateInquiry";
-	}
+	
 }
