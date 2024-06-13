@@ -6,77 +6,118 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>main</title>
         <link rel="stylesheet" href="../util/reset.css">
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./adminIndex.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     </head>
 
     <body>
-        <header class="header" id="header"></header>
         <main>
-            <div class="calender">
-                <h3> calender</h3>
-                <div class="datepicker">
-                    <div class="datepicker-top">
-                        <div class="btn-group">
-                            <button class="tag">Today</button>
-                            <button class="tag">Tomorrow</button>
-                            <button class="tag">In 2 days</button>
+            <section>
+                <div class="container">
+                    <div class="icons">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="time">
+                        <div class="time-colon">
+                            <div class="time-text">
+                                <span class="num hour_num">08</span>
+                                <span class="text">Hours</span>
+                            </div>
+                            <span class="colon">:</span>
                         </div>
-                        <div class="month-selector">
-                            <button class="arrow"><i class="material-icons">chevron_left</i></button>
-                            <span class="month-name">December 2020</span>
-                            <button class="arrow"><i class="material-icons">chevron_right</i></button>
+                        <div class="time-colon">
+                            <div class="time-text">
+                                <span class="num min_num">45</span>
+                                <span class="text">Minutes</span>
+                            </div>
+                            <span class="colon">:</span>
+                        </div>
+                        <div class="time-colon">
+                            <div class="time-text">
+                                <span class="num sec_num">06</span>
+                                <span class="text">Seconds</span>
+                            </div>
+                            <span class="am_pm">AM</span>
                         </div>
                     </div>
-                    <div class="datepicker-calendar">
-                        <span class="day">Mo</span>
-                        <span class="day">Tu</span>
-                        <span class="day">We</span>
-                        <span class="day">Th</span>
-                        <span class="day">Fr</span>
-                        <span class="day">Sa</span>
-                        <span class="day">Su</span>
-                        <button class="date faded">30</button>
-                        <button class="date">1</button>
-                        <button class="date">2</button>
-                        <button class="date">3</button>
-                        <button class="date">4</button>
-                        <button class="date">5</button>
-                        <button class="date">6</button>
-                        <button class="date">7</button>
-                        <button class="date">8</button>
-                        <button class="date current-day">9</button>
-                        <button class="date">10</button>
-                        <button class="date">11</button>
-                        <button class="date">12</button>
-                        <button class="date">13</button>
-                        <button class="date">14</button>
-                        <button class="date">15</button>
-                        <button class="date">16</button>
-                        <button class="date">17</button>
-                        <button class="date">18</button>
-                        <button class="date">19</button>
-                        <button class="date">20</button>
-                        <button class="date">21</button>
-                        <button class="date">22</button>
-                        <button class="date">23</button>
-                        <button class="date">24</button>
-                        <button class="date">25</button>
-                        <button class="date">26</button>
-                        <button class="date">27</button>
-                        <button class="date">28</button>
-                        <button class="date">29</button>
-                        <button class="date">30</button>
-                        <button class="date">31</button>
-                        <button class="date faded">1</button>
-                        <button class="date faded">2</button>
-                        <button class="date faded">3</button>
+                </div>
+            </section>
+            <div class="indexContainer">
+                <div class="boxWrap">
+                    <div class="box buying">
+                        <div>
+                            <img src="" alt="">
+                            <p>수서</p>
+                        </div>
+                    </div>
+                    <div class="box borrow">
+                        <div>
+                            <img src="" alt="">
+                            <p>대출</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxWrap">
+                    <div class="box users">
+                        <div><img src="" alt="">
+                            <P>이용자</P>
+                        </div>
+                    </div>
+                    <div class="box others">
+                        <div><img src="" alt="">
+                            <p>장서관리</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxWrap">
+                    <div class="box inquiry">
+                        <div><img src="" alt="">
+                            <p>문의사항</p>
+                        </div>
+                    </div>
+                    <div class="box announce">
+                        <div><img src="" alt="">
+                            <p>공지사항</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxWrap">
+                    <div class="box userLink">
+                        <div><img src="" alt="">
+                            <p>홈페이지</p>
+                            <p>바로가기</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="memo">
-                <h3>memo</h3>
-            </div>
         </main>
+        <script>
+            let section = document.querySelector("section"),
+                icons = document.querySelector(".icons");
+            icons.onclick = () => {
+                section.classList.toggle("dark");
+            }
+            // creating a function and calling it in every seconds
+            setInterval(() => {
+                let date = new Date(),
+                    hour = date.getHours(),
+                    min = date.getMinutes(),
+                    sec = date.getSeconds();
+                let d;
+                d = hour < 12 ? "AM" : "PM"; //if hour is smaller than 12, than its value will be AM else its value will be pm
+                hour = hour > 12 ? hour - 12 : hour; //if hour value is greater than 12 than 12 will subtracted ( by doing this we will get value till 12 not 13,14 or 24 )
+                hour = hour == 0 ? hour = 12 : hour; // if hour value is  0 than it value will be 12
+                // adding 0 to the front of all the value if they will less than 10
+                hour = hour < 10 ? "0" + hour : hour;
+                min = min < 10 ? "0" + min : min;
+                sec = sec < 10 ? "0" + sec : sec;
+                document.querySelector(".hour_num").innerText = hour;
+                document.querySelector(".min_num").innerText = min;
+                document.querySelector(".sec_num").innerText = sec;
+                document.querySelector(".am_pm").innerText = d;
+            }, 1000); // 1000 milliseconds = 1s
+        </script>
     </body>
 
 </html>
