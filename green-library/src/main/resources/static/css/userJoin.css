@@ -12,7 +12,11 @@ a:hover {
 }
 
 
-
+main{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
 
 form > div.container{
 	display:flex;
