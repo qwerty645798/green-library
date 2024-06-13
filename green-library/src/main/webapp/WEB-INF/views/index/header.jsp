@@ -6,19 +6,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Green Library</title>
-        <link href="/css/reset/reset.css" type="text/css" rel="stylesheet">
         <link href="/css/public/header.css" type="text/css" rel="stylesheet">
         
     </head>
     <body>
     <header id="header" class="header">
       <div class="header1">
-        <div class="headerTop">
-          <div class="logo">로고</div>
-          <div id="login" class="loginLink">로그인 /</div>
-          <div id="userjoin" class="joinLink">회원가입</div>
-        </div>
-      
+	      <div class="center">
+	        <div class="headerTop">
+	          <div class="logo">로고</div>
+	          <div id="login" class="loginLink">로그인 /</div>
+	          <div id="userjoin" class="joinLink">회원가입</div>
+	        </div>
+	      </div>
         
           <nav>
             <div class="headerBottom">
