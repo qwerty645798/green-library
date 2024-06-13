@@ -1,0 +1,156 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: dodgerblue;
+}
+
+.container{
+	display:flex;
+	justify-content:center;
+	align-items: center;/*내가 추가한 부분*/
+}
+main{
+	/* display: flex; *//*내가 추가한 부분*/
+	 height: 100%; /*내가 추가한 부분*/ 
+	padding-top:30px;
+}
+input.btn{
+	width:600px;
+	height:60px;
+	box-sizing:border-box;
+	font-size:1.3em;
+	border:none;
+	outline:none;
+	cursor:pointer;
+}
+input#id{
+	background:#0D2E8C;
+	color:white;
+}
+input#pw{
+	background:#EBEBEB;
+	color:black
+}
+#modalOpenButton, #modalCloseButton {
+	cursor: pointer;
+}
+#modalCloseButton{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width:50px;
+	height:50px;
+	outline:none;
+	border:none;
+	background:white;
+}
+#modalContainer {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {/*id를 클래스로 변경*/
+	position: absolute;
+	background-color: #ffffff;
+	width: 600px;
+	height: 300px;
+	padding: 15px;
+}
+.container{
+	color:#EE0000; 
+	margin-top: 10px; 
+	font-weight:600;
+}
+#modalContainer.hidden {
+	display: none;
+}
+table{
+	box-sizing:border-box;
+	width:600px;
+	border-collapse:collapse;/*추가.*/
+}
+td{
+	border:1px #E2E2E2 solid;
+	height:30px;
+}
+
+td.text{
+	width:160px;
+	background:#f2f2f2;
+	color:#777977;
+	font-weight:600;
+	vertical-align:top;
+	padding:0;
+}
+td.text > div{
+	margin-left:20px;
+	margin-top:5px;
+}
+td.input{
+	width:720px;
+	padding-left:20px;
+}
+.choose{/*변경. 특정 span 글씨*/
+	color:#DD0000; 
+	font-size:0.8em; 
+	font-weight:600;
+}
+input{
+	outline:none;
+	height:25px;
+	border:1px #B2B2B2 solid;
+	width:200px;
+}
+input[type=submit]{/*추가. 확인submit 버튼.*/
+	color:white; 
+	background:#0D2E8C;
+	width:120px; 
+	height:35px; 
+	margin-top:30px; 
+	cursor:pointer;
+}
+.submitBtn{/*추가.*/
+	display:flex; 
+	justify-content:center;
+}
+.img{/*추가.*/
+	width:100%; 
+	height:auto;
+}
+input.short{
+	width:160px;
+	text-align:center;
+}
+
+/*추가한 것들*/
+.checkBtn{
+	display: inline-block; 
+	width: 25px;
+	height: 25px;
+}
+.choose{
+	font-size: 1em; 
+	font-weight: 600;
+}
+.modalBtnBox{
+	width: 1200px; 
+	height: 150px; 
+	background: #F5F5F5; 
+	text-align: center;
+}
+.modalOpenButton{
+	height: 100px; 
+	width: 100px; 
+	cursor: pointer;
+}
