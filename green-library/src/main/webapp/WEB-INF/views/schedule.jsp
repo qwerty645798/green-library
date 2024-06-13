@@ -59,7 +59,7 @@
 </div>
 
 <div class="second_container">
-	<table>
+	<table class="out_table">
 		<tr>
 			<th class="sunday"><p>일</p></th>
 			<th>월</th>
@@ -69,83 +69,103 @@
 			<th>금</th>
 			<th class="saturday"><p>토</p></th>
 		</tr>
-		<!-- 이중 tr 안됨. 그냥 해당 td를 table 꽉채워서 2중 테이블로 -->
-		<!-- 기본형 제작중. css도 수정해야됨-->
-		<tr>
-			<tr class="date_num">
-				<td class="sunday"><p>&nbsp;&nbsp;1</p></td>
-				<td><p>&nbsp;&nbsp;2</p></td>
-				<td><p>&nbsp;&nbsp;3</p></td>
-				<td><p>&nbsp;&nbsp;4</p></td>
-				<td><p>&nbsp;&nbsp;5</p></td>
-				<td><p>&nbsp;&nbsp;6</p></td>
-				<td class="saturday"><p>&nbsp;&nbsp;7</p></td>
-			</tr>
-			<tr class="date_txt">
-				<td>
-					<ul>
-						<li>일요일은
-						<li>매우매우
-						<li>격하게
-						<li>쉬는날ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-					</ul>
-				</td>
-				<td></td>
-				<td>sdgasgdasgdasgsadgasdfasdfsadgasdgasdfsadfafasdgsadg</td>
-				<td></td>
-				<td></td>
-				<td>sdgasgdasgdasgsadgasdfasdfsadgasdgasdfsadfafasdgsadg</td>
-				<td></td>
-			</tr>
-		</tr>
-		<!-- 기본형 제작중. css도 수정해야됨 밑은 어차피 복붙임-->	
 		
-		
+		<!-- 기본형. 후에 날짜따라 한줄 추가/제거 기능 필요 -->
 		<tr>
-			<td class="sunday"><p>&nbsp;&nbsp;1</p>agfasg</td>
-			<td>
-				<p>&nbsp;&nbsp;2</p>
-				<ul>
-					<li>일요일은
-					<li>매우매우
-					<li>격하게
-					<li>쉬는날ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-				</ul>
+			<td class="have_table">
+				<table class="in_table">
+					<tr>
+						<td class="td1" id="in_table_sunday">
+							<p>&nbsp;&nbsp;1</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="td2"><p>sdgsagsagsadgasdgasdgsadgsagdd</p></td>
+					</tr>
+				</table>
 			</td>
-			<td><p>&nbsp;&nbsp;3</p>sdgasgdasgdasgsadgasdfasdfsadgasdgasdfsadfafasdgsadg</td>
-			<td><p>&nbsp;&nbsp;4</p>sdgasgdasgdasgsadgasdfasdfsadgasdgasdfsadfafasdgsadg</td>
-			<td><p>&nbsp;&nbsp;5</p>sdgasgdasgdasgsadgasdfasdfsadgasdgasdfsadfafasdgsadg</td>
-			<td><p>&nbsp;&nbsp;6</p>dgasgdasgdasgsadgasdfasdfsadgasdgasdfsadfafasdgsadg</td>
-			<td class="saturday"><p>&nbsp;&nbsp;7</p>sdgasgdaskhgdasgsadgasdfasdfsadgasdgasdfsadfafasdgsadg</td>
-		</tr>
-		<tr>
-			<td class="sunday"><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td class="saturday"><p>&nbsp;&nbsp;</p></td>
-		</tr>
-		<tr>
-			<td class="sunday"><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td class="saturday"><p>&nbsp;&nbsp;</p></td>
-		</tr>
-		<tr>
-			<td class="sunday"><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td><p>&nbsp;&nbsp;</p></td>
-			<td class="saturday"><p>&nbsp;&nbsp;</p></td>
-		</tr>
-		<!-- 밑에 여섯번째는 날짜가 위아래로 좀 걸칠때 가끔 -->
+			<td class="have_table">
+				<table class="in_table">
+					<tr>
+						<td class="td1">
+							<p>&nbsp;&nbsp;1</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="td2"><p>sdgsagsagd</p><p>sdgsagsagsadgasdgasdgsadgsagdd</p></td>
+					</tr>
+				</table>
+			</td>
+			<td class="have_table">
+				<table class="in_table">
+					<tr>
+						<td class="td1">
+							<p>&nbsp;&nbsp;1</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="td2"><p>sdgsagsagd</p><p>sdgsagsagsadgasdgasdgsadgsagdd</p></td>
+					</tr>
+				</table>
+			</td>
+			<td class="have_table">
+				<table class="in_table">
+					<tr>
+						<td class="td1">
+							<p>&nbsp;&nbsp;1</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="td2"><p>sdgsagsagd</p><p>sdgsagsagsadgasdgasdgsadgsagdd</p></td>
+					</tr>
+				</table>
+			</td>
+			<td class="have_table">
+				<table class="in_table">
+					<tr>
+						<td class="td1">
+							<p>&nbsp;&nbsp;1</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="td2"><p><img src="images/exex2.png" width="10px"> sdgsagsagd</p><p>sdgsagsagsadgasdgasdgsadgsagdd</p><p>sdgsagsagsadgasdgasdgsadgsagdd</p><p>sdgsagsagsadgasdgasdgsadgsagdd</p><p>sdgsagsagsadgasdgasdgsadgsagdd</p><p>sdgsagsagd</p></td>
+					</tr>
+				</table>
+			</td>
+			<td class="have_table">
+				<table class="in_table">
+					<tr>
+						<td class="td1">
+							<p>&nbsp;&nbsp;1</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="td2"><p>sdgsagsagd</p><p>sdgsagsagsadgasdgasdgsadgsagdd</p></td>
+					</tr>
+				</table>
+			</td>
+			<td class="have_table">
+				<table class="in_table">
+					<tr>
+						<td class="td1" id="in_table_saturday">
+							<p>&nbsp;&nbsp;1</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="td2"><p>sdgsagsagsadgasdgasdgsadgsagdd</p></td>
+					</tr>
+				</table>
+			</td>
+		<!-- 기본형 -->	
+		
+		<!--
+		
+		 기본형 네줄 복붙 
+		 
+		 -->
+		
+		<!-- 밑에 한 줄은 날짜가 위아래로 좀 걸칠때 가끔 필요함-->
+		<!-- 기능 추가하면서 복붙 -->
 		<tr>
 			<td class="sunday"><p>&nbsp;&nbsp;</p></td>
 			<td><p>&nbsp;&nbsp;</p></td>
