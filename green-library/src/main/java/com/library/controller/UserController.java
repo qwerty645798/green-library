@@ -66,4 +66,9 @@ public class UserController {
 	public String userInquiryDetail() {
 		return "user/userInquiryDetail";
 	}
+	
+	@GetMapping("/userCreateInquiry")
+	public String userCreateInquiry () {
+		return "user/userCreateInquiry";
+	}
 }
