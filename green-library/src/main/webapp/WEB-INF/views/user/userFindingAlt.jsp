@@ -8,7 +8,7 @@
 <link href="/css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="/css/public/header.css" type="text/css" rel="stylesheet">
 <link href="/css/public/nav.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="/css/userFinding.css">
+<link rel="stylesheet" href="/css/userFindingAlt.css">
 </head>
 <body>
 
