@@ -1,1 +1,36 @@
 @charset "utf-8";
+
+.first_container{
+	margin: 0 auto;
+	border:1px solid red;
+}
+
+.table_container{
+	margin: 0 auto;
+	border: 1px solid blue;
+	width: 1260px;
+	
+	display:flex;
+	justify-content:center;
+}
+
+.table_container table{
+	border: 1px solid green;
+}
+
+
+
+.second_container{
+	margin: 0 auto;
+	border:1px solid red;
+}
+
+.button_container{
+	margin: 0 auto;
+	border: 1px solid blue;
+	width: 1260px;
+	
+	display:flex;
+	justify-content:center;
+	
+}

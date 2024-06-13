@@ -26,34 +26,38 @@
 <main>
 
 <div class="first_container">
-	<table>
-		<tr>
-			<th></th>
-			<td>* 표시 항목은 필수 입력 항목입니다.</td>
-		</tr>
-		<tr>
-			<th>* 이름</th>
-			<td><input type="text"></td>
-		</tr>
-		<tr>
-			<th>* 제목</th>
-			<td><input type="text"></td>
-		</tr>
-		<tr>
-			<th>* 내용</th>
-			<td><input type="text"></td> <!-- 이거 textarea로? -->
-		</tr>
-		<tr>
-			<th>관련링크</th>
-			<td><input type="text"></td>
-		</tr>
-	</table>
+	<div class="table_container">
+		<table>
+			<tr>
+				<th></th>
+				<td>* 표시 항목은 필수 입력 항목입니다.</td>
+			</tr>
+			<tr>
+				<th>* 이름</th>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<th>* 제목</th>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<th>* 내용</th>
+				<td><input type="text"></td> <!-- 이거 textarea로? -->
+			</tr>
+			<tr>
+				<th>관련링크</th>
+				<td><input type="text"></td>
+			</tr>
+		</table>
+	</div>
 </div>
 
 <div class="second_container">
-	<input type="button" value="취소하기">
-	<input type="submit" value="등록하기">
-	<!-- submit 대신에 button 넣고 주의문 한 번 띄우면서 거기서 submit하게 구현? -->
+	<div class="button_container">
+		<input type="button" value="취소하기">
+		<input type="submit" value="등록하기">
+		<!-- submit 대신에 button 넣고 주의문 한 번 띄우면서 거기서 submit하게 구현? -->
+	</div>
 </div>
 	
 
