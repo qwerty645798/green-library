@@ -72,15 +72,9 @@
                 <li>문의하기</li>
               </ul>
             </div>
-            
           </nav> 
       </div>
-    
-     
-      
     </header>
-    
     <script defer src="/js/header.js" type="text/javascript"></script>
-      
     </body>
     </html>
