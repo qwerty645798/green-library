@@ -8,7 +8,7 @@
 <link href="/css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="/css/public/header.css" type="text/css" rel="stylesheet">
 <link href="/css/public/nav.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="/css/userFinding.css">
+<link rel="stylesheet" href="/css/userFindingAlt.css">
 </head>
 <body>
 
@@ -86,7 +86,7 @@
 
 	
 
-	<script defer src="/JS/HeadFoot.js" type="text/javascript"></script>
-	<script src="/JS/userFinding.js"></script>
+	<script defer src="/js/HeadFoot.js" type="text/javascript"></script>
+	<script src="/js/userFinding.js"></script>
 </body>
 </html>
