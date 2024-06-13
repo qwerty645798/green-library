@@ -7,16 +7,40 @@
 
 .table_container{
 	margin: 0 auto;
-	border: 1px solid blue;
 	width: 1260px;
+	margin-top:20px;
 	
 	display:flex;
 	justify-content:center;
 }
 
 .table_container table{
-	border: 1px solid green;
+	border-collapse: collapse;
+	width: 1260px;
 }
+
+.table_container th:not(.con_table_top){
+	border: 1px solid green;
+	text-align: left;
+	width: 15%;
+}
+
+.table_container td:not(.con_table_top){
+	border: 1px solid green;
+	text-align: left;
+	width: 85%;
+	
+	padding:10px;
+	box-sizing: border-box;
+	
+}
+
+.table_container .con_table_top{
+	text-align: right;
+	border:none;
+}
+
+
 
 
 
@@ -33,4 +57,18 @@
 	display:flex;
 	justify-content:center;
 	
+	margin-top:20px;	
 }
+
+.button_container input[type="button"]{
+	margin: 10px;
+	width: 200px;
+	height:30px;
+}
+
+.button_container input[type="submit"]{
+	margin: 10px;
+	width: 200px;
+	height:30px;
+}
+
