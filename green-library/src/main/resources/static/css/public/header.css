@@ -5,21 +5,23 @@
     align-items: center;
 } */
 header{
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
     justify-content: center;
     align-items: center;
-    height: 146px;
+    
+    /* height: 146px; */
 }
 .header1{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 1260px;
+    
 }
 .headerTop{
     width: 1260px;
+    height: 146px;
 }
 .logo{
     color: white;
@@ -37,7 +39,7 @@ header{
     display: flex;
     justify-content: center;
     overflow: visible;
-    background-color:#16722a;
+    background-color:#1a6936;
 }
 .subMenuTop{
     margin-left: 0px;
@@ -55,9 +57,10 @@ header{
     padding-top: 15px;
     padding-bottom: 15px;
     list-style-type: none;
+    color: white;
     font-size: 15pt;
     font-weight: bold;
-    background-color:#16722a;
+    background-color:#1a6936;
 }
 .menuBarBackground{
     display: flex;
@@ -71,12 +74,14 @@ header{
     align-items: center;
     width: 100px;
     height: 250px;
-    /* height: 0px; */
-    /* overflow: hidden; */
     margin-left: 0px;
     padding-left: 76px;
     padding-right: 76px;
-    background-color:#ecd9bc;
+    color: #47a168;
+    background-color: white;
+}
+.menuBar:nth-child(2n-1){
+    background-color:#fff4e4;
 }
 .menuBar>li{
     font-size: 11pt;
