@@ -44,8 +44,8 @@
 	justify-content: center;
 	
 	margin: 0 auto;
-	border: 2px solid #ECD9BC;
-	border-radius: 15px;
+	border-radius: 5px;
+	background-color: #27F3E8;
 	
 	flex-direction: column;
 	
