@@ -34,6 +34,11 @@ public class UserController {
 		return "user/userFinding";
 	}
 	
+	@GetMapping("/userFindingAlt")
+	public String userFindingAlt() {
+		return "user/userFindingAlt";
+	}
+	
 	@GetMapping("/userInfoModification")
 	public String userInfoModification() {
 		return "user/userInfoModification";
