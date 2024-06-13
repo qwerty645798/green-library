@@ -1,1 +1,109 @@
 @charset "utf-8";
+
+
+.zero_container{
+	display:flex;
+	width:1260px;
+	
+	margin: 0 auto;
+	margin-top:20px;
+	flex-direction:column;	
+}
+
+.zero_container hr{
+	width: 1260px;
+}
+
+
+
+
+.first_container{
+	display: flex; 
+	width: 1260px;
+	
+	margin: 0 auto;
+	box-sizing: border-box;
+	margin-top: 20px;
+	
+	align-items: center;
+	justify-content: center;
+}
+
+.date_box{
+	display: flex;
+	height: 30px;
+	width: 600px;
+	margin:0 auto;
+	justify-content: center;
+}
+
+.date_box input[type="button"], .date_box select{
+	margin-right: 3px;
+	margin-left: 3px;
+}
+
+
+
+
+.second_container{
+	display: flex; 
+	width: 1260px;
+	
+	margin: 0 auto;
+	box-sizing: border-box;
+	margin-top: 20px;
+	
+	align-items: center;
+	justify-content: center;
+}
+
+.second_container table{
+	border-collapse: collapse;
+	width:1190px;
+	margin:0;
+}
+
+.second_container th{
+	width:170px;
+	border: 1px solid #ECD9CC;
+	text-align:center;
+	border-top: 2px solid brown;
+	padding:0;
+	margin:0;
+	height:5px;
+	font-size:12pt;
+	line-height: 0pt;
+	background-color: #ECD9BC;
+}
+
+.second_container .sunday p{
+	color: red;
+}
+.second_container .saturday p{
+	color: blue;
+}
+
+.second_container td{
+	width:170px;
+	border: 1px solid lightgray;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	max-width:170px;
+	font-size: 10pt;
+}
+
+.second_container .date_num td{
+	width:170px;
+	border-bottom : 1px solid white;
+	font-size:11pt;
+	line-height:2pt;
+}
+
+.second_container .date_txt td{
+	align-items: flex-start;
+	list-style-type: none;
+}
+
+
+
+
