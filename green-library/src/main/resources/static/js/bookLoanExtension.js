@@ -17,6 +17,12 @@ function extendEachBook(book_sel, more=false){
 function extendAllCheckedbox(){
 
 	const chxboxes = document.querySelectorAll(".book_chxbox:checked");
+	
+	if(chxboxes.length==0){
+		alert("책을 선택해 주십시오.");
+		return;
+	}
+	
 	chxboxes.forEach((checkbox)=>{
 		extendEachBook(checkbox.value, true);
 	});

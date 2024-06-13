@@ -30,18 +30,18 @@
 		<table>
 			<tr>
 				<th class="con_table_top"></th>
-				<td class="con_table_top">* 표시 항목은 필수 입력 항목입니다.</td>
+				<td class="con_table_top"><p class="great_p">&nbsp;*&nbsp;</p>표시 항목은 필수 입력 항목입니다.</td>
 			</tr>
 			<tr>
-				<th>&nbsp;&nbsp;* 이름</th>
+				<th><p class="great_p">&nbsp;*&nbsp;</p> 이름</th>
 				<td><input type="text" size="10" style="height:20px;"></td>
 			</tr>
 			<tr>
-				<th>&nbsp;&nbsp;* 제목</th>
+				<th><p class="great_p">&nbsp;*&nbsp;</p> 제목</th>
 				<td><input type="text" style="height:20px;width:95%;"></td>
 			</tr>
 			<tr>
-				<th>&nbsp;&nbsp;* 내용</th>
+				<th><p class="great_p">&nbsp;*&nbsp;</p> 내용</th>
 				<td><textarea rows="20" style="width:95%; resize:none !important;"></textarea></td> <!-- 이거 textarea로? -->
 			</tr>
 			<tr>
