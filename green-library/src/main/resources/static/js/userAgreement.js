@@ -17,8 +17,10 @@ function checkTotalBtn() {
 }
 document.getElementById("myForm").addEventListener("submit", function(event) {
 	for (let i = 0; i < 2; i++) {
-		if (!check[i].checked) break;
+		if (!check[i].checked){
+			event.preventDefault();
+			alert("필수항목에 동의하셔야 회원가입이 가능합니다.");
+			break;
+		}
 	}
-	event.preventDefault();
-	alert("필수항목에 동의하셔야 회원가입이 가능합니다.");
 });

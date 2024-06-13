@@ -7,15 +7,54 @@ a:hover{
 	color:dodgerblue;
 }
 .map{
-	height:300px;
-	border:1px black solid;
-	padding:10px;
-	margin:10px 400px;
+	border-top:3px solid #999999;
+	border-bottom:3px solid #999999;
+	height:450px;
+	width:1260px;
+	display:flex;
 }
 .explain{
-	margin:10px 400px;
+	width:1260px;
+	margin-top:60px;
+	text-align:center;
+	font-size:3em;
+	font-weight:bold;
+	margin-bottom:60px;
 }
 .image{
 	height:100%;
 	width:auto;
+}
+.borderbox{
+	box-sizing:border-box;
+}
+.column{
+	display:flex;
+	flex-direction:column;
+	flex:1;
+}
+.flex{
+	flex:1;
+	border-bottom:3px solid #999999;
+	position:relative;
+	padding-top:6px;
+}
+.boldtitle{
+	font-size:1.2em;
+}
+.span-explain{
+	display:block;
+	font-weight:600;
+	font-size:0.8em;
+	padding-left:100px;
+}
+.pb{
+	position:absolute; 
+	bottom:6px;
+}
+main{
+	margin-top:60px; 
+	display:flex; 
+	flex-direction:column; 
+	align-items:center;
 }

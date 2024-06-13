@@ -11,7 +11,7 @@
 <link href="css/userLogin.css" type="text/css" rel="stylesheet">
 </head>
 <body> 
-	<img src="images/wood.png" style="width:99%; height:auto; position:absolute; z-index:-1;">
+	<!-- <img src="images/wood.png" style="width:99%; height:auto; position:absolute; z-index:-1;"> -->
 	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
