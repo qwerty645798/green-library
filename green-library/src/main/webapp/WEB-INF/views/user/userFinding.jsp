@@ -5,14 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>userFinding</title>
-<link href="css/public/header.css" type="text/css" rel="stylesheet">
-<link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/userFinding.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <script src="js/userFinding.js"></script>
 </head>
 <body>
-	<jsp:include page="../index/header.jsp" />
+	<jsp:include page="../index/header1.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle"><span class="mainName">아이디 찾기</span></div>
@@ -76,6 +74,6 @@
 		</div>
 	</div>
 	<script src="js/userFindingModal.js"></script>
-	<jsp:include page="../index/footer.jsp" />
+	<jsp:include page="../index/footer1.jsp" />
 </body>
 </html>
