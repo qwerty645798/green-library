@@ -1,15 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link href="/reset/reset.css" type="text/css" rel="stylesheet">
-        <link href="/CSS/placeUsetime.css" type="text/css" rel="stylesheet">
-    </head>
-    <body>
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/reset/reset.css" type="text/css" rel="stylesheet">
+    <link href="/CSS/placeUsetime.css" type="text/css" rel="stylesheet">
+    <link href="/CSS/nav.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+    <header id="header" class="header"></header>
+
+    <div class="bannerBgr">
+        <div class="Banner">
+            <div class="pageTitle">이용시간</div> <div class="pageRoute">홈 > 이용시간</div>
+        </div>
+    </div>
+
+    <div class="noname">
         <div class="usetimePage">
             <table>
                 <tr>
@@ -61,6 +73,11 @@
                 </tr>
             </table>
         </div>
-        
-    </body>
-    </html>
+    </div>
+
+    
+
+    <footer id="footer" class="footer"></footer>
+    
+</body>
+</html>
