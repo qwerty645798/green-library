@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Green Library</title>
-        <link href="/reset/reset.css" type="text/css" rel="stylesheet">
+        <link href="/css/reset/reset.css" type="text/css" rel="stylesheet">
         <link href="/css/public/header.css" type="text/css" rel="stylesheet">
         
     </head>

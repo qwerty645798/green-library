@@ -6,8 +6,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link href="/reset/reset.css" type="text/css" rel="stylesheet">
-        <link href="/CSS/index.css" type="text/css" rel="stylesheet">
+        <link href="/css/reset/reset.css" type="text/css" rel="stylesheet">
+        <link href="/css/index.css" type="text/css" rel="stylesheet">
     </head>
     <body>
     <div class="mainPage">

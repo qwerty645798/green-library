@@ -47,13 +47,14 @@
 					<td colspan="3"></td>
 				</tr>
 				<tr>
-					<td colspan="4">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
+					<th>대출 가능 여부</th>
+					<td colspan="3">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
 				</tr>
 				<tr>
 					<!-- form-submit? 아니면 그냥 button?  -->
-					<th colspan="4" style="border:none;">
+					<td colspan="4" class="more_button" style="border:none;">
 						<input type="button" onclick="window.location.href='bookDetail'" value="자세히 보기" class="moreInf">
-					</th> 
+					</td> 
 				</tr>
 			</table>
 		</div>
@@ -81,13 +82,14 @@
 					<td colspan="3"></td>
 				</tr>
 				<tr>
-					<td colspan="4">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
+					<th>대출 가능 여부</th>
+					<td colspan="3">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
 				</tr>
 				<tr>
 					<!-- form-submit? 아니면 그냥 button?  -->
-					<th colspan="4" style="border:none;">
+					<td colspan="4" class="more_button" style="border:none;">
 						<input type="button" onclick="window.location.href='bookDetail'" value="자세히 보기" class="moreInf">
-					</th> 
+					</td> 
 				</tr>
 			</table>
 		</div>
@@ -115,13 +117,14 @@
 					<td colspan="3"></td>
 				</tr>
 				<tr>
-					<td colspan="4">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
+					<th>대출 가능 여부</th>
+					<td colspan="3">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
 				</tr>
 				<tr>
 					<!-- form-submit? 아니면 그냥 button?  -->
-					<th colspan="4" style="border:none;">
+					<td colspan="4" class="more_button" style="border:none;">
 						<input type="button" onclick="window.location.href='bookDetail'" value="자세히 보기" class="moreInf">
-					</th> 
+					</td> 
 				</tr>
 			</table>
 		</div>
