@@ -9,7 +9,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 176px;
+    /* height: 176px; */
     background-color:#6c5a3f;
    
 }
@@ -18,7 +18,7 @@
     flex-direction: column;
     justify-content: center;
     width: 1260px;
-    height: 176px;
+    /* height: 176px; */
     font-size: 12pt;
     color: white;
     background-color: #6c5a3f;

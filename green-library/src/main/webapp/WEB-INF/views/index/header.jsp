@@ -69,7 +69,7 @@
                 <li>대출 연장</li>
                 <li>약관 재동의</li>
                 <li>내가 쓴 글</li>
-                <li></li>
+                <li>문의하기</li>
               </ul>
             </div>
             
@@ -80,7 +80,7 @@
       
     </header>
     
-    <script defer src="/JS/header.js" type="text/javascript"></script>
+    <script defer src="/js/header.js" type="text/javascript"></script>
       
     </body>
     </html>
