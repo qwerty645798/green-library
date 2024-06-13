@@ -63,9 +63,9 @@
 </div>
 
 <div class="second_container">
-	<!-- 십단위 분류 할 지 어쩔지 몰라서 일단 냅둠-->
-	<!-- 여기는 종류별 분류 겹쳐놓고 위에서 클릭하면 분류 젤 위로(z-index)  -->
-	아아
+	<div class="img_box">
+		<img src="images/bookCategory.jpg">
+	</div>
 </div>
 
 </main>

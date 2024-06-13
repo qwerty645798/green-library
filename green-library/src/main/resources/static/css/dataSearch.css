@@ -78,3 +78,14 @@
 	padding:10px;
 	box-sizing: border-box;
 }
+
+.second_container .img_box{
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+	
+	justify-content: center;
+	align-items: center;
+	
+	border: 2px solid green;
+}

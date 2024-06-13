@@ -45,11 +45,14 @@
 
 
 
+
+
 .second_container{
 	display: flex; 
 	width: 1260px;
 	
 	margin: 0 auto;
+	padding:0;
 	box-sizing: border-box;
 	margin-top: 20px;
 	
@@ -57,19 +60,22 @@
 	justify-content: center;
 }
 
-.second_container table{
+.second_container .out_table{
 	border-collapse: collapse;
 	width:1190px;
 	margin:0;
+	padding:0;
+	box-sizing: border-box;
 }
 
-.second_container th{
+.second_container .out_table th{
 	width:170px;
 	border: 1px solid #ECD9CC;
 	text-align:center;
 	border-top: 2px solid brown;
 	padding:0;
 	margin:0;
+	box-sizing: border-box;
 	height:5px;
 	font-size:12pt;
 	line-height: 0pt;
@@ -83,26 +89,56 @@
 	color: blue;
 }
 
-.second_container td{
+.second_container .out_table td{
 	width:170px;
 	border: 1px solid lightgray;
 	word-wrap: break-word;
 	white-space: pre-wrap;
 	max-width:170px;
 	font-size: 10pt;
+	
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
 }
 
-.second_container .date_num td{
+
+.second_container .in_table {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	
+	border-collapse: collapse;
 	width:170px;
-	border-bottom : 1px solid white;
-	font-size:11pt;
-	line-height:2pt;
 }
 
-.second_container .date_txt td{
-	align-items: flex-start;
-	list-style-type: none;
+.second_container .in_table .td1{
+	border: 1px solid #ECD9CC;
+	padding:0;
+	margin:0;
+	height:5px;
+	font-size:12pt;
+	line-height: 0pt;
+	border-bottom: none;
 }
+
+.second_container .in_table .td2{
+	padding:5px;
+	margin:0;
+	border-top: none;
+	font-size:10pt;
+	line-height: 15pt;
+	
+}
+
+.second_container .in_table #in_table_sunday p{
+	color: red;
+}
+.second_container .in_table #in_table_saturday p{
+	color: blue;
+}
+
+
 
 
 
