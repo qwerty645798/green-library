@@ -86,7 +86,7 @@
 
 	
 
-	<script defer src="/JS/HeadFoot.js" type="text/javascript"></script>
-	<script src="/JS/userFinding.js"></script>
+	<script defer src="/js/HeadFoot.js" type="text/javascript"></script>
+	<script src="/js/userFinding.js"></script>
 </body>
 </html>
