@@ -29,7 +29,7 @@
 	<div class="container">
 		<table class="container_table">
 			<tr>
-				<td style="height: 30px; border-bottom: 1px solid green;">&nbsp;&nbsp;&nbsp;희망 도서 신청 내역</td>				
+				<td class="table_title">&nbsp;&nbsp;&nbsp;희망 도서 신청 내역</td>				
 			</tr>
 			<tr>
 				<td>
@@ -67,13 +67,16 @@
 					</table>
 				</td>
 			</tr>
+			<tr>
+				<td class="go_button"><a href="hopeBookApply"><input type="button" value="글쓰기" class="gogo_button"></a></td>
+			</tr>
 		</table>
 	</div>
 	
 	<div class="container">
 		<table class="container_table">
 			<tr>
-				<td style="height: 30px; border-bottom: 1px solid green;">&nbsp;&nbsp;&nbsp;문의 내역</td>				
+				<td class="table_title">&nbsp;&nbsp;&nbsp;문의 내역</td>				
 			</tr>
 			<tr>
 				<td>
@@ -110,6 +113,9 @@
                         <!-- 이 위로 추가/삭제 반영 기능 -->
 					</table>	
 				</td>
+			</tr>
+			<tr>
+				<td class="go_button"><a href="userCreateInquiry"><input type="button" value="글쓰기" class="gogo_button"></a></td>
 			</tr>
 		</table>
 	</div>

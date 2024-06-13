@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-input[type="checkbox"] {
+.sel_All input[type="checkbox"], .bigbigDiv input[type="checkbox"] {
     transform: scale(1.3);  
 }
 
@@ -10,6 +10,13 @@ input[type="checkbox"] {
     margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+
+.sel_All input[type="button"]{
+	background-color: #64B883;
+	border-radius: 5px;
+	border: none;
+	width: 150px;
 }
 
 .bigbigDiv{
@@ -24,7 +31,8 @@ input[type="checkbox"] {
     margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	border:1px solid #ECD9BC;
+	border:2px solid #ECD9BC;
+	border-radius: 5px;
 }
 
 .book_container {
@@ -49,32 +57,54 @@ input[type="checkbox"] {
     width: 200px;
 }
 
+.book_image img{
+	width:200px;
+	height:300px;
+	object-fit: cover;
+}
+
 .book_table {
     width: 1000px;
 }
 
-table {
+.book_table table {
     border-collapse: collapse;
     width: 800px;
 	height: 300px;
     margin: 0 auto;
 }
 
-td {
+.book_table td {
     width: 150px;
 }
 
-th {
+.book_table th {
     width: 100px;
     text-align: center;
+    background-color: #E7F3E8;
 }
 
-td, th{
-    border: 1px solid gray;
+.book_table td, .book_table th{
+    border: 1px solid #A0CAB0;
 }
 
-img{
-	width:200px;
-	height:300px;
-	object-fit: cover;
+.book_table .extends{
+	border:none;
 }
+
+.book_table .extends input[type="button"]{
+	border-radius : 5px;
+	border:none;
+	background-color: #64B883;
+	width:100px;
+}
+
+.book_table table th:first-child, .book_table table td:first-child{
+	border-left: none;
+}
+.book_table table th:last-child, .book_table table td:last-child{
+	border-right: none;
+}
+
+
+
