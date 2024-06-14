@@ -37,7 +37,9 @@
        	Class.forName("oracle.jdbc.OracleDriver");
        	conn = DriverManager.getConnection(url, username, password);
        	
-       	String sql = "Select books.title, books.isbn, authors.author_name, books.location, books.availability, books.summary from books join authors on books.author_id = authors.author_id";
+       	String sql = "Select books.title, books.isbn, authors.author_name, books.img, books.location, books.availability, books.summary "
+       			+"from books join authors on books.author_id = authors.author_id";
+       	//+ where books.isbn=?? 같이 조건 추가해서 가져오는?
        	pstmt = conn.prepareStatement(sql);
        	rs = pstmt.executeQuery();
        	
@@ -48,6 +50,7 @@
         	String location = rs.getString("location");
         	String availability = rs.getString("availability");
         	String summary = rs.getString("summary");
+        	String img = rs.getString("img");
         	
         	if(availability!=null){
         		if(availability.equals("1")){
@@ -64,7 +67,7 @@
 <div class="bigDiv">
 	<div class="book_container"><!-- 좌 이미지 우 테이블 -->
 		<div class="book_image">
-			<img src="images/exex.jpg">
+			<img src="images/<%= img %>">
 		</div>
 		<div class="book_table">
 			<table>
