@@ -70,6 +70,7 @@ header{
     flex-direction: row;
     position: absolute;
     width: 1260px;
+    height: 250px;
 }
 .menuBarBackground{
     display: flex;
@@ -81,14 +82,14 @@ header{
     display: none;
     flex-direction: column;
     align-items: center;
-    position: relative;/*test*/
+   /*  position: relative; *//*test*/
     width: 100px;
-    height: 250px;
+    /* height: 250px; */
     margin-left: 0px;
     padding-left: 76px;
     padding-right: 76px;
     color: black;
-    background-color: white;
+    background-color: lemonchiffon;
     /*js용*/
     /* height: 0px;
     overflow: hidden; */

@@ -6,10 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Library Main</title>
+    <link href="css/public/header.css" type="text/css" rel="stylesheet">
+<link href="css/public/footer.css" type="text/css" rel="stylesheet">
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
     <link href="/css/index.css" type="text/css" rel="stylesheet">
+    <script src="../js/header.js" type="text/javascript"></script>
 </head>
 <body>
+
+
+<jsp:include page="../index/header.jsp" />
 
 <header id="header" class="header"></header>
 
@@ -71,8 +77,12 @@
 </div>
 
 <footer id="footer" class="footer"></footer>  
+
+
  
-<script defer src="/js/HeadFoot.js" type="text/javascript"></script>
+<jsp:include page="../index/footer.jsp" />
+
+
     
 </body>
 </html>
