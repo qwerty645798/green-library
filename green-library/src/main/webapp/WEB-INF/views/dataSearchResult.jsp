@@ -45,7 +45,7 @@
 			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)">
 		</div>
 		<div class="sel_box3">
-			<input type="button" value="검색" onclick="lets_search(event)">
+			<input type="button" value="검색" onclick="lets_search(event)" class="zerocon_button">
 		</div>
 	</div>
 </div>
@@ -56,7 +56,7 @@
 			&nbsp;"select된 값" 으로 검색 된 결과 : "??"개 <!-- 이건 나중에 데이터 할 때 구현-->
 		</div>
 		<div class="text_box2">
-			<input type="button" value="??개씩 보기">
+			<input type="button" value="??개씩 보기" class="firstcon_button">
 		</div>
 	</div>
 </div>
@@ -177,5 +177,9 @@
 </main>
 <footer id="footer" class="footer"></footer>
 
+
+
+
 </body>
 </html>
+

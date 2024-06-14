@@ -13,7 +13,8 @@
 
 .sel_box{
 	display: flex;
-	border: 1px solid gray;
+	border: 1px solid #DAD5C9;
+	background-color: #EEEAE2;
 	height: 30px;
 	width: 700px;
 	margin: auto;
@@ -33,6 +34,7 @@
 .sel_box2 input[type="text"]{
 	border: none;
 	outline: none;
+	background-color:#EEEAE2;
 	opacity: 0.5;
 }
 .sel_box1 select{
