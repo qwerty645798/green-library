@@ -44,10 +44,6 @@
 				<th><p class="great_p">&nbsp;*&nbsp;</p> 내용</th>
 				<td><textarea rows="20" style="width:95%; resize:none !important;"></textarea></td> <!-- 이거 textarea로? -->
 			</tr>
-			<tr>
-				<th>&nbsp;&nbsp;관련링크</th>
-				<td><input type="text" style="height:20px; width:95%;"></td>
-			</tr>
 		</table>
 	</div>
 </div>
