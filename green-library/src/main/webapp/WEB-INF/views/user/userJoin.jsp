@@ -33,10 +33,6 @@
 				<td class="input"><input type="text" name="#" placeholder="2000-01-01" class="long"></td>
 			</tr>
 			<tr>
-				<td class="text"><div>성별</div></td>
-				<td class="input"><input type="text" name="#" placeholder="남" class="long"></td>
-			</tr>
-			<tr>
 				<td class="text"><div>아이디</div></td>
 				<td class="input">
 					<input type="text" name="#" class="middle">
