@@ -39,7 +39,7 @@
        	
        	String sql = "Select books.title, books.isbn, authors.author_name, books.img, books.location, books.availability, books.summary "
        			+"from books join authors on books.author_id = authors.author_id";
-       	//+ where books.isbn=?? 같이 조건 추가해서 가져오는?
+       	//+ where books.book_id=?? 같이 조건 추가해서 가져오는? book_id가 pk임
        	pstmt = conn.prepareStatement(sql);
        	rs = pstmt.executeQuery();
        	

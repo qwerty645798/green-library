@@ -23,17 +23,20 @@
 
 <header id="header" class="header"></header>
 
+
+<!-- 로그인 없이 index에서 들어오려 하면 경고문(로그인이 필요합니다) -->
+
 <main>
 
 <div class="first_container">
-	<div class="table_container">
+	<div class="table_container"><!-- 등록하기 버튼 - 아이디/제목/내용 입력 안하면 입력하라 경고문 --><!-- 아이디 일치 안하면 일치하지 않습니다 경고문? -->
 		<table>
 			<tr>
 				<th class="con_table_top"></th>
 				<td class="con_table_top"><p class="great_p">&nbsp;*&nbsp;</p>표시 항목은 필수 입력 항목입니다.</td>
 			</tr>
 			<tr>
-				<th><p class="great_p">&nbsp;*&nbsp;</p> 이름</th>
+				<th><p class="great_p">&nbsp;*&nbsp;</p> 아이디</th>
 				<td><input type="text" size="10" style="height:20px;"></td>
 			</tr>
 			<tr>

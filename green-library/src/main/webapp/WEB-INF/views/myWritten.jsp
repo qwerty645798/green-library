@@ -25,6 +25,7 @@
     </div>
 </div>
 
+
 <main>
 	<div class="container">
 		<table class="container_table">
@@ -36,7 +37,7 @@
 					<table class="innerContainer"><!-- 여기에 데이터 증가/감소 하는거 반영되게 짜면 될 듯 -->
 						<tr>
 							<th style="width: 12%;">번호</th>
-							<th style="width: 12%;">이름</th>
+							<th style="width: 12%;">아이디</th>
 							<th style="width: 12%;">신청일</th>
 							<th style="width: 52%;">도서명</th>
 							<th style="width: 12%;">승인 상태</th>
@@ -83,7 +84,7 @@
 					<table class="innerContainer"><!-- 여기에 데이터 증가/감소 하는거 반영되게 짜면 될 듯 -->
 						<tr>
                             <th style="width: 12%;">번호</th>
-							<th style="width: 12%;">이름</th>
+							<th style="width: 12%;">아이디</th>
 							<th style="width: 12%;">문의 날짜</th>
 							<th style="width: 52%;">제목</th>
 							<th style="width: 12%;">답변 상태</th>
@@ -115,7 +116,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="go_button"><a href="userCreateInquiry"><input type="button" value="글쓰기" class="gogo_button"></a></td>
+				<td class="go_button"><a href="userInquiryCreate"><input type="button" value="글쓰기" class="gogo_button"></a></td>
 			</tr>
 		</table>
 	</div>
