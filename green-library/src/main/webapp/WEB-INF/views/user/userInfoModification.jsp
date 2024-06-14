@@ -33,10 +33,6 @@
 				<td class="input">${userBirth}</td>
 			</tr>
 			<tr>
-				<td class="text"><div>성별</div></td>
-				<td class="input">${userGender}</td>
-			</tr>
-			<tr>
 				<td class="text"><div>아이디</div></td>
 				<td class="input">${userId}</td>
 			</tr>

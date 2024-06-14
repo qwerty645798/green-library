@@ -18,7 +18,6 @@ div#menuBarA {
 	height: 100px;
 	top: 0;
 }
-
 div#menu {
 	display : flex;
 	justify-content: center;
@@ -27,12 +26,10 @@ div#menu {
 	width:100%;
 	top: 70px;
 }
-
 div#menuBarB {
 	display: flex;
 	width:1260px;
 }
-
 div#logo {
 	position: absolute;
 	width: 100px;
