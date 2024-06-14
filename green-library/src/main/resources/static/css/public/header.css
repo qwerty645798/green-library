@@ -1,23 +1,16 @@
-/* body{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-} */
+body{
+	margin:0;
+}
 header{
-    /* display: flex; */
-    /* flex-direction: row; */
     justify-content: center;
     align-items: center;
-    
-    /* height: 146px; */
+}
+.center{
+	display:flex;
+	justify-content:center;
 }
 .header1{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    
+    width:100%;
 }
 .headerTop{
     width: 1260px;
@@ -27,6 +20,7 @@ header{
     color: white;
     width: 150px;
     height: 80px;
+    cursor: pointer;
     background-color: #64b883;
 }
 .loginLink, .joinLink{
@@ -34,17 +28,20 @@ header{
     width: 70px;
     top: -15px;
     float: right;
+    cursor: pointer;
 }
 .headerBottom{
     display: flex;
     justify-content: center;
     overflow: visible;
     background-color:#1a6936;
+    width:100%;
 }
 .subMenuTop{
     margin-left: 0px;
     width: 1260px;
     text-align: center;
+    padding:0;
 }
 .subMenuTop:hover ~.menuBar{
     height: 250px;
@@ -62,6 +59,12 @@ header{
     font-weight: bold;
     background-color:#1a6936;
 }
+.subMenuTop>li:hover{
+    background-color: #e7f3e8;
+    transition: 0.5s ease-in-out;
+    color: black;
+    cursor: pointer;
+}
 .menuBarBackground{
     display: flex;
     flex-direction: row;
@@ -77,8 +80,11 @@ header{
     margin-left: 0px;
     padding-left: 76px;
     padding-right: 76px;
-    color: #47a168;
+    color: black;
     background-color: white;
+    /*js용*/
+    /* height: 0px;
+    overflow: hidden; */
 }
 .menuBar:nth-child(2n-1){
     background-color:#fff4e4;
@@ -89,12 +95,11 @@ header{
     line-height: 3em;
     list-style-type: none;
 }
+.menuBar>li:hover{
+    text-decoration: underline;
+    color: #47a168;
+    cursor: pointer;
+}
 .subMenuTop, .menuBar{
     font-size: 0pt;
 }
-
-
-
-
-
-
