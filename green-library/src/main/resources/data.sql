@@ -47,7 +47,7 @@ INSERT INTO inquiries(inquiry_id, inquiry_title, contents, user_id)
 VALUES(inquiry_idx.NEXTVAL, '문의 처음으로 드립니다', '사이트좀 제대로 만들어주라', 'id1');
 
 INSERT INTO inquiry_responses(response_id, inquiry_id, response_date, response_content, admin_id)
-VALUES(response_idx.NEXTVAL, 1, SYSDATE, '불편을 끼쳐 죄송합니다', 'id1');
+VALUES(response_idx.NEXTVAL, 1, SYSDATE, '불편을 끼쳐 죄송합니다', 'admin1');
 
 INSERT INTO suspensions(suspension_id, start_date, end_date, reason, user_id)
 VALUES(suspend_idx.NEXTVAL, '2024-06-11', '2024-06-25', '그냥 테스트로', 'id1');
