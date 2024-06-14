@@ -65,6 +65,12 @@ header{
     color: black;
     cursor: pointer;
 }
+.testcon{/*테스트용*/
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 1260px;
+}
 .menuBarBackground{
     display: flex;
     flex-direction: row;
@@ -72,9 +78,10 @@ header{
     background-color: aliceblue;
 }
 .menuBar{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
+    position: relative;/*test*/
     width: 100px;
     height: 250px;
     margin-left: 0px;
@@ -102,4 +109,27 @@ header{
 }
 .subMenuTop, .menuBar{
     font-size: 0pt;
+}
+
+
+/*test*/
+#subMenu1{
+    position: absolute;
+    left: 0px;
+}
+#subMenu2{
+    position: absolute;
+    left: 252px;
+}
+#subMenu3{
+    position: absolute;
+    left: 504px;
+}
+#subMenu4{
+    position: absolute;
+    left: 756px;
+}
+#subMenu5{
+    position: absolute;
+    left: 1008px;
 }
