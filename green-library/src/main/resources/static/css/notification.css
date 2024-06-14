@@ -3,7 +3,7 @@
 
 .first_container{
 	display: flex; 
-
+	width: 1260px;
 	margin: 0 auto;
 	padding:10px;
 	box-sizing: border-box;
@@ -13,7 +13,7 @@
 .text_box{
 	display: flex;
 	height: 30px;
-	width: 1260px;
+	width: 1230px;
 	margin: auto;
 }
 
@@ -22,7 +22,7 @@
 	height:30px;
 }
 .text_box1{
-	width:830px;
+	width:800px;
 	align-items: center; /* 텍스트를 수직 가운데 */
 }
 .text_box2{
@@ -41,7 +41,7 @@
 .text_box4{
 	display:flex;
 	width:250px;
-	border: 1px solid gray;
+	border: 1px solid #DAD5C9;
 }
 .text_box4 input[type="text"]{
 	border: none;
@@ -51,6 +51,9 @@
 }
 .text_box4 input[type="button"]{
 	width:50px;
+	border:none;
+	border-radius: 5px;
+	background-color: #64B883;
 	cursor:pointer;
 }
 
@@ -59,7 +62,7 @@
 
 .second_container{
 	display: flex; 
-
+	width: 1260px;
 	margin: 0 auto;
 	padding:10px;
 	box-sizing: border-box;
@@ -73,8 +76,8 @@
 }
 
 .notice_table tr{
-	border-top: 1px solid green;
-	border-bottom: 1px solid green;
+	border-top: 1px solid #A0CAB0;
+	border-bottom: 1px solid #A0CAB0;
 	height: 60px;
 }
 
@@ -98,15 +101,19 @@
 	text-align :center;
 }
 
-tr:not(:first-child):hover{
+.notice_table tr:not(:first-child):hover{
 	background-color: lightgreen;
 }
 
+.notice_table th{
+	background-color:#E7F3E8;
+}
 
 
 .third_container{
 	display: flex;
 	margin: 0 auto;
+	width:1260px;
 
 	padding:10px;
 	box-sizing: border-box;
@@ -114,7 +121,6 @@ tr:not(:first-child):hover{
 
 .button_box{
 	display: flex;
-	border: 1px solid brown;
 	height: 50px;
 	width: 700px;
 	margin: auto;
@@ -124,17 +130,15 @@ tr:not(:first-child):hover{
 }
 
 .button_box1, .button_box2, .button_box4, .button_box5{
-	height: 30px;
-	border : 1px solid yellowgreen;
+	height: 40px;
 }
 
 .button_box3{
 	display: flex;
-	height: 30px;
-	border : 1px solid yellowgreen;
+	height: 40px;
 }
 
-.button_inbox{
+/*.button_inbox{
 	margin-right: 2px;
 	margin-left: 2px;
 }
@@ -142,6 +146,14 @@ tr:not(:first-child):hover{
 .button_box1 input, .button_box2 input, .button_box4 input, .button_box5 input{
 	margin-right: 2px;
 	margin-left: 2px;
+}*/
+
+.button_box input[type="button"]{
+	margin-right:2px;
+	margin-left:2px;
+	border:none;
+	border-radius : 5px;
+	background-color: #64B883;
 }
 
 

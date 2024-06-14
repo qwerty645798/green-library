@@ -7,7 +7,7 @@
 <title>문의글 작성</title>
 
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/userCreateInquiry.css">
+<link rel="stylesheet" type="text/css" href="css/userInquiryCreate.css">
 
 </head>
 

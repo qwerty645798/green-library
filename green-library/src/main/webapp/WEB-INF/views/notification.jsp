@@ -59,7 +59,7 @@
 			<th>제목</th>
 			<th>작성일</th>
 		</tr>
-		<tr>
+		<tr><!-- 이제 이 밑으로 줄이나 제목(td) 클릭하면 해당 상세로 가게 기능 구현 -->
 			<td class="num_table">2</td>
 			<td class="name_table">그린라이브러리</td>
 			<td class="title_table">&nbsp; 우리는</td>

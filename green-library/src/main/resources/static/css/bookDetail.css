@@ -7,7 +7,8 @@
     margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	border:1px solid #ECD9BC;
+	border:2px solid #ECD9BC;
+	border-radius: 5px;
 }
 
 .book_container {
@@ -24,28 +25,50 @@
     width: 200px;
 }
 
+.book_image img{
+	width:200px;
+	height:300px;
+	object-fit: cover;
+}
+
 .book_table {
     width: 1000px;
 }
 
-table {
+.book_table table {
     border-collapse: collapse;
     width: 800px;
 	height: 300px;
     margin: 0 auto;
 }
 
-td {
+.book_table td {
     width: 150px;
 }
 
-th {
+.book_table th {
     width: 100px;
+    background-color: #E7F3E8;
     text-align: center;
 }
 
-td, th{
-    border: 1px solid gray;
+.book_table td, th{
+    border: 1px solid #A0CAB0;
+}
+
+.book_table th:first-child, .book_table td:first-child{
+	border-left: none;
+}
+.book_table th:last-child, .book_table td:last-child{
+	border-right: none;
+}
+
+.book_table input{
+	background-color: #64B883;
+	border-radius : 5px;
+	border: none;
+	width: 150px;
+	height: 30px;
 }
 
 .book_container2 {
@@ -55,16 +78,17 @@ td, th{
     margin: 0 auto;
 	margin-top: 20px;
 	padding: 10px;
-    border: 2px solid gray;
+    border: 2px solid #ECD9BC;
+    border-radius: 5px;
+    
+    background-color: #27F3E8;
 }
 
 .book_container2 hr {
     width: 1250px;
-	color: gray;
+	color: #ECD9BC;
 }
 
-img{
-	width:200px;
-	height:300px;
-	object-fit: cover;
-}
+
+
+

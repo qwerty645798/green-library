@@ -90,6 +90,11 @@ public class MainController {
 		return "notification";
 	}
 	
+	@GetMapping("/notificationDetail")
+	public String notificationDetail () {
+		return "notificationDetail";
+	}
+	
 	@GetMapping("/vision")
 	public String vision () {
 		return "vision";

@@ -72,8 +72,8 @@ public class UserController {
 		return "user/userInquiryDetail";
 	}
 	
-	@GetMapping("/userCreateInquiry")
-	public String userCreateInquiry () {
-		return "user/userCreateInquiry";
+	@GetMapping("/userInquiryCreate")
+	public String userInquiryCreate () {
+		return "user/userInquiryCreate";
 	}
 }
