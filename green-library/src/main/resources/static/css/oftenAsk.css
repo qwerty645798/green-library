@@ -1,0 +1,79 @@
+/* body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}/*header와 중복*/ 
+.QnApage1{
+    display: flex;
+    justify-content: center;
+    margin-top: 300px;
+    margin-bottom: 300px;
+}
+.QnApage2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1260px;
+    line-height: normal;
+}
+dt, dd{
+    box-sizing: border-box;
+    line-height: 2em;
+}
+dt{
+    width: 1260px;
+    height: 60px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    border: 2px solid #ecd9bc;
+    background-color: white;
+}
+
+dt::first-letter{
+    color: red;
+    font-weight: bold;
+}
+dd{
+    /* box-sizing: border-box; */
+    width: 1260px;
+    height: 400px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: beige;
+}
+dd::first-letter{
+    color: gray;
+    font-weight: bold;
+}
+
+dd ul>li{
+    list-style-type: square;
+    line-height: 2em;
+}
+dd ul>li::marker{
+    color: #ecd9bc;
+}
+p{
+    font-weight: bold;
+}
+
+
+/*테스트 중*/
+.dt{/*test*/
+    width: 1260px;
+    height: 60px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    border: 2px solid #ecd9bc;
+    background-color: white;
+}
+.dd{/*test*/
+    width: 1260px;
+    height: 400px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: beige;
+}
