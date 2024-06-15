@@ -23,10 +23,10 @@
     
         <div class="QnApage1">
             <div class="QnApage2">
+    
                 <dl>
     
-    
-                    <div class="dt"><dt>Q. 홈페이지 회원가입 및 탈퇴는 어떻게 하나요?</dt></div>
+                    <div class="dt"><dt>Q. 홈페이지 회원가입 및 탈퇴는 어떻게 하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 우측 상단에 로그인 버튼 옆에 회원 가입 버튼이 있습니다. <br>
                         해당 버튼을 누르시면 회원 가입 페이지로 이동하며, 회원 가입을 진행하실 수 있습니다.<br><br>
@@ -35,7 +35,7 @@
                         대출 이력이 있을 경우 도서 반납 이후에 탈퇴가 가능합니다.
                     </dd></div>
     
-                    <div class="dt"><dt>Q. 도서관 자료는 어떻게 빌려볼 수 있나요?</dt></div>
+                    <div class="dt"><dt>Q. 도서관 자료는 어떻게 빌려볼 수 있나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>
                             A. 먼저 그린도서관에 방문하시거나 홈페이지에 접속하셔서 회원가입을 진행해주세요. <br>
@@ -50,7 +50,7 @@
                        </dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 대출한 도서의 연장은 어떻게 하나요?</dt></div>
+                    <div class="dt"><dt>Q. 대출한 도서의 연장은 어떻게 하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 본인의 도서관 회원증을 지참하여 도서관을 방문하시거나,<br>
                             도서관 웹페이지의 [마이페이지]-[대출 연장] 페이지에서 연장하실 수 있습니다.<br><br>
@@ -58,7 +58,7 @@
                         </dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 도서 예약은 어떻게 하나요?</dt></div>
+                    <div class="dt"><dt>Q. 도서 예약은 어떻게 하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 원하는 도서를 검색하시면, 소장정보 하단에 [도서예약] 버튼이 있습니다. <br>
                             해당 버튼을 누르시면 예약이 완료됩니다.<br><br>
@@ -73,33 +73,33 @@
                         </dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 희망도서 신청은 어떻게 하나요?</dt></div>
+                    <div class="dt"><dt>Q. 희망도서 신청은 어떻게 하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 메뉴에서 [도서관 이용]-[희망도서 신청]으로 들어가시면 원하는 도서를 신청하실 수 있습니다.<br>
                             신청 불가능한 도서 목록은 [자주 묻는 질문] 페이지의 '도서 기증' 관련 질문 페이지를 참고해주시길 바랍니다.<br>
                             희망도서 신청은 로그인을 하셔야 이용하실 수 있습니다. </dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 도서를 연체하면 어떤 페널티가 발생하나요?</dt></div>
+                    <div class="dt"><dt>Q. 도서를 연체하면 어떤 페널티가 발생하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 1년에 연체 이력이 12회 이상 누적되거나, 90일 이상 장기연체를 하게 되시면 회원자격이 박탈됩니다.<br>
                             연체 이력은 1년 주기로 초기화 됩니다.<br>
                         </dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 스캔 / 복사 / 인쇄가 가능한가요? </dt></div>
+                    <div class="dt"><dt>Q. 스캔 / 복사 / 인쇄가 가능한가요? <img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 그린도서관 디지털 자료실에서 스캔/복사/인쇄가 가능합니다.<br>
                             스캔은 무료로 가능하며, 복사/출력은 유료로 이용하셔야 합니다.</dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 노트북 이용은 어떻게 하나요?</dt></div>
+                    <div class="dt"><dt>Q. 노트북 이용은 어떻게 하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 각 도서관 노트북 좌석에서 이용가능합니다.
                             또한, 노트북이나 휴대기기를 통한 무선인터넷(WiFi) 접속이 가능합니다.</dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 도서관에서 자원봉사활동은 어떻게 하나요?</dt></div>
+                    <div class="dt"><dt>Q. 도서관에서 자원봉사활동은 어떻게 하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 아래의 절차에 따라 신청하시면 됩니다.<br><br>
              
@@ -118,7 +118,7 @@
                            </dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 도서 기증은 어떻게 하나요?</dt></div>
+                    <div class="dt"><dt>Q. 도서 기증은 어떻게 하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 도서관에 문의 후 해당 도서를 도서관에 기증해주시면 됩니다.<br><br><br>
                             <p>[대상도서]</p>
@@ -141,28 +141,32 @@
                         </dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 책을 잃어버리거나 망가뜨렸다면 어떻게 해야 하나요?</dt></div>
+                    <div class="dt"><dt>Q. 책을 잃어버리거나 망가뜨렸다면 어떻게 해야 하나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 도서관에 문의 후 같은 책을 구입하여 도서관으로 갖다주시면 됩니다.</dd>
                     </div>
     
-                    <div class="dt"><dt>Q. DVD를 대여하는 게 가능한가요?</dt></div>
+                    <div class="dt"><dt>Q. DVD를 대여하는 게 가능한가요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 2층에 있는 디지털 자료실에서 대여하실 수 있습니다.</dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 열람실은 언제 이용할 수 있나요?</dt></div>
+                    <div class="dt"><dt>Q. 열람실은 언제 이용할 수 있나요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 열람실은 주말과 평일, 오전 8시부터 오후 11시까지 이용하실 수 있습니다.</dd>
                     </div>
     
-                    <div class="dt"><dt>Q. 휴관일은 언제인가요?</dt></div>
+                    <div class="dt"><dt>Q. 휴관일은 언제인가요?<img src="/images/QnAarrowdown.jpg"></dt></div>
                     <div class="dd">
                         <dd>A. 정기 휴관일은 둘째 주, 넷째 주 화요일이며, 공휴일에는 휴관합니다. <br>
                             그외 도서관장이 필요하다고 여기는 날에 휴관할 수 있습니다.</dd>
                     </div>
+    
                 </dl>
+    
             </div>
+    
+            
         </div>
     
         
