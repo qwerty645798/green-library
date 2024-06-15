@@ -1,48 +1,77 @@
-body{
+/* /* /* body{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}/*header와 중복*/
-p{
-    color: red;
-}
-.hopeBookPage{
+/* }/*header와 중복*/ 
+.hopeBookPage1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} 
+.hopeBookPage2{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 1260px;
 }
+
 table{
     width: 840px;
     height: 860px;
-    border: 1px solid black;
+    margin: 100px;
 }
-td, tr{
-    border: 1px solid black;
-    vertical-align: middle;
+tr, td{
+    border-bottom: 1px solid #a0cab0;
+    border-top: 1px solid #a0cab0;
     text-align: center;
+    vertical-align: middle;
 }
 .hopeBook{
     width: 200px;
     height: 15px;
+    font-size: 13pt;
     font-weight: bold;
-    background-color: #64b883;
+    background-color: #d8e9d9;
+}
+span{
+    color: red;
 }
 input[type=text]{
     width: 500px;
     height: 30px;
-    border: 1px solid #ecd9bc;
+    border: none;
     background-color: #ecd9bc;
 }
-input[type=button], input[type=submit]{
+input[type=file]{
+    visibility: hidden;
+    vertical-align: center;
+}
+.customText{
+    width: 550px;
+    height: 30px;
+    vertical-align: middle;
+    border: none;
+    background-color: #ecd9bc;
+}
+.customBtn{
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: #64b883;
+}
+input[type=button]{
     width: 200px;
     height: 40px;
     margin: 20px;
     text-align: center;
+    cursor: pointer;
     font-weight: bold;
     border: none;
+    border-radius: 15px;
     background-color: #64b883;
 }
 .hopeBtn{

@@ -1,0 +1,136 @@
+body{
+	margin:0;
+}
+header{
+    justify-content: center;
+    align-items: center;
+}
+.center{
+	display:flex;
+	justify-content:center;
+}
+.header1{
+    width:100%;
+}
+.headerTop{
+    width: 1260px;
+    height: 146px;
+}
+.logo{
+    color: white;
+    width: 150px;
+    height: 80px;
+    cursor: pointer;
+    background-color: #64b883;
+}
+.loginLink, .joinLink{
+    position: relative;
+    width: 70px;
+    top: -15px;
+    float: right;
+    cursor: pointer;
+}
+.headerBottom{
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    background-color:#1a6936;
+    width:100%;
+}
+.subMenuTop{
+    margin-left: 0px;
+    width: 1260px;
+    text-align: center;
+    padding:0;
+}
+.subMenuTop:hover ~.menuBar{
+    height: 250px;
+    transition: 2s ease-in-out;
+}
+.subMenuTop>li{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 252px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    list-style-type: none;
+    color: white;
+    font-size: 15pt;
+    font-weight: bold;
+    background-color:#1a6936;
+}
+.subMenuTop>li:hover{
+    background-color: #e7f3e8;
+    transition: 0.5s ease-in-out;
+    color: black;
+    cursor: pointer;
+}
+.testcon{/*테스트용*/
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 1260px;
+    height: 250px;
+}
+.menuBarBackground{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: aliceblue;
+}
+.menuBar{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+   /*  position: relative; *//*test*/
+    width: 100px;
+    /* height: 250px; */
+    margin-left: 0px;
+    padding-left: 76px;
+    padding-right: 76px;
+    color: black;
+    background-color: lemonchiffon;
+    /*js용*/
+    /* height: 0px;
+    overflow: hidden; */
+}
+.menuBar:nth-child(2n-1){
+    background-color:#fff4e4;
+}
+.menuBar>li{
+    font-size: 11pt;
+    font-weight: bold;
+    line-height: 3em;
+    list-style-type: none;
+}
+.menuBar>li:hover{
+    text-decoration: underline;
+    color: #47a168;
+    cursor: pointer;
+}
+.subMenuTop, .menuBar{
+    font-size: 0pt;
+}
+
+
+/*test*/
+#subMenu1{
+    position: absolute;
+    left: 0px;
+}
+#subMenu2{
+    position: absolute;
+    left: 252px;
+}
+#subMenu3{
+    position: absolute;
+    left: 504px;
+}
+#subMenu4{
+    position: absolute;
+    left: 756px;
+}
+#subMenu5{
+    position: absolute;
+    left: 1008px;
+}

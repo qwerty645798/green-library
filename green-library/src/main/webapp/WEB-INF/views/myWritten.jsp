@@ -1,48 +1,15 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>내가 쓴 글</title>
 
-<style>
-.container{
-    padding: 10px;
-    display: flex;
-    width: 1600px;
-    margin: 0 auto;
-    margin-top: 30px;
-    flex-direction: column;
-    border: 1px solid skyblue;
-}
 
-.container_table{
-    width: 1500px;
-    margin: 0 auto;
-    padding: 0;
-}
+<link rel="stylesheet" type="text/css" href="css/myWritten.css">
+<link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
-.innerContainer{
-    margin: 0 auto;
-    width: 1400px;
-    border-collapse: seperate;
-    border-spacing: 0px 15px;
-    table-layout: fixed;
-
-}
-
-.innerContainer th, .innerContainer td{
-    border: 2px solid #6c5a3f;
-    background-color: #ecd9bc;
-    word-break: break-all;
-    overflow-wrap: break-word;
-}
-</style>
 
 </head>
 
@@ -51,11 +18,18 @@
 
 <header id="header" class="header"></header>
 
+
+<div class="bannerBgr">
+    <div class="Banner">
+        <div class="pageTitle">내가 쓴 글</div> <div class="pageRoute">홈 > 마이 페이지 > 내가 쓴 글</div>
+    </div>
+</div>
+
 <main>
 	<div class="container">
 		<table class="container_table">
 			<tr>
-				<td style="height: 30px; border-bottom: 1px solid green;">&nbsp;&nbsp;&nbsp;신청 내역</td>				
+				<td class="table_title">&nbsp;&nbsp;&nbsp;희망 도서 신청 내역</td>				
 			</tr>
 			<tr>
 				<td>
@@ -84,7 +58,7 @@
 						</tr>
                         <tr>
 							<td>1</td>
-							<td>2</td>
+							<td>2....</td>
 							<td>3</td>
 							<td>46666666666666666666666<br>66<br>6666666666666666 666666666666666 6666 6666666666666666666666666666666666666666666666666666666666666666666666666666</td>
 							<td>5</td>
@@ -93,13 +67,16 @@
 					</table>
 				</td>
 			</tr>
+			<tr>
+				<td class="go_button"><a href="hopeBookApply"><input type="button" value="글쓰기" class="gogo_button"></a></td>
+			</tr>
 		</table>
 	</div>
 	
 	<div class="container">
 		<table class="container_table">
 			<tr>
-				<td style="height: 30px; border-bottom: 1px solid green;">&nbsp;&nbsp;&nbsp;문의 내역</td>				
+				<td class="table_title">&nbsp;&nbsp;&nbsp;문의 내역</td>				
 			</tr>
 			<tr>
 				<td>
@@ -137,14 +114,14 @@
 					</table>	
 				</td>
 			</tr>
+			<tr>
+				<td class="go_button"><a href="userCreateInquiry"><input type="button" value="글쓰기" class="gogo_button"></a></td>
+			</tr>
 		</table>
 	</div>
 
 </main>
 
 <footer id="footer" class="footer"></footer>
-
 </body>
-
-
 </html>

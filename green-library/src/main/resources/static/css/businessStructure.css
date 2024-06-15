@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+.title_business{
+	display: flex;
+	width: 1260px;
+	margin: 0 auto;
+	margin-top:20px;	
+	
+	font-size:24pt;
+}
+
+
+.first_container{
+	display: flex;
+	width: 1260px;
+	margin: 0 auto;
+	margin-top:20px;
+}
+
+.structure_div{
+	display: flex;
+	width: 1200px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.structure_in{
+	display: flex;
+	width: 400px;
+	
+	align-items: center;
+	justify-content: center;
+	
+	margin-top:20px;
+}
+
+
+.structure_inbox{
+	display: flex;
+	width: 250px;
+	height: 360px;
+	
+	align-items: center;
+	justify-content: center;
+	
+	margin: 0 auto;
+	border-radius: 5px;
+	background-color: #27F3E8;
+	
+	flex-direction: column;
+	
+}
+
+.structure_inbox .inbox_half1, .structure_inbox .inbox_half2{
+	display: flex;
+	width: 250px;
+	
+	padding:3px;
+	box-sizing: border-box;
+	
+	flex-direction: column;
+}
+
+.structure_inbox .inbox_half1{
+	align-items: center;
+	height: 200px;
+}
+
+.structure_inbox .inbox_half1{
+	height: 160px;
+}
+
+
+
+.inbox_half1 img {
+    max-width: 100px; 
+    height: auto;
+}
+
+.inbox_half1 p {
+    word-wrap: break-word;
+    white-space: normal;
+    width: 80%; 
+    font-size:13pt;
+    text-align: center;
+}
+
+.inbox_half2 li{
+    word-wrap: break-word;
+    white-space: normal;
+    width: 90%; 
+    font-size:11pt;
+    margin-top:8px;
+}

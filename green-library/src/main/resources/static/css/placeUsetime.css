@@ -1,28 +1,44 @@
-body{
+/* body{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}/*header와 중복*/
-.usetimePage{
+}/*header와 중복*/ */
+.usetimePage1{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.usetimePage2{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 150px;
+    margin-bottom: 300px;
 }
 table{
-    width: 720px;
-    height: 860px;
-    border: 1px solid black;
+    width: 1000px;
+    height: 500px;
+    margin: 100px;
 }
 tr, td{
-    border: 1px solid black;
+    border-bottom: 1px solid #a0cab0;
+    border-top: 1px solid #a0cab0;
     text-align: center;
     vertical-align: middle;
+}
+tr td:not(:first-of-type){
+    border-left: 1px solid #a0cab0;
+}
+td:not(.itemBold){
+    font-size: 11pt;
 }
 .itemBold{
     width: 100px;
     height: 10px;
+    font-size: 13pt;
     font-weight: bold;
-    background-color: #64b883;
+    background-color: #d8e9d9;
 }

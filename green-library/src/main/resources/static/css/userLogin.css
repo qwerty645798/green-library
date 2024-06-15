@@ -1,0 +1,26 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: dodgerblue;
+}
+
+
+.floor{
+	width:400px;
+	height:50px;
+	margin:20px 75px;
+	font-size:0.8em;
+	font-weight:900;
+}
+.floor > input.text{
+	width:400px;
+	height:50px;
+	font-size:1.5em;
+	border-radius:10px;
+	border:1px #AAAAAA solid;
+	outline:none;
+}

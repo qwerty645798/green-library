@@ -1,18 +1,32 @@
 body{
-    display: flex;
+/*     display: flex;
     flex-direction: row;
     justify-content: left;
-   /*  align-items: center; */
-    height: 4000px;
+   /*  align-items: center; */ 
+   /*  height: 4000px; */
     font-weight:lighter;
     line-height: 2;
 }
-/* .policyList{
+.policyList1{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-} */
+}
+.policyList2{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    width: 1260px;
+    margin-top: 150px;
+    margin-bottom: 300px;
+}
+.policyContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
 h3{
     margin-top: 10px;
     font-weight: bold;
@@ -43,12 +57,12 @@ ul, ol{
 .SemiBold{
     font-weight: 500;
 }
-.privacyCommittee{
+/* .privacyCommittee{
     display: flex;
     flex-direction: row;
     justify-content: left;
-    align-items: center;  
-}
+    align-items: left;  
+} */
 .privacyKeeper{
     color: firebrick;
 }

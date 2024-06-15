@@ -8,7 +8,7 @@ public class MainController {
 
 	@GetMapping("/")
 	public String home () {
-		return "index";
+		return "index/index";
 	}
 	
 	@GetMapping("/facilityInfo")
@@ -41,9 +41,74 @@ public class MainController {
 		return "placeUsetime";
 	}
 	
+	@GetMapping("/wayToCome")
+	public String wayToCome () {
+		return "wayToCome";
+	}
+	
+
+
+	//david
+	@GetMapping("/bookDetail")
+	public String bookDetail () {
+		return "bookDetail";
+	}
+	
+
 	@GetMapping("/bookLoanExtension")
 	public String bookLoanExtension () {
 		return "bookLoanExtension";
 	}
+	
+	@GetMapping("/myWritten")
+	public String myWritten () {
+		return "myWritten";
+	}
+	
+	@GetMapping("/popularBook")
+	public String popularBook () {
+		return "popularBook";
+	}
+	
+	@GetMapping("/initiativeBook")
+	public String initiativeBook () {
+		return "initiativeBook";
+	}
+	
+	@GetMapping("/dataSearch")
+	public String dataSearch () {
+		return "dataSearch";
+	}
+	
+	@GetMapping("/dataSearchResult")
+	public String dataSearchResult () {
+		return "dataSearchResult";
+	}
+	
+	@GetMapping("/notification")
+	public String notification () {
+		return "notification";
+	}
+	
+	@GetMapping("/notificationDetail")
+	public String notificationDetail () {
+		return "notificationDetail";
+	}
+	
+	@GetMapping("/vision")
+	public String vision () {
+		return "vision";
+	}
+	
+	@GetMapping("/businessStructure")
+	public String businessStructure () {
+		return "businessStructure";
+	}
+	
+	@GetMapping("/schedule")
+	public String schedule () {
+		return "schedule";
+	}
+	
 	
 }

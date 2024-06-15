@@ -7,101 +7,56 @@
 <meta charset="UTF-8">
 <title>도서 상세 정보</title>
 
-<style>
-
-.book_container {
-    display: flex;
-    width: 1600px;
-    height: 300px;
-    margin: 0 auto;
-}
-
-.book_image {
-    width: 200px;
-    border: 2px solid red;
-}
-
-.book_table {
-    width: 1400px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 1200px;
-	height: 300px;
-    margin: 0 auto;
-}
-
-td {
-    width: 300px;
-}
-
-th {
-    width: 300px;
-    text-align: center;
-}
-
-.book_container2 {
-    display: flex;
-    flex-direction: column;
-    width: 1600px;
-    margin: 0 auto;
-	margin-top: 10px;
-	padding: 10px;
-    border: 2px solid gray;
-}
-
-.book_container2 hr {
-    width: 1580px;
-	color: gray;
-}
-
-td, th{
-    border: 1px solid gray;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="css/bookDetail.css">
+<link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
 </head>
 <body>
 
 <header id="header" class="header"></header>
 
+<div class="bannerBgr">
+    <div class="Banner">
+        <div class="pageTitle">도서 상세 정보</div> <div class="pageRoute">홈 > 도서 상세 정보</div>
+    </div>
+</div>
+
 <main>
 
-
-<div class="book_container"><!-- 좌 이미지 우 테이블 -->
-	<div class="book_image">
-		<!-- 이미지 -->
-	</div>
-	<div class="book_table">
-		<table>
-			<tr>
-				<th>대출도서명</th>
-				<td></td>
-				<th>등록 번호</th>
-				<td></td>
-			</tr>
-			<tr>
-				<th>저자명</th>
-				<td colspan="3"></td>
-			</tr>
-			<tr>
-				<th>서가 위치</th>
-				<td colspan="3"></td>
-			</tr>
-			<tr>
-				<th>대출 상태</th>
-				<td colspan="3"></td>
-			</tr>
-			<tr>
-				<td colspan="4" align="center"><!-- 예약 기능 구현 후 수정 -->
-					<form action="" method="">
-					<input type="submit" value="대출 예약">
-					</form>
-				</td>
-			</tr>			
-		</table>
+<div class="bigDiv">
+	<div class="book_container"><!-- 좌 이미지 우 테이블 -->
+		<div class="book_image">
+			<img src="images/exex.jpg">
+		</div>
+		<div class="book_table">
+			<table>
+				<tr>
+					<th>대출도서명</th>
+					<td></td>
+					<th>등록 번호</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th>저자명</th>
+					<td colspan="3"></td>
+				</tr>
+				<tr>
+					<th>서가 위치</th>
+					<td colspan="3"></td>
+				</tr>
+				<tr>
+					<th>대출 상태</th>
+					<td colspan="3"></td>
+				</tr>
+				<tr>
+					<td colspan="4" align="center" style="border:none;"><!-- 예약 기능 구현 후 수정 -->
+						<form action="" method="">
+						<input type="submit" value="대출 예약">
+						</form>
+					</td>
+				</tr>			
+			</table>
+		</div>
 	</div>
 </div>
 

@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.image_container {
+    display: flex;
+    width: 1260px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.image_box{
+	display: flex;
+	width: 630px;
+	height: 500px;
+	align-items: center;
+    justify-content: center;
+	
+	margin-top:10px;
+}
+
+.image_box img{
+	width: 250px;
+	height: 375px;
+	object-fit: cover; /*fill?*/
+}

@@ -4,60 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-a {
-	text-decoration: none;
-	color: black;
-}
-
-a:hover {
-	text-decoration: underline;
-	color: dodgerblue;
-}
-
-.roundbox {
-	border-radius: 20px;
-}
-
-.floor{
-	width:400px;
-	height:50px;
-	margin:20px 75px;
-	font-size:0.8em;
-}
-.floor > input.text{
-	width:400px;
-	height:50px;
-	font-size:1.5em;
-	border-radius:10px;
-	border:1px #AAAAAA solid;
-	outline:none;
-}
-nav{
-	width:1520px; 
-	height: 90px; 
-	border: none; 
-	display: flex; 
-	justify-content: center; 
-	background: #DFD9D0;
-}
-
-</style>
+<title>userLogin</title>
+<link href="css/public/header.css" type="text/css" rel="stylesheet">
+<link href="css/public/footer.css" type="text/css" rel="stylesheet">
+<link href="css/public/nav.css" type="text/css" rel="stylesheet">
+<link href="css/userLogin.css" type="text/css" rel="stylesheet">
 </head>
-<body>
-	<header id="header" class="header"></header>
-	<nav class="roundbox">
-		<div style="width: 50%; display: flex; justify-content: center; position: relative">
-			<div style="font-size: 2.5em; margin-top: 10px;">로그인</div>
-			<div style="float: right; position: absolute; right: 20px; margin-top: 60px;">
-				<a href="index">홈</a>>로그인
-			</div>
+<body> 
+	<!-- <img src="images/wood.png" style="width:99%; height:auto; position:absolute; z-index:-1;"> -->
+	<jsp:include page="../index/header.jsp" />
+	<nav class="bannerBgr">
+		<div class="Banner">
+			<div class="pageTitle">로그인</div>
+			<div class="pageRoute">홈 > 로그인</div>
 		</div>
 	</nav>
-	<br><br>
-	<h1 style="text-align:center; font-size:3em; margin-bottom:0px;">Member Login<br>
-	<span style="font-size:0.3em;color:#999999; margin:0px;">로그인을 하시면 더 많은 도서관 서비스를 이용할 수 있습니다.</span>
+	<br>
+	<h1 style="text-align:center; font-size:3em; margin-bottom:0px; color:#492918;">Member Login<br>
+	<span style="font-size:0.3em;color:#471C0A; margin:0px; font-weight:900;">로그인을 하시면 더 많은 도서관 서비스를 이용할 수 있습니다.</span>
 	</h1>
 	<main style="display:flex; justify-content:center;">
 		
@@ -71,6 +35,6 @@ nav{
 		</div>
 		</form>
 	</main>
-	<footer id="footer" class="footer"></footer>
+	<jsp:include page="../index/footer.jsp" />
 </body>
 </html>

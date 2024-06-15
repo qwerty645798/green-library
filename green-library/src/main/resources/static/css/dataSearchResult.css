@@ -1,0 +1,219 @@
+@charset "utf-8";
+
+
+.zero_container{
+	display: flex; 
+	width:1260px;
+
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;/*패딩 마진이 요소의 너비,길이에 포함되게*/
+}
+
+.sel_box{
+	display: flex;
+	border: 1px solid #DAD5C9;
+	background-color:#EEEAE2;
+	height: 30px;
+	width: 700px;
+	margin: auto;
+}
+
+.sel_box1, .sel_box2, .sel_box3 {
+	display: flex;
+	height:30px;
+}
+.sel_box1, .sel_box3{
+	width:150px;
+}
+.sel_box2{
+	width:400px;
+}
+
+.sel_box2 input[type="text"]{
+	border: none;
+	outline: none;
+	background-color:#EEEAE2;
+	opacity: 0.5;
+}
+.sel_box1 select{
+	margin:0 auto;
+	width:140px;
+}
+.sel_box3 input[type="button"]{
+	margin:0 auto;
+	width: 140px;
+}
+
+.zerocon_button{
+	background-color: #64B883;
+	border-radius : 5px;
+	border: none;
+}
+
+
+
+.first_container{
+	display: flex; 
+	width:1260px;
+
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;
+}
+
+.text_box{
+	display: flex;
+	border: none;
+	height: 30px;
+	width: 700px;
+	margin: auto;
+	
+}
+
+.text_box1, .text_box2 {
+	display: flex;
+	height:30px;
+}
+.text_box1{
+	width:550px;
+	align-items: center; /* 텍스트를 수직 가운데 */
+}
+.text_box2{
+	width:150px;
+}
+.text_box2 input[type="button"]{
+	margin:0 auto;
+	width: 140px;
+}
+
+.firstcon_button{
+	background-color: #64B883;
+	border-radius : 5px;
+	border: none;
+}
+
+
+
+.second_container{
+	display: flex; 
+	width: 1260px;
+
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;
+
+	flex-direction: column;
+}
+
+.bigDiv{
+    display: flex;
+    width: 1260px;
+    height: 340px;
+    margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border:2px solid #ECD9BC;
+	border-radius: 5px;
+}
+
+.book_container {
+ 	display: flex;
+	width: 1260;
+    height: 300px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;	
+}
+
+.book_image {
+	margin-left:50px;
+    width: 200px;
+}
+
+.book_image img{
+	width:200px;
+	height:300px;
+	object-fit: cover;
+}
+
+.book_table {
+    width: 1000px;
+}
+
+.book_table table {
+    border-collapse: collapse;
+    width: 800px;
+	height: 300px;
+    margin: 0 auto;
+}
+
+.book_table td {
+    width: 150px;
+}
+
+.book_table th {
+    width: 100px;
+    text-align: center;
+    background-color: #E7F3E8;
+}
+
+.book_table td, th{
+    border: 1px solid #A0CAB0;
+}
+
+.book_table th:first-child, .book_table td:first-child{
+	border-left: none;
+}
+.book_table th:last-child, .book_table td:last-child{
+	border-right: none;
+}
+
+
+
+.third_container{
+	display: flex;
+	margin: 0 auto;
+	width:1260px;
+
+	padding:10px;
+	box-sizing: border-box;
+}
+
+.button_box{
+	display: flex;
+	height: 50px;
+	width: 700px;
+	margin: auto;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.button_box1, .button_box2, .button_box4, .button_box5{
+	height: 40px;
+}
+
+.button_box3{
+	display: flex;
+	height: 40px;
+}
+
+/*.button_inbox{
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.button_box1 input, .button_box2 input, .button_box4 input, .button_box5 input{
+	margin-right: 2px;
+	margin-left: 2px;
+}*/
+
+.button_box input[type="button"]{
+	margin-right:2px;
+	margin-left:2px;
+	border:none;
+	border-radius : 5px;
+	background-color: #64B883;
+}
+
