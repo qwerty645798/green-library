@@ -1,13 +1,14 @@
-package com.library.repository;
+package com.library.repository.user;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.library.dto.UserLoginDto;
+import com.library.dto.user.UserLoginDto;
 
 @Repository
 public class UserLoginRepository {
@@ -22,8 +23,11 @@ public class UserLoginRepository {
                 UserLoginDto user = new UserLoginDto();
                 user.setUserId(rs.getString("user_id"));
                 user.setUserPass(rs.getString("user_pass"));
+
                 return user;
             }
         }, userId);
     }
+
 }
+

@@ -1,4 +1,4 @@
-package com.library.dto;
+package com.library.dto.user;
 
 public class UserReserveDto {
 

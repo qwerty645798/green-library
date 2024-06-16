@@ -26,19 +26,19 @@
 		<table style="border-collapse:collapse;">
 			<tr>
 				<td class="text"><div>이름</div></td>
-				<td class="input">${userName}</td>
+				<td class="input">${user.name}</td>
 			</tr>
 			<tr>
 				<td class="text"><div>생년월일</div></td>
-				<td class="input">${userBirth}</td>
+				<td class="input">${user.birth}</td>
 			</tr>
 			<tr>
 				<td class="text"><div>아이디</div></td>
-				<td class="input">${userId}</td>
+				<td class="input">${user.id}</td>
 			</tr>
 			<tr>
 				<td class="text"><div>비밀번호</div></td>
-				<td class="input"><input type="text" name="#" class="middle">
+				<td class="input"><input type="text" name="userPass" class="middle">
 					<br>
 					<div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합)
 					<br>
@@ -50,15 +50,15 @@
 			</tr>
 			<tr>
 				<td class="text"><div>비밀번호 확인</div></td>
-				<td class="input"><input type="password" name="#" class="middle"></td>
+				<td class="input"><input type="password" class="middle"></td>
 			</tr>
 			<tr>
 				<td class="text"><div>휴대폰번호</div></td>
-				<td class="input"><input type="text" name="#" class="brief"> - <input type="text" name="#" class="brief"> - <input type="text" name="#" class="brief"></td>
+				<td class="input"><input type="text" name="phone" class="brief"> - <input type="text" name="#" class="brief"> - <input type="text" name="#" class="brief"></td>
 			</tr>
 			<tr>
 				<td class="text"><div>이메일</div></td>
-				<td class="input"><input type="text" name="#" class="short"> @ <input type="text" name="#" class="short"></td>
+				<td class="input"><input type="text" name="emailFront" class="short"> @ <input type="text" name="emailBack" class="short"></td>
 			</tr>
 			<tr>
 				<td colspan="2" style="border:none;text-align:center;"><input type="submit" value="확인" style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></td>

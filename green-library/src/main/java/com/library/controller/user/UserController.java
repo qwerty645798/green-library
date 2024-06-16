@@ -1,13 +1,21 @@
-package com.library.controller;
+package com.library.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import com.library.service.UserLoginService;
+import com.library.dto.user.UserDto;
+import com.library.service.user.UserInfoModificationService;
+import com.library.service.user.UserInfoService;
+import com.library.service.user.UserLoginService;
+
+import jakarta.validation.Valid;
+
 
 @Controller
 //@RequestMapping("/user")
@@ -15,12 +23,8 @@ public class UserController {
 	
 	@Autowired
 	private UserLoginService userLoginService;
-	
-	/*
-	 * Authentication authentication =
-	 * SecurityContextHolder.getContext().getAuthentication(); 
-	 * String id = authentication.getName();
-	 */
+
+
 	
 	@GetMapping("/userAgreement")
 	public String userAgreement() {
@@ -47,10 +51,9 @@ public class UserController {
 		return "user/userFindingAlt";
 	}
 	
-	@GetMapping("/userInfoModification")
-	public String userInfoModification() {
-		return "user/userInfoModification";
-	}
+
+	
+
 	
 	@GetMapping("/userUseInformation")
 	public String userUseInformation() {	
@@ -72,16 +75,35 @@ public class UserController {
 		return "user/userInquiryCreate";
 	}
 	
+
+	@Autowired
+	private UserInfoService userInfoService;
+	
 	@GetMapping("/userInfo")
 	public String userInfo (Model model) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
-		String id = authentication.getName();
-		//UserDetailsDto userDto = userService.getUserDetails(id);
-    	//model.addAttribute("book", userDto);
-    	return "bookDetail";
-		//return "user/userInfo";
+		UserDto userDto = userInfoService.getUserDetails();
+    	model.addAttribute("user", userDto);
+		return "user/userInfo";
 	}
 	
-	//@GetMapping("/logout")
+	@GetMapping("/userInfoModification")
+	public String userInfoModification(Model model) {
+		UserDto userDto = userInfoService.getUserDetails();
+    	model.addAttribute("user", userDto);
+		return "user/userInfoModification";
+	}
 	
+	@Autowired
+	private UserInfoModificationService userInfoModificationService;
+	
+	/*
+	 * @PostMapping("/userInfoModification-perform") public String
+	 * userInfoModificationPerform(@ModelAttribute("user") @Valid UserDto userDto,
+	 * BindingResult result) { if (result.hasErrors()) { return
+	 * "userInfoModification"; }
+	 * 
+	 * userInfoModificationService.update(userDto); return
+	 * "redirect:/registration?success"; }
+	 */
+
 }

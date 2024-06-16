@@ -8,15 +8,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>announceDetail</title>
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/reset.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/adminHeader.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/adminFooter.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/style.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/announDetail.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/announDetail.css">
     </head>
 
     <body>
-        <header class="header" id="header"></header>
+    <jsp:include page="../../public/adminHeader.jsp"></jsp:include>
         <main>
             <section class="banner">
                 <h3>공지 상세</h3>
@@ -72,7 +72,7 @@
                 </div>
             </section>
         </main>
-        <footer class="footer" id="footer"></footer>
+    <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
     </body>
 
 </html>
