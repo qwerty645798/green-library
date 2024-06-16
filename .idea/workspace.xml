@@ -5,34 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0af4c74-9d7a-4f21-9fcf-804446e66ba9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/green-library.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminHeader/adminHeader.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminHeader/adminHeader.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminIndex/adminIndex.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminIndex/adminIndex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminInfo/adminInfo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminInfo/adminInfo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminLogin/adminLogin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminLogin/adminLogin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announManage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announManage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announceDetail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/book/bookManage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/inquiry/inquiryManage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/user/userManage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/CREATE.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/INSERT.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/callHeader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/reset.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +197,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718516738268</updated>
       <workItem from="1718516741811" duration="3502000" />
-      <workItem from="1718520372740" duration="1403000" />
+      <workItem from="1718520372740" duration="3217000" />
     </task>
     <servers />
   </component>
