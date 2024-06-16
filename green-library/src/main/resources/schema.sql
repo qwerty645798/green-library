@@ -94,7 +94,7 @@ CREATE TABLE announcements (
     announce_title VARCHAR2(50),
     writer_id VARCHAR2(20) REFERENCES admins(admin_id),
     write_date DATE,
-    file_path VARCHAR2(255),
+    fileName VARCHAR2(255),
     contents VARCHAR2(500),
     view_count NUMBER(10)
 );

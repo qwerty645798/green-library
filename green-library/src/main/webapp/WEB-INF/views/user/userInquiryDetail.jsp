@@ -72,6 +72,16 @@ h2{
 						<div class="text"></div>
 					</td>
 				</tr>
+				<tr>
+					<td class="td1">답변</td>
+					<td class="td2"></td>
+				</tr>
+				<tr>
+					<td class="td1">내용</td>
+					<td class="td2">
+						<div class="text"></div>
+					</td>
+				</tr>
 			</table>
 		</div>
 	</main>
