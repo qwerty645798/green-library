@@ -11,7 +11,7 @@
 <link href="css/userAgreement.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="../index/header.jsp" />
+	<jsp:include page="../index/header1.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">회원정보수정</div>
