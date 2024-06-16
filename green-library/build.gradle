@@ -26,7 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-tomcat'
     
 	//Spring Boot Starter Security
-	//implementation 'org.springframework.boot:spring-boot-starter-security:3.3.0'
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.3.0'
     // JSP Support
     
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
