@@ -1,0 +1,35 @@
+@import "./css/var.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'NotoKR';
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+    font-weight: 500;
+    font-style: normal;
+}
+
+main {
+    background-color: #dadada;
+    /* background-color: var(--red); */
+    padding-left: 20px;
+    color: #000000;
+}
+
+main .banner h3 {
+    font-size: 2rem;
+    background-color: #5a7a9b;
+    padding: 10px;
+    padding-top: 20px;
+    color: #ffffff;
+}
+
+main .banner p {
+    font-size: 1.2rem;
+    background-color: #6b8fb4;
+    color: #000000;
+    padding: 7px 5px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2c3e50;
+    border-radius: 0px 0px 0px 10px;
+}
