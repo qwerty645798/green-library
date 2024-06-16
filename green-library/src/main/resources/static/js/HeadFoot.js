@@ -2,7 +2,7 @@
 function comeHeader(){
     let xhr = new XMLHttpRequest();
 
-    xhr.open('GET', '/views/index/header.html', true);
+    xhr.open('GET', '/views/index/header.jsp', true);
     xhr.send();
 
     xhr.onload = function (){
@@ -13,7 +13,7 @@ function comeHeader(){
 function comeFooter(){
     let xhr = new XMLHttpRequest();
 
-    xhr.open('GET', '/views/index/footer.html', true);
+    xhr.open('GET', '/views/index/footer.jsp', true);
     xhr.send();
 
     xhr.onload = function (){

@@ -110,5 +110,9 @@ public class MainController {
 		return "schedule";
 	}
 	
-	
+	//test
+	@GetMapping("/inquiryTest")
+	public String inquiryTest () {
+		return "inquiryTest";
+	}
 }

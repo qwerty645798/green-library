@@ -1,8 +1,11 @@
-body{
+/* body{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}   */
+.mainPage{
+    background-color: lemonchiffon;
 }
 .bookSearchText{
     display: flex;
@@ -10,18 +13,36 @@ body{
     justify-content: center;
     align-items: center;
 }
-input[text]{
+.customSearchform{
     width: 768px;
-    height: 10px;
+    height: 40px;
+    margin-top: 100px;
+    text-align: right;
+    cursor: pointer;
+    border: 4px solid #ecd9bc;
+    background-color: #eeeae2;
 }
-.searchArea{
+.searchSel{
+
+}
+input[type=text]{
+    visibility: hidden;
+}
+/* .searchArea{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 768px;
-    height: 10px;
-    background-color: lightgray;
+    height: 30px;
+} */
+input[type=button]{
+    width:70px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #6c5a3f;
 }
 .quickBundle{
     display: flex;
@@ -39,23 +60,45 @@ input[text]{
     border-radius: 20px;
     border: 10px solid #ecd9bC;
     font-weight: bold;
+    cursor: pointer;
     background-color: white;
 }
-.newPopular{
+.logoChg{
+    visibility: hidden;
+    background-color: green;
+    opacity: 0.5;
+}
+.quickPage:hover{
+    visibility: visible;
+}
+.movingBook{
+    width:200px;
+    height:255px;
+    filter: drop-shadow(0px 2px 5px black);
+}
+.bookSwipe{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center; 
+    background-color: mistyrose;
 }
 .newBooks{
-    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 960px;
     height: 300px;
     margin: 50px;
     background-color: mediumaquamarine;
 }
 .popularBooks{
-    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 960px;
     height: 300px;
     margin: 50px;
     background-color: mediumaquamarine;
