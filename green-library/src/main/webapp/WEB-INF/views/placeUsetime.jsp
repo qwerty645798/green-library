@@ -21,8 +21,8 @@
         </div>
     </div>
 
-    <div class="noname">
-        <div class="usetimePage">
+    <div class="usetimePage1">
+        <div class="usetimePage2">
             <table>
                 <tr>
                     <td class="itemBold">장소/계절</td>
