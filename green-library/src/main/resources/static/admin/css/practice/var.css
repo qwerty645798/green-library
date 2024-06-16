@@ -1,0 +1,8 @@
+/* 변수 */
+:root {
+    --button-default-back: #ffffff;
+    --button-default-color: #2c3e50;
+    --button-click-back: #2c3e50;
+    --button-click-color: #ffffff;
+    --mainColor: #2c3e50;
+}

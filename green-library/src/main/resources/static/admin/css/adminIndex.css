@@ -1,0 +1,153 @@
+/* default */
+body {
+    font-size: 1.5rem;
+    display: flex;
+}
+
+main {
+    margin: 0 auto;
+    padding-top: 40px;
+    width: 850px;
+}
+
+/* clock */
+
+/* Google fonts import link */
+
+
+.clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #000000;
+
+    margin-left: 520px;
+    margin-bottom: 30px;
+    padding-right: 40px;
+
+    height: 100px;
+    width: 300px;
+    background: #c3aac5;
+    border-radius: 12px;
+    position: relative;
+}
+
+section .time {
+    display: flex;
+    align-items: center;
+}
+
+.time .time-colon {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.time .time-colon .am_pm {
+    position: absolute;
+    top: 0;
+    right: -50px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.time .time-colon .time-text {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: #F0F8FF;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.time .time-colon .time-text,
+.time .time-colon .colon {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.time .time-colon .colon {
+    font-size: 40px;
+    margin: 0 10px;
+}
+
+
+
+/* link box */
+.indexContainer {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.indexContainer .boxWrap {
+    margin-right: 20px;
+    flex-direction: column;
+}
+
+.indexContainer .box {
+    min-width: 200px;
+    min-height: 200px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.indexContainer .box * {
+    cursor: pointer;
+}
+
+.indexContainer .boxWrap .buying {
+    background-color: #a29bfe;
+}
+
+.indexContainer .boxWrap .info {
+    background-color: #76bcf5;
+}
+
+.indexContainer .boxWrap .users {
+    background-color: #e6c661;
+}
+
+.indexContainer .boxWrap .others {
+    background-color: #93da2a;
+}
+
+.indexContainer .boxWrap .inquiry {
+    background-color: #74b9ff;
+}
+
+.indexContainer .boxWrap .announce {
+    background-color: #ff7675;
+}
+
+.indexContainer .boxWrap .userLink {
+    background-color: #00b894;
+    margin: 10px 0;
+    min-height: 400px;
+}
+
+.indexContainer .box div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.indexContainer .box div img {
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+
+.indexContainer .box div p {
+    text-align: center;
+}

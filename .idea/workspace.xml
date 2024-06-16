@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d0af4c74-9d7a-4f21-9fcf-804446e66ba9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/green-library.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminHeader/adminHeader.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminHeader/adminHeader.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminIndex/adminIndex.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminIndex/adminIndex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminInfo/adminInfo.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminInfo/adminInfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminLogin/adminLogin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminLogin/adminLogin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announManage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announManage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announceDetail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/book/bookManage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/inquiry/inquiryManage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/user/userManage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/CREATE.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/INSERT.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/callHeader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/util/reset.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/green-library">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/green-library">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="green-library" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="green-library" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="green-library" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2hwszXuYZfneSGwu5inVWMUwpFc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.Build green-library.executor": "Run",
+    "Gradle.green-library [bootRun].executor": "Run",
+    "Gradle.green-library [bootTestRun].executor": "Run",
+    "Gradle.green-library [dependencies].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.GreenLibraryApplication.executor": "Run",
+    "git-widget-placeholder": "ys",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/vs_code/green-library-project/green-library/src/main/resources/static/admin/css/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\vs_code\green-library-project\green-library\src\main\resources\static\admin\css\public" />
+      <recent name="E:\vs_code\green-library-project\green-library\src\main\webapp\WEB-INF\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\vs_code\green-library-project\green-library\src\main\webapp\WEB-INF\views\admin\public" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.green-library [bootTestRun]">
+    <configuration name="green-library [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/green-library" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="green-library [bootTestRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/green-library" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootTestRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="green-library [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/green-library" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GreenLibraryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="green-library.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.library.GreenLibraryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.green-library [bootTestRun]" />
+        <item itemvalue="Gradle.green-library [bootRun]" />
+        <item itemvalue="Gradle.green-library [dependencies]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0af4c74-9d7a-4f21-9fcf-804446e66ba9" name="Changes" comment="" />
+      <created>1718516738268</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718516738268</updated>
+      <workItem from="1718516741811" duration="3502000" />
+      <workItem from="1718520372740" duration="1403000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

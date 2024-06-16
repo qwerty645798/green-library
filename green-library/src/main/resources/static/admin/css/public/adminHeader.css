@@ -1,0 +1,92 @@
+/* header */
+header {
+    width: 300px;
+    height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+    border-right: 4px solid #1b2633;
+    background-color: #2c3d50;
+    color: #1b2633;
+    font-weight: 700;
+}
+
+/* logo, img */
+header h1 {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+/* btns */
+.accountContainer {
+    padding: 20px;
+    background-color: #dadada;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adminLogo img {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.accountContainer div {
+    display: flex;
+    flex-direction: column;
+}
+
+.accountContainer div p {
+    font-size: 1.1rem;
+    padding-bottom: 20px;
+}
+
+.accountContainer div .btn {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.accountContainer div .btn:last-child {
+    margin-bottom: 0px;
+}
+
+/* nav list*/
+nav {
+    margin-top: 60px;
+    background-color: #4a6588;
+    border: 1px solid #2c3d50;
+
+}
+
+
+.navSection {
+    border: 2px solid #2c3d50;
+    background-color: #dadada;
+}
+
+div h2 {
+    display: flex;
+    padding-top: 10px;
+    background-color: #ffffff;
+    padding-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.navSection ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.navSection li {
+    font-weight: bolder;
+}
+
+.navSection li a {
+    color: #2c3d50;
+    padding-left: 10px;
+    font-weight: 900;
+}
