@@ -8,7 +8,9 @@ VALUES(publisher_idx.NEXTVAL, '출판사1');
 
 -- 유저
 INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
-VALUES('id1', 'pass1', '이름1', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+VALUES('id1', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름1', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+-- 유저 비밀번호(pass1)해싱한값
+
 
 -- 장르
 INSERT INTO genres(genre_id, genre_name) VALUES('000', '총류');
@@ -40,7 +42,7 @@ INSERT INTO admins (admin_id, admin_name, admin_pass, grant_rank) VALUES('system
 
 -- 이후는 JDBC query 작성 참고용으로 작성된 것들 입니다.
 
-INSERT INTO announcements(announcement_id, announce_title, writer_id, write_date, file_path, contents, view_count)
+INSERT INTO announcements(announcement_id, announce_title, writer_id, write_date, fileName, contents, view_count)
 VALUES(announce_idx.NEXTVAL, '첫 공지사항', 'admin1', SYSDATE, 'asdf.hwp', '첫 공지사항 example 작성해봅니다', 0);
 
 INSERT INTO inquiries(inquiry_id, inquiry_title, contents, user_id)

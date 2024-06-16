@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,6 @@
 <link href="css/userLogin.css" type="text/css" rel="stylesheet">
 </head>
 <body> 
-	<!-- <img src="images/wood.png" style="width:99%; height:auto; position:absolute; z-index:-1;"> -->
 	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
@@ -25,10 +25,11 @@
 	</h1>
 	<main style="display:flex; justify-content:center;">
 		
-		<form action="userLogin-perform" method="post">
+		<form action="${pageContext.request.contextPath}/userLogin-perform" method="post">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<div style=" width:550px; height:350px; padding:0px;">
-			<div class="floor"><input type="text" placeholder="아이디" name="#" class="text"><br></div>
-			<div class="floor"><input type="password" placeholder="비밀번호" name="#" class="text"><br></div>
+			<div class="floor"><input type="text" placeholder="아이디" name="userId" class="text"><br></div>
+			<div class="floor"><input type="password" placeholder="비밀번호" name="userPass" class="text"><br></div>
 			<div class="floor"><input type="checkbox" name="#"> 아이디 저장 
 			<div style="width:120px; display:inline-block"> </div> <a href="#">아이디 찾기</a> / <a href="#">비밀번호 초기화</a></div>
 			<div class="floor" style="text-align:center;"><input type="submit" value="로그인" style="color:white; background:#535353; width:120px; height:35px; cursor:pointer;"></div>
