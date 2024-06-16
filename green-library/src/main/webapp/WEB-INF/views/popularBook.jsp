@@ -53,7 +53,7 @@
 				<tr>
 					<!-- form-submit? 아니면 그냥 button?  -->
 					<td colspan="4" class="more_button" style="border:none;">
-						<input type="button" onclick="window.location.href='bookDetail'" value="자세히 보기" class="moreInf">
+						<input type="button" onclick="window.location.href='bookDetail?bookId=2'" value="자세히 보기" class="moreInf">
 					</td> 
 				</tr>
 			</table>
