@@ -49,10 +49,10 @@ public class MainController {
 
 
 	//david
-	@GetMapping("/bookDetail")
+	/*@GetMapping("/bookDetail")
 	public String bookDetail () {
 		return "bookDetail";
-	}
+	}*/
 	
 
 	@GetMapping("/bookLoanExtension")

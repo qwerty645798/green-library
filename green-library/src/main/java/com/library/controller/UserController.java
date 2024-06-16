@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.library.service.UserService;
 
 @Controller
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -78,4 +78,7 @@ public class UserController {
 	public String userInquiryCreate () {
 		return "user/userInquiryCreate";
 	}
+	
+	//@GetMapping("/logout")
+	
 }

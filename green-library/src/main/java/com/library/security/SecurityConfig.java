@@ -1,47 +1,69 @@
 package com.library.security;
 
+//import java.time.Duration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
+import jakarta.servlet.DispatcherType;
+
+
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
-	@Autowired
-	private SecurityUserService service;
-	
-	@Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		
-    // 인가(접근권한) 설정
-    http.authorizeHttpRequests().antMatchers("/").permitAll();
-    http.authorizeHttpRequests().antMatchers("/admin/**").hasRole("ADMIN"); 
-    http.authorizeHttpRequests().antMatchers("/user/**").hasAnyRole("ADMIN", "MEMBER");
-    http.authorizeHttpRequests().antMatchers("/user2/loginSuccess").hasAnyRole("3", "4", "5");
+    @Bean
+    protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+            	.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+                .requestMatchers("/**", "/css/**","/js/**","/image/**").permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+                .anyRequest().authenticated()
+            )
+            .formLogin(form -> form
+                .loginPage("/userLogin")
+                .loginProcessingUrl("/userLogin-perform")
+                .usernameParameter("userId")
+                .passwordParameter("userPass")
+                .defaultSuccessUrl("/", true)
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/userLogin?condition=success")
+                .permitAll()
+            )
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                .sessionFixation().migrateSession()
+                .maximumSessions(1)
+                .maxSessionsPreventsLogin(true)
+            );
+//            .requiresChannel(channel -> channel
+//                .anyRequest().requiresSecure()
+//            )
+//            .headers(headers -> headers
+//                .httpStrictTransportSecurity(hsts -> hsts
+//                    .includeSubDomains(true)
+//                    .preload(true)
+//                    .maxAgeInSeconds(31536000)
+//                )
+//            );
 
-    // 사이트 위변조 요청 방지 기본제공 
-    //http.csrf().disable(); 비활성화코드
-
-    // 로그인 설정
-    http.formLogin()
-    .loginPage("/user2/login")
-    .defaultSuccessUrl("/user2/loginSuccess")
-    .failureUrl("/user2/login?success=100)")
-    .usernameParameter("uid")
-    .passwordParameter("pass");
-		
-    // 로그아웃 설정
-    http.logout()
-    .invalidateHttpSession(true)
-    .logoutRequestMatcher(new AntPathRequestMatcher("/user2/logout"))
-    .logoutSuccessUrl("/user2/login?success=200");
-
-    // 사용자 인증 처리 컴포넌트 서비스 등록
-    http.userDetailsService(service);
-
-    return http.build();
-	}
+        return http.build();
+    }
 
     @Bean
-    public PasswordEncoder PasswordEncoder () {
-    	//return new MessageDigestPasswordEncoder("SHA-256");
-    	return new BCryptPasswordEncoder();
+    protected PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
 
