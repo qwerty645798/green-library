@@ -68,6 +68,7 @@
                             <input type="button" value="대출 연장" onclick="extendEachBook('book1')">&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
     					<!-- 기능 어떻게 넣을 지 몰라서 일단 버튼으로 생성해둠 -->
+    					<!-- books(book_id) - rents(rent_history인듯?) -->
     				</tr>
     			</table>
     		</div>

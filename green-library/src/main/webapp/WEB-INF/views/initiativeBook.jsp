@@ -12,6 +12,22 @@
 <link rel="stylesheet" type="text/css" href="css/initiativeBook.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
+
+<style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(function(page) {
+                page.classList.add(' hidden');
+            });
+            
+            document.getElementById('page_' + pageNumber).classList.remove(' hidden');
+        }
+    </script>
+    
 </head>
 <body>
 
@@ -23,22 +39,89 @@
     </div>
 </div>
 
-<main><!-- 현재 한 줄에 2권, 3줄만 만들어둠 -->
+<main>
 
-<c:forEach var="outerIndex" begin="0" end="3">
-    <div class="image_container">
-        <c:forEach var="innerIndex" begin="0" end="1">
-            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
-            <c:if test="${index < items.size()}">
-                <div class="image_box">
-                    <a href="bookDetail?bookId=${items[index].book_id}">
-                        <img src="images/${items[index].img}">
-                    </a>
-                </div>
-            </c:if>
-        </c:forEach>
-    </div>
-</c:forEach>
+
+<div id="page_1" class="page">
+	<c:forEach var="outerIndex" begin="0" end="3">
+	    <div class="image_container">
+	        <c:forEach var="innerIndex" begin="0" end="1">
+	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+	            <c:if test="${index < items.size()}">
+	                <div class="image_box">
+	                    <a href="bookDetail?bookId=${items[index].book_id}">
+	                        <img src="images/${items[index].img}">
+	                    </a>
+	                </div>
+	            </c:if>
+	        </c:forEach>
+	    </div>
+	</c:forEach>
+</div>
+
+<div id="page_2" class="page hidden">
+	<c:forEach var="outerIndex" begin="0" end="3">
+	    <div class="image_container">
+	        <c:forEach var="innerIndex" begin="0" end="1">
+	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+	            <c:if test="${index < items.size()}">
+	                <div class="image_box">
+	                    <a href="bookDetail?bookId=${items[index].book_id}">
+	                        <img src="images/${items[index].img}">
+	                    </a>
+	                </div>
+	            </c:if>
+	        </c:forEach>
+	    </div>
+	</c:forEach>
+</div>
+
+<div id="page_3" class="page hidden">
+	<c:forEach var="outerIndex" begin="0" end="3">
+	    <div class="image_container">
+	        <c:forEach var="innerIndex" begin="0" end="1">
+	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+	            <c:if test="${index < items.size()}">
+	                <div class="image_box">
+	                    <a href="bookDetail?bookId=${items[index].book_id}">
+	                        <img src="images/${items[index].img}">
+	                    </a>
+	                </div>
+	            </c:if>
+	        </c:forEach>
+	    </div>
+	</c:forEach>
+</div>
+
+	
+<div class="button_box">
+	<input type="button" value="1" onclick="showPage(1)">
+	<input type="button" value="2" onclick="showPage(2)">
+	<input type="button" value="3" onclick="showPage(3)">
+</div>
+	
+	<!-- 
+		<c:forEach var="outerIndex" begin="0" end="3">
+	    <div class="image_container">
+	        <c:forEach var="innerIndex" begin="0" end="1">
+	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+	            <c:if test="${index < items.size()}">
+	                <div class="image_box">
+	                    <a href="bookDetail?bookId=${items[index].book_id}">
+	                        <img src="images/${items[index].img}">
+	                    </a>
+	                </div>
+	            </c:if>
+	        </c:forEach>
+	    </div>
+	</c:forEach>
+	 -->
+	
+	
+	
+
+
+
 
 </main>
 
