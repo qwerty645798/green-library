@@ -1,9 +1,4 @@
-/* body{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-} */
+
 .useTable{
     display: flex;
     flex-direction: column;
