@@ -1,12 +1,12 @@
-package com.library.service;
+package com.library.service.assets;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.library.dto.InitiativeBookDto;
-import com.library.repository.InitiativeBookRepository;
+import com.library.dto.assets.InitiativeBookDto;
+import com.library.repository.assets.InitiativeBookRepository;
 
 @Service
 public class InitiativeBookService {

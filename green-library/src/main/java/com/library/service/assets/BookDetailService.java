@@ -1,10 +1,10 @@
-package com.library.service;
+package com.library.service.assets;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.library.dto.BookDetailDto;
-import com.library.repository.BookDetailRepository;
+import com.library.dto.assets.BookDetailDto;
+import com.library.repository.assets.BookDetailRepository;
 
 @Service
 public class BookDetailService {
