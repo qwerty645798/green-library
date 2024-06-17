@@ -64,10 +64,7 @@ public class MainController {
 		return "popularBook";
 	}
 	
-	@GetMapping("/initiativeBook")
-	public String initiativeBook () {
-		return "initiativeBook";
-	}
+	
 	
 	@GetMapping("/dataSearch")
 	public String dataSearch () {

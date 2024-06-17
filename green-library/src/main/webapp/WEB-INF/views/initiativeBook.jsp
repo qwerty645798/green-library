@@ -13,16 +13,31 @@
 
 <script>
 function setBookId(){
-	let images = document.getElementsByTagName("img");
+	const imgLinks = document.querySelectorAll('.image_box a');
 	
-	for(let i= 0; i<images.length; i++){
-		let imgSrc = images[i].getAttribute("src");
-		let bookId = "";
+	let imgBookIdMap ={
+		'exex.jpg' : "${bookId1}",
+		'file.png' : "${bookId2}"
+	};
+	
+	imgLinks.forEach(function(link){
+		const img = link.querySelector("img");
+		if(img){
+			const imgSrc = img.getAttribute("src");
+			
+			for(let key in imgBookIdMap){
+				if(imgSrc.includes(key)){
+					link.href += imgBookIdMap[key];
+					break;
+				}
+			}
+		}
 		
-		if(imgSrc)
 	}
+	)
 }
 
+window.onload = setBookId;
 </script>
 
 </head>
@@ -41,12 +56,12 @@ function setBookId(){
 <!-- 한줄 기본 폼 -->
 <div class="image_container">
 	<div class="image_box">
-		<a href="bookDetail?bookId=2"><!-- 밑에 이미지 파일의 exex.jpg부분을 데이터베이스의 img와 비교해 일치하는 데이터의 아이디로 -->
+		<a href="bookDetail?bookId="><!-- 밑에 이미지 파일의 exex.jpg부분을 데이터베이스의 img와 비교해 일치하는 데이터의 아이디로 -->
 			<img src="images\exex.jpg">
 		</a>
 	</div>
 	<div class="image_box">
-		<a href="bookDetail?bookId=1">
+		<a href="bookDetail?bookId=">
 			<img src="images\file.png">
 		</a>
 	</div>
@@ -55,12 +70,12 @@ function setBookId(){
 <!-- 한줄 기본 폼 -->
 <div class="image_container">
 	<div class="image_box">
-		<a href="bookDetail?bookId=2">
+		<a href="bookDetail?bookId=">
 			<img src="images\exex.jpg">
 		</a>
 	</div>
 	<div class="image_box">
-		<a href="bookDetail?bookId=1">
+		<a href="bookDetail?bookId=">
 			<img src="images\file.png">
 		</a>
 	</div>
@@ -69,12 +84,12 @@ function setBookId(){
 <!-- 한줄 기본 폼 -->
 <div class="image_container">
 	<div class="image_box">
-		<a href="bookDetail?bookId=2">
+		<a href="bookDetail?bookId=">
 			<img src="images\exex.jpg">
 		</a>
 	</div>
 	<div class="image_box">
-		<a href="bookDetail?bookId=1">
+		<a href="bookDetail?bookId=">
 			<img src="images\file.png">
 		</a>
 	</div>

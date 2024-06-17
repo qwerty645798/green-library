@@ -1,4 +1,3 @@
-
 package com.library.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.library.dto.BookDetailDto;
 import com.library.service.BookDetailService;
 
-
 @Controller
-public class BookDetailController {
-	
+public class BookController {
+
 	@Autowired
 	private BookDetailService bookDetailService;
 	
@@ -28,6 +26,12 @@ public class BookDetailController {
     	model.addAttribute("book", bookDetail);
     	return "bookDetail";
     }
-
-	
+    
+    
+    @GetMapping("/initiativeBook")
+	public String initiativeBook () {
+		return "initiativeBook";
+	}
+    
+    
 }
