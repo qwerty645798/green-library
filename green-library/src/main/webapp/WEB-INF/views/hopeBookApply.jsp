@@ -7,12 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link href="/reset/reset.css" type="text/css" rel="stylesheet">
-        <link href="/CSS/hopeBookApply.css" type="text/css" rel="stylesheet">
-        <link href="/CSS/nav.css" type="text/css" rel="stylesheet">
+        <link href="/css/public/header.css" type="text/css" rel="stylesheet">
+		<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
+        <link href="/css/hopeBookApply.css" type="text/css" rel="stylesheet">
+        <link href="/css/nav.css" type="text/css" rel="stylesheet">
     </head>
     <body>
     
-        <header id="header" class="header"></header>
+        <jsp:include page="index/header.jsp" />
     
           <!-- 배너 시작 -->
           <div class="bannerBgr">
@@ -26,7 +28,7 @@
             <div class="hopeBookPage2">
             
             <form class="requestForm" action="" name="">
-                *는 필수 입력 항목입니다.<br><br>
+                <span class="star">*는 필수 입력 항목입니다.</span><br><br>
     
                 <table>
     
@@ -77,18 +79,7 @@
                         <td><input type="text" id="phone" placeholder="-를 제외하고 입력해주세요."></td>
                     </tr>
     
-                    <tr>
-                        <td class="hopeBook">첨부파일</td>
-                        <td>
-                            <label>
-                                <div id="customText" class="customText" onchange="fileText()">
-                                    <input type="file" id="bookImg">
-                                    <div class="customBtn"></div>
-                                </div>
-                                
-                            </label>
-                        </td>
-                    </tr>
+              
                 </table>
     
                 <br>
@@ -103,10 +94,8 @@
             </div>
         </div>
         
-    
-        <footer id="footer" class="footer"></footer>
-    
-        <script defer src="/JS/hopeBookApply.js"></script>
+    <jsp:include page="index/footer.jsp" />
+  
     
     </body>
     </html>

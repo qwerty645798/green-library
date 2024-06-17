@@ -18,9 +18,8 @@
             <p>locate: 서울특별시 강남구 테헤란로5길 24 <br>
             대표전화: 010-0000-0000 <br>
             FAX: 02-111-1111<br><br></p>
-            <p class="footCopyright"><a href="https://kr.freepik.com/author/freepik/icons/basic-rounded-lineal_4#from_element=families_block">Freepik 제작 아이콘</a></p>
+            
             <p class="footCopyright">copyright(c) GREENLIBRARY. All rights reserved.</p>
-            <div class="footerLogo"></div>
     
         </div>
     </div>

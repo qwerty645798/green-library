@@ -49,12 +49,6 @@ public class MainController {
 
 
 	//david
-	/*@GetMapping("/bookDetail")
-	public String bookDetail () {
-		return "bookDetail";
-	}*/
-	
-
 	@GetMapping("/bookLoanExtension")
 	public String bookLoanExtension () {
 		return "bookLoanExtension";
@@ -70,10 +64,7 @@ public class MainController {
 		return "popularBook";
 	}
 	
-	@GetMapping("/initiativeBook")
-	public String initiativeBook () {
-		return "initiativeBook";
-	}
+	
 	
 	@GetMapping("/dataSearch")
 	public String dataSearch () {

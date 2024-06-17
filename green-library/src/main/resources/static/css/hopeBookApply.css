@@ -39,6 +39,11 @@ tr, td{
 span{
     color: red;
 }
+.star{
+	position: relative;
+	left: 100px;
+	top: 100px;
+}
 input[type=text]{
     width: 500px;
     height: 30px;
