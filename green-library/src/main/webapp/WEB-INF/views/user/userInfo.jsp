@@ -27,26 +27,26 @@
                 <table>
                     <tr>
                         <td class="infoItems">이름</td>
-                        <td></td>
+                        <td>${user.name }</td>
                         <td class="infoItems">아이디</td>
-                        <td></td>
+                        <td>${user.id }</td>
                     </tr>
                     <tr>
                         <td class="infoItems">생년월일</td>
-                        <td></td>
+                        <td>${user.birth }</td>
                         <td class="infoItems">휴대폰 번호</td>
-                        <td></td>
+                        <td>${user.phone }</td>
                     </tr>
                     <tr>
                         <td class="infoItems">이메일 주소</td>
-                        <td colspan="3"></td>
+                        <td colspan="3">${user.email }</td>
                     </tr>
                 </table>
                
             </div>
 
             <div class="infoBtn">
-                <input type="button" value="회원정보 수정">
+                <input type="button" value="회원정보 수정" onclick="location='userInfoModification'">
                 <input type="button" value="회원 탈퇴">
             </div>
         </div>
