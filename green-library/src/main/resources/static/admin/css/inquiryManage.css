@@ -53,13 +53,17 @@
 .totalContainer .searchContainer .inputBox button {
     width: 36px;
     height: 28px;
-    background: url('../../util/ico-ipt-sh.png') no-repeat 50% 50%;
+    background: url('../assets/imgs/ico-ipt-sh.png') no-repeat 50% 50%;
     font-size: 0;
     border: 0;
     background-color: #ffffff;
     border-radius: 0 5px 5px 0;
 }
-
+select:focus,
+input:focus,
+button:focus {
+    outline: none;
+}
 /* 검색 결과물 */
 .totalContainer .outputBoard {
     background-color: #77a0c9;
@@ -98,7 +102,6 @@
 }
 
 .totalContainer .outputBoard .results .btnWrap input {
-    background-color: var(--button-default-back);
     color: var(--button-default-color);
     border: 1px solid #2c3e50;
     width: 130px;
@@ -231,7 +234,7 @@
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child .correction {
-    background-image: url('../../util/write.png');
+    background-image: url('../assets/imgs/write.png');
 }
 
 /* paging */
@@ -257,10 +260,10 @@
 }
 
 .totalContainer .paging .back {
-    background-image: url('../../util/arrow.png');
+    background-image: url('../assets/imgs/arrow.png');
 }
 
 .totalContainer .paging .next {
-    background-image: url('../../util/arrow.png');
+    background-image: url('../assets/imgs/arrow.png');
     transform: rotate(180deg);
 }

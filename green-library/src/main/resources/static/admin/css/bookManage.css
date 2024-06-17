@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 .totalContainer {
     margin-right: 20px;
 }
@@ -58,11 +54,17 @@
 .totalContainer .searchContainer .inputBox button {
     width: 36px;
     height: 26px;
-    background: url('../../util/ico-ipt-sh.png') no-repeat 50% 50%;
+    background: url('../assets/imgs/ico-ipt-sh.png') no-repeat 50% 50%;
     font-size: 0;
     border: 0;
     background-color: #ffffff;
     border-radius: 0 5px 5px 0;
+}
+
+select:focus,
+input:focus,
+button:focus {
+    outline: none;
 }
 
 /* 검색 결과물 */
@@ -101,7 +103,6 @@
 }
 
 .totalContainer .outputBoard .results .btnWrap input {
-    background-color: var(--button-default-back);
     color: var(--button-default-color);
     border: 1px solid #2c3e50;
     width: 80px;
@@ -243,16 +244,16 @@
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child .see {
-    background-image: url('../../util/see.png');
+    background-image: url('../assets/imgs/see.png');
     background-size: 50px;
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child .correction {
-    background-image: url('../../util/pencil.png');
+    background-image: url('../assets/imgs/pencil.png');
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child .return {
-    background-image: url('../../util/return.png');
+    background-image: url('../assets/imgs/return.png');
 }
 
 /* paging */
@@ -278,10 +279,10 @@
 }
 
 .totalContainer .paging .back {
-    background-image: url('../../util/arrow.png');
+    background-image: url('../assets/imgs/arrow.png');
 }
 
 .totalContainer .paging .next {
-    background-image: url('../../util/arrow.png');
+    background-image: url('../assets/imgs/arrow.png');
     transform: rotate(180deg);
 }

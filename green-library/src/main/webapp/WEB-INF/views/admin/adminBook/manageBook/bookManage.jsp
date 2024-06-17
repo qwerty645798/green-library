@@ -8,15 +8,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>pronunciation</title>
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/reset.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/adminHeader.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/adminFooter.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/style.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/bookManage.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/bookManage.css">
     </head>
 
     <body>
-        <header class="header" id="header"></header>
+    <jsp:include page="../../public/adminHeader.jsp"></jsp:include>
         <main>
             <section class="banner">
                 <h3>장서관리</h3>
@@ -40,7 +40,7 @@
                 <!-- board -->
                 <div class="outputBoard">
                     <div class="results">
-                        <p>result : ${개}</p>
+                        <p>result : </p>
                         <select name="" id="">
                             <option value="">5개씩</option>
                             <option value="">10개씩</option>
@@ -253,13 +253,13 @@
                 <div class="paging">
                     <div class="paging">
                         <input class="back" type="button">
-                        <p>${page} of ${total}</p>
+                        <p>page of total</p>
                         <input class="next" type="button">
                     </div>
                 </div>
             </section>
         </main>
-        <footer class="footer" id="footer"></footer>
+    <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
     </body>
 
 </html>

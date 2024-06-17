@@ -5,7 +5,6 @@ main {
 }
 
 main .mainContainer {
-    width: 100% - 20px;
     height: 790px;
     display: flex;
     flex-direction: row;
@@ -73,7 +72,7 @@ main .mainContainer .leftContainer {
 .mainContainer .leftContainer .searchContainer div .inputBox button {
     width: 26px;
     height: 29px;
-    background: url('../../util/ico-ipt-sh.png') no-repeat 50% 50%;
+    background: url('../assets/imgs/ico-ipt-sh.png') no-repeat 50% 50%;
     font-size: 0;
     border: 0;
     background-color: #ffffff;
@@ -133,11 +132,11 @@ button:focus {
 }
 
 .mainContainer .leftContainer .resultContainer .results .paging .back {
-    background-image: url('../../util/arrow.png');
+    background-image: url('../assets/imgs/arrow.png');
 }
 
 .mainContainer .leftContainer .resultContainer .results .paging .next {
-    background-image: url('../../util/arrow.png');
+    background-image: url('../assets/imgs/arrow.png');
     transform: rotate(180deg);
 }
 
@@ -190,7 +189,7 @@ button:focus {
     border-radius: 3px;
 
     border: 0.5px solid #dadada;
-    background-image: url('../../util/pencil.png');
+    background-image: url('../assets/imgs/pencil.png');
 }
 
 .mainContainer .leftContainer table td:last-child input:focus {
