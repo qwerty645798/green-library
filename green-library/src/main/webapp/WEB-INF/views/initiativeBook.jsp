@@ -25,19 +25,19 @@
 
 <main><!-- 현재 한 줄에 2권, 3줄만 만들어둠 -->
 
-<c:forEach var="item" items="${items}">
-<div class="image_container">
-   <div class="image_box">
-      <a href="bookDetail?bookId=${item.book_id}">
-         <img src="images/${item.img}">
-      </a>
-   </div>
-   <div class="image_box">
-      <a href="bookDetail?bookId=${item.book_id}">
-         <img src="images/${item.img}">
-      </a>
-   </div>
-</div>
+<c:forEach var="outerIndex" begin="0" end="2">
+    <div class="image_container">
+        <c:forEach var="innerIndex" begin="0" end="1">
+            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+            <c:if test="${index < items.size()}">
+                <div class="image_box">
+                    <a href="bookDetail?bookId=${items[index].book_id}">
+                        <img src="images/${items[index].img}">
+                    </a>
+                </div>
+            </c:if>
+        </c:forEach>
+    </div>
 </c:forEach>
 
 </main>
