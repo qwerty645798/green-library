@@ -12,6 +12,8 @@
 <link rel="stylesheet" type="text/css" href="css/initiativeBook.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
+
+
 </head>
 <body>
 
@@ -23,22 +25,47 @@
     </div>
 </div>
 
-<main><!-- 현재 한 줄에 2권, 3줄만 만들어둠 -->
+<main>
 
-<c:forEach var="outerIndex" begin="0" end="3">
-    <div class="image_container">
-        <c:forEach var="innerIndex" begin="0" end="1">
-            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
-            <c:if test="${index < items.size()}">
-                <div class="image_box">
-                    <a href="bookDetail?bookId=${items[index].book_id}">
-                        <img src="images/${items[index].img}">
-                    </a>
-                </div>
-            </c:if>
-        </c:forEach>
-    </div>
-</c:forEach>
+
+<div class="first_page">
+</div>
+
+<div class="second_page">
+</div>
+
+<div class="third_page">
+</div>
+
+	
+<div class="button_box">
+	<input type="button" value="1">
+	<input type="button" value="2">
+	<input type="button" value="3">
+</div>
+	
+	<!-- 
+		<c:forEach var="outerIndex" begin="0" end="3">
+	    <div class="image_container">
+	        <c:forEach var="innerIndex" begin="0" end="1">
+	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+	            <c:if test="${index < items.size()}">
+	                <div class="image_box">
+	                    <a href="bookDetail?bookId=${items[index].book_id}">
+	                        <img src="images/${items[index].img}">
+	                    </a>
+	                </div>
+	            </c:if>
+	        </c:forEach>
+	    </div>
+	</c:forEach>
+	 -->
+	
+	
+	
+
+
+
 
 </main>
 

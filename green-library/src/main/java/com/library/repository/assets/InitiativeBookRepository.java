@@ -18,7 +18,7 @@ public class InitiativeBookRepository {
 	private JdbcTemplate jdbcTemplate;
 	
 	public List<InitiativeBookDto> findBookId() {
-		String sql = "Select book_id, img from (select book_id, img from books order by publication_date desc) where rownum<= 8";
+		String sql = "Select book_id, img from (select book_id, img from books order by publication_date desc) where rownum<= 24";
 		
 		return jdbcTemplate.query(sql, new RowMapper<InitiativeBookDto>() {
 			@Override
