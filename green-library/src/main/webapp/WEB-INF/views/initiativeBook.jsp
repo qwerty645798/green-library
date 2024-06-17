@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,8 +11,6 @@
 
 <link rel="stylesheet" type="text/css" href="css/initiativeBook.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
-
-
 
 </head>
 <body>
@@ -26,47 +25,20 @@
 
 <main><!-- 현재 한 줄에 2권, 3줄만 만들어둠 -->
 
-<!-- 한줄 기본 폼 -->
+<c:forEach var="item" items="${items}">
 <div class="image_container">
-	<div class="image_box">
-		<a href="bookDetail?bookId=21"><!-- 밑에 이미지 파일의 exex.jpg부분을 데이터베이스의 img와 비교해 일치하는 데이터의 아이디로 -->
-			<img src="images\exex.jpg">
-		</a>
-	</div>
-	<div class="image_box">
-		<a href="bookDetail?bookId=1">
-			<img src="images\file.png">
-		</a>
-	</div>
+   <div class="image_box">
+      <a href="bookDetail?bookId=${item.book_id}">
+         <img src="images/${item.img}">
+      </a>
+   </div>
+   <div class="image_box">
+      <a href="bookDetail?bookId=${item.book_id}">
+         <img src="images/${item.img}">
+      </a>
+   </div>
 </div>
-
-<!-- 한줄 기본 폼 -->
-<div class="image_container">
-	<div class="image_box">
-		<a href="bookDetail?bookId=21">
-			<img src="images\exex.jpg">
-		</a>
-	</div>
-	<div class="image_box">
-		<a href="bookDetail?bookId=1">
-			<img src="images\file.png">
-		</a>
-	</div>
-</div>
-
-<!-- 한줄 기본 폼 -->
-<div class="image_container">
-	<div class="image_box">
-		<a href="bookDetail?bookId=21">
-			<img src="images\exex.jpg">
-		</a>
-	</div>
-	<div class="image_box">
-		<a href="bookDetail?bookId=1">
-			<img src="images\file.png">
-		</a>
-	</div>
-</div>
+</c:forEach>
 
 </main>
 
