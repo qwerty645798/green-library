@@ -10,7 +10,9 @@
         
     </head>
     <body>
-    <header id="header" class="header">
+    
+    
+    
       <div class="header1">
 	      <div class="center">
 	        <div class="headerTop">
@@ -20,7 +22,7 @@
 	        </div>
 	      </div>
         
-          <nav>
+          
             <div class="headerBottom">
               <ul id="subMenuTop" class="subMenuTop">
                 <li>도서관 소개</li>
@@ -32,7 +34,7 @@
             </div>
           
             <div class="menuBarBackground">
-              <div id="subMenu" class="testcon"><!-- 테스트용 -->
+              <div id="subMenu" class="subMenu"><!-- 테스트용 -->
                 <ul id="subMenu1" class="menuBar">
                   <li>도서관 비전</li>
                   <li>사업 구조</li>
@@ -76,7 +78,7 @@
               
             </div>
             
-          </nav> 
+         
       </div>
     
      
