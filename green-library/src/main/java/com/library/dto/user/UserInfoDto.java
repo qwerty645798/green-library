@@ -7,5 +7,5 @@ public class UserInfoDto {
 	private String email;
 	private String phone;
 	private String birth;
-//	private String
+	private String
 }
