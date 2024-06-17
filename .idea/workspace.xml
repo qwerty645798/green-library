@@ -5,9 +5,125 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0af4c74-9d7a-4f21-9fcf-804446e66ba9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_classic_1_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_core_1_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_module_jackson_module_parameter_names_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jayway_jsonpath_json_path_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_oracle_database_jdbc_ojdbc8_21_9_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_zaxxer_HikariCP_5_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_micrometer_micrometer_commons_1_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_micrometer_micrometer_observation_1_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_activation_jakarta_activation_api_2_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_annotation_jakarta_annotation_api_2_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_el_jakarta_el_api_5_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_servlet_jakarta_servlet_api_6_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_servlet_jsp_jstl_jakarta_servlet_jsp_jstl_api_3_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_xml_bind_jakarta_xml_bind_api_4_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_4_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_1_14_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_agent_1_14_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_accessors_smart_2_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_json_smart_2_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_api_2_23_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_to_slf4j_2_23_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_core_10_1_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_el_10_1_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_jasper_10_1_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_websocket_10_1_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_assertj_assertj_core_3_25_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_awaitility_awaitility_4_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_jdt_ecj_3_33_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_web_jakarta_servlet_jsp_jstl_3_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_5_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_params_5_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_launcher_1_10_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_core_5_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_junit_jupiter_5_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_objenesis_objenesis_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_9_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_projectlombok_lombok_1_18_32.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_skyscreamer_jsonassert_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_jul_to_slf4j_2_0_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_slf4j_api_2_0_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_autoconfigure_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_devtools_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_jdbc_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_json_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_logging_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_security_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_test_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_web_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_autoconfigure_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_config_6_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_core_6_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_crypto_6_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_security_spring_security_web_6_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_aop_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_beans_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_context_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_core_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_expression_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_jcl_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_jdbc_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_test_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_tx_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_web_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_webmvc_6_1_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_xmlunit_xmlunit_core_2_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_yaml_snakeyaml_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/green-library.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/green-library.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/green-library.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/green-library.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/user/UserInfoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/user/UserInfoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/security/.keep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/adminInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/adminInfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/announManage.css" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/announManage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/bookBuy.css" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/bookBuy.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/bookInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/bookInfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/bookManage.css" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/bookManage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/bookWrite.css" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/bookWrite.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/inquiryManage.css" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/inquiryManage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/users.css" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/resources/static/admin/css/users.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminBook/buyBook/bookBuy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminBook/buyBook/bookBuy.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminBook/manageBook/bookDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminBook/manageBook/bookDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminBook/manageBook/bookManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminBook/manageBook/bookManage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminBook/manageBook/bookWrite.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminBook/manageBook/bookWrite.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminIndex/adminIndex.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminIndex/adminIndex.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminInfo/adminInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminInfo/adminInfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminLogin/adminLogin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminLogin/adminLogin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announManage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announceDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announceDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announceWrite.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/announcement/announceWrite.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/inquiry/inquiryDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/inquiry/inquiryDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/inquiry/inquiryManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/inquiry/inquiryManage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/inquiry/inquiryWrite.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/inquiry/inquiryWrite.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/user/userManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/adminManagements/user/userManage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/public/adminFooter.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/public/adminFooter.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/public/adminHeader.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/webapp/WEB-INF/views/admin/public/adminHeader.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,17 +166,33 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2hwszXuYZfneSGwu5inVWMUwpFc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
@@ -79,25 +211,32 @@
     "git-widget-placeholder": "ys",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/vs_code/green-library-project/green-library/src/main/resources/static/admin/css/public",
+    "last_opened_file_path": "D:/ys389164/vscode/green-library-project/green-library/src/main/resources/static/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.library.config" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ys389164\vscode\green-library-project\green-library\src\main\resources\static\images" />
+      <recent name="D:\ys389164\vscode\green-library-project\green-library\src\main\resources\static\admin\assets\imgs" />
       <recent name="E:\vs_code\green-library-project\green-library\src\main\resources\static\admin\css\public" />
       <recent name="E:\vs_code\green-library-project\green-library\src\main\webapp\WEB-INF\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ys389164\vscode\green-library-project\green-library\src\main\resources\static\admin\css" />
       <recent name="E:\vs_code\green-library-project\green-library\src\main\webapp\WEB-INF\views\admin\public" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.green-library [bootTestRun]">
+  <component name="RunManager" selected="Gradle.green-library [bootRun]">
     <configuration name="green-library [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -174,8 +313,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.green-library [bootTestRun]" />
         <item itemvalue="Gradle.green-library [bootRun]" />
+        <item itemvalue="Gradle.green-library [bootTestRun]" />
         <item itemvalue="Gradle.green-library [dependencies]" />
       </list>
     </recent_temporary>
@@ -198,6 +337,8 @@
       <updated>1718516738268</updated>
       <workItem from="1718516741811" duration="3502000" />
       <workItem from="1718520372740" duration="3217000" />
+      <workItem from="1718584491679" duration="10750000" />
+      <workItem from="1718595337616" duration="15720000" />
     </task>
     <servers />
   </component>
