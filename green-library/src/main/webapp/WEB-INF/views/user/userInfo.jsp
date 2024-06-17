@@ -27,27 +27,19 @@
                 <table>
                     <tr>
                         <td class="infoItems">이름</td>
-                        <td>${}</td>
-                        <td class="infoItems">아이디</td>
-                        <td>${}</td>
-                    </tr>
-                    <tr>
-                        <td class="infoItems">성별</td>
-                        <td>${}</td>
-                        <td class="infoItems">생년월일</td>
-                        <td>${}</td>
-                    </tr>
-                    <tr>
-                        <td class="infoItems">휴대폰 번호</td>
-                        <td colspan="3">${}</td>
                         <td></td>
+                        <td class="infoItems">아이디</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="infoItems">생년월일</td>
+                        <td></td>
+                        <td class="infoItems">휴대폰 번호</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td class="infoItems">이메일 주소</td>
-                        <td colspan="3">${}</td>
-                        <td></td>
-                        <td></td>
+                        <td colspan="3"></td>
                     </tr>
                 </table>
                

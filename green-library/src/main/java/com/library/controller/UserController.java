@@ -4,16 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.library.service.UserService;
+import com.library.service.UserLoginService;
 
 @Controller
 //@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
-	private UserService userService;
+	private UserLoginService userLoginService;
 	
 	/*
 	 * Authentication authentication =
@@ -69,6 +70,16 @@ public class UserController {
 	@GetMapping("/userInquiryCreate")
 	public String userInquiryCreate () {
 		return "user/userInquiryCreate";
+	}
+	
+	@GetMapping("/userInfo")
+	public String userInfo (Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+		String id = authentication.getName();
+		//UserDetailsDto userDto = userService.getUserDetails(id);
+    	//model.addAttribute("book", userDto);
+    	return "bookDetail";
+		//return "user/userInfo";
 	}
 	
 	//@GetMapping("/logout")
