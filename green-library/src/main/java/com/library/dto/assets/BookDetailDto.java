@@ -1,4 +1,4 @@
-package com.library.dto;
+package com.library.dto.assets;
 
 public class BookDetailDto {
 

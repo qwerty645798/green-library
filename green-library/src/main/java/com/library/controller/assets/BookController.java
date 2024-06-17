@@ -1,4 +1,4 @@
-package com.library.controller;
+package com.library.controller.assets;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.library.dto.BookDetailDto;
-import com.library.dto.InitiativeBookDto;
-import com.library.service.BookDetailService;
-import com.library.service.InitiativeBookService;
+import com.library.dto.assets.BookDetailDto;
+import com.library.dto.assets.InitiativeBookDto;
+import com.library.service.assets.BookDetailService;
+import com.library.service.assets.InitiativeBookService;
 
 @Controller
 public class BookController {

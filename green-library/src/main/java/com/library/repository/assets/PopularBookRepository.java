@@ -1,4 +1,4 @@
-package com.library.repository;
+package com.library.repository.assets;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.library.dto.InitiativeBookDto;
+import com.library.dto.assets.InitiativeBookDto;
 
 @Repository
 public class PopularBookRepository {
