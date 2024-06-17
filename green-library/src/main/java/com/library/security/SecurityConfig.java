@@ -26,7 +26,7 @@ public class SecurityConfig {
             	.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                 .requestMatchers("/**","/resources/**","/static/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
-                .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/user/**").authenticated()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
