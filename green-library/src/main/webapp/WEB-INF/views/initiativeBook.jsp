@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -14,19 +15,20 @@
 
 
 <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-    <script>
-        function showPage(pageNumber) {
-            document.querySelectorAll('.page').forEach(function(page) {
-                page.classList.add('hidden');
-            });
-            
-            document.getElementById('page_' + pageNumber).classList.remove('hidden');
-        }
-    </script>
+    .hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    function showPage(pageNumber) {
+        document.querySelectorAll('.page').forEach(function(page) {
+            page.classList.add('hidden');
+        });
+        
+        document.getElementById('page_' + pageNumber).classList.remove('hidden');
+    }
+</script>
     
 </head>
 <body>
@@ -41,6 +43,9 @@
 
 <main>
 
+<c:set var="itemsPerPage" value="8"/>
+<c:set var="totalItems" value="${fn:length(items)}" />
+<c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
 
 <div id="page_1" class="page">
 	<c:forEach var="outerIndex" begin="0" end="3">
@@ -95,27 +100,11 @@
 
 	
 <div class="button_box">
-	<input type="button" value="1" onclick="showPage(1)">
-	<input type="button" value="2" onclick="showPage(2)">
-	<input type="button" value="3" onclick="showPage(3)">
+	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
+        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+    </c:forEach>
 </div>
 	
-	<!-- 
-		<c:forEach var="outerIndex" begin="0" end="3">
-	    <div class="image_container">
-	        <c:forEach var="innerIndex" begin="0" end="1">
-	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
-	            <c:if test="${index < items.size()}">
-	                <div class="image_box">
-	                    <a href="bookDetail?bookId=${items[index].book_id}">
-	                        <img src="images/${items[index].img}">
-	                    </a>
-	                </div>
-	            </c:if>
-	        </c:forEach>
-	    </div>
-	</c:forEach>
-	 -->
 	
 	
 	
