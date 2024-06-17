@@ -1,4 +1,4 @@
-package com.library.controller;
+package com.library.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.library.service.UserLoginService;
+import com.library.service.user.UserLoginService;
 
 @Controller
 //@RequestMapping("/user")
@@ -78,8 +78,8 @@ public class UserController {
 		String id = authentication.getName();
 		//UserDetailsDto userDto = userService.getUserDetails(id);
     	//model.addAttribute("book", userDto);
-    	return "bookDetail";
-		//return "user/userInfo";
+    	//return "bookDetail";
+		return "user/userInfo";
 	}
 	
 	//@GetMapping("/logout")
