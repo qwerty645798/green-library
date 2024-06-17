@@ -43,4 +43,9 @@ public class BookController {
 	}
     
     
+    @GetMapping("/popularBook")
+	public String popularBook () {
+		return "popularBook";
+	}
+    
 }

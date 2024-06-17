@@ -59,10 +59,7 @@ public class MainController {
 		return "myWritten";
 	}
 	
-	@GetMapping("/popularBook")
-	public String popularBook () {
-		return "popularBook";
-	}
+	
 	
 	
 	

@@ -25,7 +25,7 @@
 
 <main><!-- 현재 한 줄에 2권, 3줄만 만들어둠 -->
 
-<c:forEach var="outerIndex" begin="0" end="2">
+<c:forEach var="outerIndex" begin="0" end="3">
     <div class="image_container">
         <c:forEach var="innerIndex" begin="0" end="1">
             <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
