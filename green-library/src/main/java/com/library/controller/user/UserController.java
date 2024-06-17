@@ -1,6 +1,7 @@
 package com.library.controller.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,12 +16,14 @@ import com.library.service.user.UserLoginService;
 
 import jakarta.validation.Valid;
 
+
 @Controller
 //@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
 	private UserLoginService userLoginService;
+
 
 	
 	@GetMapping("/userAgreement")
@@ -48,7 +51,9 @@ public class UserController {
 		return "user/userFindingAlt";
 	}
 	
+
 	
+
 	
 	@GetMapping("/userUseInformation")
 	public String userUseInformation() {	
@@ -70,6 +75,7 @@ public class UserController {
 		return "user/userInquiryCreate";
 	}
 	
+
 	@Autowired
 	private UserInfoService userInfoService;
 	
@@ -99,4 +105,5 @@ public class UserController {
 	 * userInfoModificationService.update(userDto); return
 	 * "redirect:/registration?success"; }
 	 */
+
 }

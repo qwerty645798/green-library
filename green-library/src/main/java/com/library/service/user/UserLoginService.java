@@ -1,10 +1,12 @@
 package com.library.service.user;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,6 +28,7 @@ public class UserLoginService implements UserDetailsService {
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         UserLoginDto userLoginDto = userLoginRepository.findByUserId(userId);
         if (userLoginDto == null) {
+
             throw new UsernameNotFoundException("UserLoginDto not found");
         }
         
@@ -34,6 +37,7 @@ public class UserLoginService implements UserDetailsService {
         return User.withUsername(userLoginDto.getUserId())
                    .password(userLoginDto.getUserPass())
                    .authorities(authorities)
+
                    .build();
     }
     
