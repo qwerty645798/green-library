@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.library.dto.BookDetailDto;
+import com.library.dto.InitiativeBookDto;
 import com.library.service.BookDetailService;
+import com.library.service.InitiativeBookService;
 
 @Controller
 public class BookController {
@@ -27,9 +29,12 @@ public class BookController {
     	return "bookDetail";
     }
     
+    @Autowired
+    private InitiativeBookService initiativeBookService;
     
     @GetMapping("/initiativeBook")
 	public String initiativeBook () {
+    	
 		return "initiativeBook";
 	}
     
