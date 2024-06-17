@@ -1,6 +1,6 @@
 package com.library.dto;
 
-public class UserDto {
+public class UserLoginDto {
 	private String userId;
     private String userPass;
     

@@ -1,21 +1,27 @@
 package com.library.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.library.service.UserService;
+import com.library.service.UserLoginService;
 
 @Controller
 //@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
-	private UserService userService;
-
+	private UserLoginService userLoginService;
+	
+	/*
+	 * Authentication authentication =
+	 * SecurityContextHolder.getContext().getAuthentication(); 
+	 * String id = authentication.getName();
+	 */
+	
 	@GetMapping("/userAgreement")
 	public String userAgreement() {
 		return "user/userAgreement";
@@ -47,26 +53,13 @@ public class UserController {
 	}
 	
 	@GetMapping("/userUseInformation")
-	public String userUseInformation( 
-		@RequestParam(name = "condition", required = false) String condition,
-		Model model
-	) {
-		if(condition == null || condition.equals("rentHistory")) {
-			//userService.getuserInfo(?,?,?,?,?);
-			condition = "rentHistory";
-		}
-		else if(condition.equals("borrow")) {
-			
-		}
-		else if(condition.equals("reserve")) {
-			
-		}
-		else if(condition.equals("interest")) {
-			
-		}
-		model.addAttribute("condition",condition);
-		
+	public String userUseInformation() {	
 		return "user/userUseInformation";
+	}
+	
+	@GetMapping("/useInformationBoard")
+	public String useInformationBoard () {
+		return "user/useInformation/board";
 	}
 	
 	@GetMapping("/userInquiryDetail")
@@ -77,6 +70,16 @@ public class UserController {
 	@GetMapping("/userInquiryCreate")
 	public String userInquiryCreate () {
 		return "user/userInquiryCreate";
+	}
+	
+	@GetMapping("/userInfo")
+	public String userInfo (Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
+		String id = authentication.getName();
+		//UserDetailsDto userDto = userService.getUserDetails(id);
+    	//model.addAttribute("book", userDto);
+    	return "bookDetail";
+		//return "user/userInfo";
 	}
 	
 	//@GetMapping("/logout")
