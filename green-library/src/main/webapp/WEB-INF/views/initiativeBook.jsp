@@ -21,10 +21,10 @@
     <script>
         function showPage(pageNumber) {
             document.querySelectorAll('.page').forEach(function(page) {
-                page.classList.add(' hidden');
+                page.classList.add('hidden');
             });
             
-            document.getElementById('page_' + pageNumber).classList.remove(' hidden');
+            document.getElementById('page_' + pageNumber).classList.remove('hidden');
         }
     </script>
     
@@ -44,53 +44,53 @@
 
 <div id="page_1" class="page">
 	<c:forEach var="outerIndex" begin="0" end="3">
-	    <div class="image_container">
-	        <c:forEach var="innerIndex" begin="0" end="1">
-	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
-	            <c:if test="${index < items.size()}">
-	                <div class="image_box">
-	                    <a href="bookDetail?bookId=${items[index].book_id}">
-	                        <img src="images/${items[index].img}">
-	                    </a>
-	                </div>
-	            </c:if>
-	        </c:forEach>
-	    </div>
-	</c:forEach>
+        <div class="image_container">
+            <c:forEach var="innerIndex" begin="0" end="1">
+                <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+                <c:if test="${index < items.size()}">
+                    <div class="image_box">
+                        <a href="bookDetail?bookId=${items[index].book_id}">
+                            <img src="images/${items[index].img}">
+                        </a>
+                    </div>
+                </c:if>
+            </c:forEach>
+        </div>
+    </c:forEach>
 </div>
 
 <div id="page_2" class="page hidden">
-	<c:forEach var="outerIndex" begin="0" end="3">
-	    <div class="image_container">
-	        <c:forEach var="innerIndex" begin="0" end="1">
-	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
-	            <c:if test="${index < items.size()}">
-	                <div class="image_box">
-	                    <a href="bookDetail?bookId=${items[index].book_id}">
-	                        <img src="images/${items[index].img}">
-	                    </a>
-	                </div>
-	            </c:if>
-	        </c:forEach>
-	    </div>
-	</c:forEach>
+	<c:forEach var="outerIndex" begin="4" end="7">
+        <div class="image_container">
+            <c:forEach var="innerIndex" begin="0" end="1">
+                <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+                <c:if test="${index < items.size()}">
+                    <div class="image_box">
+                        <a href="bookDetail?bookId=${items[index].book_id}">
+                            <img src="images/${items[index].img}">
+                        </a>
+                    </div>
+                </c:if>
+            </c:forEach>
+        </div>
+    </c:forEach>
 </div>
 
 <div id="page_3" class="page hidden">
-	<c:forEach var="outerIndex" begin="0" end="3">
-	    <div class="image_container">
-	        <c:forEach var="innerIndex" begin="0" end="1">
-	            <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
-	            <c:if test="${index < items.size()}">
-	                <div class="image_box">
-	                    <a href="bookDetail?bookId=${items[index].book_id}">
-	                        <img src="images/${items[index].img}">
-	                    </a>
-	                </div>
-	            </c:if>
-	        </c:forEach>
-	    </div>
-	</c:forEach>
+	<c:forEach var="outerIndex" begin="8" end="11">
+        <div class="image_container">
+            <c:forEach var="innerIndex" begin="0" end="1">
+                <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
+                <c:if test="${index < items.size()}">
+                    <div class="image_box">
+                        <a href="bookDetail?bookId=${items[index].book_id}">
+                            <img src="images/${items[index].img}">
+                        </a>
+                    </div>
+                </c:if>
+            </c:forEach>
+        </div>
+    </c:forEach>
 </div>
 
 	
