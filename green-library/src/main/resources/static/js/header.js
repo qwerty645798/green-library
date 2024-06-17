@@ -85,10 +85,18 @@ function accordian(){
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 175f097e7ee85c9c75ff6eb23fc433e2e5ae986a
     
 }
 
 window.onload = accordian();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 175f097e7ee85c9c75ff6eb23fc433e2e5ae986a
     
 
     
