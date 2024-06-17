@@ -23,9 +23,11 @@ public class UserLoginRepository {
                 UserLoginDto user = new UserLoginDto();
                 user.setUserId(rs.getString("user_id"));
                 user.setUserPass(rs.getString("user_pass"));
-                
+
                 return user;
             }
         }, userId);
     }
+
 }
+
