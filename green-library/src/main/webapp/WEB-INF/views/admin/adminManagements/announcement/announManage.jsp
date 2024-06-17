@@ -8,15 +8,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>announcement</title>
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/reset.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/adminHeader.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/adminFooter.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/style.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/announManage.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/announManage.css">
     </head>
 
     <body>
-        <header class="header" id="header"></header>
+    <jsp:include page="../../public/adminHeader.jsp"></jsp:include>
         <main>
             <section class="banner">
                 <h3>공지 게시판</h3>
@@ -39,7 +39,7 @@
                 <!-- board -->
                 <div class="outputBoard">
                     <div class="results">
-                        <p>result : ${개}</p>
+                        <p>result : 개수</p>
                         <select name="" id="">
                             <option value="">5개씩</option>
                             <option value="">10개씩</option>
@@ -75,15 +75,15 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="paging">
-                        <input class="back" type="button">
-                        <p>${page}</p>
-                        <input class="next" type="button">
-                    </div>
+                </div>
+                <div class="paging">
+                    <input class="back" type="button">
+                    <p>페이지</p>
+                    <input class="next" type="button">
                 </div>
             </section>
         </main>
-        <footer class="footer" id="footer"></footer>
+    <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
     </body>
 
 </html>

@@ -54,12 +54,12 @@
 .totalContainer .searchContainer .inputBox button {
     width: 26px;
     height: 29px;
-    background: url('../../util/ico-ipt-sh.png') no-repeat 50% 50%;
     font-size: 0;
     border: 0;
-    background-color: #ffffff;
+    background: #ffffff url('../assets/imgs/ico-ipt-sh.png') no-repeat 50% 50%;
     border-radius: 0 5px 5px 0;
 }
+
 select:focus,
 input:focus,
 button:focus {
@@ -103,7 +103,6 @@ button:focus {
 }
 
 .totalContainer .outputBoard .results .btnWrap input {
-    background-color: var(--button-default-back);
     color: var(--button-default-color);
     border: 1px solid #2c3e50;
     width: 80px;
@@ -114,6 +113,12 @@ button:focus {
 .totalContainer .outputBoard .results input:focus {
     background-color: #2c3e50;
     color: #ffffff;
+}
+
+select:focus,
+input:focus,
+button:focus {
+    outline: none;
 }
 
 /* result table */
@@ -212,7 +217,7 @@ button:focus {
     background-position-y: center;
     background-repeat: no-repeat;
     border: 0;
-    background-image: url('../../util/nonCheck.png');
+    background-image: url('../assets/imgs/nonCheck.png');
 }
 
 /* 수정 삭제 버튼 */
@@ -236,11 +241,11 @@ button:focus {
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child .correction {
-    background-image: url('../../util/pencil.png');
+    background-image: url('../assets/imgs/pencil.png');
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child .delete {
-    background-image: url('../../util/trash.png');
+    background-image: url('../assets/imgs/trash.png');
 }
 
 /* paging */
@@ -266,10 +271,10 @@ button:focus {
 }
 
 .totalContainer .paging .back {
-    background-image: url('../../util/arrow.png');
+    background-image: url('../assets/imgs/arrow.png');
 }
 
 .totalContainer .paging .next {
-    background-image: url('../../util/arrow.png');
+    background-image: url('../assets/imgs/arrow.png');
     transform: rotate(180deg);
 }

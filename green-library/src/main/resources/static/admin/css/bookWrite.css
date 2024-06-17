@@ -46,72 +46,79 @@
 }
 
 .viewContainer table td {
-    width: 100%;
+    width: 50%;
     margin: 0;
-    padding-left: 20px;
     border-bottom: 1px solid #c7c7c7;
     z-index: 999;
-}
-
-/* users table */
-
-.viewContainer .usersWriteForm tr:last-child a {
-    padding: 2px 30px;
-    border: 1px solid rgb(77, 77, 77);
-    border-radius: 8px;
-}
-
-
-/* rsponse table */
-.viewContainer .inquiryInfo tr:nth-child(4) td textarea:focus {
-    border: 1px dotted #2c3e50;
-}
-
-.viewContainer .inquiryInfo tr:nth-child(4) * {
-    height: 250px;
-}
-
-.viewContainer .inquiryInfo tr:nth-child(4) td {
-    overflow: hidden;
-    padding: 0;
     position: relative;
+    overflow: hidden;
 }
 
-.viewContainer .inquiryInfo tr:nth-child(4) td textarea {
+.viewContainer table td:not(:has(*)) {
+    padding-left: 20px;
+}
+
+.viewContainer .bookInfo tr td input:not([type="file"]),
+.viewContainer .bookInfo tr td textarea {
+    box-sizing: border-box;
     border: 0;
-    width: calc(100% - 6px);
-    position: absolute;
     background-color: #8b8b8b1c;
-    resize: none;
-    outline: none;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    outline: 0;
+    padding: 0 5px;
+}
+
+.viewContainer .bookInfo tr:last-child th {
+    height: 340px;
 }
 
 /* 첨부파일 */
 
-.viewContainer .inquiryInfo tr:last-child th {
-    height: 70px;
+.viewContainer .bookInfo tr:last-child td .previewImg {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    border: 1px solid;
+
+    top: 60px;
+    left: 4px;
 }
 
-.viewContainer .inquiryInfo tr:last-child td {
-    position: relative;
-    border-bottom: 1px solid #2c3e50;
-    padding: 0;
-}
 
-.viewContainer .inquiryInfo tr:last-child td input {
+.viewContainer .bookInfo tr:last-child td input {
+    box-sizing: border-box;
     position: absolute;
     width: 100%;
-    height: 100%;
-    translate: 3px 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #8b8b8b1c;
+    top: 10px;
+    left: 4px;
 }
 
-.viewContainer .inquiryInfo tr:last-child td input::file-selector-button {
+.viewContainer .bookInfo tr:last-child td input::file-selector-button {
     width: 100px;
     height: 35px;
     background: #fff;
     border: 1px solid rgb(77, 77, 77);
     border-radius: 10px;
     cursor: pointer;
+}
+
+.viewContainer .bookInfo tr:last-child td textarea {
+    width: 100%;
+    position: absolute;
+    background-color: #8b8b8b1c;
+    font-size: 1.2rem;
+    resize: none;
+    outline: none;
+    font-weight: 300;
+}
+
+.viewContainer .bookInfo tr td input:focus:not([type="file"]),
+.viewContainer .bookInfo td textarea:focus {
+    border: 1px dotted #2c3e50;
 }
 
 /* btnWrap */

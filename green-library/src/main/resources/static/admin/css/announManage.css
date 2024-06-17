@@ -4,14 +4,15 @@
 
 /* 검색 박스 */
 .totalContainer .searchContainer {
-    width: 1082px;
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: #ffffff;
     border: 2px solid #2c3e50;
+    margin-bottom: 20px;
     padding: 10px;
     border-radius: 5px;
+    width: 1082px;
 }
 
 .totalContainer .searchContainer div {
@@ -53,21 +54,29 @@
 .totalContainer .searchContainer .inputBox button {
     width: 36px;
     height: 28px;
-    background: url('../../util/ico-ipt-sh.png') no-repeat 50% 50%;
     font-size: 0;
     border: 0;
-    background-color: #ffffff;
+    background: #ffffff url("../assets/imgs/ico-ipt-sh.png") no-repeat 50% 50%;
     border-radius: 0 5px 5px 0;
+}
+
+select:focus,
+input:focus,
+button:focus {
+    outline: none;
 }
 
 /* 검색 결과물 */
 .totalContainer .outputBoard {
-    margin-top: 5px;
+    background-color: #77a0c9;
+    width: 100%;
 }
 
 .totalContainer .outputBoard .results {
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: start;
     align-items: center;
     background-color: #dadada;
     font-size: 1.2rem;
@@ -174,7 +183,7 @@
     max-width: 237px;
 }
 
-/* contnets */
+/* contents */
 .totalContainer .outputBoard .dashBoard table th:nth-child(4),
 .totalContainer .outputBoard .dashBoard table td:nth-child(4) {
     width: 35%;
@@ -188,7 +197,7 @@
     max-width: 158px;
 }
 
-/* writedate */
+/* write date */
 .totalContainer .outputBoard .dashBoard table th:nth-child(6),
 .totalContainer .outputBoard .dashBoard table td:nth-child(6) {
     width: 120px;
@@ -223,11 +232,11 @@
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child .correction {
-    background-image: url('../../util/pencil.png');
+    background-image: url("../assets/imgs/pencil.png");
 }
 
 /* paging */
-.totalContainer .outputBoard .paging {
+.totalContainer .paging {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -235,7 +244,7 @@
     gap: 20px;
 }
 
-.totalContainer .outputBoard .paging input {
+.totalContainer .paging input {
     border: 1px solid #2c3e50;
     width: 30px;
     height: 30px;
@@ -247,11 +256,11 @@
     background-color: #ffffff;
 }
 
-.totalContainer .outputBoard .paging .back {
-    background-image: url('../../util/arrow.png');
+.totalContainer .paging .back {
+    background-image: url('../assets/imgs/arrow.png');
 }
 
-.totalContainer .outputBoard .paging .next {
-    background-image: url('../../util/arrow.png');
+.totalContainer .paging .next {
+    background-image: url("../assets/imgs/arrow.png");
     transform: rotate(180deg);
 }
