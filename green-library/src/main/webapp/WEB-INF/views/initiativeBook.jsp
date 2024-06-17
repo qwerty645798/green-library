@@ -11,19 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/initiativeBook.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
-<script>
-function setBookId(){
-	let images = document.getElementsByTagName("img");
-	
-	for(let i= 0; i<images.length; i++){
-		let imgSrc = images[i].getAttribute("src");
-		let bookId = "";
-		
-		if(imgSrc)
-	}
-}
 
-</script>
 
 </head>
 <body>
@@ -41,7 +29,7 @@ function setBookId(){
 <!-- 한줄 기본 폼 -->
 <div class="image_container">
 	<div class="image_box">
-		<a href="bookDetail?bookId=2"><!-- 밑에 이미지 파일의 exex.jpg부분을 데이터베이스의 img와 비교해 일치하는 데이터의 아이디로 -->
+		<a href="bookDetail?bookId=21"><!-- 밑에 이미지 파일의 exex.jpg부분을 데이터베이스의 img와 비교해 일치하는 데이터의 아이디로 -->
 			<img src="images\exex.jpg">
 		</a>
 	</div>
@@ -55,7 +43,7 @@ function setBookId(){
 <!-- 한줄 기본 폼 -->
 <div class="image_container">
 	<div class="image_box">
-		<a href="bookDetail?bookId=2">
+		<a href="bookDetail?bookId=21">
 			<img src="images\exex.jpg">
 		</a>
 	</div>
@@ -69,7 +57,7 @@ function setBookId(){
 <!-- 한줄 기본 폼 -->
 <div class="image_container">
 	<div class="image_box">
-		<a href="bookDetail?bookId=2">
+		<a href="bookDetail?bookId=21">
 			<img src="images\exex.jpg">
 		</a>
 	</div>
