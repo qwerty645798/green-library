@@ -64,7 +64,16 @@
 			</tr>
 			<tr>
 				<td class="text"><div>이메일</div></td>
-				<td class="input"><input type="text" name="#" class="short"> @ <input type="text" name="#" class="short"></td>
+				<td class="input"><input type="text" name="#" class="short"> @ 
+				<input type="text" name="#" class="short">
+				<select id="emailSel">
+					<option value="0"></option>
+					<option value="naver.com">naver.com</option>
+					<option value="gmail.com">gmail.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="hanmail.net">hanmail.net</option>
+					<option value="nate.com">nate.com</option>
+				</select></td>
 			</tr>
 			<tr>
 				<td colspan="2" style="border:none;text-align:center;"><input type="submit" value="확인" style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></td>
@@ -74,5 +83,8 @@
 	</form>
 	</main>
 	<jsp:include page="../index/footer.jsp" />
+	
+	<script src="/js/userJoin.js" type="text/javascript"></script>
+	
 </body>
 </html>

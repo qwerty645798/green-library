@@ -25,10 +25,10 @@
           
             <div class="headerBottom">
               <ul id="subMenuTop" class="subMenuTop">
-                <li>도서관 소개</li>::after
-                <li>도서관 이용</li>::after
-                <li>자료 검색</li>::after
-                <li>도서관 소식</li>::after
+                <li>도서관 소개</li>
+                <li>도서관 이용</li>
+                <li>자료 검색</li>
+                <li>도서관 소식</li>
                 <li>마이페이지</li>
               </ul>
             </div>
