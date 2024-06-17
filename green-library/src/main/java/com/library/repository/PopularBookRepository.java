@@ -12,13 +12,13 @@ import org.springframework.stereotype.Repository;
 import com.library.dto.InitiativeBookDto;
 
 @Repository
-public class InitiativeBookRepository {
+public class PopularBookRepository {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	public List<InitiativeBookDto> findBookId() {
-		String sql = "Select book_id, img from (select book_id, img from books order by publication_date desc) where rownum<= 8";
+		String sql = "Select book_id, img from (select book_id, img from books order by publication_date desc) where rownum<= 6";
 		
 		return jdbcTemplate.query(sql, new RowMapper<InitiativeBookDto>() {
 			@Override
@@ -30,5 +30,4 @@ public class InitiativeBookRepository {
 			}
 		});
 	}
-	
 }
