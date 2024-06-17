@@ -49,6 +49,13 @@ VALUES (book_idx.NEXTVAL, 1, 1, '800', '834.42바', '책이름', 'ex7.png', '456
 INSERT INTO books (book_id, author_id, publisher_id, genre_id, genre_fullname, title,
 img, isbn, location, availability, summary, publication_date, borrow_count)
 VALUES (book_idx.NEXTVAL, 1, 1, '800', '813.9가', '버터', 'ex8.png', '456123790', '2층 3번째 책장', '0', '요약이 조아요', TO_DATE('2022-02-02', 'YYYY-MM-DD'), 1);
+INSERT INTO books (book_id, author_id, publisher_id, genre_id, genre_fullname, title,
+img, isbn, location, availability, summary, publication_date, borrow_count)
+VALUES (book_idx.NEXTVAL, 1, 1, '800', '834.42바', '책이름', 'ex9.png', '456123789', '3층 2번째 책장', '1', '요약', TO_DATE('2022-02-02', 'YYYY-MM-DD'), 1);
+INSERT INTO books (book_id, author_id, publisher_id, genre_id, genre_fullname, title,
+img, isbn, location, availability, summary, publication_date, borrow_count)
+VALUES (book_idx.NEXTVAL, 1, 1, '800', '813.9가', '버터', 'ex10.png', '456123790', '2층 3번째 책장', '0', '요약이 조아요', TO_DATE('2022-02-02', 'YYYY-MM-DD'), 1);
+
 
 -- 관리자 등급
 INSERT INTO admin_grants(grant_rank, grant_name) VALUES(3, 'super');
