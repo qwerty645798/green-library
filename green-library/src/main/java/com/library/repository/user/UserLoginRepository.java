@@ -1,4 +1,4 @@
-package com.library.repository;
+package com.library.repository.user;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.library.dto.UserLoginDto;
+import com.library.dto.user.UserLoginDto;
 
 @Repository
 public class UserLoginRepository {
