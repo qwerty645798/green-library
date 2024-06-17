@@ -2,8 +2,6 @@ package com.library.dto;
 
 public class InitiativeBookDto {
 	
-	
-
 	private int book_id;
 	private String img;
 	
@@ -24,4 +22,10 @@ public class InitiativeBookDto {
 		this.img = img;
 	}
 
+	@Override
+	public String toString() {
+		return "InitiativeBookDto [book_id=" + book_id + ", img=" + img + "]";
+	}
+
+	
 }

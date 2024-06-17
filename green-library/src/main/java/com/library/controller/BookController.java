@@ -1,5 +1,7 @@
 package com.library.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,8 +35,10 @@ public class BookController {
     private InitiativeBookService initiativeBookService;
     
     @GetMapping("/initiativeBook")
-	public String initiativeBook () {
+	public String initiativeBook (Model model) {
     	
+    	List<InitiativeBookDto> initiative = initiativeBookService.getBookId();
+    	model.addAttribute("items", initiative);
 		return "initiativeBook";
 	}
     
