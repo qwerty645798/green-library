@@ -49,10 +49,10 @@ public class MainController {
 
 
 	//david
-	@GetMapping("/bookDetail")
+	/*@GetMapping("/bookDetail")
 	public String bookDetail () {
 		return "bookDetail";
-	}
+	}*/
 	
 
 	@GetMapping("/bookLoanExtension")
@@ -110,5 +110,9 @@ public class MainController {
 		return "schedule";
 	}
 	
-	
+	//test
+	@GetMapping("/inquiryTest")
+	public String inquiryTest () {
+		return "inquiryTest";
+	}
 }

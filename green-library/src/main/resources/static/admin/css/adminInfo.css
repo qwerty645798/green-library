@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+main .container {
+    width: calc(100% - 20px);
+    display: flex;
+    gap: 20px;
+}
+
+main .container .leftContainer,
+main .container .rightContainer {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+
+/* info */
+main .info {
+    background-color: #6b8fb4;
+    margin: 20px 0;
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid #2c3e50;
+}
+
+main .info h3 {
+    font-size: 1.5rem;
+    padding: 10px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+main .info p {
+    color: #000000;
+    background-color: #ffffff;
+    padding: 10px;
+    border-bottom: 1px solid #c7c7c7;
+    font-weight: 1000;
+}
+
+main .info p:last-child {
+    border-radius: 0px 0px 10px 10px;
+}
+
+/* table */
+
+main .container .adminTable {
+    height: 549px;
+}
+
+main .container .adminTable div {
+    height: 100%;
+    max-height: 503px;
+    background-color: #ffffff;
+    border-radius: 0px 0px 10px 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+main .container .adminTable table {
+    width: 100%;
+}
+
+main .container .adminTable table tr {
+    background-color: #ffffff;
+}
+
+main .container .adminTable table th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #77a0c9;
+}
+
+main .container .adminTable table td {
+    padding: 6px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.container .adminTable table tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+
+.container .adminTable table tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}

@@ -41,7 +41,7 @@ CREATE TABLE publishers (
 -- 유저
 CREATE TABLE users (
     user_id VARCHAR2(20) PRIMARY KEY NOT NULL,
-    user_pass VARCHAR2(20),
+    user_pass VARCHAR2(80),
     name VARCHAR2(20),
     email VARCHAR2(40),
     phone VARCHAR2(14),
@@ -49,6 +49,8 @@ CREATE TABLE users (
     overdue_count NUMBER(10),
     suspended CHAR(1) DEFAULT '0' CHECK (suspended IN ('0', '1'))
 );
+-- user_pass 칼럼 varchar2(20) -> varchar2(80)으로 변경
+-- alter table users modify user_pass varchar2(80);
 
 -- 장르
 CREATE TABLE genres (
@@ -94,7 +96,7 @@ CREATE TABLE announcements (
     announce_title VARCHAR2(50),
     writer_id VARCHAR2(20) REFERENCES admins(admin_id),
     write_date DATE,
-    file_path VARCHAR2(255),
+    fileName VARCHAR2(255),
     contents VARCHAR2(500),
     view_count NUMBER(10)
 );
@@ -151,6 +153,7 @@ CREATE TABLE wishlists (
     wish_price NUMBER(10),
     wish_isbn VARCHAR2(20),
     wish_date DATE,
+    complete CHAR(1) DEFAULT 'W' CHECK (complete IN ('Y', 'W', 'N'))
     user_id VARCHAR2(20) REFERENCES users(user_id)
 );
 
