@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,7 +24,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
             	.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                .requestMatchers("/**", "/css/**","/js/**","/image/**").permitAll()
+                .requestMatchers("/**","/resources/**","/static/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
@@ -46,6 +47,11 @@ public class SecurityConfig {
                 .sessionFixation().migrateSession()
                 .maximumSessions(1)
                 .maxSessionsPreventsLogin(true)
+            )
+            .headers(headers -> headers
+            	.frameOptions(frameOptions -> frameOptions
+            		.sameOrigin()
+            	)
             );
 //            .requiresChannel(channel -> channel
 //                .anyRequest().requiresSecure()
@@ -65,5 +71,10 @@ public class SecurityConfig {
     protected PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
+	/*
+	 * @Bean WebSecurityCustomizer ignoringCustomizer() { return (web) ->
+	 * web.ignoring().requestMatchers("/resources/**", "/static/**"); }
+	 */
 }
 

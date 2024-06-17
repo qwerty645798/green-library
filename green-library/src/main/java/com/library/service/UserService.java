@@ -1,8 +1,5 @@
 package com.library.service;
 
-
-import java.util.Collections;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,7 +27,7 @@ public class UserService implements UserDetailsService {
         }
         return User.withUsername(userDto.getUserId())
                    .password(userDto.getUserPass())
-                   .authorities(Collections.emptyList()) // 역할을 설정
+                   .authorities("USER")
                    .build();
     }
     
