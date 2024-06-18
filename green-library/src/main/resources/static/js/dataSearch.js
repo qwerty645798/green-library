@@ -16,7 +16,18 @@
 
 	function lets_search(event){
 		var inputText = document.querySelector('.sel_box2 input[type="text"]').value;
-		if(inputText==="" || inputText==="검색어를 입력하세요"){
+		var inputCategory = document.querySelector('.sel_box1 select').value;
+		
+		if(inputCategory=="인기도서"){
+			window.location.href='popularBook';
+		}else if(inputCategory=="신착도서"){
+			window.location.href='initiativeBook';
+		}else if(inputText==="" || inputText==="검색어를 입력하세요"){
 			alert("검색어를 입력하세요");
+		}else{
+			
+			//window.location.href='dataSearchResult?    ';
+			//dataSearchResult? 셀렉트값 검색내용으로 보내는거
+			
 		}
 	}
