@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.library.dto.assets.BookDetailDto;
+import com.library.dto.assets.DataSearchResultDto;
 import com.library.dto.assets.InitiativeBookDto;
 import com.library.dto.assets.PopularBookDto;
 import com.library.service.assets.BookDetailService;
+import com.library.service.assets.DataSearchResultService;
 import com.library.service.assets.InitiativeBookService;
 import com.library.service.assets.PopularBookService;
 
@@ -57,7 +59,8 @@ public class BookController {
     
     
     
-    
+    @Autowired
+    private DataSearchResultService dataSearchResultService;
     
     @GetMapping("/dataSearch")
 	public String dataSearch () {
@@ -65,7 +68,10 @@ public class BookController {
 	}
 	
 	@GetMapping("/dataSearchResult")
-	public String dataSearchResult () {
+	public String dataSearchResult (Model model) {
+		
+		List<DataSearchResultDto> dataSearch = dataSearchResultService.getBookId();
+    	model.addAttribute("items", dataSearch);
 		return "dataSearchResult";
 	}
     
