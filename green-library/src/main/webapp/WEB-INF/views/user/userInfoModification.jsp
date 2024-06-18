@@ -21,7 +21,7 @@
 	<br>
 	<br>
 	<main>
-	<form action="userInfoModification-perform" method="post">
+	<form action="userInfoModification" method="post">
 		<div class="container">
 		<table style="border-collapse:collapse;">
 			<tr>
