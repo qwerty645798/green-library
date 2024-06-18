@@ -78,6 +78,3 @@ input[type=submit]{
 	margin-top:30px; 
 	cursor:pointer;
 }
-input.short{/*lhm 추가*/
-	text-align: left;
-}

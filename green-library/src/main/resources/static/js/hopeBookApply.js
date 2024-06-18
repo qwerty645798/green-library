@@ -17,7 +17,7 @@ function requestDate(){
     let reqMonth = date.getMonth();
     let reqDate = date.getDate();
 
-    hopedate.textContent = reqYear + "년 " + reqMonth + "월 " +  reqDate + "일";
+    hopedate.textContent = reqYear + "/" + reqMonth + "/" + reqDate;
 
 }
 
