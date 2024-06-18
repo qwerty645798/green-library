@@ -103,13 +103,13 @@
 	</div>
 </div>
 
-<c:set var="itemsPerPage" value="select.value"/><!-- 셀렉트 값 -->
+<c:set var="itemsPerPage" value="8"/><!-- select.value -->
 <c:set var="totalItems" value="${fn:length(items)}" />
 <c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
 
 <div class="second_container">
-	
-	<div id="page_1" class=page">
+	<c:forEach var="item" items="${items}" varStatus="loop">
+	<div id="page_1" class="page">
 		<div class="bigDiv">
 			<div class="book_container">
 				<div class="book_image">
@@ -148,6 +148,7 @@
 			</div>
 		</div>
 	</div>
+	</c:forEach>
 	
 	<div id="page_2" class="page hidden"></div>
 	<div id="page_3" class="page hidden"></div>
