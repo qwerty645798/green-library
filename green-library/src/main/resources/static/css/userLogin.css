@@ -99,6 +99,7 @@ input[type=button]{
 .attention ul li{
 	list-style-type: square;
 	line-height: 2em;
+	font-size: 11pt;
 	color: #376239
 }
 
