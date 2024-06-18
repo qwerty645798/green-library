@@ -104,5 +104,13 @@ function mailText(){
 	mailspace.textContent = mailspace.value;
 }
 
+function concatEmail(){
+	let emailF = document.getElementById("email").value;
+	let emailB = document.getElementById("email1").value;
+	let fullEmail = document.getElementById("fullEmail").value;
+	
+	fullEmail = emailF + "@" + emailB;
+}
+
 
  
