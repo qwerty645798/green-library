@@ -3,7 +3,6 @@
 .image_container {
     display: flex;
     width: 1260px;
-    height: 500px;
     margin: 0 auto;
 }
 
@@ -22,3 +21,5 @@
 	height: 375px;
 	object-fit: cover; /*fill?*/
 }
+
+

@@ -71,20 +71,6 @@ table.btn td {
 	cursor: pointer;
 }
 
-table#board {
-	width: 1250px;
-	border-collapse: collapse;
-	border-top: 2px #ADADAD solid;
-	border-bottom: 2px #ADADAD solid;
-	border-top: 2px #ADADAD solid;
-}
-
-table#board th {
-	background: #F7F7F7;
-}
-
-table#board th, table#board td {
-	height: 50px;
-	border-bottom: 2px #D7D7D7 solid;
-	text-align: center;
+iframe{
+	border:none;
 }

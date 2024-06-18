@@ -30,13 +30,13 @@
 	<div class="sel_box">
 		<div class="sel_box1">
 			<select>
-				<option>인기도서</option>
+				<option>전체</option>
+				<option>도서명</option>
+				<option>저자</option>
+				<option>출판사</option>
+				<option>내용</option>
+				<option>인기도서</option><!-- 인기 신착은 셀렉트+검사하면 그냥 인기 신착 페이지로? -->
 				<option>신착도서</option>
-				<option>소설</option>
-				<option>에세이/시/희곡</option>
-				<option>인문</option>
-				<option>자기계발</option>
-				<option>경제/경영</option>
 			</select>
 		</div>
 		<div class="sel_box2">
