@@ -14,7 +14,7 @@ public class DataSearchResultService {
 	@Autowired 
 	private DataSearchResultRepository dataSearchResultRepository;
 	
-	public List<DataSearchResultDto> getBookId() {
-		return dataSearchResultRepository.findBookId();
+	public List<DataSearchResultDto> getBookId(String inputCategory, String inputText) {
+		return dataSearchResultRepository.findBookId(inputCategory, inputText);
 	}
 }

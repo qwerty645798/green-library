@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.library.dto.assets.DataSearchResultDto;
-import com.library.dto.assets.PopularBookDto;
 
 @Repository
 public class DataSearchResultRepository {
@@ -18,15 +17,30 @@ public class DataSearchResultRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	public List<DataSearchResultDto> findBookId() {
-		String sql = "SELECT book_id, img, title, availability, author_name, location, publisher_name, isbn, summary "
-		           + "FROM ("
-		           + "SELECT b.book_id, b.img, b.title, b.availability, a.author_name, b.location, p.publisher_name, b.isbn, b.summary "
+	public List<DataSearchResultDto> findBookId(String inputCategory, String inputText) {
+		String sql = "SELECT b.book_id, b.img, b.title, b.availability, a.author_name, b.location, p.publisher_name, b.isbn, b.summary "
 		           + "FROM books b "
 		           + "JOIN authors a ON b.author_id = a.author_id "
-		           + "JOIN publishers p ON b.publisher_id = p.publisher_id "
-		           + "ORDER BY b.book_id"
-		           + ") ";//조건문 고치는중 ( 여기에 셀렉트에 내용 일치 확인문 )
+		           + "JOIN publishers p ON b.publisher_id = p.publisher_id ";
+		           
+		if(inputCategory.equals("전체")) {
+			sql += "WHERE b.title LIKE '%" + inputText + "%' " 
+				   +"OR a.author_name LIKE '%" + inputText + "%' " 
+                   +"OR p.publisher_name LIKE '%" + inputText + "%' " 
+                   +"OR b.summary LIKE '%" + inputText + "%' ";
+		}else if(inputCategory.equals("도서명")) {
+			sql += "Where b.title LIKE '%" + inputText + "%' ";
+		}else if(inputCategory.equals("저자")) {
+			sql += "Where a.author_name LIKE '%" + inputText + "%' ";
+		}else if(inputCategory.equals("출판사")) {
+			sql += "Where p.publisher_name LIKE '%" + inputText + "%' ";
+		}else if(inputCategory.equals("내용")) {
+			sql += "Where b.summary LIKE '%" + inputText + "%' ";
+		}
+		           
+		sql += "ORDER BY b.book_id";
+		
+		
 		return jdbcTemplate.query(sql, new RowMapper<DataSearchResultDto>() {
 			@Override
 			public DataSearchResultDto mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -38,7 +52,6 @@ public class DataSearchResultRepository {
                 book.setAuthorName(rs.getString("author_name"));
                 book.setLocation(rs.getString("location"));
                 book.setPublisherName(rs.getString("publisher_name")); 
-                
                 book.setIsbn(rs.getString("isbn"));
                 book.setSummary(rs.getString("summary"));
                                 

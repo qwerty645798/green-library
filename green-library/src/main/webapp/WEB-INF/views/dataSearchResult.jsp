@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,42 @@
 <script src="js/dataSearch.js"></script>
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 <link rel="stylesheet" type="text/css" href="css/dataSearchResult.css">
+
+<style>
+    .hidden {
+        display: none;
+    }
+    
+    .button_box{
+		display: flex;
+		width:1260px;
+		margin: 0 auto;
+		
+		justify-content: center;
+		align-items: center;
+		margin-top: 20px;
+		box-sizing: border-box;
+	}
+	
+	.button_box input[type="button"]{
+		background-color: #64B883;
+		border-radius : 5px;
+		border: none;
+		width: 40px;
+		margin-right: 10px;
+		margin-left:10px;
+	}
+</style>
+
+<script>
+    function showPage(pageNumber) {
+        document.querySelectorAll('.page').forEach(function(page) {
+            page.classList.add('hidden');
+        });
+        
+        document.getElementById('page_' + pageNumber).classList.remove('hidden');
+    }
+</script>
 
 
 </head>
@@ -37,7 +75,7 @@
 				<option>저자</option>
 				<option>출판사</option>
 				<option>내용</option>
-				<option>인기도서</option><!-- 인기 신착은 셀렉트+검사하면 그냥 인기 신착 페이지로? -->
+				<option>인기도서</option>
 				<option>신착도서</option>
 			</select>
 		</div>
@@ -53,87 +91,68 @@
 <div class="first_container">
 	<div class="text_box">
 		<div class="text_box1">
-			&nbsp;"select된 값" 으로 검색 된 결과 : "??"개 <!-- 이건 나중에 데이터 할 때 구현-->
+			&nbsp;'${inputCategory}:${inputText}'으로 검색한 결과 : ${items.size()}개 
 		</div>
 		<div class="text_box2">
-			<input type="button" value="??개씩 보기" class="firstcon_button">
+			<select>
+				<option>5개</option>
+				<option>10개</option>
+				<option>20개</option>
+			</select>
 		</div>
 	</div>
 </div>
 
+<c:set var="itemsPerPage" value="8"/><!-- select.value -->
+<c:set var="totalItems" value="${fn:length(items)}" />
+<c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
+
 <div class="second_container">
-	
-	<div class="bigDiv">
-		<div class="book_container">
-			<div class="book_image">
-				<img src="images/exex.jpg">
-			</div>
-			<div class="book_table">
-				<table>
-					<tr>
-						<th>도서명</th>
-						<td></td>
-						<th>재고현황</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>저자</th>
-						<td></td>
-						<th>위치</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>출판사</th>
-						<td colspan="3"></td>
-					</tr>
-					<tr>
-						<th>ISBN</th>
-						<td colspan="3"></td>
-					</tr>
-					<tr>
-						<th>내용</th>
-						<td colspan="3">모시깽이</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
-	
-	<div class="bigDiv">
-		<div class="book_container">
-			<div class="book_image">
-				<img src="images/exex.jpg">
-			</div>
-			<div class="book_table">
-				<table>
-					<tr>
-						<th>도서명</th>
-						<td></td>
-						<th>재고현황</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>저자</th>
-						<td></td>
-						<th>위치</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>출판사</th>
-						<td colspan="3"></td>
-					</tr>
-					<tr>
-						<th>ISBN</th>
-						<td colspan="3"></td>
-					</tr>
-					<tr>
-						<th>내용</th>
-						<td colspan="3">모시깽이</td>
-					</tr>
-				</table>
+	<c:forEach var="item" items="${items}" varStatus="loop">
+	<div id="page_1" class="page">
+		<div class="bigDiv">
+			<div class="book_container">
+				<div class="book_image">
+					<a href="bookDetail?bookId=${items.bookId}">
+						<img src="images/${items.img}">
+					</a>
+				</div>
+				<div class="book_table">
+					<table>
+						<tr>
+							<th>도서명</th>
+							<td>${items.title}</td>
+							<th>재고현황</th>
+							<td>${items.availability}</td>
+						</tr>
+						<tr>
+							<th>저자</th>
+							<td>${items.authorName}</td>
+							<th>위치</th>
+							<td>${items.location}</td>
+						</tr>
+						<tr>
+							<th>출판사</th>
+							<td colspan="3">${items.publisherName}</td>
+						</tr>
+						<tr>
+							<th>ISBN</th>
+							<td colspan="3">${items.isbn}</td>
+						</tr>
+						<tr>
+							<th>요약</th>
+							<td colspan="3">${items.summary}</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
+	</c:forEach>
+	
+	<div id="page_2" class="page hidden"></div>
+	<div id="page_3" class="page hidden"></div>
+	
 
 </div>
 
@@ -142,35 +161,13 @@
 <!-- 제일 앞에서는 << < 두개 없이, 제일 뒤에서는 > >> 없이 -->
 <div class="third_container">
 	<div class="button_box">
-		<div class="button_box1">
-			<input type="button" value="<<">
-		</div>
-		<div class="button_box2">
-			<input type="button" value="<">
-		</div>
-		<div class="button_box3">
-			<div class="button_inbox">
-				<input type="button" value="1">
-			</div>
-			<div class="button_inbox">
-				<input type="button" value="2">
-			</div>
-			<div class="button_inbox">
-				<input type="button" value="3">
-			</div>
-			<div class="button_inbox">
-				<input type="button" value="4">
-			</div>
-			<div class="button_inbox">
-				<input type="button" value="5">
-			</div>
-		</div>
-		<div class="button_box4">
-			<input type="button" value=">">
-		</div>
-		<div class="button_box5">
-			<input type="button" value=">>">
-		</div>
+		<input type="button" value="<<">
+		<input type="button" value="<">
+		<c:forEach var="pageIndex" begin="1" end="${totalPages}">
+	        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+	    </c:forEach>
+		<input type="button" value=">">
+		<input type="button" value=">>">
 	</div>
 </div>
 

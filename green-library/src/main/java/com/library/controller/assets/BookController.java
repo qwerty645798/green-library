@@ -68,10 +68,18 @@ public class BookController {
 	}
 	
 	@GetMapping("/dataSearchResult")
-	public String dataSearchResult (Model model) {
+	public String dataSearchResult (@RequestParam(name = "inputCategory", required = false) String inputCategory,
+            @RequestParam(name = "inputText", required = false) String inputText, Model model) {
 		
-		List<DataSearchResultDto> dataSearch = dataSearchResultService.getBookId();
+		if((inputCategory==null)&&(inputText==null)) {
+    		return "redirect:/";
+    	}
+		
+		List<DataSearchResultDto> dataSearch = dataSearchResultService.getBookId(inputCategory, inputText);
     	model.addAttribute("items", dataSearch);
+    	model.addAttribute("inputCategory", inputCategory);
+    	model.addAttribute("inputText", inputText);
+    	
 		return "dataSearchResult";
 	}
     
