@@ -96,6 +96,6 @@
         
     <jsp:include page="index/footer.jsp" />
   
-    
+    <script src="/js/hopeBookApply.js" type="text/javascript"></script>
     </body>
     </html>

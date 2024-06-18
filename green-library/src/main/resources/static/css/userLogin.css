@@ -24,3 +24,22 @@ a:hover {
 	border:1px #AAAAAA solid;
 	outline:none;
 }
+h1{/*lhm 추가*/
+	text-align:center;
+	font-size:3em; 
+	margin-bottom:0px; 
+	color:#492918;
+}
+.loginTop{/*span. lhm 추가*/
+	font-size:0.3em;
+	color:#471C0A; 
+	margin:0px; 
+	font-weight:900;
+}
+input[type=submit]{/*lhm 추가*/
+	color:white; 
+	background:#535353; 
+	width:120px; 
+	height:35px; 
+	cursor:pointer;
+}
