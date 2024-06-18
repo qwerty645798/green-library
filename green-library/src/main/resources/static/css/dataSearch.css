@@ -36,6 +36,7 @@
 	outline: none;
 	background-color:#EEEAE2;
 	opacity: 0.5;
+	width:400px;
 }
 .sel_box1 select{
 	margin:0 auto;
