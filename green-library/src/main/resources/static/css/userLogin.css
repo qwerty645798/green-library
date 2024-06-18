@@ -1,3 +1,20 @@
+h1{
+	 text-align:center; 
+	 font-size:3em; 
+	 margin-bottom:0px; 
+	 color:#492918;
+}
+span{
+	 font-size:0.3em;
+	 color:#471C0A; 
+	 margin:0px; 
+	 font-weight:900;
+}
+main{
+	 display:flex; 
+	 justify-content:center;
+	 border: 1px solid brown;
+}
 a {
 	text-decoration: none;
 	color: black;
@@ -23,4 +40,11 @@ a:hover {
 	border-radius:10px;
 	border:1px #AAAAAA solid;
 	outline:none;
+}
+input[type=submit]{
+	color:white; 
+	background:#535353; 
+	width:120px; 
+	height:35px; 
+	cursor:pointer;
 }
