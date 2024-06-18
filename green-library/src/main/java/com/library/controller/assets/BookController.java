@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.library.dto.assets.BookDetailDto;
 import com.library.dto.assets.InitiativeBookDto;
+import com.library.dto.assets.PopularBookDto;
 import com.library.service.assets.BookDetailService;
 import com.library.service.assets.InitiativeBookService;
+import com.library.service.assets.PopularBookService;
 
 @Controller
 public class BookController {
@@ -42,9 +44,14 @@ public class BookController {
 		return "initiativeBook";
 	}
     
+    @Autowired
+    private PopularBookService popularBookService;
     
     @GetMapping("/popularBook")
-	public String popularBook () {
+	public String popularBook (Model model) {
+    	
+    	List<PopularBookDto> popular = popularBookService.getBookId();
+    	model.addAttribute("items", popular);
 		return "popularBook";
 	}
     
