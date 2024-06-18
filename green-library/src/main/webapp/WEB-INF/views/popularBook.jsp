@@ -33,7 +33,7 @@
 		background-color: #64B883;
 		border-radius : 5px;
 		border: none;
-		width: 60px;
+		width: 40px;
 		margin-right: 10px;
 		margin-left:10px;
 	}
@@ -61,7 +61,7 @@
     </div>
 </div>
 
-<main><!-- 페이지내 들어갈 개수 / 현재(3개) -->
+<main>
 
 
 <c:set var="itemsPerPage" value="10"/>
@@ -69,13 +69,10 @@
 <c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
 
 <div id="page_1" class="page">
-	<div class="bigDiv">
-	<c:forEach var="outerIndex" value="0">
-        <div class="book_container">
-            <c:forEach var="innerIndex" begin="0" end="9">
-                <c:set var="index" value="${outerIndex * 10 + innerIndex}" />
-                <c:if test="${index < items.size()}">
-                    
+	<c:forEach var="index" begin="0" end="9">
+    	<c:if test="${index < items.size()}">
+			<div class="bigDiv">
+		        <div class="book_container">
                     <div class="book_image">
 						<img src="images/${items[index].img}">
 					</div>
@@ -98,28 +95,23 @@
 								<td colspan="3">${items[index].availability}</td>
 							</tr>
 							<tr>
-								<!-- form-submit? 아니면 그냥 button?  -->
 								<td colspan="4" class="more_button" style="border:none;">
 									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
 								</td> 
 							</tr>
 						</table>
 					</div>
-            	</c:if>
-            </c:forEach>
-        </div>
+		    	</div>
+		    </div>
+	    </c:if>
     </c:forEach>
-    </div>
 </div>
 
 <div id = "page_2" class="page hidden">
-	<div class="bigDiv">
-	<c:forEach var="outerIndex" value="1">
-        <div class="book_container">
-            <c:forEach var="innerIndex" begin="0" end="9">
-                <c:set var="index" value="${outerIndex * 10 + innerIndex}" />
-                <c:if test="${index < items.size()}">
-                    
+	<c:forEach var="index" begin="10" end="19">
+    	<c:if test="${index < items.size()}">
+			<div class="bigDiv">
+		        <div class="book_container">
                     <div class="book_image">
 						<img src="images/${items[index].img}">
 					</div>
@@ -142,28 +134,23 @@
 								<td colspan="3">${items[index].availability}</td>
 							</tr>
 							<tr>
-								<!-- form-submit? 아니면 그냥 button?  -->
 								<td colspan="4" class="more_button" style="border:none;">
 									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
 								</td> 
 							</tr>
 						</table>
 					</div>
-            	</c:if>
-            </c:forEach>
-        </div>
+		    	</div>
+		    </div>
+	    </c:if>
     </c:forEach>
-    </div>
 </div>
 
 <div id = "page_3" class="page hidden">
-	<div class="bigDiv">
-	<c:forEach var="outerIndex" value="2">
-        <div class="book_container">
-            <c:forEach var="innerIndex" begin="0" end="9">
-                <c:set var="index" value="${outerIndex * 10 + innerIndex}" />
-                <c:if test="${index < items.size()}">
-                    
+	<c:forEach var="index" begin="20" end="29">
+    	<c:if test="${index < items.size()}">
+			<div class="bigDiv">
+		        <div class="book_container">
                     <div class="book_image">
 						<img src="images/${items[index].img}">
 					</div>
@@ -186,55 +173,20 @@
 								<td colspan="3">${items[index].availability}</td>
 							</tr>
 							<tr>
-								<!-- form-submit? 아니면 그냥 button?  -->
 								<td colspan="4" class="more_button" style="border:none;">
 									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
 								</td> 
 							</tr>
 						</table>
 					</div>
-            	</c:if>
-            </c:forEach>
-        </div>
+		    	</div>
+		    </div>
+	    </c:if>
     </c:forEach>
-    </div>
 </div>
 
 
-<!-- 개별 기본 폼 
-<div class="bigDiv">
-	<div class="book_container">
-		<div class="book_image">
-			<img src="images\exex.jpg">
-		</div>
-		<div class="book_table">
-			<table>
-				<tr>
-					<th>책 제목</th>
-					<td colspan="3"></td>
-				</tr>
-				<tr>
-					<th>저자명</th>
-					<td colspan="3"></td>
-				</tr>
-				<tr>
-					<th>출판사</th>
-					<td colspan="3"></td>
-				</tr>
-				<tr>
-					<th>대출 가능 여부</th>
-					<td colspan="3">대출 가능/불가\</td>
-				</tr>
-				<tr>
-					<td colspan="4" class="more_button" style="border:none;">
-						<input type="button" onclick="window.location.href='bookDetail?bookId=2'" value="자세히 보기" class="moreInf">
-					</td> 
-				</tr>
-			</table>
-		</div>
-	</div>
-</div>
--->
+
 
 
 <div class="button_box">

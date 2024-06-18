@@ -34,7 +34,7 @@
 		background-color: #64B883;
 		border-radius : 5px;
 		border: none;
-		width: 60px;
+		width: 40px;
 		margin-right: 10px;
 		margin-left:10px;
 	}
