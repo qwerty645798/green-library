@@ -109,77 +109,49 @@
 
 <div class="second_container">
 	
-	<div class="bigDiv">
-		<div class="book_container">
-			<div class="book_image">
-				<img src="images/exex.jpg">
-			</div>
-			<div class="book_table">
-				<table>
-					<tr>
-						<th>도서명</th>
-						<td></td>
-						<th>재고현황</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>저자</th>
-						<td></td>
-						<th>위치</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>출판사</th>
-						<td colspan="3"></td>
-					</tr>
-					<tr>
-						<th>ISBN</th>
-						<td colspan="3"></td>
-					</tr>
-					<tr>
-						<th>요약</th>
-						<td colspan="3">모시깽이</td>
-					</tr>
-				</table>
+	<div id="page_1" class=page">
+		<div class="bigDiv">
+			<div class="book_container">
+				<div class="book_image">
+					<a href="bookDetail?bookId=${items.bookId}">
+						<img src="images/${items.img}">
+					</a>
+				</div>
+				<div class="book_table">
+					<table>
+						<tr>
+							<th>도서명</th>
+							<td>${items.title}</td>
+							<th>재고현황</th>
+							<td>${items.availability}</td>
+						</tr>
+						<tr>
+							<th>저자</th>
+							<td>${items.authorName}</td>
+							<th>위치</th>
+							<td>${items.location}</td>
+						</tr>
+						<tr>
+							<th>출판사</th>
+							<td colspan="3">${items.publisherName}</td>
+						</tr>
+						<tr>
+							<th>ISBN</th>
+							<td colspan="3">${items.isbn}</td>
+						</tr>
+						<tr>
+							<th>요약</th>
+							<td colspan="3">${items.summary}</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
 	
-	<div class="bigDiv">
-		<div class="book_container">
-			<div class="book_image">
-				<img src="images/exex.jpg">
-			</div>
-			<div class="book_table">
-				<table>
-					<tr>
-						<th>도서명</th>
-						<td></td>
-						<th>재고현황</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>저자</th>
-						<td></td>
-						<th>위치</th>
-						<td></td>
-					</tr>
-					<tr>
-						<th>출판사</th>
-						<td colspan="3"></td>
-					</tr>
-					<tr>
-						<th>ISBN</th>
-						<td colspan="3"></td>
-					</tr>
-					<tr>
-						<th>요약</th>
-						<td colspan="3">모시깽이</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
+	<div id="page_2" class="page hidden"></div>
+	<div id="page_3" class="page hidden"></div>
+	
 
 </div>
 
