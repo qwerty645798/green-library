@@ -104,12 +104,17 @@ function mailText(){
 	mailspace.textContent = mailspace.value;
 }
 
-function concatEmail(){
+function concatInput(){
 	let emailF = document.getElementById("email").value;
 	let emailB = document.getElementById("email1").value;
 	let fullEmail = document.getElementById("fullEmail").value;
 	
 	fullEmail = emailF + "@" + emailB;
+	
+	let brief = document.getElementsByClassName("brief");
+	let fullPhone = document.getElementById("fullPhone");
+	
+	fullPhone.value = brief[0].value + brief[1].value + brief[2].value;
 }
 
 

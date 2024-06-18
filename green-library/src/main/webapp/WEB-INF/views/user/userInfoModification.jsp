@@ -11,7 +11,7 @@
 <link href="css/userJoin.css" type="text/css" rel="stylesheet">
 <script>
 	let error = "${param.error}";
-	if(error = "true")
+	if(error == "true")
 		alert("오류가 발생했습니다. 다시 시도해주세요.");
 </script>
 </head>
@@ -44,7 +44,7 @@
 					</tr>
 					<tr>
 						<td class="text"><div>비밀번호</div></td>
-						<td class="input"><input type="text" id="pswd" name="#"
+						<td class="input"><input type="password" id="pswd" name="pass"
 							class="middle"> <br>
 							<div class="comment">
 								비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합) <br> <span
@@ -57,19 +57,22 @@
 					<tr>
 						<td class="text"><div>비밀번호 확인</div></td>
 						<td class="input"><input type="password" id="passCheck"
-							name="#" class="middle"></td>
+							 class="middle"></td>
 					</tr>
 					<tr>
 						<td class="text"><div>휴대폰번호</div></td>
-						<td class="input"><input type="text" name="phone"
-							class="brief"> - <input type="text" name="#"
-							class="brief"> - <input type="text" name="#"
+						<td class="input">
+						<input type="hidden" name="phone" value="" id="fullPhone">
+						<input type="text"
+							class="brief"> - <input type="text"
+							class="brief"> - <input type="text"
 							class="brief"></td>
 					</tr>
 					<tr>
 						<td class="text"><div>이메일</div></td>
-						<td class="input"><input type="text" id="email" name="#"
-							class="short"> @ <input type="text" id="email2" name="#"
+						
+						<td class="input"><input type="hidden" id="fullEmail" name="email" value=""><input type="text" id="email" 
+							class="short"> @ <input type="text" id="email2"
 							class="short" readonly> <select id="emailSel"
 							onchange="mailText()">
 								<option value="" selected></option>
@@ -82,7 +85,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" style="border: none; text-align: center;"><input
-							type="submit" value="확인" onclick="modifyCheck()"></td>
+							type="submit" value="확인" onclick="concatInput(), modifyCheck()"></td>
 					</tr>
 				</table>
 			</div>
@@ -90,7 +93,7 @@
 	</main>
 	<jsp:include page="../index/footer.jsp" />
 
-	<script src="/js/userInfoModification.js" type="text/javascript"></script>
+	<script src="js/userInfoModification.js" type="text/javascript"></script>
 
 </body>
 </html>
