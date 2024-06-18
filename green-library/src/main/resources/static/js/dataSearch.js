@@ -1,4 +1,7 @@
 
+
+//검색창(select있는) 공용 js임
+
 	function want_search(event){
 		if(event.target.value==="검색어를 입력하세요"){
 			event.target.value="";
@@ -26,8 +29,11 @@
 			alert("검색어를 입력하세요");
 		}else{
 			
-			//window.location.href='dataSearchResult?    ';
-			//dataSearchResult? 셀렉트값 검색내용으로 보내는거
+			var url = "dataSearchResult?inputCategory="; 
+			url+=inputCategory;
+			url+="&inputText="+inputText;
+			
+			window.location.href = url;
 			
 		}
 	}
