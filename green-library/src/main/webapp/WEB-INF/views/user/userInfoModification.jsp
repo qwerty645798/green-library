@@ -52,9 +52,11 @@
 				<td class="text"><div>비밀번호 확인</div></td>
 
 
+
 				<td class="input"><input type="password" class="middle"></td>
 
 				<td class="input"><input type="password" id="passCheck" name="#" class="middle"></td>
+
 
 			</tr>
 			<tr>
