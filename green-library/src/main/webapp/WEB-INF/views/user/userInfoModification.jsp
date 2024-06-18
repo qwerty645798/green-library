@@ -21,7 +21,7 @@
 	<br>
 	<br>
 	<main>
-	<form action="userInfoModification-perform" method="post">
+	<form action="userInfoModification" method="post">
 		<div class="container">
 		<table style="border-collapse:collapse;">
 			<tr>
@@ -38,7 +38,7 @@
 			</tr>
 			<tr>
 				<td class="text"><div>비밀번호</div></td>
-				<td class="input"><input type="text" name="userPass" class="middle">
+				<td class="input"><input type="text" name="pass" class="middle">
 					<br>
 					<div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합)
 					<br>
