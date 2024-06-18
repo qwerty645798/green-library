@@ -10,6 +10,11 @@
 <link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userLogin.css" type="text/css" rel="stylesheet">
+<script>
+	let error = "${param.error}";
+	if(error == "true")
+		alert("로그인이 되어있지 않습니다.");
+</script>
 </head>
 <body> 
 	<jsp:include page="../index/header.jsp" />

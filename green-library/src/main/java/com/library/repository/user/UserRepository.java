@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.library.dto.user.UserDto;
+import com.library.dto.user.UserInfoModificationDto;
 import com.library.exception.DatabaseException;
 
 @Repository
@@ -54,19 +55,19 @@ public class UserRepository {
 		}, userId);
 	}
 
-	public boolean updateUserInfo(UserDto userDto, String userId) {
+	public boolean updateUserInfo(UserInfoModificationDto userDto, String userId) {
 		
-		String sql = "UPDATE users SET user_pass = ?, email = ?, phone = ? WHERE id = ?";
+		String sql = "UPDATE users SET user_pass = ?, email = ?, phone = ? WHERE user_id = ?";
 		String hashedPassword = passwordEncoder.encode(userDto.getPass());
 		try {
 			int rowsAffected = jdbcTemplate.update(sql, hashedPassword, userDto.getEmail(), userDto.getPhone(), userId);
 			if (rowsAffected == 0) {
-	            throw new DatabaseException("No member found with id: " + userDto.getId());
+	            throw new DatabaseException("No member found with id: " + userId);
 	        }
 			return rowsAffected == 1;
 		}catch (DataAccessException e) {
-            throw new DatabaseException("Database error occurred while updating member with id: " + userDto.getId(), e);
-        }
+            throw new DatabaseException("Database error occurred while updating member with id: " + userId, e);
+		}
 	}
 	
 	public boolean insertUserInfo(UserDto userDto) {

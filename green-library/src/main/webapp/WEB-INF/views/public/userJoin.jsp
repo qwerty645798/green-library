@@ -45,7 +45,7 @@
 			</tr>
 			<tr>
 				<td class="text"><div>비밀번호</div></td>
-				<td class="input"><input type="text" id="pswd" name="pass" class="middle">
+				<td class="input"><input type="password" id="pswd" name="pass" class="middle">
 					<br>
 					<div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합)
 					<br>
@@ -61,7 +61,9 @@
 			</tr>
 			<tr>
 				<td class="text"><div>휴대폰번호</div></td>
-				<td class="input"><input type="text" id="phone" name="phone" class="brief"> - <input type="text" name="#" class="brief"> - <input type="text" name="#" class="brief"></td>
+				<td class="input">
+				<input type="hidden" id="fullphone" name="phone" value="">
+				<input type="text" id="phone" class="brief"> - <input type="text" class="brief"> - <input type="text"class="brief"></td>
 			</tr>
 			<tr>
 				<td class="text"><div>이메일</div></td>
@@ -80,7 +82,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" style="border:none;text-align:center;">
-				<input type="submit" id="submit" value="확인" onclick="joinCheck()"></td>
+				<input type="submit" id="submit" value="확인" onclick="concatInput(), joinCheck()"></td>
 			</tr>
 		</table>
 		</div>
@@ -88,7 +90,7 @@
 	</main>
 	<jsp:include page="../index/footer.jsp" />
 	
-	<script src="/js/userJoin.js" type="text/javascript"></script>
+	<script src="js/userJoin.js" type="text/javascript"></script>
 	
 </body>
 </html>

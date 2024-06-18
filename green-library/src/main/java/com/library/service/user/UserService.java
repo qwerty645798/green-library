@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.library.dto.user.UserDto;
+import com.library.dto.user.UserInfoModificationDto;
 import com.library.exception.SessionNotFoundException;
 import com.library.repository.user.UserRepository;
 
@@ -45,17 +46,17 @@ public class UserService implements UserDetailsService {
 			throw new SessionNotFoundException("Session not found or user is not authenticated");
 		}
 
-		String userId = ((UserDetails) authentication.getPrincipal()).getUsername();
+		String userId = authentication.getName();
 		return userRepository.findDetailsByUserId(userId);
 	}
 
-	public boolean update(UserDto userDto) {
+	public boolean update(UserInfoModificationDto userDto) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (authentication == null || !authentication.isAuthenticated()) {
 			throw new  SessionNotFoundException("Session not found or user is not authenticated");
 		}
-
-		String userId = ((UserDetails) authentication.getPrincipal()).getUsername();
+		String userId = authentication.getName();
+		System.out.println(userId);
 		return userRepository.updateUserInfo(userDto, userId);
 	}
 	
