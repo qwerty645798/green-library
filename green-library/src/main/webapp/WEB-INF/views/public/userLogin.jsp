@@ -25,7 +25,7 @@
 	</h1>
 	<main style="display:flex; justify-content:center;">
 		
-		<form action="${pageContext.request.contextPath}/userLogin-perform" method="post">
+		<form action="${pageContext.request.contextPath}/userLogin" method="post">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<div style=" width:550px; height:350px; padding:0px;">
 			<div class="floor"><input type="text" placeholder="아이디" name="userId" class="text"><br></div>
