@@ -66,8 +66,9 @@
 			<tr>
 				<td class="text"><div>이메일</div></td>
 				<td class="input">
-				<input type="text" id="email" name="emailFront" class="short"> @ 
-				<input type="text" id="email2" name="emailBack" class="short" readonly>
+				<input type="hidden" id="fullEmail" name="email" value="">
+				<input type="text" id="email" class="short"> @ 
+				<input type="text" id="email2" class="short" readonly>
 				<select id="emailSel" onchange="mailText()">
 					<option value="" selected></option>
 					<option value="naver.com">naver.com</option>
