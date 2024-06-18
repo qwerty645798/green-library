@@ -83,15 +83,9 @@
 .text_box2{
 	width:150px;
 }
-.text_box2 input[type="button"]{
+.text_box2 select{
 	margin:0 auto;
 	width: 140px;
-}
-
-.firstcon_button{
-	background-color: #64B883;
-	border-radius : 5px;
-	border: none;
 }
 
 
@@ -175,46 +169,8 @@
 .third_container{
 	display: flex;
 	margin: 0 auto;
-	width:1260px;
 
 	padding:10px;
 	box-sizing: border-box;
-}
-
-.button_box{
-	display: flex;
-	height: 50px;
-	width: 700px;
-	margin: auto;
-
-	align-items: center;
-	justify-content: center;
-}
-
-.button_box1, .button_box2, .button_box4, .button_box5{
-	height: 40px;
-}
-
-.button_box3{
-	display: flex;
-	height: 40px;
-}
-
-/*.button_inbox{
-	margin-right: 2px;
-	margin-left: 2px;
-}
-
-.button_box1 input, .button_box2 input, .button_box4 input, .button_box5 input{
-	margin-right: 2px;
-	margin-left: 2px;
-}*/
-
-.button_box input[type="button"]{
-	margin-right:2px;
-	margin-left:2px;
-	border:none;
-	border-radius : 5px;
-	background-color: #64B883;
 }
 

@@ -46,7 +46,7 @@ CREATE TABLE users (
     email VARCHAR2(40),
     phone VARCHAR2(14),
     birth VARCHAR2(10),
-    overdue_count NUMBER(10),
+    overdue_count NUMBER(10) DEFAULT 0,
     suspended CHAR(1) DEFAULT '0' CHECK (suspended IN ('0', '1'))
 );
 -- user_pass 칼럼 varchar2(20) -> varchar2(80)으로 변경
@@ -72,7 +72,7 @@ CREATE TABLE books (
     availability CHAR(1) DEFAULT '1' CHECK (availability IN ('0', '1')),
     summary VARCHAR2(500),
     publication_date DATE,
-    borrow_count NUMBER(10)
+    borrow_count NUMBER(10) DEFAULT 0
 );
 
 -- 관리자 등급
@@ -98,7 +98,7 @@ CREATE TABLE announcements (
     write_date DATE,
     fileName VARCHAR2(255),
     contents VARCHAR2(500),
-    view_count NUMBER(10)
+    view_count NUMBER(10) DEFAULT 0
 );
 
 -- 문의사항
@@ -150,10 +150,10 @@ CREATE TABLE wishlists (
     wish_author VARCHAR2(50),
     wish_publisher VARCHAR2(50),
     wish_publication DATE,
-    wish_price NUMBER(10),
+    wish_price NUMBER(10) DEFAULT 10000,
     wish_isbn VARCHAR2(20),
     wish_date DATE,
-    complete CHAR(1) DEFAULT 'W' CHECK (complete IN ('Y', 'W', 'N'))
+    complete CHAR(1) DEFAULT 'W' CHECK (complete IN ('Y', 'W', 'N')),
     user_id VARCHAR2(20) REFERENCES users(user_id)
 );
 
