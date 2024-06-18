@@ -1,32 +1,59 @@
+
 h1{
-	 text-align:center; 
-	 font-size:3em; 
-	 margin-bottom:0px; 
-	 color:#492918;
+	text-align:center;
+	font-size:3em; 
+	margin:0px; 
+	padding-top: 20px;
+	padding-bottom: 20px;
+/* 	color:#492918; */
+	color: white;
+	background-image:url("/images/woodLeaf.jpg");
 }
-span{
-	 font-size:0.3em;
-	 color:#471C0A; 
-	 margin:0px; 
-	 font-weight:900;
+
+.loginTop{
+	font-size:0.3em;
+	/* color:#471C0A; */ 
+	color: white;
+	margin:0px; 
+	font-weight:900;
 }
 main{
 	 display:flex; 
+	 flex-direction: column;
 	 justify-content:center;
-	 border: 1px solid brown;
+	 align-items: center;
+	 height: 800px;
 }
 a {
 	text-decoration: none;
 	color: black;
 }
-
 a:hover {
 	text-decoration: underline;
-	color: dodgerblue;
+	color: #47a168;
 }
-
-
+.loginConOut{
+	display: flex;
+	justify-content: center;
+}
+.title{
+	height: 250px;
+}
+.loginCon1{
+	display: flex;
+	flex-direction: column;
+	width: 1260px;
+	margin-top: 40px;
+}
+.loginCon2{
+	width:550px; 
+	height:350px; 
+	padding:0px;
+	border: 2px solid #ecd9bc;
+	border-radius: 5px;
+}
 .floor{
+	align-items: center;
 	width:400px;
 	height:50px;
 	margin:20px 75px;
@@ -37,26 +64,47 @@ a:hover {
 	width:400px;
 	height:50px;
 	font-size:1.5em;
-	border-radius:10px;
-	border:1px #AAAAAA solid;
+	border-radius:5px;
+	border:1px #dad5c9 solid;
+	background-color: #eeeae2;
 	outline:none;
 }
-h1{/*lhm 추가*/
-	text-align:center;
-	font-size:3em; 
-	margin-bottom:0px; 
-	color:#492918;
-}
-.loginTop{/*span. lhm 추가*/
-	font-size:0.3em;
-	color:#471C0A; 
-	margin:0px; 
-	font-weight:900;
-}
+
+input[type=button],
 input[type=submit]{/*lhm 추가*/
 	color:white; 
-	background:#535353; 
 	width:120px; 
-	height:35px; 
+	height:50px; 
+	margin-left: 10px;
+	margin-right: 10px;
+	border: none;
+	border-radius: 5px;
 	cursor:pointer;
 }
+input[type=submit]{
+	background-color:#64b883;
+}
+input[type=button]{
+	background-color:#471C0A;
+}
+.attention{
+	box-sizing: border-box;
+	width: 554px;
+	height: 354px;
+	margin-top: 40px;
+	padding: 20px;
+	border-radius: 5px;
+	background-color: #d8e9d9;
+}
+.attention ul li{
+	list-style-type: square;
+	line-height: 2em;
+	font-size: 11pt;
+	color: #376239
+}
+
+
+
+
+
+
