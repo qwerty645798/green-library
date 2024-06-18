@@ -4,6 +4,7 @@
     display: flex;
     width: 1260px;
     margin: 0 auto;
+    background-color: skyblue;
 }
 
 .image_box{
@@ -11,15 +12,40 @@
 	width: 630px;
 	height: 500px;
 	align-items: center;
-    justify-content: center;
+    justify-content: left;
 	
 	margin-top:10px;
+	background-color: lemonchiffon;
 }
 
 .image_box img{
 	width: 250px;
-	height: 375px;
+	height: 300px;
 	object-fit: cover; /*fill?*/
+	border: 2px solid brown;
+}
+.hidden {
+        display: none;
+}
+   
+   .button_box{
+	display: flex;
+	width:1260px;
+	margin: 0 auto;
+	
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	box-sizing: border-box;
+}
+
+.button_box input[type="button"]{
+	background-color: #64B883;
+	border-radius : 5px;
+	border: none;
+	width: 40px;
+	margin-right: 10px;
+	margin-left:10px;
 }
 
 
