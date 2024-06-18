@@ -38,7 +38,6 @@
 			</tr>
 			<tr>
 				<td class="text"><div>비밀번호</div></td>
-
 				<td class="input"><input type="text" id="pswd" name="#" class="middle">
 					<br>
 					<div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합)
@@ -59,7 +58,6 @@
 			</tr>
 			<tr>
 				<td class="text"><div>이메일</div></td>
-
 				<td class="input">
 				<input type="text" id="email" name="#" class="short"> @ 
 				<input type="text" id="email2" name="#" class="short" readonly>
@@ -72,15 +70,18 @@
 					<option value="nate.com">nate.com</option>
 				</select>
 				</td>
-
 			</tr>
 			<tr>
-				<td colspan="2" style="border:none;text-align:center;"><input type="submit" value="확인" style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></td>
+				<td colspan="2" style="border:none;text-align:center;">
+				<input type="button" value="확인" onclick="modifyCheck()"></td>
 			</tr>
 		</table>
 		</div>
 	</form>
 	</main>
 	<jsp:include page="../index/footer.jsp" />
+	
+	<script src="/js/userInfoModification.js" type="text/javascript"></script>
+	
 </body>
 </html>

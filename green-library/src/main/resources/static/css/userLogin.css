@@ -41,7 +41,23 @@ a:hover {
 	border:1px #AAAAAA solid;
 	outline:none;
 }
+<<<<<<< HEAD
 input[type=submit]{
+=======
+h1{/*lhm 추가*/
+	text-align:center;
+	font-size:3em; 
+	margin-bottom:0px; 
+	color:#492918;
+}
+.loginTop{/*span. lhm 추가*/
+	font-size:0.3em;
+	color:#471C0A; 
+	margin:0px; 
+	font-weight:900;
+}
+input[type=submit]{/*lhm 추가*/
+>>>>>>> parent of 89f7a8a (Revert "js")
 	color:white; 
 	background:#535353; 
 	width:120px; 
