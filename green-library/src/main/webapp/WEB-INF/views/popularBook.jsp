@@ -13,32 +13,6 @@
 <link rel="stylesheet" type="text/css" href="css/popularBook.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
-<style>
-    .hidden {
-        display: none;
-    }
-    
-    .button_box{
-		display: flex;
-		width:1260px;
-		margin: 0 auto;
-		
-		justify-content: center;
-		align-items: center;
-		margin-top: 20px;
-		box-sizing: border-box;
-	}
-	
-	.button_box input[type="button"]{
-		background-color: #64B883;
-		border-radius : 5px;
-		border: none;
-		width: 40px;
-		margin-right: 10px;
-		margin-left:10px;
-	}
-</style>
-
 <script>
     function showPage(pageNumber) {
         document.querySelectorAll('.page').forEach(function(page) {
@@ -63,6 +37,7 @@
 
 <main>
 
+<jsp:include page="index/header.jsp" />
 
 <c:set var="itemsPerPage" value="10"/>
 <c:set var="totalItems" value="${fn:length(items)}" />
@@ -197,7 +172,9 @@
 
 </main>
 
-<footer id="footer" class="footer"></footer>
+ <jsp:include page="index/footer.jsp" />
+ 
+ <script src="/js/header.js"></script>
 
 </body>
 </html>

@@ -49,7 +49,18 @@
                         <a href="bookDetail?bookId=${items[index].book_id}">
                             <img src="images/${items[index].img}">
                         </a>
+                        
+                        
+                   		<ul class="bookInfo">
+                   			<li>제목: ####</li>
+                   			<li>저자: ####</li>
+                   			<li>출판사: ####</li>
+                   			<li>발행년도: ####</li>
+                   			<li>대출상태: ####</li>
+                   		</ul>
+                   	
                     </div>
+                    
                 </c:if>
             </c:forEach>
         </div>
@@ -66,6 +77,10 @@
                         <a href="bookDetail?bookId=${items[index].book_id}">
                             <img src="images/${items[index].img}">
                         </a>
+                        
+                        
+                    	
+                   
                     </div>
                 </c:if>
             </c:forEach>
@@ -84,6 +99,8 @@
                             <img src="images/${items[index].img}">
                         </a>
                     </div>
+                    
+                    
                 </c:if>
             </c:forEach>
         </div>
@@ -96,13 +113,6 @@
         <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
     </c:forEach>
 </div>
-	
-	
-	
-	
-
-
-
 
 </main>
 

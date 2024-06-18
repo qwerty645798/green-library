@@ -13,8 +13,8 @@
 	height: 500px;
 	align-items: center;
     justify-content: left;
-	
 	margin-top:10px;
+	padding-left: 40px;
 	background-color: lemonchiffon;
 }
 
@@ -25,10 +25,10 @@
 	border: 2px solid brown;
 }
 .hidden {
-        display: none;
+    display: none;
 }
    
-   .button_box{
+.button_box{
 	display: flex;
 	width:1260px;
 	margin: 0 auto;
@@ -40,12 +40,24 @@
 }
 
 .button_box input[type="button"]{
-	background-color: #64B883;
+	/* background-color: #64B883; */
 	border-radius : 5px;
-	border: none;
+	border: 1px solid gray;
 	width: 40px;
 	margin-right: 10px;
 	margin-left:10px;
+}
+
+
+.bookInfo{
+	box-sizing: border-box;
+	width: 250px;
+	height: 300px;
+	padding: 20px;
+	border: 1px solid skyblue;
+	list-style-type: none;
+	line-height: 3em;
+	background-color: white;
 }
 
 
