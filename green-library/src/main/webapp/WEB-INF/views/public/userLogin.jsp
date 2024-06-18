@@ -16,7 +16,7 @@
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">로그인</div>
-			<div class="pageRoute">홈 > 로그인</div>
+			<div class="pageRoute">홈 > 로그인</div> 
 		</div>
 	</nav>
 	<br>
