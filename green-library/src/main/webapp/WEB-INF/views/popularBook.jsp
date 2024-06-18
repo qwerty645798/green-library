@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +33,7 @@
 		background-color: #64B883;
 		border-radius : 5px;
 		border: none;
-		width: 60px;
+		width: 40px;
 		margin-right: 10px;
 		margin-left:10px;
 	}
@@ -59,53 +61,131 @@
     </div>
 </div>
 
-<main><!-- 페이지내 들어갈 개수 / 현재(3개) -->
+<main>
 
 
-<div id = "page_1" class="page">
+<c:set var="itemsPerPage" value="10"/>
+<c:set var="totalItems" value="${fn:length(items)}" />
+<c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
+
+<div id="page_1" class="page">
+	<c:forEach var="index" begin="0" end="9">
+    	<c:if test="${index < items.size()}">
+			<div class="bigDiv">
+		        <div class="book_container">
+                    <div class="book_image">
+						<img src="images/${items[index].img}">
+					</div>
+					<div class="book_table">
+						<table>
+							<tr>
+								<th>책 제목</th>
+								<td colspan="3">${items[index].title}</td>
+							</tr>
+							<tr>
+								<th>저자명</th>
+								<td colspan="3">${items[index].authorName}</td>
+							</tr>
+							<tr>
+								<th>출판사</th>
+								<td colspan="3">${items[index].publisherName}</td>
+							</tr>
+							<tr>
+								<th>대출 가능 여부</th>
+								<td colspan="3">${items[index].availability}</td>
+							</tr>
+							<tr>
+								<td colspan="4" class="more_button" style="border:none;">
+									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
+								</td> 
+							</tr>
+						</table>
+					</div>
+		    	</div>
+		    </div>
+	    </c:if>
+    </c:forEach>
 </div>
 
 <div id = "page_2" class="page hidden">
+	<c:forEach var="index" begin="10" end="19">
+    	<c:if test="${index < items.size()}">
+			<div class="bigDiv">
+		        <div class="book_container">
+                    <div class="book_image">
+						<img src="images/${items[index].img}">
+					</div>
+					<div class="book_table">
+						<table>
+							<tr>
+								<th>책 제목</th>
+								<td colspan="3">${items[index].title}</td>
+							</tr>
+							<tr>
+								<th>저자명</th>
+								<td colspan="3">${items[index].authorName}</td>
+							</tr>
+							<tr>
+								<th>출판사</th>
+								<td colspan="3">${items[index].publisherName}</td>
+							</tr>
+							<tr>
+								<th>대출 가능 여부</th>
+								<td colspan="3">${items[index].availability}</td>
+							</tr>
+							<tr>
+								<td colspan="4" class="more_button" style="border:none;">
+									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
+								</td> 
+							</tr>
+						</table>
+					</div>
+		    	</div>
+		    </div>
+	    </c:if>
+    </c:forEach>
 </div>
 
 <div id = "page_3" class="page hidden">
+	<c:forEach var="index" begin="20" end="29">
+    	<c:if test="${index < items.size()}">
+			<div class="bigDiv">
+		        <div class="book_container">
+                    <div class="book_image">
+						<img src="images/${items[index].img}">
+					</div>
+					<div class="book_table">
+						<table>
+							<tr>
+								<th>책 제목</th>
+								<td colspan="3">${items[index].title}</td>
+							</tr>
+							<tr>
+								<th>저자명</th>
+								<td colspan="3">${items[index].authorName}</td>
+							</tr>
+							<tr>
+								<th>출판사</th>
+								<td colspan="3">${items[index].publisherName}</td>
+							</tr>
+							<tr>
+								<th>대출 가능 여부</th>
+								<td colspan="3">${items[index].availability}</td>
+							</tr>
+							<tr>
+								<td colspan="4" class="more_button" style="border:none;">
+									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
+								</td> 
+							</tr>
+						</table>
+					</div>
+		    	</div>
+		    </div>
+	    </c:if>
+    </c:forEach>
 </div>
 
 
-<!-- 개별 기본 폼 -->
-<div class="bigDiv">
-	<div class="book_container">
-		<div class="book_image">
-			<img src="images\exex.jpg">
-		</div>
-		<div class="book_table">
-			<table>
-				<tr>
-					<th>책 제목</th>
-					<td colspan="3"></td>
-				</tr>
-				<tr>
-					<th>저자명</th>
-					<td colspan="3"></td>
-				</tr>
-				<tr>
-					<th>출판사</th>
-					<td colspan="3"></td>
-				</tr>
-				<tr>
-					<th>대출 가능 여부</th>
-					<td colspan="3">대출 가능/불가<!-- 대출 가능/불가 여부 확인 후 출력되어있는 기능 --></td>
-				</tr>
-				<tr>
-					<!-- form-submit? 아니면 그냥 button?  -->
-					<td colspan="4" class="more_button" style="border:none;">
-						<input type="button" onclick="window.location.href='bookDetail?bookId=2'" value="자세히 보기" class="moreInf">
-					</td> 
-				</tr>
-			</table>
-		</div>
-	</div>
-</div>
 
 
 

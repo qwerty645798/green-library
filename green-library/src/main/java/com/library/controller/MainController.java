@@ -60,19 +60,6 @@ public class MainController {
 	}
 	
 	
-	
-	
-	
-	@GetMapping("/dataSearch")
-	public String dataSearch () {
-		return "dataSearch";
-	}
-	
-	@GetMapping("/dataSearchResult")
-	public String dataSearchResult () {
-		return "dataSearchResult";
-	}
-	
 	@GetMapping("/notification")
 	public String notification () {
 		return "notification";

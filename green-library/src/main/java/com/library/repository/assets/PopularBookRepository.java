@@ -18,14 +18,14 @@ public class PopularBookRepository {
 	private JdbcTemplate jdbcTemplate;
 	
 	public List<PopularBookDto> findBookId() {
-		String sql = "Select b.book_id, b.img, b.title, a.author_name, p.publisher_name, b.availability "
-				+ "from ("
-				+ "select b.book_id, b.img, b.title, a.author_name, p.publisher_name, b.availability "
-				+ "from books b "
-				+ "JOIN authors a ON b.author_id = a.author_id"
-				+ "JOIN publishers p b.publisher_id = p.publisher_id  "
-				+ "order by b.borrow_count desc) "
-				+ "where rownum<= 30";
+		String sql = "SELECT book_id, img, title, author_name, publisher_name, availability "
+		           + "FROM ("
+		           + "SELECT b.book_id, b.img, b.title, a.author_name, p.publisher_name, b.availability "
+		           + "FROM books b "
+		           + "JOIN authors a ON b.author_id = a.author_id "
+		           + "JOIN publishers p ON b.publisher_id = p.publisher_id "
+		           + "ORDER BY b.borrow_count DESC) "
+		           + "WHERE ROWNUM <= 30";
 		
 		return jdbcTemplate.query(sql, new RowMapper<PopularBookDto>() {
 			@Override
