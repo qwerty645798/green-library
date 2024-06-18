@@ -9,6 +9,7 @@
 <link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userJoin.css" type="text/css" rel="stylesheet">
+
 </head>
 <body>
 	<jsp:include page="../index/header.jsp" />
@@ -21,12 +22,12 @@
 	<br>
 	<br>
 	<main>
-	<form action="userJoin-perform" method="post">
+	<form action="userJoin-perform" method="post" id="form">
 		<div class="container">
 		<table style="border-collapse:collapse;">
 			<tr>
 				<td class="text"><div>이름</div></td>
-				<td class="input"><input type="text" id="name" name="userName" placeholder="홍길동" class="long"></td>
+				<td class="input"><input type="text" id="username" name="userName" placeholder="홍길동" class="long"></td>
 			</tr>
 			<tr>
 				<td class="text"><div>생년월일</div></td>
@@ -64,10 +65,11 @@
 			</tr>
 			<tr>
 				<td class="text"><div>이메일</div></td>
-				<td class="input"><input type="text" id="email" name="emailFront" class="short"> @ 
-				<input type="text" id="email2" name="emailBack" class="short">
-				<select id="emailSel">
-					<option value="0"></option>
+				<td class="input">
+				<input type="text" id="email" name="emailFront" class="short"> @ 
+				<input type="text" id="email2" name="emailBack" class="short" readonly>
+				<select id="emailSel" onchange="mailText()">
+					<option value="" selected></option>
 					<option value="naver.com">naver.com</option>
 					<option value="gmail.com">gmail.com</option>
 					<option value="daum.net">daum.net</option>
@@ -85,7 +87,7 @@
 	</main>
 	<jsp:include page="../index/footer.jsp" />
 	
-	<script src="js/userJoin.js" type="text/javascript"></script>
+	<script src="/js/userJoin.js" type="text/javascript"></script>
 	
 </body>
 </html>
