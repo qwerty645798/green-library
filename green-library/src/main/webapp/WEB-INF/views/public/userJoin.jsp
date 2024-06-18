@@ -9,6 +9,7 @@
 <link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userJoin.css" type="text/css" rel="stylesheet">
+
 </head>
 <body>
 	<jsp:include page="../index/header.jsp" />
@@ -21,21 +22,21 @@
 	<br>
 	<br>
 	<main>
-	<form action="userJoin-perform" method="post">
+	<form action="userJoin" method="post" id="form">
 		<div class="container">
 		<table style="border-collapse:collapse;">
 			<tr>
 				<td class="text"><div>이름</div></td>
-				<td class="input"><input type="text" id="name" name="userName" placeholder="홍길동" class="long"></td>
+				<td class="input"><input type="text" id="username" name="name" placeholder="홍길동" class="middle"></td>
 			</tr>
 			<tr>
 				<td class="text"><div>생년월일</div></td>
-				<td class="input"><input type="text" id="birthDate" name="birth" placeholder="2000-01-01" class="long"></td>
+				<td class="input"><input type="text" id="birthDate" name="birth" placeholder="2000-01-01" class="middle"></td>
 			</tr>
 			<tr>
 				<td class="text"><div>아이디</div></td>
 				<td class="input">
-					<input type="text" id="userid" name="userId" class="middle">
+					<input type="text" id="userid" name="id" class="middle">
 					<input type="button" value="아이디 중복 확인" style="color:white; background:#786C67; border:none; height:30px; cursor:pointer;">
 					<br>
 					<div class="comment">아이디는 영문 또는 숫자(개별 또는 혼용) 5자 이상 가능합니다. 아이디 영문은 모두 소문자입니다.</div>
@@ -44,7 +45,7 @@
 			</tr>
 			<tr>
 				<td class="text"><div>비밀번호</div></td>
-				<td class="input"><input type="text" id="pswd" name="userPass" class="middle">
+				<td class="input"><input type="text" id="pswd" name="pass" class="middle">
 					<br>
 					<div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합)
 					<br>
@@ -64,10 +65,11 @@
 			</tr>
 			<tr>
 				<td class="text"><div>이메일</div></td>
-				<td class="input"><input type="text" id="email" name="emailFront" class="short"> @ 
-				<input type="text" id="email2" name="emailBack" class="short">
-				<select id="emailSel">
-					<option value="0"></option>
+				<td class="input">
+				<input type="text" id="email" name="emailFront" class="short"> @ 
+				<input type="text" id="email2" name="emailBack" class="short" readonly>
+				<select id="emailSel" onchange="mailText()">
+					<option value="" selected></option>
 					<option value="naver.com">naver.com</option>
 					<option value="gmail.com">gmail.com</option>
 					<option value="daum.net">daum.net</option>
@@ -85,7 +87,7 @@
 	</main>
 	<jsp:include page="../index/footer.jsp" />
 	
-	<script src="js/userJoin.js" type="text/javascript"></script>
+	<script src="/js/userJoin.js" type="text/javascript"></script>
 	
 </body>
 </html>
