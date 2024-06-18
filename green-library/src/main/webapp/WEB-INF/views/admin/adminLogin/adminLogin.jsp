@@ -7,8 +7,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/reset.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/adminLogin.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/adminLogin.css">
         <title>Login</title>
     </head>
 
@@ -16,7 +17,7 @@
         <main>
             <h1>admin page login</h1>
             <div>
-                <div class="adminLogo"><img src="../util/security.png" alt=""></div>
+                <div class="adminLogo"><img src="admin/assets/imgs/security.png" alt=""></div>
                 <form class="loginContainer" id="loginForm" action="#" method="post">
                     <div>
                         <label for="adminID">ID</label>
@@ -34,7 +35,7 @@
                 </form>
             </div>
         </main>
-        <footer class="footer" id="footer"></footer>
+        <jsp:include page="../public/adminFooter.jsp"></jsp:include>
     </body>
 
 </html>

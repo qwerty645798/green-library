@@ -8,15 +8,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>users</title>
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/reset.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/adminHeader.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/adminFooter.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/public/style.css">
-        <link rel="stylesheet" type="text/css" href="/resources/static/admin/css/users.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
+        <link rel="stylesheet" type="text/css" href="admin/css/users.css">
     </head>
 
     <body>
-        <header class="header" id="header"></header>
+    <jsp:include page="../../public/adminHeader.jsp"></jsp:include>
         <main>
             <section class="banner">
                 <h3>이용자 관리</h3>
@@ -40,7 +40,7 @@
                     </form>
                     <div class="resultContainer">
                         <div class="results">
-                            <p>result : ${개}</p>
+                            <p>result : 개</p>
                             <select name="" id="">
                                 <option value="">10개씩</option>
                                 <option value="">15개씩</option>
@@ -48,7 +48,7 @@
                             </select>
                             <div class="paging">
                                 <input class="back" type="button">
-                                <p>${page} of ${total}</p>
+                                <p>페이지 of 토탈</p>
                                 <input class="next" type="button">
                             </div>
                         </div>
@@ -86,10 +86,10 @@
                 <div class="rightContainer">
                     <div class="userInfo">
                         <h4>이용자 정보</h4>
-                        <p>이름 : ${}</p>
-                        <p>아이디 : ${}</p>
-                        <p>이메일 : ${}</p>
-                        <p>전화번호 : ${}</p>
+                        <p>이름 : </p>
+                        <p>아이디 : </p>
+                        <p>이메일 : </p>
+                        <p>전화번호 : </p>
                     </div>
                     <div class="loanInfo">
                         <h4>대출 현황</h4>
@@ -148,9 +148,7 @@
                 </div>
             </section>
         </main>
-        <footer class="footer" id="footer"></footer>
-
-        <script src="../../util/callHtml.js"></script>
+    <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
     </body>
 
 </html>
