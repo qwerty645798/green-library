@@ -16,40 +16,23 @@
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">로그인</div>
-			<div class="pageRoute">홈 > 로그인</div>
+			<div class="pageRoute">홈 > 로그인</div> 
 		</div>
 	</nav>
 	<br>
 	<h1>Member Login<br>
-<<<<<<< HEAD:green-library/src/main/webapp/WEB-INF/views/public/userLogin.jsp
-<<<<<<< HEAD:green-library/src/main/webapp/WEB-INF/views/public/userLogin.jsp
-	<span>로그인을 하시면 더 많은 도서관 서비스를 이용할 수 있습니다.</span>
-=======
 	<span class="loginTop">로그인을 하시면 더 많은 도서관 서비스를 이용할 수 있습니다.</span>
->>>>>>> parent of 89f7a8a (Revert "js"):green-library/src/main/webapp/WEB-INF/views/user/userLogin.jsp
-=======
-	<span class="loginTop">로그인을 하시면 더 많은 도서관 서비스를 이용할 수 있습니다.</span>
->>>>>>> parent of 89f7a8a (Revert "js"):green-library/src/main/webapp/WEB-INF/views/user/userLogin.jsp
 	</h1>
-	<main>
+	<main style="display:flex; justify-content:center;">
 		
-		<form action="${pageContext.request.contextPath}/userLogin" method="post">
+		<form action="${pageContext.request.contextPath}/userLogin-perform" method="post">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<div style=" width:550px; height:350px; padding:0px;">
 			<div class="floor"><input type="text" placeholder="아이디" name="userId" class="text"><br></div>
 			<div class="floor"><input type="password" placeholder="비밀번호" name="userPass" class="text"><br></div>
 			<div class="floor"><input type="checkbox" name="#"> 아이디 저장 
 			<div style="width:120px; display:inline-block"> </div> <a href="#">아이디 찾기</a> / <a href="#">비밀번호 초기화</a></div>
-<<<<<<< HEAD:green-library/src/main/webapp/WEB-INF/views/public/userLogin.jsp
-<<<<<<< HEAD:green-library/src/main/webapp/WEB-INF/views/public/userLogin.jsp
-			<div class="floor" style="text-align:center;">
-			<input type="submit" value="로그인"></div>
-=======
 			<div class="floor" style="text-align:center;"><input type="submit" value="로그인" ></div>
->>>>>>> parent of 89f7a8a (Revert "js"):green-library/src/main/webapp/WEB-INF/views/user/userLogin.jsp
-=======
-			<div class="floor" style="text-align:center;"><input type="submit" value="로그인" ></div>
->>>>>>> parent of 89f7a8a (Revert "js"):green-library/src/main/webapp/WEB-INF/views/user/userLogin.jsp
 		</div>
 		</form>
 	</main>
