@@ -55,4 +55,18 @@ public class BookController {
 		return "popularBook";
 	}
     
+    
+    
+    
+    
+    @GetMapping("/dataSearch")
+	public String dataSearch () {
+		return "dataSearch";
+	}
+	
+	@GetMapping("/dataSearchResult")
+	public String dataSearchResult () {
+		return "dataSearchResult";
+	}
+    
 }
