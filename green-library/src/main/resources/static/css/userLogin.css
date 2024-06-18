@@ -41,12 +41,7 @@ a:hover {
 	border:1px #AAAAAA solid;
 	outline:none;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-input[type=submit]{
-=======
-=======
->>>>>>> parent of 89f7a8a (Revert "js")
+
 h1{/*lhm 추가*/
 	text-align:center;
 	font-size:3em; 
@@ -60,10 +55,7 @@ h1{/*lhm 추가*/
 	font-weight:900;
 }
 input[type=submit]{/*lhm 추가*/
-<<<<<<< HEAD
->>>>>>> parent of 89f7a8a (Revert "js")
-=======
->>>>>>> parent of 89f7a8a (Revert "js")
+
 	color:white; 
 	background:#535353; 
 	width:120px; 

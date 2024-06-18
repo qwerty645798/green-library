@@ -50,11 +50,12 @@
 			</tr>
 			<tr>
 				<td class="text"><div>비밀번호 확인</div></td>
-<<<<<<< HEAD
+
+
 				<td class="input"><input type="password" class="middle"></td>
-=======
+
 				<td class="input"><input type="password" id="passCheck" name="#" class="middle"></td>
->>>>>>> parent of 89f7a8a (Revert "js")
+
 			</tr>
 			<tr>
 				<td class="text"><div>휴대폰번호</div></td>
