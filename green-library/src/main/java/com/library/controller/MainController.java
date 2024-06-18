@@ -11,6 +11,21 @@ public class MainController {
 		return "index/index";
 	}
 	
+	@GetMapping("/userAgreement")
+	public String userAgreement() {
+		return "public/userAgreement";
+	}
+	
+	@GetMapping("/userJoin")
+	public String userJoin() {
+		return "public/userJoin";
+	}
+	
+	@GetMapping("/userLogin")
+	public String userLogin() {
+		return "public/userLogin";
+	}
+	
 	@GetMapping("/facilityInfo")
 	public String facilityInfo() {
 		return "facilityInfo";

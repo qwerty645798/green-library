@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.library.dto.user.UserDto;
-import com.library.service.user.UserInfoModificationService;
-import com.library.service.user.UserInfoService;
-import com.library.service.user.UserLoginService;
+import com.library.service.user.UserService;
 
 import jakarta.validation.Valid;
 
@@ -21,31 +19,11 @@ import jakarta.validation.Valid;
 public class UserController {
 
 	@Autowired
-	private UserLoginService userLoginService;
-
-	@GetMapping("/userAgreement")
-	public String userAgreement() {
-		return "user/userAgreement";
-	}
-
-	@GetMapping("/userJoin")
-	public String userJoin() {
-		return "user/userJoin";
-	}
-
-	@GetMapping("/userLogin")
-	public String userLogin() {
-		return "user/userLogin";
-	}
+	private UserService userService;
 
 	@GetMapping("/userFinding")
 	public String userFinding() {
 		return "user/userFinding";
-	}
-
-	@GetMapping("/userFindingAlt")
-	public String userFindingAlt() {
-		return "user/userFindingAlt";
 	}
 
 	@GetMapping("/userUseInformation")
@@ -68,42 +46,37 @@ public class UserController {
 		return "user/userInquiryCreate";
 	}
 
-	@Autowired
-	private UserInfoService userInfoService;
-
 	@GetMapping("/userInfo")
 	public String userInfo(Model model) {
-		UserDto userDto = userInfoService.getUserDetails();
+		UserDto userDto = userService.getUserDetails();
 		model.addAttribute("user", userDto);
 		return "user/userInfo";
 	}
 
 	@GetMapping("/userInfoModification")
 	public String userInfoModification(Model model) {
-		UserDto userDto = userInfoService.getUserDetails();
+		UserDto userDto = userService.getUserDetails();
 		model.addAttribute("user", userDto);
 		return "user/userInfoModification";
 	}
 
-	@Autowired
-	private UserInfoModificationService userInfoModificationService;
+	@PostMapping("/userInfoModification")
+	public String userInfoModificationPerform(
 
-	/*
-	 * @PostMapping("/userInfoModification-perform") public String
-	 * userInfoModificationPerform(
-	 * 
-	 * @ModelAttribute("user") @Valid UserDto userDto,
-	 * 
-	 * @RequestParam("emailFront") String ef,
-	 * 
-	 * @RequestParam("emailBack") String eb, BindingResult result ) {
-	 * 
-	 * if (result.hasErrors()) { return "userInfoModification"; }
-	 * 
-	 * userDto.setEmail(ef+"@"+eb); userInfoModificationService.update(userDto);
-	 * return "redirect:/registration?success";
-	 * 
-	 * }
-	 */
+			@ModelAttribute("user") @Valid UserDto userDto,
+
+			@RequestParam("emailFront") String ef,
+
+			@RequestParam("emailBack") String eb, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "userInfoModification";
+		}
+
+		userDto.setEmail(ef + "@" + eb);
+		userService.update(userDto);
+		return "redirect:/registration?success";
+
+	}
 
 }
