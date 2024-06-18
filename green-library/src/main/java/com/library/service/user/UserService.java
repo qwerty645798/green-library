@@ -32,8 +32,9 @@ public class UserService implements UserDetailsService {
 
 		List<GrantedAuthority> authorities = new ArrayList<>();
 
-		return User.withUsername(userDto.getId()).password(userDto.getPass()).authorities(authorities)
-
+		return User.withUsername(userDto.getId())
+				.password(userDto.getPass())
+				.authorities(authorities)
 				.build();
 	}
 
