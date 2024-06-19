@@ -1,12 +1,19 @@
 @charset "utf-8";
 
+.bookInfo li span a{
+	text-decoration: none;
+	color: black;
+}
+.bookInfo li span a:hover{
+	text-decoration: underline;
+	color: #155734;
+}
 .image_container {
     display: flex;
     width: 1260px;
     margin: 0 auto;
-    background-color: skyblue;
+    border: 1px solid red;
 }
-
 .image_box{
 	display: flex;
 	width: 630px;
@@ -15,14 +22,62 @@
     justify-content: left;
 	margin-top:10px;
 	padding-left: 40px;
-	background-color: lemonchiffon;
+	background-color: #d8e9d9;
+	border: 1px solid green;
 }
-
+.image_box a{
+	width: 252px;
+	height: 304px;
+	cursor: pointer;
+	border: 1px solid black;
+}
 .image_box img{
+	position: relative;/*test*/
+	top: -304px;
 	width: 250px;
 	height: 300px;
 	object-fit: cover; /*fill?*/
-	border: 2px solid brown;
+}
+.blackbox{
+	visibility:hidden;
+	position: relative;
+	z-index: 15;
+	width: 254px;
+	height: 304px;
+	background-color: #155734;
+	opacity: 0.5;
+}
+.image_box .icon{
+	top: 87px;
+	left: 63px;
+	float: left;
+	width: 128px;
+	height: 128px;
+	border: none;
+}
+.image_box a:hover .blackbox{
+	visibility: visible;
+}
+.bookInfo{
+	box-sizing: border-box;
+	width: 250px;
+	height: 300px;
+	padding: 20px;
+	margin-left: 15px;
+	list-style-type: none;
+	line-height: 2em;
+	font-size: 11pt;
+	background-color: white;
+}
+.bookInfo li span:not(.border){
+	font-weight: bold;
+	font-size: 15pt;
+}
+hr{
+	border: 1px solid #d8e9d9;
+}
+.border{
+	color: lightgray;
 }
 .hidden {
     display: none;
@@ -30,9 +85,9 @@
    
 .button_box{
 	display: flex;
-	width:1260px;
-	margin: 0 auto;
-	
+	width:315px;
+	/* margin: 0 auto; */
+	margin-top: 0px;
 	justify-content: center;
 	align-items: center;
 	margin-top: 20px;
@@ -41,23 +96,36 @@
 
 .button_box input[type="button"]{
 	/* background-color: #64B883; */
-	border-radius : 5px;
+	border-radius : 2px;
 	border: 1px solid gray;
-	width: 40px;
+	width: 30px;
+	height: 30px;
 	margin-right: 10px;
 	margin-left:10px;
-}
-
-
-.bookInfo{
-	box-sizing: border-box;
-	width: 250px;
-	height: 300px;
-	padding: 20px;
-	border: 1px solid skyblue;
-	list-style-type: none;
-	line-height: 3em;
+	cursor: pointer;
 	background-color: white;
 }
+input[type=button]:hover{
+	background-color: lightgray;
+	opacity: 0.8;
+}
+
+.arrow{
+	position: relative;
+	top: 8px;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+}
+.arrCon{
+	display: flex;
+	justify-content: center;
+	height: 30px;
+}
+
+
+
+
+
 
 
