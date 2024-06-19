@@ -7,8 +7,9 @@
 <meta charset="utf-8">
 <title>자료 검색</title>
 
-<script src="js/dataSearch.js"></script>
+<script src="js/dataSearchBar.js"></script>
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="css/dataSearchBar.css">
 <link rel="stylesheet" type="text/css" href="css/dataSearch.css">
 
 

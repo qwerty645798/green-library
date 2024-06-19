@@ -1,6 +1,6 @@
 
 
-//검색창(select있는) 공용 js임
+//검색창(select-text-button) 공용 js임
 
 	function want_search(event){
 		if(event.target.value==="검색어를 입력하세요"){
