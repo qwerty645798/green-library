@@ -42,14 +42,12 @@
 	width:140px;
 }
 .sel_box3 input[type="button"]{
-	margin:0 auto;
-	width: 140px;
-}
-
-.zerocon_button{
 	background-color: #64B883;
 	border-radius : 5px;
 	border: none;
+	
+	margin:0 auto;
+	width: 140px;
 }
 
 

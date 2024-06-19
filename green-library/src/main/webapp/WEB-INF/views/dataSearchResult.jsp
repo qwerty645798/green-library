@@ -40,15 +40,7 @@
 	}
 </style>
 
-<script>
-    function showPage(pageNumber) {
-        document.querySelectorAll('.page').forEach(function(page) {
-            page.classList.add('hidden');
-        });
-        
-        document.getElementById('page_' + pageNumber).classList.remove('hidden');
-    }
-</script>
+
 
 
 </head>
@@ -80,10 +72,10 @@
 			</select>
 		</div>
 		<div class="sel_box2">
-			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)">
+			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)" onkeypress="checkEnter(event)">
 		</div>
 		<div class="sel_box3">
-			<input type="button" value="검색" onclick="lets_search(event)" class="zerocon_button">
+			<input type="button" value="검색" onclick="lets_search()">
 		</div>
 	</div>
 </div>
@@ -94,86 +86,174 @@
 			&nbsp;'${inputCategory}:${inputText}'으로 검색한 결과 : ${items.size()}개 
 		</div>
 		<div class="text_box2">
-			<select>
-				<option>5개</option>
-				<option>10개</option>
-				<option>20개</option>
-			</select>
+			 <form id="itemsPerPageForm" action="/dataSearchResult" method="GET">
+                <select id="itemsPerPageSelect" name="itemsPerPage" onchange="this.form.submit()">
+                    <option value="5" ${itemsPerPage == 5 ? 'selected' : ''}>5개</option>
+                    <option value="10" ${itemsPerPage == 10 ? 'selected' : ''}>10개</option>
+                    <option value="20" ${itemsPerPage == 20 ? 'selected' : ''}>20개</option>
+                </select>
+                <input type="hidden" name="inputCategory" value="${inputCategory}">
+                <input type="hidden" name="inputText" value="${inputText}">
+            </form>
 		</div>
 	</div>
 </div>
 
-<c:set var="itemsPerPage" value="8"/><!-- select.value -->
+<c:set var="itemsPerPage" value="${itemsPerPage}"/>
 <c:set var="totalItems" value="${fn:length(items)}" />
 <c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
 
 <div class="second_container">
-	<c:forEach var="item" items="${items}" varStatus="loop">
-	<div id="page_1" class="page">
-		<div class="bigDiv">
-			<div class="book_container">
-				<div class="book_image">
-					<a href="bookDetail?bookId=${items.bookId}">
-						<img src="images/${items.img}">
-					</a>
-				</div>
-				<div class="book_table">
-					<table>
-						<tr>
-							<th>도서명</th>
-							<td>${items.title}</td>
-							<th>재고현황</th>
-							<td>${items.availability}</td>
-						</tr>
-						<tr>
-							<th>저자</th>
-							<td>${items.authorName}</td>
-							<th>위치</th>
-							<td>${items.location}</td>
-						</tr>
-						<tr>
-							<th>출판사</th>
-							<td colspan="3">${items.publisherName}</td>
-						</tr>
-						<tr>
-							<th>ISBN</th>
-							<td colspan="3">${items.isbn}</td>
-						</tr>
-						<tr>
-							<th>요약</th>
-							<td colspan="3">${items.summary}</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
+	<c:forEach var="page" begin="1" end="${totalPages}">
+	<div id="page_${page}" class="page ${page==1?'':'hidden'}">
+	
+		<c:forEach var="item" items="${items}" varStatus="loop">
+		<c:if test="${loop.index >= (page - 1) * itemsPerPage && loop.index < page * itemsPerPage}">
+            <div class="bigDiv">
+                <div class="book_container">
+                    <div class="book_image">
+                        <a href="bookDetail?bookId=${item.bookId}">
+                            <img src="images/${item.img}">
+                        </a>
+                    </div>
+                    <div class="book_table">
+                        <table>
+                            <tr>
+                                <th>도서명</th>
+                                <td>${item.title}</td>
+                                <th>재고현황</th>
+                                <td>${item.availability}</td>
+                            </tr>
+                            <tr>
+                                <th>저자</th>
+                                <td>${item.authorName}</td>
+                                <th>위치</th>
+                                <td>${item.location}</td>
+                            </tr>
+                            <tr>
+                                <th>출판사</th>
+                                <td colspan="3">${item.publisherName}</td>
+                            </tr>
+                            <tr>
+                                <th>ISBN</th>
+                                <td colspan="3">${item.isbn}</td>
+                            </tr>
+                            <tr>
+                                <th>요약</th>
+                                <td colspan="3">${item.summary}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+		</c:forEach>
+		
 	</div>
 	</c:forEach>
 	
-	<div id="page_2" class="page hidden"></div>
-	<div id="page_3" class="page hidden"></div>
-	
-
 </div>
 
-<!-- 여기 버튼 박스 구현 해야됨 복잡할듯? -->
-<!-- 위에 리스트 n개씩 출력, 그에 맞춰서 5개씩 페이지 버튼 출력 -->
-<!-- 제일 앞에서는 << < 두개 없이, 제일 뒤에서는 > >> 없이 -->
 <div class="third_container">
 	<div class="button_box">
-		<input type="button" value="<<">
-		<input type="button" value="<">
-		<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-	        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
-	    </c:forEach>
-		<input type="button" value=">">
-		<input type="button" value=">>">
+		<input type="button" value="<<" class="goFirst_button " onclick="showPage(1, ${totalPages})">
+		<input type="button" value="<" class="goPrevious_button " onclick="goPrevious()">
+		
+		<c:forEach var="groupStart" begin="1" step="5" end="${totalPages}">
+		    <c:set var="groupEnd" value="${groupStart + 4}"/>
+		    <c:if test="${groupEnd > totalPages}">
+		        <c:set var="groupEnd" value="${totalPages}"/>
+		    </c:if>
+		    <div class="page-group " id="pageGroup_${groupStart}">
+			    <c:forEach var="pageIndex" begin="${groupStart}" end="${groupEnd}">
+			        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex}, ${totalPages})">
+			    </c:forEach>
+		    </div>
+		</c:forEach>
+	    
+		<input type="button" value=">" class="goNext_button " onclick="goNext()">
+		<input type="button" value=">>" class="goEnd_button " onclick="showPage(${Math.floor(totalPages)}, ${totalPages})"><!-- 14를 마지막장으로 바꿔줘야함 -->
 	</div>
 </div>
 
 </main>
 <footer id="footer" class="footer"></footer>
 
+<script>	
+
+	window.onload = function(){
+        hideFirstTime(${totalPages});	
+        showPage(1,${totalPages});
+	};
+	
+	function hideFirstTime(totalPages){
+        document.querySelector('.goFirst_button').classList.add('hidden');
+        document.querySelector('.goPrevious_button').classList.add('hidden');
+        if (totalPages <= 5) {
+            document.querySelector('.goNext_button').classList.add('hidden');
+            document.querySelector('.goEnd_button').classList.add('hidden');
+        }
+    }
+	
+    function showPage(pageNumber, totalPage) {
+    	
+    	console.log(totalPage);
+    	console.log(pageNumber);
+    	//밑은 < > 이동 버튼들 보이고 안보이고 처리
+    	document.querySelector('.goFirst_button').classList.remove('hidden');
+    	document.querySelector('.goPrevious_button').classList.remove('hidden');
+    	document.querySelector('.goNext_button').classList.remove('hidden');
+    	document.querySelector('.goEnd_button').classList.remove('hidden');
+    	
+    	var a = Math.floor(totalPage / 5); 
+    	var b;
+
+    	if (totalPage % 5 === 0) {
+    	    b = (a - 1) * 5 + 1; 
+    	} else {
+    	    b = a * 5 + 1; 
+    	}
+
+    	if (pageNumber >= b) {
+    	    document.querySelector('.goNext_button').classList.add('hidden');
+    	    document.querySelector('.goEnd_button').classList.add('hidden');
+    	}
+    	if(pageNumber<=5){
+     		document.querySelector('.goFirst_button').classList.add('hidden');
+     		document.querySelector('.goPrevious_button').classList.add('hidden');
+     	} 
+    	
+    	
+    	//이 밑은 데이터들 출력 페이지
+        document.querySelectorAll('.page').forEach(function(page) {
+            page.classList.add('hidden');
+        });
+        
+        document.getElementById('page_' + pageNumber).classList.remove('hidden');
+        
+        //다른 그룹들 hidden
+        document.querySelectorAll('.page-group').forEach(function(group) {
+            group.classList.add('hidden');
+        });	
+        
+        var currentGroupStart = Math.floor((pageNumber - 1) / 5) * 5 + 1;
+        document.getElementById('pageGroup_' + currentGroupStart).classList.remove('hidden');
+    }
+    
+    function goPrevious(){
+        var currentPage = parseInt(document.querySelector('.page:not(.hidden)').id.split('_')[1]);
+        var previousGroupStart = Math.max(currentPage - 5, 1);
+        showPage(previousGroupStart, ${totalPages});
+    }
+   	
+   	function goNext(){
+        var currentPage = parseInt(document.querySelector('.page:not(.hidden)').id.split('_')[1]);
+        var nextGroupStart = currentPage + 5;
+        if (nextGroupStart <= ${totalPages}) {
+            showPage(nextGroupStart, ${totalPages});
+        }
+    }
+</script>
 
 
 

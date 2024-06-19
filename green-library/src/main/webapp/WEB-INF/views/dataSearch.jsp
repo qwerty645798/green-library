@@ -40,10 +40,10 @@
 			</select>
 		</div>
 		<div class="sel_box2">
-			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)">
+			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)" onkeypress="checkEnter(event)">
 		</div>
 		<div class="sel_box3">
-			<input type="button" value="검색" onclick="lets_search(event)">
+			<input type="button" value="검색" onclick="lets_search()">
 		</div>
 	</div>
 </div>

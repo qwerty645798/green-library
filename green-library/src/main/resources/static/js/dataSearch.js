@@ -17,7 +17,13 @@
 		}
 	}
 
-	function lets_search(event){
+	function checkEnter(event) {
+        if (event.key === 'Enter') {
+            lets_search();
+        }
+    }
+    
+	function lets_search(){
 		var inputText = document.querySelector('.sel_box2 input[type="text"]').value;
 		var inputCategory = document.querySelector('.sel_box1 select').value;
 		
