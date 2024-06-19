@@ -12,7 +12,6 @@
     display: flex;
     width: 1260px;
     margin: 0 auto;
-    border: 1px solid red;
 }
 .image_box{
 	display: flex;
@@ -23,13 +22,12 @@
 	margin-top:10px;
 	padding-left: 40px;
 	background-color: #d8e9d9;
-	border: 1px solid green;
 }
 .image_box a{
 	width: 252px;
 	height: 304px;
 	cursor: pointer;
-	border: 1px solid black;
+	overflow: hidden;
 }
 .image_box img{
 	position: relative;/*test*/
