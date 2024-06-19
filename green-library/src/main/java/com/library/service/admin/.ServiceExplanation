@@ -1,0 +1,19 @@
+### Service
+
+1. **관리자 관련**
+   - `AdminService.java`: 관리자 관리 비즈니스 로직 처리 인터페이스
+
+2. **이용자 관리**
+   - `UserService.java`: 사용자 관리 비즈니스 로직 처리 인터페이스
+
+3. **장서 관리**
+   - `BookService.java`: 책 관리 비즈니스 로직 처리 인터페이스
+
+4. **공지사항 관리**
+   - `NoticeService.java`: 공지사항 관리 비즈니스 로직 처리 인터페이스
+
+5. **문의사항 관리**
+   - `InquiryService.java`: 문의사항 관리 비즈니스 로직 처리 인터페이스
+
+6. **수서 관리**
+   - `AcquisitionRequestService.java`: 수서 신청 관리 비즈니스 로직 처리 인터페이스

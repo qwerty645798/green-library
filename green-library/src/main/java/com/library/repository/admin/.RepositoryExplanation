@@ -1,0 +1,19 @@
+### Repository
+
+1. **관리자 관련**
+   - `AdminRepository.java`: 관리자 관련 데이터 접근 인터페이스
+
+2. **이용자 관리**
+   - `UserRepository.java`: 사용자 관리 데이터 접근 인터페이스
+
+3. **장서 관리**
+   - `BookRepository.java`: 책 관리 데이터 접근 인터페이스
+
+4. **공지사항 관리**
+   - `NoticeRepository.java`: 공지사항 관리 데이터 접근 인터페이스
+
+5. **문의사항 관리**
+   - `InquiryRepository.java`: 문의사항 관리 데이터 접근 인터페이스
+
+6. **수서 관리**
+   - `AcquisitionRequestRepository.java`: 수서 신청 관리 데이터 접근 인터페이스
