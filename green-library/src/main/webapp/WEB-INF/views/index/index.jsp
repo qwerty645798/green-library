@@ -32,19 +32,19 @@
     <br><br>
 
     <div id="quickBundle" class="quickBundle">
-        <div class="quickPage"><img src="/images/clock-nine.png">
+        <div class="quickPage"><img src="/images/useTime.png">
             이용 시간</div>
         <div class="logoChg"><span>이용시간</span></div>
-        <div class="quickPage"><img src="/images/timeforward.png">
+        <div class="quickPage"><img src="/images/bookExtension.png">
             대출 연장</div>
         <div class="logoChg"><span>대출연장</span></div>
-        <div class="quickPage"><img src="/images/hopebook.jpg">
+        <div class="quickPage"><img src="/images/hopeBook.png">
             희망도서</div>
         <div class="logoChg"><span>희망도서</span></div>
-        <div class="quickPage"><img src="/images/square-q.png">
+        <div class="quickPage"><img src="/images/help.png">
             문의사항</div>
         <div class="logoChg"><span>문의사항</span></div>
-        <div class="quickPage"><img src="/images/calendar-days.png">
+        <div class="quickPage"><img src="/images/calendar.png">
             캘린더</div>
         <div class="logoChg"><span>캘린더</span></div>
     </div>

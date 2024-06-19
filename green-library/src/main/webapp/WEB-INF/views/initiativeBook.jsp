@@ -50,7 +50,7 @@
 	                    <div class="blackbox">
 	                    <img class="icon" src="images/whiteeye.png">
 	                    </div>
-                            <img class="img" src="images/${items[index].img}">
+                            <img src="images/${items[index].img}">
                         </a>
 	                    
                    		<ul class="bookInfo">
@@ -76,12 +76,12 @@
             <c:forEach var="innerIndex" begin="0" end="1">
                 <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
                 <c:if test="${index < items.size()}">
-                        <div class="image_box">
-	                    <a href="bookDetail?bookId=${items[index].book_id}">
+                    <div class="image_box">
+	                    <a class="booklink" href="bookDetail?bookId=${items[index].book_id}">
 	                    <div class="blackbox">
 	                    <img class="icon" src="images/whiteeye.png">
 	                    </div>
-                            <img class="img" src="images/${items[index].img}">
+                            <img src="images/${items[index].img}">
                         </a>
 	                    
                    		<ul class="bookInfo">
@@ -107,10 +107,10 @@
                 <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
                 <c:if test="${index < items.size()}">
                     <div class="image_box">
-                      <div class="blackbox">
+	                    <a href="bookDetail?bookId=${items[index].book_id}">
+	                    <div class="blackbox">
 	                    <img class="icon" src="images/whiteeye.png">
 	                    </div>
-	                    <a class="booklink" href="bookDetail?bookId=${items[index].book_id}">
                             <img src="images/${items[index].img}">
                         </a>
 	                    
@@ -138,7 +138,7 @@
 
 
 
-<img class="arrow" src="images/goback.png" onclick="showPage(1)">
+<img class="arrow" src="images/goback.png" onclick="showPage(${pageIndex})">
 
 <div class="button_box">
 	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
@@ -146,7 +146,7 @@
     </c:forEach>
 </div>
 
-<img class="arrow" src="images/go.png" onclick="showPage(2)">
+<img class="arrow" src="images/go.png" onclick="showPage(${pageIndex})">
 
 </div>
 

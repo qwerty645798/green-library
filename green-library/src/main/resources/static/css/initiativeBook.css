@@ -37,13 +37,13 @@
 	object-fit: cover; /*fill?*/
 }
 .blackbox{
-	visibility:hidden;
+	
 	position: relative;
 	z-index: 15;
 	width: 254px;
 	height: 304px;
 	background-color: #155734;
-	opacity: 0.5;
+	opacity:0;
 }
 .image_box .icon{
 	top: 87px;
@@ -54,7 +54,8 @@
 	border: none;
 }
 .image_box a:hover .blackbox{
-	visibility: visible;
+	opacity: 0.5;
+	transition: opacity 200ms ease-in-out;
 }
 .bookInfo{
 	box-sizing: border-box;

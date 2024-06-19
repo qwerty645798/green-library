@@ -70,9 +70,14 @@ input[type=button]{
     cursor: pointer;
     background-color: white;
 }
+.quickPage img{
+	width: 64px;
+	height: 64px;
+}
 .quickPage:hover{
     background-color: #47a168;
     transition: 300ms;
+    color: #d8e9d9;
 }
 .logoChg{
     visibility: hidden;
