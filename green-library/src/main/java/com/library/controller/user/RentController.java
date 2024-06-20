@@ -7,13 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RentController {
 
 	//david
-		@GetMapping("/myWritten")
-		public String myWritten() {
-			return "myWritten";
-		}
-		
-		@GetMapping("/userInquiryCreate")
-		public String userInquiryCreate() {
-			return "user/userInquiryCreate";
-		}
+	@GetMapping("/myWritten")
+	public String myWritten() {
+		return "myWritten";
+	}
+	
+	@GetMapping("/userInquiryCreate")
+	public String userInquiryCreate() {
+		return "user/userInquiryCreate";
+	}
+
+	@GetMapping("/bookLoanExtension")
+	public String bookLoanExtension() {
+		return "bookLoanExtension";
+	}
+	
 }

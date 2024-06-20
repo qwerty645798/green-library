@@ -55,9 +55,19 @@
 				</tr>
 				<tr>
 					<td colspan="4" align="center" style="border:none;"><!-- 예약 기능 구현 후 수정 -->
-						<form action="" method="">
-						<input type="submit" value="대출 예약">
+						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
+						<form action="reserveBook" method="post">
+							<input type="hidden" name="bookId" value="${book.bookId}">
+							<input type="hidden" name="userId" value="${userId}">
+							<input type="submit" value="대출 예약">
 						</form>
+						</c:if>
+						<c:if test="${empty sessionScope.SPRING_SECURITY_CONTEXT}">
+							<script>
+								alert("로그인 후 예약이 가능합니다.");
+								window.location.href="initiativeBook";
+							</script>
+						</c:if>
 					</td>
 				</tr>
 				

@@ -145,13 +145,6 @@ public class MainController {
 	}
 
 	// david
-	@GetMapping("/bookLoanExtension")
-	public String bookLoanExtension() {
-		return "bookLoanExtension";
-	}
-
-	
-
 	@Autowired
 	private NotificationService notificationService;
 	
