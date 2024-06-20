@@ -46,17 +46,20 @@
                 <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
                 <c:if test="${index < items.size()}">
                     <div class="image_box">
-                        <a href="bookDetail?bookId=${items[index].book_id}">
+	                    <a href="bookDetail?bookId=${items[index].book_id}">
+	                    <div class="blackbox">
+	                    <img class="icon" src="images/whiteeye.png">
+	                    </div>
                             <img src="images/${items[index].img}">
                         </a>
-                        
-                        
+	                    
                    		<ul class="bookInfo">
-                   			<li>제목: ####</li>
-                   			<li>저자: ####</li>
-                   			<li>출판사: ####</li>
-                   			<li>발행년도: ####</li>
-                   			<li>대출상태: ####</li>
+                   			<li><span><a href="bookDetail?bookId=${items[index].book_id}">
+                   			제목: ####</a></span></li><hr>
+                   			<li>저자 <span class="border">|</span> ####</li>
+                   			<li>출판사 <span class="border">|</span> ####</li>
+                   			<li>발행년도 <span class="border">|</span> ####</li>
+                   			<li>대출상태 <span class="border">|</span> ####</li>
                    		</ul>
                    	
                     </div>
@@ -74,13 +77,22 @@
                 <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
                 <c:if test="${index < items.size()}">
                     <div class="image_box">
-                        <a href="bookDetail?bookId=${items[index].book_id}">
+	                    <a class="booklink" href="bookDetail?bookId=${items[index].book_id}">
+	                    <div class="blackbox">
+	                    <img class="icon" src="images/whiteeye.png">
+	                    </div>
                             <img src="images/${items[index].img}">
                         </a>
-                        
-                        
-                    	
-                   
+	                    
+                   		<ul class="bookInfo">
+                   			<li><span><a href="bookDetail?bookId=${items[index].book_id}">
+                   			제목: ####</a></span></li><hr>
+                   			<li>저자 <span class="border">|</span> ####</li>
+                   			<li>출판사 <span class="border">|</span> ####</li>
+                   			<li>발행년도 <span class="border">|</span> ####</li>
+                   			<li>대출상태 <span class="border">|</span> ####</li>
+                   		</ul>
+                   	
                     </div>
                 </c:if>
             </c:forEach>
@@ -95,9 +107,22 @@
                 <c:set var="index" value="${outerIndex * 2 + innerIndex}" />
                 <c:if test="${index < items.size()}">
                     <div class="image_box">
-                        <a href="bookDetail?bookId=${items[index].book_id}">
+	                    <a href="bookDetail?bookId=${items[index].book_id}">
+	                    <div class="blackbox">
+	                    <img class="icon" src="images/whiteeye.png">
+	                    </div>
                             <img src="images/${items[index].img}">
                         </a>
+	                    
+                   		<ul class="bookInfo">
+                   			<li><span><a href="bookDetail?bookId=${items[index].book_id}">
+                   			제목: ####</a></span></li><hr>
+                   			<li>저자 <span class="border">|</span> ####</li>
+                   			<li>출판사 <span class="border">|</span> ####</li>
+                   			<li>발행년도 <span class="border">|</span> ####</li>
+                   			<li>대출상태 <span class="border">|</span> ####</li>
+                   		</ul>
+                   	
                     </div>
                     
                     
@@ -108,11 +133,25 @@
 </div>
 
 	
+	
+<div class="arrCon">
+
+
+
+<img class="arrow" src="images/goback.png" onclick="showPage(${pageIndex})">
+
 <div class="button_box">
 	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+		<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
     </c:forEach>
 </div>
+
+<img class="arrow" src="images/go.png" onclick="showPage(${pageIndex})">
+
+</div>
+
+
+	
 
 </main>
 

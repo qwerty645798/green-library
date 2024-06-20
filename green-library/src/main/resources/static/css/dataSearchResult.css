@@ -1,56 +1,6 @@
 @charset "utf-8";
 
 
-.zero_container{
-	display: flex; 
-	width:1260px;
-
-	margin: 0 auto;
-	padding:10px;
-	box-sizing: border-box;/*패딩 마진이 요소의 너비,길이에 포함되게*/
-}
-
-.sel_box{
-	display: flex;
-	border: 1px solid #DAD5C9;
-	background-color:#EEEAE2;
-	height: 30px;
-	width: 700px;
-	margin: auto;
-}
-
-.sel_box1, .sel_box2, .sel_box3 {
-	display: flex;
-	height:30px;
-}
-.sel_box1, .sel_box3{
-	width:150px;
-}
-.sel_box2{
-	width:400px;
-}
-
-.sel_box2 input[type="text"]{
-	border: none;
-	outline: none;
-	background-color:#EEEAE2;
-	opacity: 0.5;
-	width: 400px;
-}
-.sel_box1 select{
-	margin:0 auto;
-	width:140px;
-}
-.sel_box3 input[type="button"]{
-	margin:0 auto;
-	width: 140px;
-}
-
-.zerocon_button{
-	background-color: #64B883;
-	border-radius : 5px;
-	border: none;
-}
 
 
 

@@ -59,7 +59,7 @@ header{
     font-weight: bold;
     background-color:#155734;
 }
-.subMenuTop>li:not(:last-child)::after{
+/* .subMenuTop>li:not(:last-child)::after{
 	content: "";
 	display: inline-block;
 	width: 2px;
@@ -68,7 +68,7 @@ header{
 	left: 73px;
 	top: 5px;
 	background-color: #47a168;
-}
+} */
 .subMenuTop>li:hover{
     background-color: #e7f3e8;
     transition: 0.5s ease-in-out;
@@ -101,7 +101,7 @@ header{
     background-color: lemonchiffon;
 }
 .menuBar:nth-child(2n-1){
-    background-color:#ecffdb;
+    background-color:white;
 }
 .menuBar>li{
 	margin: 0px;
@@ -114,8 +114,9 @@ header{
 }
 .menuBar>li:hover{
    /*  text-decoration: underline; */
-    color: #47a168;
-    background-color: white;
+    color: #e7f3e8;
+    background-color:#1d7647;
+    opacity: 0.5;
     cursor: pointer;
     transition: 300ms ease-in-out;
 }

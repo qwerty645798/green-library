@@ -1,6 +1,6 @@
 
 
-//검색창(select있는) 공용 js임
+//검색창(select-text-button) 공용 js임
 
 	function want_search(event){
 		if(event.target.value==="검색어를 입력하세요"){
@@ -17,7 +17,13 @@
 		}
 	}
 
-	function lets_search(event){
+	function checkEnter(event) {
+        if (event.key === 'Enter') {
+            lets_search();
+        }
+    }
+    
+	function lets_search(){
 		var inputText = document.querySelector('.sel_box2 input[type="text"]').value;
 		var inputCategory = document.querySelector('.sel_box1 select').value;
 		
