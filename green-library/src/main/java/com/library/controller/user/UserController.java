@@ -75,15 +75,6 @@ public class UserController {
 		return "user/userInquiryDetail";
 	}
 
-	//david
-	@GetMapping("/myWritten")
-	public String myWritten() {
-		return "myWritten";
-	}
 	
-	@GetMapping("/userInquiryCreate")
-	public String userInquiryCreate() {
-		return "user/userInquiryCreate";
-	}
 
 }
