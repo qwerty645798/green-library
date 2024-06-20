@@ -10,7 +10,7 @@
         <link href="/css/public/header.css" type="text/css" rel="stylesheet">
 		<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
         <link href="/css/hopeBookApply.css" type="text/css" rel="stylesheet">
-        <link href="/css/nav.css" type="text/css" rel="stylesheet">
+        <link href="/css/public/nav.css" type="text/css" rel="stylesheet">
     </head>
     <body>
     
@@ -27,7 +27,7 @@
         <div class="hopeBookPage1">
             <div class="hopeBookPage2">
             
-            <form class="requestForm" action="" name="">
+            <form id="form" class="requestForm" action="" name="">
                 <span class="star">*는 필수 입력 항목입니다.</span><br><br>
     
                 <table>
@@ -85,7 +85,7 @@
                 <br>
     
                 <div class="hopeBtn">
-                    <input type="button" value="신청하기" onclick="hopeApplyCheck()">&nbsp;
+                    <input type="submit" value="신청하기" onclick="hopeApplyCheck()">&nbsp;
                     <input type="button" value="목록으로">
                 </div>
         

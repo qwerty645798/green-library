@@ -32,46 +32,109 @@
     <br><br>
 
     <div id="quickBundle" class="quickBundle">
-        <div class="quickPage"><img src="/images/clock-nine.png">
+        <div id="quick1" class="quickPage"><img src="/images/useTime.png">
             이용 시간</div>
-        <div class="logoChg"><span>이용시간</span></div>
-        <div class="quickPage"><img src="/images/timeforward.png">
+        <div id="quick2" class="quickPage"><img src="/images/bookExtension.png">
             대출 연장</div>
-        <div class="logoChg"><span>대출연장</span></div>
-        <div class="quickPage"><img src="/images/hopebook.jpg">
+        <div id="quick3" class="quickPage"><img src="/images/hopeBook.png">
             희망도서</div>
-        <div class="logoChg"><span>희망도서</span></div>
-        <div class="quickPage"><img src="/images/square-q.png">
+        <div id="quick4" class="quickPage"><img src="/images/help.png">
             문의사항</div>
-        <div class="logoChg"><span>문의사항</span></div>
-        <div class="quickPage"><img src="/images/calendar-days.png">
+        <div id="quick5" class="quickPage"><img src="/images/calendar.png">
             캘린더</div>
-        <div class="logoChg"><span>캘린더</span></div>
     </div>
 
     <br><br>
 
     <div class="bookSwipe">
-        <div class="newBooks">
+        <!-- <div class="newBooks">
             <img class="movingBook" src="/images/SmallThingsLikeThis.jpg">
             <img class="movingBook" src="/images/SmallThingsLikeThis.jpg">
             <img class="movingBook" src="/images/SmallThingsLikeThis.jpg">
+        </div> -->
+        <div class="window">
+	        <div class="newbook">
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
+	        </div>
         </div>
+        
     </div>
 
     <div class="bookSwipe">
-        <div class="popularBooks">
+        <!-- <div class="popularBooks">
             <img class="movingBook" src="/images/녹나무의여신.jpg">
             <img class="movingBook" src="/images/녹나무의여신.jpg">
             <img class="movingBook" src="/images/녹나무의여신.jpg">
+        </div> -->
+        <div class="window2">
+        <ul class="popbook">
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg"></li>
+        </ul>
         </div>
+          
+      
+      
     </div>
 
     <br><br>
 
-    <div class="noname">
-        <div class="infoBoard">게시판 파트</div>
-    </div>
+	<div class="infoBoard1">
+		<div class="infoBoard2">
+		<div class="titleQuick">
+			<span>공지사항</span>
+			<img src="/images/gotoPage.png">
+		</div>
+		
+	        <table>
+	        	<tr>
+	        	<td>(게시자)</td>
+	        	<td>(제목)</td>
+	        	<td>(게시 날짜)</td>
+	        	<tr>
+	        	
+	        	<tr>
+	        	<td>(게시자)</td>
+	        	<td>(제목)</td>
+	        	<td>(게시 날짜)</td>
+	        	<tr>
+	        	
+	        	<tr>
+	        	<td>(게시자)</td>
+	        	<td>(제목)</td>
+	        	<td>(게시 날짜)</td>
+	        	<tr>
+	        	
+	        	<tr>
+	        	<td>(게시자)</td>
+	        	<td>(제목)</td>
+	        	<td>(게시 날짜)</td>
+	        	<tr>
+	        	
+	        	<tr>
+	        	<td>(게시자)</td>
+	        	<td>(제목)</td>
+	        	<td>(게시 날짜)</td>
+	        	<tr>
+	        </table>
+	    </div>
+	</div>
+    
     
 </div>
 

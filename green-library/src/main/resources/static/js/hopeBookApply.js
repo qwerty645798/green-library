@@ -26,34 +26,43 @@ window.onload = requestDate();
 
 //유효성 검사.
 function hopeApplyCheck(){
+	
+	let form = document.getElementById('form');
+	
     if(!title.value){
         alert("도서명을 입력해 주세요.");
         title.focus();
+		form.addEventListener("submit", (e) => {e.preventDefault()});
         return false;
     }
     if(!author.value){
         alert("저자명을 입력해 주세요.");
         author.focus();
+		form.addEventListener("submit", (e) => {e.preventDefault()});
         return false;
     }
     if(!publisher.value){
         alert("출판사를 입력해 주세요.");
         publisher.focus();
+		form.addEventListener("submit", (e) => {e.preventDefault()});
         return false;
     }
     if(!bookYear.value){
         alert("발행년도를 입력해 주세요.");
         bookYear.focus();
+		form.addEventListener("submit", (e) => {e.preventDefault()});
         return false;
     }
     if(!price.value){
         alert("가격을 입력해 주세요.");
         price.focus();
+		form.addEventListener("submit", (e) => {e.preventDefault()});
         return false;
     }
     if(!isbn.value){//숫자만 가능
         alert("ISBN을 입력해 주세요.");
         isbn.focus();
+		form.addEventListener("submit", (e) => {e.preventDefault()});
         return false;
     }
     else{
