@@ -173,7 +173,7 @@
 		</c:forEach>
 	    
 		<input type="button" value=">" class="goNext_button " onclick="goNext()">
-		<input type="button" value=">>" class="goEnd_button " onclick="showPage(${Math.floor(totalPages)}, ${totalPages})"><!-- 14를 마지막장으로 바꿔줘야함 -->
+		<input type="button" value=">>" class="goEnd_button " onclick="showPage(${Math.floor(totalPages)}, ${totalPages})">
 	</div>
 </div>
 
@@ -183,6 +183,7 @@
 <script>	
 
 	window.onload = function(){
+		console.log("total : ", ${totalPages});
         hideFirstTime(${totalPages});	
         showPage(1,${totalPages});
 	};
@@ -190,23 +191,16 @@
 	function hideFirstTime(totalPages){
         document.querySelector('.goFirst_button').classList.add('hidden');
         document.querySelector('.goPrevious_button').classList.add('hidden');
-        if (totalPages <= 5) {
-            document.querySelector('.goNext_button').classList.add('hidden');
-            document.querySelector('.goEnd_button').classList.add('hidden');
-        }
+        document.querySelector('.goNext_button').classList.add('hidden');
+        document.querySelector('.goEnd_button').classList.add('hidden');
     }
 	
     function showPage(pageNumber, totalPage) {
     	
-    	console.log(totalPage);
-    	console.log(pageNumber);
     	//밑은 < > 이동 버튼들 보이고 안보이고 처리
-    	document.querySelector('.goFirst_button').classList.remove('hidden');
-    	document.querySelector('.goPrevious_button').classList.remove('hidden');
-    	document.querySelector('.goNext_button').classList.remove('hidden');
-    	document.querySelector('.goEnd_button').classList.remove('hidden');
     	
-    	var a = Math.floor(totalPage / 5); 
+    	
+    	/*var a = Math.floor(totalPage / 5); 
     	var b;
 
     	if (totalPage % 5 === 0) {
@@ -218,10 +212,30 @@
     	if (pageNumber >= b) {
     	    document.querySelector('.goNext_button').classList.add('hidden');
     	    document.querySelector('.goEnd_button').classList.add('hidden');
-    	}
+    	}*/
+    	
+    	// > >> 버튼 생성 조건
+    	var totalGroups = Math.ceil(totalPage / 5);
+    	if(Math.floor(totalPage)%5===0) totalGroups-=1;
+        var currentGroup = Math.ceil(pageNumber / 5);
+        if(Math.floor(totalPage)===0) currentGroup = 0;
+    	
+    	
+    	if (currentGroup === totalGroups) {
+    	    document.querySelector('.goNext_button').classList.add('hidden');
+    	    document.querySelector('.goEnd_button').classList.add('hidden');
+    	}else{
+    		document.querySelector('.goNext_button').classList.remove('hidden');
+        	document.querySelector('.goEnd_button').classList.remove('hidden');
+    	} 
+    	
+    	// << < 버튼 생성 조건
     	if(pageNumber<=5){
      		document.querySelector('.goFirst_button').classList.add('hidden');
      		document.querySelector('.goPrevious_button').classList.add('hidden');
+     	}else{
+     		document.querySelector('.goFirst_button').classList.remove('hidden');
+        	document.querySelector('.goPrevious_button').classList.remove('hidden');
      	} 
     	
     	
