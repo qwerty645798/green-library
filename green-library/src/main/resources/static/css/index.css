@@ -82,11 +82,11 @@ input[type=button]{
     background-color: green;
     opacity: 0.5;
 }
-.movingBook{
+/* .movingBook{
     width:200px;
     height:255px;
     filter: drop-shadow(0px 2px 5px black);
-}
+} */
 
 /* .bookSwipe .newbook{
     display: flex;
@@ -160,31 +160,51 @@ input[type=button]{
     background-color: mistyrose;
 }
 .window, .window2{
-	width: 960px;
-	height: 300px;
-	/* overflow: hidden; */
+	width: 1260px;
+	height: 370px;
+	overflow: hidden;
 	border: 3px dotted red;
 }
-.bookSwipe .popbook,
-.bookSwipe .newbook{
-	position: relative;
-	
-	width: 3200px;
-    height: 300px;
+.bookSwipe .newbook,
+.bookSwipe .popbook{
+	/* position: relative; */
+	width: 3040px;
+    height: 370px;
 	list-style-type: none;
 	display: inline-block;
 	background-color: skyblue;
 	border: 3px dotted green;
 }
-.bookSwipe .popbook li,
-.bookSwipe .newbook li{
-	display: inline-block;
-	margin-left: 25px;
-	margin-right: 25px;
+.bookSwipe .window .newbook,
+.bookSwipe .window2 .popbook{
+	margin: 0px;
+	padding: 0px;
 }
-.bookSwipe .popbook li img,
-.bookSwipe .newbook li img{
+.bookSwipe .newbook li,
+.bookSwipe .popbook li{
+	display: inline-block;
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 20px;
+
+}
+.bookSwipe .newbook li img,
+.bookSwipe .popbook li img{
 	width:200px;
     height:255px;
     filter: drop-shadow(0px 2px 5px black);
+}
+.bookt{
+	width: 200px;
+	padding-top: 10px;
+	font-size: 15pt;
+	overflow: hidden;
+	background-color: white;
+}
+.backBtn, .goBtn{
+	width: 64px;
+	height: 64px;
+	background-color: green;
+	opacity: 0.5;
+	cursor: pointer;
 }
