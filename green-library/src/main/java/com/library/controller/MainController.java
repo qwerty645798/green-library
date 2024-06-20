@@ -1,6 +1,8 @@
 package com.library.controller;
 
-import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,12 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.library.dto.assets.BookDetailDto;
-import com.library.dto.assets.NotificationDetailDto;
-import com.library.dto.assets.NotificationDto;
-import com.library.dto.user.UserDto;
-import com.library.service.assets.NotificationDetailService;
-import com.library.service.assets.NotificationService;
+
+import com.library.controller.user.UserController;
+import com.library.dto.user.UserFindingIdDto;
+import com.library.dto.user.UserJoinDto;
+
 import com.library.service.user.UserService;
 
 import jakarta.validation.Valid;
@@ -24,38 +25,80 @@ import jakarta.validation.Valid;
 @Controller
 public class MainController {
 
+	private final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Autowired
+	UserService userService;
+
 	@GetMapping("/")
 	public String home() {
 		return "index/index";
 	}
+
+	@GetMapping("/userJoin")
+	public String userJoin(Model model) {
+		model.addAttribute("userJoin", new UserJoinDto());
+		logger.info("회원가입 시작");
+		return "public/userJoin";
+	}
+
+	@PostMapping("/userJoin")
+	public String userJoinPerform(
+
+			@ModelAttribute("userJoin") @Valid UserJoinDto userDto,
+
+			BindingResult result) {
+		logger.info("회원가입 중간");
+		if (result.hasErrors()) {
+			result.getAllErrors().forEach(error -> logger.error("Validation error: {}", error.getDefaultMessage()));
+			return "public/userJoin";
+		}
+		logger.info("회원가입 후반");
+		userService.insert(userDto);
+		logger.info("회원가입 끝");
+		return "redirect:/userLogin?success=true";
+	}
+
+	@PostMapping("/checkUserId")
+    public String checkUserId(@RequestParam("user_id") String userId, Model model) {
+        boolean isDuplicate = userService.checkUserId(userId);
+        if (isDuplicate) {
+            model.addAttribute("duplicateIdError", "아이디가 이미 존재합니다.");
+        } else {
+            model.addAttribute("duplicateIdSuccess", "사용 가능한 아이디입니다.");
+        }
+        model.addAttribute("userJoin", new UserJoinDto());
+        return "public/userJoin";
+    }
 
 	@GetMapping("/userAgreement")
 	public String userAgreement() {
 		return "public/userAgreement";
 	}
 
-	@GetMapping("/userJoin")
-	public String userJoin() {
-		return "public/userJoin";
+	@GetMapping("/userFinding")
+	public String userFinding() {
+		return "public/userFinding";
 	}
 
-	@Autowired
-	UserService userService;
+	@PostMapping("/userFindingId")
+	public String userFindingId(
 
-	@PostMapping("/userJoin")
-	public String userJoinPerform(
-
-			@ModelAttribute("user") @Valid UserDto userDto,
+			@ModelAttribute("user") @Valid UserFindingIdDto userDto,
 
 			BindingResult result) {
 
 		if (result.hasErrors()) {
-			return "userJoin";
+			return "redirect:/userFinding";
 		}
 
-		userService.insert(userDto);
-
 		return "redirect:/userLogin?success=true";
+	}
+
+	@PostMapping("/userFindingPw")
+	public String userFindingPw() {
+
+		return "public/userFinding";
 	}
 
 	@GetMapping("/userLogin")
