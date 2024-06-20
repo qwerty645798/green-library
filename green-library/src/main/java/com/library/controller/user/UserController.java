@@ -30,7 +30,7 @@ public class UserController {
 	@GetMapping("/userInfo")
 	public String userInfo(
 			Model model, 
-			@RequestParam("userIdPlaceholder") String userId
+			@RequestParam(name = "auth", defaultValue = "abc") String userId
 		) {
 		logger.info("Received userIdPlaceholder: {}", userId);
 		UserDto userDto = userService.getUserDetails(userId);
@@ -41,7 +41,7 @@ public class UserController {
 	@GetMapping("/userInfoModification")
 	public String userInfoModification(
 			Model model, 
-			@RequestParam("userIdPlaceholder") String userId
+			@RequestParam(name = "auth", defaultValue = "abc") String userId
 		) {
 
 		UserDto userDto = userService.getUserDetails(userId);
@@ -52,7 +52,7 @@ public class UserController {
 	@PostMapping("/userInfoModification")
 	public String userInfoModificationPerform(
 			@ModelAttribute("user") @Valid UserInfoModificationDto userInfoModificationDto, 
-			String userIdPlaceholder,
+			@RequestParam(name = "auth", defaultValue = "abc") String userId,
 			BindingResult result, 
 			Model model
 		) {
@@ -65,7 +65,7 @@ public class UserController {
 			return "userInfoModification";
 		}
 
-		userService.update(userInfoModificationDto, userIdPlaceholder);
+		userService.update(userInfoModificationDto, userId);
 
 		return "redirect:/userInfo?success=true";
 	}
