@@ -2,10 +2,13 @@ package com.library.controller.assets;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.library.dto.assets.BookDetailDto;
@@ -24,7 +27,8 @@ public class BookController {
 	private BookDetailService bookDetailService;
 	
     @GetMapping("/bookDetail")
-    public String bookDetail(@RequestParam(name="bookId", required = false) String bookId, Model model) {
+    public String bookDetail(@RequestParam(name="bookId", required = false) String bookId, Model model, 
+    		@RequestParam(name = "auth", defaultValue = "abc") String userId) {
     	
     	if(bookId==null) {
     		return "redirect:/";
@@ -32,7 +36,19 @@ public class BookController {
     	
     	BookDetailDto bookDetail = bookDetailService.getBookDetail(bookId);
     	model.addAttribute("book", bookDetail);
+    	model.addAttribute("userId", userId);
     	return "bookDetail";
+    }
+    
+    @PostMapping("/reserveBook")
+    public String reserveBook(HttpServletRequest request) {
+    	String bookId = request.getParameter("bookId");
+    	String userId = request.getParameter("userId");
+    	
+    	bookDetailService.makeReservation(Integer.parseInt(bookId), userId);
+    	bookDetailService.updateAvailability(Integer.parseInt(bookId), userId);
+    	
+    	return "redirect:/bookDetail?bookId=" + bookId + "&auth=" + userId;
     }
     
     @Autowired
