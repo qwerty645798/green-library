@@ -1,5 +1,6 @@
 let idconut = 1, pwcount = 0;
 let table, tr;
+let form = document.getElementById("form");
 function ID() {
 	if (idconut == 0) {
 		idconut++;
@@ -21,6 +22,7 @@ function ID() {
 		choose.innerHTML = "아이디 찾기 본인인증";
 		
 		table.removeChild(tr);
+		form.action = "userFindingId";
 	}
 }
 function PW() {
@@ -45,7 +47,14 @@ function PW() {
 		
 		table = document.getElementById("table");
 		tr = document.createElement("tr");
-		tr.innerHTML = "<td class='text'><div>아이디</div></td><td class='input'><input type='text' name='#'></td>"
+		tr.innerHTML = "<td class='text'><div>아이디</div></td><td class='input'><input type='text' name='user_id'></td>"
 		table.appendChild(tr);
+		form.action = "userFindingPw";
 	}
+}
+
+function concatInput(){
+	let input = document.getElementsByClassName("short");
+	let email = document.getElementById("email");
+	email.value = input[0].value + "@" + input[1].value;
 }

@@ -32,19 +32,19 @@
 				<table style="border-collapse: collapse;">
 					<tr>
 						<td class="text"><div>이름</div></td>
-						<td class="input">${user.name}</td>
+						<td class="input">${userInfo.name}</td>
 					</tr>
 					<tr>
 						<td class="text"><div>생년월일</div></td>
-						<td class="input">${user.birth}</td>
+						<td class="input">${userInfo.birth}</td>
 					</tr>
 					<tr>
 						<td class="text"><div>아이디</div></td>
-						<td class="input">${user.id}</td>
+						<td class="input">${userInfo.user_id}</td>
 					</tr>
 					<tr>
 						<td class="text"><div>비밀번호</div></td>
-						<td class="input"><input type="password" id="pswd" name="pass"
+						<td class="input"><input type="password" id="pswd" name="user_pass"
 							class="middle"> <br>
 							<div class="comment">
 								비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합) <br> <span

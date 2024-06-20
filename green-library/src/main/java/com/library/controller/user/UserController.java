@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.library.dto.user.UserDto;
+import com.library.dto.user.UserInfoDto;
 import com.library.dto.user.UserInfoModificationDto;
 import com.library.service.user.UserService;
 
@@ -28,35 +28,25 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping("/userInfo")
-	public String userInfo(
-			Model model, 
-			@RequestParam(name = "auth", defaultValue = "abc") String userId
-		) {
-		logger.info("Received userIdPlaceholder: {}", userId);
-		UserDto userDto = userService.getUserDetails(userId);
-		model.addAttribute("user", userDto);
+	public String userInfo(Model model, @RequestParam(name = "auth", defaultValue = "abc") String userId) {
+		logger.info("Received auth: {}", userId);
+		UserInfoDto userDto = userService.getUserInfo(userId);
+		model.addAttribute("userInfo", userDto);
 		return "user/userInfo";
 	}
 
 	@GetMapping("/userInfoModification")
-	public String userInfoModification(
-			Model model, 
-			@RequestParam(name = "auth", defaultValue = "abc") String userId
-		) {
+	public String userInfoModification(Model model, @RequestParam(name = "auth", defaultValue = "abc") String userId) {
 
-		UserDto userDto = userService.getUserDetails(userId);
-		model.addAttribute("user", userDto);
+		UserInfoDto userDto = userService.getUserInfo(userId);
+		model.addAttribute("userInfo", userDto);
 		return "user/userInfoModification";
 	}
 
 	@PostMapping("/userInfoModification")
 	public String userInfoModificationPerform(
-			@ModelAttribute("user") @Valid UserInfoModificationDto userInfoModificationDto, 
-			@RequestParam(name = "auth", defaultValue = "abc") String userId,
-			BindingResult result, 
-			Model model
-		) {
-
+			@ModelAttribute("userInfo") @Valid UserInfoModificationDto userInfoModificationDto,
+			@RequestParam(name = "auth", defaultValue = "abc") String userId, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			for (ObjectError error : result.getAllErrors()) {
 				logger.error("Validation error: {}", error.getDefaultMessage());
@@ -68,11 +58,6 @@ public class UserController {
 		userService.update(userInfoModificationDto, userId);
 
 		return "redirect:/userInfo?success=true";
-	}
-
-	@GetMapping("/userFinding")
-	public String userFinding() {
-		return "user/userFinding";
 	}
 
 	@GetMapping("/userUseInformation")

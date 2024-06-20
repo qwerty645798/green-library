@@ -33,19 +33,19 @@
                 <table>
                     <tr>
                         <td class="infoItems">이름</td>
-                        <td>${user.name }</td>
+                        <td>${userInfo.name }</td>
                         <td class="infoItems">아이디</td>
-                        <td>${user.id }</td>
+                        <td>${userInfo.user_id }</td>
                     </tr>
                     <tr>
                         <td class="infoItems">생년월일</td>
-                        <td>${user.birth }</td>
+                        <td>${userInfo.birth }</td>
                         <td class="infoItems">휴대폰 번호</td>
-                        <td>${user.phone }</td>
+                        <td>${userInfo.phone }</td>
                     </tr>
                     <tr>
                         <td class="infoItems">이메일 주소</td>
-                        <td colspan="3">${user.email }</td>
+                        <td colspan="3">${userInfo.email }</td>
                     </tr>
                 </table>
                
