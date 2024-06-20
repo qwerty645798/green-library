@@ -150,10 +150,7 @@ public class MainController {
 		return "bookLoanExtension";
 	}
 
-	@GetMapping("/myWritten")
-	public String myWritten() {
-		return "myWritten";
-	}
+	
 
 	@Autowired
 	private NotificationService notificationService;
