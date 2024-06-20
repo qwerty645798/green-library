@@ -181,7 +181,6 @@
 <footer id="footer" class="footer"></footer>
 
 <script>	
-
 	window.onload = function(){
 		console.log("total : ", ${totalPages});
         hideFirstTime(${totalPages});	
@@ -196,24 +195,6 @@
     }
 	
     function showPage(pageNumber, totalPage) {
-    	
-    	//밑은 < > 이동 버튼들 보이고 안보이고 처리
-    	
-    	
-    	/*var a = Math.floor(totalPage / 5); 
-    	var b;
-
-    	if (totalPage % 5 === 0) {
-    	    b = (a - 1) * 5 + 1; 
-    	} else {
-    	    b = a * 5 + 1; 
-    	}
-
-    	if (pageNumber >= b) {
-    	    document.querySelector('.goNext_button').classList.add('hidden');
-    	    document.querySelector('.goEnd_button').classList.add('hidden');
-    	}*/
-    	
     	// > >> 버튼 생성 조건
     	var totalGroups = Math.ceil(totalPage / 5);
     	if(Math.floor(totalPage)%5===0) totalGroups-=1;
