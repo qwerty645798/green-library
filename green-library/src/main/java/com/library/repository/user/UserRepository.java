@@ -1,11 +1,12 @@
 package com.library.repository.user;
 
-import com.library.dto.user.UserDto;
-import com.library.dto.user.UserInfoModificationDto;
+import com.library.entity.Users;
 
 public interface UserRepository {
-    UserDto findByUserId(String userId);
-    UserDto findDetailsByUserId(String userId);
-    int updateUserInfo(UserInfoModificationDto userDto, String userId, String hashedPassword);
-    int insertUserInfo(UserDto userDto, String hashedPassword);
+	Users getUsersEntity(String userId);
+
+	int updateUserInfo(Users user, String userId, String hashedPassword);
+
+	int insertUserInfo(Users user, String hashedPassword);
+
 }

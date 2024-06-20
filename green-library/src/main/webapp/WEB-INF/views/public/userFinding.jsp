@@ -51,24 +51,26 @@
 		<div id="modalContent">
 			<h3 style="text-align:center;"><b class="mainName">아이디 찾기</b></h3>
 			<br>
-			<form action="userFinding-perform" method="post">
+			<form action="userFinding" method="post" id="form">
 				<table id="table" style="border-collapse:collapse;">
 					<tr>
 						<td class="text"><div>이메일</div></td>
-						<td class="input"><input type="text" name="#" class="short"> @ <input type="text" name="#" class="short"></td>
+						<td class="input">
+						<input type="hidden" id="email" name="email">
+						<input type="text" class="short"> @ <input type="text" class="short"></td>
 					</tr>
 					<tr>
 						<td class="text"><div>성명</div></td>
-						<td class="input"><input type="text" name="#"></td>
+						<td class="input"><input type="text" name="name"></td>
 					</tr>
 					<tr>
 						<td class="text"><div>생년월일</div></td>
-						<td class="input"><input type="text" name="#"><br>
+						<td class="input"><input type="text" name="birth"><br>
 							<span style="color:#DD0000; font-size:0.8em; font-weight:600;">* 입력 예 : 2000-10-10</span>
 						</td>
 					</tr>
 				</table>
-				<div style="display:flex; justify-content:center;"><input type="submit" value="확인" style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></div>
+				<div style="display:flex; justify-content:center;"><input type="submit" value="확인" onclick="concatInput()"style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></div>
 			</form>
 			<button id="modalCloseButton"><img src="images/x-icon.png" style="width:100%; height:auto;"></button>
 		</div>

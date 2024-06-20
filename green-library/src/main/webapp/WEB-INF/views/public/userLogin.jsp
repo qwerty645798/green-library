@@ -38,8 +38,8 @@
 		<form action="${pageContext.request.contextPath}/userLogin" method="post">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<div class="loginCon2">
-			<div class="floor"><input type="text" placeholder="아이디" name="userId" class="text"><br></div>
-			<div class="floor"><input type="password" placeholder="비밀번호" name="userPass" class="text"><br></div>
+			<div class="floor"><input type="text" placeholder="아이디" name="user_id" class="text"><br></div>
+			<div class="floor"><input type="password" placeholder="비밀번호" name="user_pass" class="text"><br></div>
 			<div class="floor"><input type="checkbox" name="#"> 아이디 저장 
 			<div style="width:120px; display:inline-block"> </div> <a href="#">아이디 찾기</a> / <a href="#">비밀번호 초기화</a></div>
 			<div class="floor" style="text-align:center;">
