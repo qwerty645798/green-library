@@ -26,7 +26,7 @@
 </head>
 <body>
 
-<header id="header" class="header"></header>
+<jsp:include page="index/header.jsp" />
 
 
 <div class="bannerBgr">
@@ -37,7 +37,7 @@
 
 <main>
 
-<jsp:include page="index/header.jsp" />
+
 
 <c:set var="itemsPerPage" value="10"/>
 <c:set var="totalItems" value="${fn:length(items)}" />
@@ -48,33 +48,51 @@
     	<c:if test="${index < items.size()}">
 			<div class="bigDiv">
 		        <div class="book_container">
-                    <div class="book_image">
+                   <%--  <div class="book_image">
 						<img src="images/${items[index].img}">
-					</div>
+					</div> --%>
+					<a href="bookDetail?bookId=${items[index].book_id}">
+	                    <div class="blackbox">
+	                    <img class="icon" src="images/whiteeye.png">
+	                    </div>
+	                    <div class="book_image">
+	                    <img class="img" src="images/${items[index].img}">
+	                    </div>
+                    </a>
+                    
 					<div class="book_table">
 						<table>
 							<tr>
-								<th>책 제목</th>
-								<td colspan="3">${items[index].title}</td>
+								
+								<td colspan="3">
+								<span 
+								onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'">
+								${items[index].title}</span></td>
 							</tr>
 							<tr>
 								<th>저자명</th>
-								<td colspan="3">${items[index].authorName}</td>
+								<td class="bar" colspan="3">${items[index].authorName}</td>
 							</tr>
 							<tr>
 								<th>출판사</th>
-								<td colspan="3">${items[index].publisherName}</td>
+								<td class="bar">${items[index].publisherName}</td>
+								<th class="right">발행년도</th>
+								<td class="bar">####</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
-								<td colspan="3">${items[index].availability}</td>
+								<td class="bar" colspan="3">${items[index].availability}</td>
 							</tr>
 							<tr>
 								<td colspan="4" class="more_button" style="border:none;">
-									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
+									<input type="button" 
+									onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" 
+									value="자세히 보기" 
+									class="moreInf">
 								</td> 
 							</tr>
 						</table>
+						
 					</div>
 		    	</div>
 		    </div>
@@ -87,33 +105,50 @@
     	<c:if test="${index < items.size()}">
 			<div class="bigDiv">
 		        <div class="book_container">
-                    <div class="book_image">
+                   <%--  <div class="book_image">
 						<img src="images/${items[index].img}">
-					</div>
+					</div> --%>
+					<a href="bookDetail?bookId=${items[index].book_id}">
+	                    <div class="blackbox">
+	                    <img class="icon" src="images/whiteeye.png">
+	                    </div>
+	                    <div class="book_image">
+	                    <img class="img" src="images/${items[index].img}">
+	                    </div>
+                    </a>
+                    
 					<div class="book_table">
 						<table>
 							<tr>
-								<th>책 제목</th>
-								<td colspan="3">${items[index].title}</td>
+								<td colspan="3">
+								<span 
+								onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'">
+								${items[index].title}</span></td>
 							</tr>
 							<tr>
 								<th>저자명</th>
-								<td colspan="3">${items[index].authorName}</td>
+								<td class="bar" colspan="3">${items[index].authorName}</td>
 							</tr>
 							<tr>
 								<th>출판사</th>
-								<td colspan="3">${items[index].publisherName}</td>
+								<td class="bar">${items[index].publisherName}</td>
+								<th class="right">발행년도</th>
+								<td class="bar">####</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
-								<td colspan="3">${items[index].availability}</td>
+								<td class="bar" colspan="3">${items[index].availability}</td>
 							</tr>
 							<tr>
 								<td colspan="4" class="more_button" style="border:none;">
-									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
+									<input type="button" 
+									onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" 
+									value="자세히 보기" 
+									class="moreInf">
 								</td> 
 							</tr>
 						</table>
+						
 					</div>
 		    	</div>
 		    </div>
@@ -126,33 +161,51 @@
     	<c:if test="${index < items.size()}">
 			<div class="bigDiv">
 		        <div class="book_container">
-                    <div class="book_image">
+                   <%--  <div class="book_image">
 						<img src="images/${items[index].img}">
-					</div>
+					</div> --%>
+					<a href="bookDetail?bookId=${items[index].book_id}">
+	                    <div class="blackbox">
+	                    <img class="icon" src="images/whiteeye.png">
+	                    </div>
+	                    <div class="book_image">
+	                    <img class="img" src="images/${items[index].img}">
+	                    </div>
+                    </a>
+                    
 					<div class="book_table">
 						<table>
 							<tr>
-								<th>책 제목</th>
-								<td colspan="3">${items[index].title}</td>
+								
+								<td colspan="3">
+								<span 
+								onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'">
+								${items[index].title}</span></td>
 							</tr>
 							<tr>
 								<th>저자명</th>
-								<td colspan="3">${items[index].authorName}</td>
+								<td class="bar" colspan="3">${items[index].authorName}</td>
 							</tr>
 							<tr>
 								<th>출판사</th>
-								<td colspan="3">${items[index].publisherName}</td>
+								<td class="bar">${items[index].publisherName}</td>
+								<th class="right">발행년도</th>
+								<td class="bar">####</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
-								<td colspan="3">${items[index].availability}</td>
+								<td class="bar" colspan="3">${items[index].availability}</td>
 							</tr>
 							<tr>
 								<td colspan="4" class="more_button" style="border:none;">
-									<input type="button" onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" value="자세히 보기" class="moreInf">
+									<input type="button" 
+									onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" 
+									value="자세히 보기" 
+									class="moreInf">
 								</td> 
 							</tr>
 						</table>
+						
 					</div>
 		    	</div>
 		    </div>
@@ -160,15 +213,25 @@
     </c:forEach>
 </div>
 
+<div class="arrCon">
 
-
-
+<img class="arrow" src="images/goback.png" onclick="showPage(1)">
 
 <div class="button_box">
 	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+		<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
     </c:forEach>
 </div>
+
+<img class="arrow" src="images/go.png" onclick="showPage(2)">
+
+</div>
+
+<%-- <div class="button_box">
+	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
+        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+    </c:forEach>
+</div> --%>
 
 </main>
 

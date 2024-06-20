@@ -69,7 +69,9 @@ public class BookController {
 	
 	@GetMapping("/dataSearchResult")
 	public String dataSearchResult (@RequestParam(name = "inputCategory", required = false) String inputCategory,
-            @RequestParam(name = "inputText", required = false) String inputText, Model model) {
+            @RequestParam(name = "inputText", required = false) String inputText, 
+            @RequestParam(name = "itemsPerPage", required = false, defaultValue = "5") int itemsPerPage, 
+            Model model) {
 		
 		if((inputCategory==null)&&(inputText==null)) {
     		return "redirect:/";
@@ -79,6 +81,7 @@ public class BookController {
     	model.addAttribute("items", dataSearch);
     	model.addAttribute("inputCategory", inputCategory);
     	model.addAttribute("inputText", inputText);
+    	model.addAttribute("itemsPerPage", itemsPerPage);
     	
 		return "dataSearchResult";
 	}
