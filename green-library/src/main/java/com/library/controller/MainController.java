@@ -1,13 +1,22 @@
 package com.library.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.library.dto.assets.BookDetailDto;
+import com.library.dto.assets.NotificationDetailDto;
+import com.library.dto.assets.NotificationDto;
 import com.library.dto.user.UserDto;
+import com.library.service.assets.NotificationDetailService;
+import com.library.service.assets.NotificationService;
 import com.library.service.user.UserService;
 
 import jakarta.validation.Valid;
@@ -103,14 +112,37 @@ public class MainController {
 		return "myWritten";
 	}
 
+	@Autowired
+	private NotificationService notificationService;
+	
 	@GetMapping("/notification")
-	public String notification() {
+	public String notification(@RequestParam(name = "inputCategory", required = false) String inputCategory,
+            @RequestParam(name = "inputText", required = false) String inputText, 
+            @RequestParam(name = "itemsPerPage", required = false, defaultValue = "10") int itemsPerPage, 
+            Model model) {
+		
+		List<NotificationDto> announce = notificationService.findAnnounce(inputCategory, inputText);
+		model.addAttribute("announces", announce);
+		model.addAttribute("inputCategory", inputCategory);
+    	model.addAttribute("inputText", inputText);
+    	model.addAttribute("itemsPerPage", itemsPerPage);
+		
 		return "notification";
 	}
 
+	@Autowired
+	private NotificationDetailService notificationDetailService;
+	
 	@GetMapping("/notificationDetail")
-	public String notificationDetail() {
-		return "notificationDetail";
+	public String notificationDetail(@RequestParam(name="announcementId", required = false) String announcementId, Model model) {
+    	
+    	if(announcementId==null) {
+    		return "redirect:/";
+    	}//리퀘파람 펄스 + 리다이렉트로 직접 bookdetail로 이동(bookId=null)은 인덱스로 돌려보냄
+    	
+    	NotificationDetailDto announceDetail = notificationDetailService.getAnnounceDetail(announcementId);
+    	model.addAttribute("announce", announceDetail);
+    	return "notificationDetail";
 	}
 
 	@GetMapping("/vision")

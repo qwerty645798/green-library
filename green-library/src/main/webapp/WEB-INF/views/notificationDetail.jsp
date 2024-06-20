@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,23 +26,22 @@
 
 <div class="first_container">
 	<div class="notice_title">
-		<h2>제목은 이거랍니다.</h2>
+		<h2>${announce.announceTitle}</h2>
 	</div>
 	<div class="table_box">
 		<table class="notice_table">
 			<tr>
 				<th>작성일</th>
-				<td></td>
+				<td>${announce.writeDate}</td>
 				<th>조회수</th>
-				<td></td>
+				<td>${announce.viewCount}</td>
 			</tr>
 			<tr>
 				<th>첨부파일</th>
-				<td colspan="3">첨부파일이 없습니다</td><!-- 이건 나중에 유무 확인해서 텍스트 변환 기능? -->
+				<td colspan="3">${announce.fileName}</td><!-- 이건 나중에 유무 확인해서 텍스트 변환 기능? -->
 			</tr>
 			<tr>
-				<td colspan="4" class="notice_detail">가나다<br>라마바사
-				ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</td>
+				<td colspan="4" class="notice_detail">${announce.contents}</td>
 			</tr>
 		</table>
 	</div>
@@ -50,11 +51,7 @@
 	<input type="button" value="목록" class="go_notification" onclick="window.location.href='notification'">
 </div>
 
-<div class="third_container">
 
-<!-- 여기는 이전글 / 다음글 만들지 안만들지 몰라서 일단 냅둠 -->
-
-</div>
 
 
 </main>
