@@ -55,6 +55,10 @@ public class SecurityConfig {
             		.sameOrigin()
             	)
             );
+            /*.exceptionHandling(exception -> exception
+                .accessDeniedHandler(new CustomAccessDeniedHandler())  // 커스텀 접근 거부 처리기 설정
+            );*/
+
 //            .requiresChannel(channel -> channel
 //                .anyRequest().requiresSecure()
 //            )
