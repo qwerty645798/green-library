@@ -8,8 +8,11 @@
     <title>Green Library Main</title>
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
     <link href="/css/index.css" type="text/css" rel="stylesheet">
+    
 </head>
 <body>
+
+
 
   <jsp:include page="../index/header.jsp" />
 
@@ -65,19 +68,19 @@
         		<li><img src="/images/SmallThingsLikeThis.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+		        	########################)</div></li>
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+		        	########################)</div></li>
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+		        	########################)</div></li>
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+		        	########################)</div></li>
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
         		<li><img src="/images/SmallThingsLikeThis.jpg">
@@ -110,21 +113,21 @@
         	<li><img src="/images/녹나무의여신.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	########################)</div></li>
+       		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	########################)</div></li>
+       		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	########################)</div></li>
+       		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	########################)</div></li>
+       		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
+        	########################)</div></li>
         	<li><img src="/images/녹나무의여신.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
@@ -187,6 +190,7 @@
  <jsp:include page="../index/footer.jsp" />
  
  <script src="/js/header.js"></script>
+ <script src="/js/index.js"></script>
     
 </body>
 </html>

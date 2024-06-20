@@ -153,6 +153,7 @@ input[type=button]{
 
 /*추가*/
 .bookSwipe{/*이건 원래 있던 것*/
+/* position: absolute; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -160,6 +161,8 @@ input[type=button]{
     background-color: mistyrose;
 }
 .window, .window2{
+	min-width: 1260px;
+	min-height: 370px;
 	width: 1260px;
 	height: 370px;
 	overflow: hidden;
@@ -167,8 +170,9 @@ input[type=button]{
 }
 .bookSwipe .newbook,
 .bookSwipe .popbook{
-	/* position: relative; */
-	width: 3040px;
+	min-width: 3780px;
+	min-height: 370px;
+	width: 3780px;
     height: 370px;
 	list-style-type: none;
 	display: inline-block;
@@ -207,4 +211,8 @@ input[type=button]{
 	background-color: green;
 	opacity: 0.5;
 	cursor: pointer;
+}
+/*js용*/
+.on{
+	visibility: hidden;
 }
