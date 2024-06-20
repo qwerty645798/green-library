@@ -19,7 +19,7 @@ public class AuthenticationAspect {
 
     private final Logger logger = LoggerFactory.getLogger(AuthenticationAspect.class);
 
-    @Around("execution(* com.library.controller.user.UserController.*(..))")
+    @Around("execution(* com.library.controller.user..*.*(..))")
     public Object authenticateAndProceed(ProceedingJoinPoint joinPoint) throws Throwable {
         logger.info("AuthenticationAspect is called");
 
