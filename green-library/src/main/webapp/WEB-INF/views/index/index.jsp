@@ -47,44 +47,90 @@
     <br><br>
 
     <div class="bookSwipe">
-        <!-- <div class="newBooks">
-            <img class="movingBook" src="/images/SmallThingsLikeThis.jpg">
-            <img class="movingBook" src="/images/SmallThingsLikeThis.jpg">
-            <img class="movingBook" src="/images/SmallThingsLikeThis.jpg">
-        </div> -->
+    <div class="backBtn"></div>
         <div class="window">
-	        <div class="newbook">
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        	<li><img src="/images/SmallThingsLikeThis.jpg"></li>
-	        </div>
+	        <ul class="newbook">
+	        	<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+	       
+	        </ul>
         </div>
-        
+        <div class="goBtn"></div>
     </div>
 
     <div class="bookSwipe">
-        <!-- <div class="popularBooks">
-            <img class="movingBook" src="/images/녹나무의여신.jpg">
-            <img class="movingBook" src="/images/녹나무의여신.jpg">
-            <img class="movingBook" src="/images/녹나무의여신.jpg">
-        </div> -->
         <div class="window2">
         <ul class="popbook">
-        	<li><img src="/images/녹나무의여신.jpg"></li>
-        	<li><img src="/images/녹나무의여신.jpg"></li>
-        	<li><img src="/images/녹나무의여신.jpg"></li>
-        	<li><img src="/images/녹나무의여신.jpg"></li>
-        	<li><img src="/images/녹나무의여신.jpg"></li>
-        	<li><img src="/images/녹나무의여신.jpg"></li>
-        	<li><img src="/images/녹나무의여신.jpg"></li>
-        	<li><img src="/images/녹나무의여신.jpg"></li>
-        	<li><img src="/images/녹나무의여신.jpg"></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
+        	<li><img src="/images/녹나무의여신.jpg">
+        	<div class="bookt">(책 제목만 써주세요. 
+	        	########################)</div></li>
         </ul>
         </div>
           

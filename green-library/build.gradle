@@ -56,10 +56,18 @@ dependencies {
 	implementation 'jakarta.el:jakarta.el-api:6.0.0'
 	implementation 'org.slf4j:slf4j-api:2.0.13'
 	testImplementation 'org.slf4j:slf4j-simple:2.0.13'
+	testImplementation 'ch.qos.logback:logback-classic:1.5.6'
 	
+	//AOP
+	implementation 'org.springframework.boot:spring-boot-starter-aop:3.3.0'
+	runtimeOnly 'org.aspectj:aspectjweaver:1.9.22.1'
+	runtimeOnly 'org.aspectj:aspectjrt:1.9.22.1'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.boot:spring-boot-starter-parent:3.3.0'
+	
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+

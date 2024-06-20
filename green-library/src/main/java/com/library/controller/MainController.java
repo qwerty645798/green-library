@@ -53,12 +53,9 @@ public class MainController {
 			return "userJoin";
 		}
 
-		boolean success = userService.insert(userDto);
+		userService.insert(userDto);
 
-		if (success)
-			return "redirect:/userLogin?success=true";
-		else
-			return "userJoin";
+		return "redirect:/userLogin?success=true";
 	}
 
 	@GetMapping("/userLogin")
@@ -164,5 +161,10 @@ public class MainController {
 	@GetMapping("/inquiryTest")
 	public String inquiryTest() {
 		return "inquiryTest";
+	}
+
+	@GetMapping("/missingServletRequestParam")
+	public String missingServletRequestParam() {
+		return "public/missingServletRequestParam";
 	}
 }
