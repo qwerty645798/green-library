@@ -1,128 +1,110 @@
 package com.library.repository.admin;
 
 import com.library.dto.admin._normal.AnnouncementDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
 public class AnnouncementRepository {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public AnnouncementRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     // 모든 공지사항 목록 조회
-    public List<AnnouncementDTO> getAllAnnouncements() {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILE_NAME " +
-                "FROM ANNOUNCEMENTS";
-        return jdbcTemplate.query(sql, new RowMapper<AnnouncementDTO>() {
-            @Override
-            public AnnouncementDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                AnnouncementDTO announcement = new AnnouncementDTO();
-                announcement.setAnnouncementId(rs.getInt("ANNOUNCEMENT_ID"));
-                announcement.setAnnounceTitle(rs.getString("ANNOUNCE_TITLE"));
-                announcement.setContents(rs.getString("CONTENTS"));
-                announcement.setWriterId(rs.getString("WRITER_ID"));
-                announcement.setWriteDate(rs.getDate("WRITE_DATE"));
-                announcement.setFileName(rs.getString("FILE_NAME"));
-                return announcement;
-            }
+    public List<AnnouncementDTO> allAnnounceManage() {
+        String sql = "SELECT ANNOUNCEMENT_ID, ADNNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILE_NAME, " + "(SELECT COUNT(*) FROM ANNOUNCEMENT) AS total_count FROM ANNOUNCEMENTS";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            AnnouncementDTO announce = new AnnouncementDTO();
+            announce.setAnnouncementId(rs.getInt("announcement_id"));
+            announce.setAnnounceTitle(rs.getString("announce_title"));
+            announce.setContents(rs.getString("contents"));
+            announce.setWriterId(rs.getString("writer_id"));
+            announce.setWriteDate(rs.getDate("write_date"));
+            announce.setFileName(rs.getString("file_name"));
+            return announce;
         });
     }
 
     // 제목으로 공지사항 검색
-    public List<AnnouncementDTO> searchByTitle(String keyword) {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILE_NAME " +
-                "FROM ANNOUNCEMENTS WHERE ANNOUNCE_TITLE LIKE ?";
-        return jdbcTemplate.query(sql, new Object[]{"%" + keyword + "%"}, new RowMapper<AnnouncementDTO>() {
-            @Override
-            public AnnouncementDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                AnnouncementDTO announcement = new AnnouncementDTO();
-                announcement.setAnnouncementId(rs.getInt("ANNOUNCEMENT_ID"));
-                announcement.setAnnounceTitle(rs.getString("ANNOUNCE_TITLE"));
-                announcement.setContents(rs.getString("CONTENTS"));
-                announcement.setWriterId(rs.getString("WRITER_ID"));
-                announcement.setWriteDate(rs.getDate("WRITE_DATE"));
-                announcement.setFileName(rs.getString("FILE_NAME"));
-                return announcement;
-            }
+    public List<AnnouncementDTO> findAnnounceByTitle(String title) {
+        String sql = "SELECT ANNOUNCEMENT_ID, ADNNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILE_NAME, " + "(SELECT COUNT(*) FROM ANNOUNCEMENT) AS total_count FROM ANNOUNCEMENTS WHERE ADNNOUNCE_TITLE LIKE ?";
+        String queryParam = "%" + title + "%";
+        return jdbcTemplate.query(sql, new Object[]{queryParam}, (rs, rowNum) -> {
+            AnnouncementDTO announce = new AnnouncementDTO();
+            announce.setAnnouncementId(rs.getInt("announcement_id"));
+            announce.setAnnounceTitle(rs.getString("announce_title"));
+            announce.setContents(rs.getString("contents"));
+            announce.setWriterId(rs.getString("writer_id"));
+            announce.setWriteDate(rs.getDate("write_date"));
+            announce.setFileName(rs.getString("file_name"));
+            return announce;
         });
     }
 
-    // 공지사항 내용으로 검색
-    public List<AnnouncementDTO> searchByContents(String keyword) {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILE_NAME " +
-                "FROM ANNOUNCEMENTS WHERE CONTENTS LIKE ?";
-        return jdbcTemplate.query(sql, new Object[]{"%" + keyword + "%"}, new RowMapper<AnnouncementDTO>() {
-            @Override
-            public AnnouncementDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                AnnouncementDTO announcement = new AnnouncementDTO();
-                announcement.setAnnouncementId(rs.getInt("ANNOUNCEMENT_ID"));
-                announcement.setAnnounceTitle(rs.getString("ANNOUNCE_TITLE"));
-                announcement.setContents(rs.getString("CONTENTS"));
-                announcement.setWriterId(rs.getString("WRITER_ID"));
-                announcement.setWriteDate(rs.getDate("WRITE_DATE"));
-                announcement.setFileName(rs.getString("FILE_NAME"));
-                return announcement;
-            }
+    // 내용으로 공지사항 검색
+    public List<AnnouncementDTO> findAnnounceByContents(String contents) {
+        String sql = "SELECT ANNOUNCEMENT_ID, ADNNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILE_NAME, " + "(SELECT COUNT(*) FROM ANNOUNCEMENT) AS total_count FROM ANNOUNCEMENTS WHERE CONTENTS LIKE ?";
+        String queryParam = "%" + contents + "%";
+        return jdbcTemplate.query(sql, new Object[]{queryParam}, (rs, rowNum) -> {
+            AnnouncementDTO announce = new AnnouncementDTO();
+            announce.setAnnouncementId(rs.getInt("announcement_id"));
+            announce.setAnnounceTitle(rs.getString("announce_title"));
+            announce.setContents(rs.getString("contents"));
+            announce.setWriterId(rs.getString("writer_id"));
+            announce.setWriteDate(rs.getDate("write_date"));
+            announce.setFileName(rs.getString("file_name"));
+            return announce;
         });
     }
 
-    // 공지사항 등록
-    public void createAnnouncement(AnnouncementDTO announcementDTO) {
-        String sql = "INSERT INTO ANNOUNCEMENTS (ANNOUNCEMENT_ID, ANNOUNCE_TITLE, WRITER_ID, WRITE_DATE, CONTENTS, FILE_NAME) " +
-                "VALUES (ANNOUNCEMENT.NEXTVAL, ?, ?, SYSDATE, ?, ?)";
-        jdbcTemplate.update(sql, announcementDTO.getAnnounceTitle(), announcementDTO.getWriterId(),
-                announcementDTO.getContents(), announcementDTO.getFileName());
+    // 공지사항 생성
+    public void createAnnounce(AnnouncementDTO announcement) {
+        String sql = "INSERT INTO ANNOUNCEMENTS (ANNOUNCEMENT_ID, ADNNOUNCE_TITLE, WRITER_ID, WRITE_DATE, CONTENTS, FILE_NAME) " + "VALUES (ANNOUNCEMENT.NEXTVAL, ?, ?, SYSDATE, ?, ?)";
+        jdbcTemplate.update(sql, announcement.getAnnounceTitle(), announcement.getWriterId(), announcement.getContents(), announcement.getFileName());
     }
 
     // 공지사항 수정
-    public void updateAnnouncement(AnnouncementDTO announcementDTO) {
-        String sql = "UPDATE ANNOUNCEMENTS SET ANNOUNCE_TITLE = ?, CONTENTS = ?, FILE_NAME = ? " +
-                "WHERE ANNOUNCEMENT_ID = ?";
-        jdbcTemplate.update(sql, announcementDTO.getAnnounceTitle(), announcementDTO.getContents(),
-                announcementDTO.getFileName(), announcementDTO.getAnnouncementId());
+    public void updateAnnounce(AnnouncementDTO announcement) {
+        String sql = "UPDATE ANNOUNCEMENTS SET ADNNOUNCE_TITLE = ?, CONTENTS = ?, FILE_NAME = ? WHERE ANNOUNCEMENT_ID = ?";
+        jdbcTemplate.update(sql, announcement.getAnnounceTitle(), announcement.getContents(), announcement.getFileName(), announcement.getAnnouncementId());
     }
 
     // 공지사항 삭제
-    public void deleteAnnouncement(Long announcementId) {
+    public void deleteAnnounce(int announceId) {
         String sql = "DELETE FROM ANNOUNCEMENTS WHERE ANNOUNCEMENT_ID = ?";
-        jdbcTemplate.update(sql, announcementId);
+        jdbcTemplate.update(sql, announceId);
     }
 
-    // 공지사항 상세 정보 조회
-    public AnnouncementDTO getAnnouncementById(Long announcementId) {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILE_NAME " +
-                "FROM ANNOUNCEMENTS WHERE ANNOUNCEMENT_ID = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{announcementId}, new RowMapper<AnnouncementDTO>() {
-            @Override
-            public AnnouncementDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                AnnouncementDTO announcement = new AnnouncementDTO();
-                announcement.setAnnouncementId(rs.getInt("ANNOUNCEMENT_ID"));
-                announcement.setAnnounceTitle(rs.getString("ANNOUNCE_TITLE"));
-                announcement.setContents(rs.getString("CONTENTS"));
-                announcement.setWriterId(rs.getString("WRITER_ID"));
-                announcement.setWriteDate(rs.getDate("WRITE_DATE"));
-                announcement.setFileName(rs.getString("FILE_NAME"));
-                return announcement;
-            }
+    // 특정 공지사항 조회
+    public AnnouncementDTO getAnnounceById(int announceId) {
+        String sql = "SELECT ANNOUNCEMENT_ID, ADNNOUNCE_TITLE, ADMIN_ID, WRITE_DATE, VIEW_COUNT, CONTENTS, FILE_NAME " + "FROM ANNOUNCEMENTS WHERE ANNOUNCEMENT_ID = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{announceId}, (rs, rowNum) -> {
+            AnnouncementDTO announce = new AnnouncementDTO();
+            announce.setAnnouncementId(rs.getInt("announcement_id"));
+            announce.setAnnounceTitle(rs.getString("announce_title"));
+            announce.setContents(rs.getString("contents"));
+            announce.setWriterId(rs.getString("admin_id"));
+            announce.setWriteDate(rs.getDate("write_date"));
+            announce.setViewCount(rs.getInt("view_count"));
+            announce.setFileName(rs.getString("file_name"));
+            return announce;
         });
     }
 
-    // 이전 공지사항 제목 조회
-    public String findPreviousAnnouncementTitle(Integer announcementId) {
-        String sql = "SELECT ANNOUNCE_TITLE FROM ANNOUNCEMENTS WHERE ANNOUNCEMENT_ID < ? ORDER BY ANNOUNCEMENT_ID DESC";
-        return jdbcTemplate.queryForObject(sql, new Object[]{announcementId}, String.class);
+    // 이전 공지 제목 조회
+    public String previousAnnounce(int announceId) {
+        String sql = "SELECT ADNNOUNCE_TITLE FROM ANNOUNCEMENTS WHERE ANNOUNCEMENT_ID < ? ORDER BY ANNOUNCEMENT_ID DESC LIMIT 1";
+        return jdbcTemplate.queryForObject(sql, new Object[]{announceId}, String.class);
     }
 
-    // 다음 공지사항 제목 조회
-    public String findNextAnnouncementTitle(Integer announcementId) {
-        String sql = "SELECT ANNOUNCE_TITLE FROM ANNOUNCEMENTS WHERE ANNOUNCEMENT_ID > ? ORDER BY ANNOUNCEMENT_ID ASC";
-        return jdbcTemplate.queryForObject(sql, new Object[]{announcementId}, String.class);
+    // 다음 공지 제목 조회
+    public String nextAnnounce(int announceId) {
+        String sql = "SELECT ADNNOUNCE_TITLE FROM ANNOUNCEMENTS WHERE ANNOUNCEMENT_ID > ? ORDER BY ANNOUNCEMENT_ID LIMIT 1";
+        return jdbcTemplate.queryForObject(sql, new Object[]{announceId}, String.class);
     }
 }

@@ -1,7 +1,5 @@
 package com.library.dto.admin._normal;
 
-
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,15 +8,11 @@ import java.util.Date;
 @Getter
 @Setter
 public class BookDTO {
-    @NotNull
     private int bookId;
-    @NotNull
     private int authorId;
     private String authorName;
-    @NotNull
     private int publisherId;
     private String publisherName;
-    @NotNull
     private String genreId;
     private String genreFullname;
     private String title;

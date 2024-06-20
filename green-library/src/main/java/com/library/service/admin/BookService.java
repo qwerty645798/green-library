@@ -1,10 +1,9 @@
 package com.library.service.admin;
 
-import com.library.dto.admin._normal.*;
+import com.library.dto.admin._normal.BookDTO;
 import com.library.repository.admin.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,50 +13,44 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    // 모든 도서 목록 조회
-    public List<BookDTO> getAllBooks() {
-        return bookRepository.getAllBooks();
+    // 모든 책 조회
+    public List<BookDTO> allHavingBookManage() {
+        return bookRepository.allHavingBookManage();
     }
-
-    // 제목으로 검색한 도서 목록 조회
-    public List<BookDTO> getBooksByTitle(String title) {
-        return bookRepository.searchByTitle(title);
+    // 제목으로 조회
+    public List<BookDTO> findBookByTitle(String title) {
+        return bookRepository.findBookByTitle(title);
     }
-
-    public List<BookDTO> getBooksByAuthor(String author) {
-        return bookRepository.searchByAuthor(author);
+    // 저자로 조회
+    public List<BookDTO> findBookByAuthor(String author) {
+        return bookRepository.findBookByAuthor(author);
     }
-
-    public List<BookDTO> getGenre(String genre) {
-        return bookRepository.searchByGenre(genre);
+    // 십진분류로 조회
+    public List<BookDTO> findBookByGenre(String genre) {
+        return bookRepository.findBookByGenre(genre);
     }
-
-    // 도서 상세 정보 조회
-    public BookDTO getBookById(Long bookId) {
-        return bookRepository.getBookById(bookId);
+     // 책 등록
+    public void createBook(BookDTO book) {
+        bookRepository.createBook(book);
     }
-
-    // 도서 등록
-    @Transactional
-    public void createBook(BookDTO bookDTO) {
-        bookRepository.createBook(bookDTO);
+     // 책 수정
+    public void updateBook(BookDTO book) {
+        bookRepository.updateBook(book);
     }
-
-    // 도서 정보 업데이트
-    @Transactional
-    public void updateBook(BookDTO bookDTO) {
-        bookRepository.updateBook(bookDTO);
+     // 책 삭제
+    public void deleteBook(int id) {
+        bookRepository.deleteBook(id);
     }
-
-    // 도서 삭제
-    @Transactional
-    public void deleteBook(Long bookId) {
-        bookRepository.deleteBook(bookId);
+    // 특정 도서 상세 조회
+    public BookDTO getBookById(int id){
+        return bookRepository.getBookById(id);
     }
-
-    // 도서 대여 가능 여부 업데이트
-    @Transactional
-    public void updateBookAvailability(Long bookId, boolean availability) {
-        bookRepository.updateBookAvailability(bookId, availability);
+     // 이전 도서 제목 조회
+    public String previousBook(int id){
+        return bookRepository.previousBook(id);
+    }
+    // 다음 도서 제목 조회
+    public String nextBook(int id){
+        return bookRepository.nextBook(id);
     }
 }

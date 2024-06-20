@@ -1,46 +1,46 @@
 package com.library.service.admin;
 
-import com.library.dto.admin.acquisitionManagement.AcquisitionRequestDTO;
+import com.library.dto.admin._normal.WishlistDTO;
 import com.library.repository.admin.AcquisitionRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
-//service에서 걸러서, data 가공 처리
 
 @Service
 public class AcquisitionRequestService {
 
     @Autowired
     private AcquisitionRequestRepository acquisitionRequestRepository;
-
-    // 도서 획득 요청 목록 조회
-    public List<AcquisitionRequestDTO> getAcquisitionRequests() {
-        return acquisitionRequestRepository.acquisitionRequestManage();
+//    전체 확인
+    public List<WishlistDTO> allAcquisitionManage() {
+        return acquisitionRequestRepository.allAcquisitionManage();
     }
 
-    // 도서 획득 요청 등록
-    @Transactional
-    public void createAcquisitionRequest(int bookId, String summary, String requestStatus) {
-        acquisitionRequestRepository.createAcquisitionRequest(bookId, summary, requestStatus);
+//    제목으로 확인
+    public List<WishlistDTO> findAcquisitionByTitle(String title) {
+        return acquisitionRequestRepository.findAcquisitionByTitle(title);
+    }
+    
+//     저자로 확인
+    public List<WishlistDTO> findAcquisitionByAuthor(String author) {
+        return acquisitionRequestRepository.findAcquisitionByAuthor(author);
+    }
+    
+    //     십진분류로 확인
+    public List<WishlistDTO> findAcquisitionByGenre(String author) {
+        return acquisitionRequestRepository.findAcquisitionByGenre(author);
+    }
+    
+//    구매승인
+    public WishlistDTO acceptsAcquisition(int requestId) {
+        acquisitionRequestRepository.acceptsAcquisition(requestId);
+        return null;
     }
 
-    // 도서 획득 요청 상세 조회
-    public AcquisitionRequestDTO getAcquisitionRequestById(int requestId) {
-        return acquisitionRequestRepository.findAcquisitionRequestById(requestId);
-    }
-
-    // 도서 획득 요청 상태 업데이트
-    @Transactional
-    public void updateRequestStatus(int requestId, String requestStatus) {
-        acquisitionRequestRepository.updateRequestStatus(requestId, requestStatus);
-    }
-
-    // 도서 획득 요청 삭제
-    @Transactional
-    public void deleteAcquisitionRequest(int requestId) {
-        acquisitionRequestRepository.deleteAcquisitionRequest(requestId);
+//    구매거절
+    public WishlistDTO deleteAcquisition(int requestId) {
+        acquisitionRequestRepository.deleteAcquisition(requestId);
+        return null;
     }
 }

@@ -1,6 +1,5 @@
 package com.library.dto.admin._normal;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,14 +8,14 @@ import java.util.Date;
 @Getter
 @Setter
 public class RentDTO {
-    @NotNull
-    private Long rentNum;
+    private String bookTitle;
+    private String authorName;
+    private String publisherName;
+    private String genreFullName;
     private Date rentHistory;
-    @NotNull
+    private Long rentNum;
     private Long bookId;
-    @NotNull
     private String userId;
-    @NotNull
     private Character returned;
 }
 

@@ -13,8 +13,11 @@ import java.util.List;
 @Repository
 public class InquiryRepository {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public InquiryRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     // ResultSet에서 RESPONSE_TF 값을 InquiryDTO의 responseTF 필드에 설정하는 메서드
     private static void setResponse(ResultSet rs, InquiryDTO inquiry) throws SQLException {
@@ -29,104 +32,107 @@ public class InquiryRepository {
     }
 
     // 모든 문의 목록 조회
-    public List<InquiryDTO> getAllInquiries() {
+    public List<InquiryDTO> allInquiryManage() {
         String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE, RESPONSE_TF " +
                 "FROM INQUIRIES";
-        return jdbcTemplate.query(sql, new RowMapper<InquiryDTO>() {
-            @Override
-            public InquiryDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                InquiryDTO inquiry = new InquiryDTO();
-                inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
-                inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
-                inquiry.setContents(rs.getString("CONTENTS"));
-                inquiry.setUserId(rs.getString("USER_ID"));
-                inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
-                setResponse(rs, inquiry);
-                return inquiry;
-            }
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            InquiryDTO inquiry = new InquiryDTO();
+            inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
+            inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
+            inquiry.setContents(rs.getString("CONTENTS"));
+            inquiry.setUserId(rs.getString("USER_ID"));
+            inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
+            setResponse(rs, inquiry);
+            return inquiry;
         });
     }
 
     // 제목으로 문의 검색
-    public List<InquiryDTO> searchByTitle(String keyword) {
+    public List<InquiryDTO> findInquiryByTitle(String keyword) {
         String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE, RESPONSE_TF " +
                 "FROM INQUIRIES WHERE INQUIRY_TITLE LIKE ?";
-        return jdbcTemplate.query(sql, new Object[]{"%" + keyword + "%"}, new RowMapper<InquiryDTO>() {
-            @Override
-            public InquiryDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                InquiryDTO inquiry = new InquiryDTO();
-                inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
-                inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
-                inquiry.setContents(rs.getString("CONTENTS"));
-                inquiry.setUserId(rs.getString("USER_ID"));
-                inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
-                setResponse(rs, inquiry);
-                return inquiry;
-            }
+        return jdbcTemplate.query(sql, new Object[]{"%" + keyword + "%"}, (rs, rowNum) -> {
+            InquiryDTO inquiry = new InquiryDTO();
+            inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
+            inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
+            inquiry.setContents(rs.getString("CONTENTS"));
+            inquiry.setUserId(rs.getString("USER_ID"));
+            inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
+            setResponse(rs, inquiry);
+            return inquiry;
         });
     }
 
     // 내용으로 문의 검색
-    public List<InquiryDTO> searchByContents(String keyword) {
+    public List<InquiryDTO> findInquiryByContents(String keyword) {
         String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE, RESPONSE_TF " +
                 "FROM INQUIRIES WHERE CONTENTS LIKE ?";
-        return jdbcTemplate.query(sql, new Object[]{"%" + keyword + "%"}, new RowMapper<InquiryDTO>() {
-            @Override
-            public InquiryDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                InquiryDTO inquiry = new InquiryDTO();
-                inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
-                inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
-                inquiry.setContents(rs.getString("CONTENTS"));
-                inquiry.setUserId(rs.getString("USER_ID"));
-                inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
-                setResponse(rs, inquiry);
-                return inquiry;
-            }
+        return jdbcTemplate.query(sql, new Object[]{"%" + keyword + "%"}, (rs, rowNum) -> {
+            InquiryDTO inquiry = new InquiryDTO();
+            inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
+            inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
+            inquiry.setContents(rs.getString("CONTENTS"));
+            inquiry.setUserId(rs.getString("USER_ID"));
+            inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
+            setResponse(rs, inquiry);
+            return inquiry;
         });
     }
 
     // 답변이 등록된 문의 목록 조회
-    public List<InquiryDTO> findAnsweredInquiries() {
+    public List<InquiryDTO> findAnsweredInquiry() {
         String sql = "SELECT I.INQUIRY_ID, I.INQUIRY_TITLE, I.CONTENTS, I.USER_ID, I.INQUIRY_DATE, I.RESPONSE_TF " +
                 "FROM INQUIRIES I JOIN INQUIRY_RESPONSE IR ON I.INQUIRY_ID = IR.INQUIRY_ID";
-        return jdbcTemplate.query(sql, new RowMapper<InquiryDTO>() {
-            @Override
-            public InquiryDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                InquiryDTO inquiry = new InquiryDTO();
-                inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
-                inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
-                inquiry.setContents(rs.getString("CONTENTS"));
-                inquiry.setUserId(rs.getString("USER_ID"));
-                inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
-                setResponse(rs, inquiry);
-                return inquiry;
-            }
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            InquiryDTO inquiry = new InquiryDTO();
+            inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
+            inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
+            inquiry.setContents(rs.getString("CONTENTS"));
+            inquiry.setUserId(rs.getString("USER_ID"));
+            inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
+            setResponse(rs, inquiry);
+            return inquiry;
         });
     }
 
     // 문의 상세 정보 조회
-    public InquiryDTO findInquiryById(Integer inquiryId) {
+    public InquiryDTO getInquiryById(Integer inquiryId) {
         String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE " +
                 "FROM INQUIRIES WHERE INQUIRY_ID = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{inquiryId}, new RowMapper<InquiryDTO>() {
-            @Override
-            public InquiryDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                InquiryDTO inquiry = new InquiryDTO();
-                inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
-                inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
-                inquiry.setContents(rs.getString("CONTENTS"));
-                inquiry.setUserId(rs.getString("USER_ID"));
-                inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
-                return inquiry;
-            }
+        return jdbcTemplate.queryForObject(sql, new Object[]{inquiryId}, (rs, rowNum) -> {
+            InquiryDTO inquiry = new InquiryDTO();
+            inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
+            inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
+            inquiry.setContents(rs.getString("CONTENTS"));
+            inquiry.setUserId(rs.getString("USER_ID"));
+            inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
+            return inquiry;
         });
     }
 
     // 문의 답변 등록
-    public void writeResponse(Integer inquiryId, String responseContent, String adminId) {
+    public void createInquiry(Integer inquiryId, String responseContent, String adminId) {
         String sql = "INSERT INTO INQUIRY_RESPONSE (RESPONSE_ID, INQUIRY_ID, RESPONSE_DATE, RESPONSE_CONTENT, ADMIN_ID) " +
                 "VALUES (RESPONSE.NEXTVAL, ?, SYSDATE, ?, ?)";
         jdbcTemplate.update(sql, inquiryId, responseContent, adminId);
     }
 
+//    삭제
+    public void deleteInquiry(int id) {
+        String sql = "DELETE FROM INQUIRIES\n" +
+                "WHERE INQUIRY_ID = ?;";
+        jdbcTemplate.update(sql, id);
+    }
+
+    // 이전 제목 조회
+    public String previousInquiry(int inquiryId) {
+        String sql = "SELECT ADNNOUNCE_TITLE FROM INQUIRIES WHERE INQUIRY_ID < ? ORDER BY INQUIRY_ID DESC LIMIT 1";
+        return jdbcTemplate.queryForObject(sql, new Object[]{inquiryId}, String.class);
+    }
+
+    // 다음 제목 조회
+    public String nextInquiry(int inquiryId) {
+        String sql = "SELECT ADNNOUNCE_TITLE FROM INQUIRIES WHERE INQUIRY_ID > ? ORDER BY INQUIRY_ID LIMIT 1";
+        return jdbcTemplate.queryForObject(sql, new Object[]{inquiryId}, String.class);
+    }
 }

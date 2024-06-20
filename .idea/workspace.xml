@@ -5,15 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0af4c74-9d7a-4f21-9fcf-804446e66ba9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/.DTOexplanation" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/.RepositoryExplanation" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_el_jakarta_el_api_5_0_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/green-library.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/green-library.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/green-library.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/green-library.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/controller/admin/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/controller/admin/.ControllerExplanation" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/.keep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/.keep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/.keep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/BookDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/InquiryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/InquiryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/RentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/RentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/SuspensionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/SuspensionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/WishlistDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/dto/admin/_normal/WishlistDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/.RepositoryExplanation" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/.RepositoryExplanation" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/AcquisitionRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/AcquisitionRequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/AdminRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/AnnouncementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/AnnouncementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/InquiryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/InquiryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/repository/admin/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/AcquisitionRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/AcquisitionRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/AnnounceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/AnnounceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/InquiryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/InquiryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/green-library/src/main/java/com/library/service/admin/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,10 +127,36 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 파생 언어": [
+      "OracleSqlPlus",
+      "Oracle"
+    ]
   }
 }]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\ADMINI~1.USE\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+        <option name="reportGuid" value="4328d87d-5985-4ad2-9fc6-0c3233f4b19f" />
+        <option name="reportName" value="green-library/qodana/2024-06-20" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\ADMINI~1.USE\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="4328d87d-5985-4ad2-9fc6-0c3233f4b19f" reportId="green-library/qodana/2024-06-20" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.library.entity" />
@@ -244,10 +284,15 @@
       <workItem from="1718690285798" duration="3895000" />
       <workItem from="1718700968793" duration="1056000" />
       <workItem from="1718756708444" duration="27475000" />
+      <workItem from="1718843448879" duration="19047000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

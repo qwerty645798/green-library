@@ -20,8 +20,12 @@ public class AdminService {
     }
 
     // 모든 관리자 목록 조회
-    public List<AdminDTO> getAllAdmins() {
-        return adminRepository.getAllAdmins();
+    public List<AdminDTO> allAdminManage() {
+        return adminRepository.allAdminManage();
+    }
+
+    public AdminDTO findAdminById(String adminId) {
+        return adminRepository.getMyInfo(adminId);
     }
 
 }
