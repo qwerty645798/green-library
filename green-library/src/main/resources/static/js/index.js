@@ -8,57 +8,60 @@ const backBtn = document.querySelector('.backBtn');
 const goBtn = document.querySelector('.goBtn');
 //버튼들도 클래스가 옮겨가게 해보자. 
 
-const clsname = "on";
+
+
+//const clsname = "on";
+
+//let curlef = parseInt(newbooks.style.left,10)||0;
+//let brect = newbooks.getBoundingClientRect();
 
 
 
-//function slide(){
-//	backBtn.onclick = () => {
-//		newbooks.style.left = -window1.offsetWidth + 'px';
-//		newbooks.style.transition = '200ms ease-in-out';
-//	}
-//	goBtn.onclick = () => {
-//		newbooks.style.left = 630 + 'px';
-//		newbooks.style.transition = '200ms ease-in-out';
-//	}
-//
-//}
-//window.addEventListener('load', slide);
 
-//function back(){
-//	newbooks.style.left = -window1.offsetWidth + 'px';
-//	newbooks.style.transition = '200ms ease-in-out';
-//}
-//
-//function go(){
-//	newbooks.style.left = 0 + 'px';
-//	newbooks.style.transition = '200ms ease-in-out';
-//}
 function slide(){
-	if(newbooks.scrollLeft==0){
-		goBtn.onclick = () => {
-			newbooks.style.left = -window1.offsetWidth + 'px';
-			newbooks.style.transition = '200ms ease-in-out';
+	
+	const curIdx = 0;
+	const newWid = 1260;
+
+//		goBtn.onclick = () => {
+//			if(curlef!=0){
+//				newbooks.style.left = (curlef-1260) + 'px';
+//				newbooks.style.transition = '200ms ease-in-out';
+//			}
+//			
+//		}
+//		backBtn.onclick = () => {
+//			newbooks.style.left = (brect+1260) + 'px';
+//			newbooks.style.transition = '200ms ease-in-out';
+//		}
+		if(curIdx===0){
+			goBtn.onclick = () => {
+				curIdx++;
+				newbooks.style.left = -curIdx*newWid + 'px';
+				newbooks.style.transition = '200ms ease-in-out';
+			}
+			backBtn.onclick = () => {
+				newbooks.style.left = 0 + 'px';
+			}
+		}else if(curIdx===1){
+			goBtn.onclick = () => {
+				curIdx++;
+				newbooks.style.left = -curIdx*newWid + 'px';
+				newbooks.style.transition = '200ms ease-in-out';
+			}
+			backBtn.onclick = () => {
+				newbooks.style.left = curIdx*newWid + 'px';
+				newbooks.style.transition = '200ms ease-in-out';
+			}
+		}else if(curIdx===2){
+			goBtn.onclick = () => {
+				newbooks.style.left = -curIdx*newWid + 'px';
+			}
+			backBtn.onclick = () => {
+				newbooks.style.left = curIdx*newWid + 'px';
+				newbooks.style.transition = '200ms ease-in-out';
+			}
 		}
-	}else if(newbooks.scrollLeft==-1260){
-		goBtn.onclick = () => {
-			newbooks.style.left = (-window1.offsetWidth)*2 + 'px';
-			newbooks.style.transition = '200ms ease-in-out';
-		}
-		backBtn.onclick = () => {
-			newbooks.style.left = 0 + 'px';
-			newbooks.style.transition = '200ms ease-in-out';
-		}
-	}else if(newbooks.scrollLeft==-2520){
-		goBtn.onclick = () => {
-			newbooks.style.left = -window1.offsetWidth*3 + 'px';
-			newbooks.style.transition = '200ms ease-in-out';
-		}
-		backBtn.onclick = () => {
-			newbooks.style.left = -window1.offsetWidth + 'px';
-			newbooks.style.transition = '200ms ease-in-out';
-		}
-	}
 }
 
 window.onload = slide();

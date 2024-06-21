@@ -15,14 +15,13 @@
 
 <body>
 
+<jsp:include page="index/header.jsp" />
 
 <div class="bannerBgr">
     <div class="Banner">
         <div class="pageTitle">공지사항</div> <div class="pageRoute">홈 > 도서관 소식 > 공지사항</div>
     </div>
 </div>
-
-<header id="header" class="header"></header>
 
 <main>
 
@@ -115,8 +114,7 @@
 
 </main>
 
-<footer id="footer" class="footer"></footer>
-
+<jsp:include page="index/footer.jsp" />
 
 </body>
 </html>
