@@ -82,32 +82,6 @@ input[type=button]{
     background-color: green;
     opacity: 0.5;
 }
-/* .movingBook{
-    width:200px;
-    height:255px;
-    filter: drop-shadow(0px 2px 5px black);
-} */
-
-/* .bookSwipe .newbook{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 960px;
-    height: 300px;
-    margin: 50px;
-    background-color: mediumaquamarine;
-} */
-/* .popularBooks{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 960px;
-    height: 300px;
-    margin: 50px;
-    background-color: mediumaquamarine;
-} */
 .infoBoard1{
     display: flex;
     justify-content: center;
@@ -218,4 +192,11 @@ input[type=button]{
 /*js용*/
 .on{
 	visibility: hidden;
+}
+
+/*탭*/
+.bookTab li{
+	list-style-type: none;
+	width: 200px;
+	background-color: aliceblue;
 }
