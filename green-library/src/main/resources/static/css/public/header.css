@@ -2,6 +2,8 @@ body{
 	margin:0;
 }
 header{
+	
+	display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -13,8 +15,8 @@ header{
     width:100%;
 }
 .headerTop{
-    width: 1260px;
-    height: 146px;
+    min-width: 1260px;
+    min-height: 146px;
 }
 .logo{
     color: white;
@@ -31,6 +33,7 @@ header{
     cursor: pointer;
 }
 .headerBottom{
+	
     display: flex;
     justify-content: center;
     background-color:#155734;
@@ -38,7 +41,8 @@ header{
 }
 .subMenuTop{
     margin-left: 0px;
-    width: 1260px;
+    min-width: 1260px;
+    min-height: 56px;
     text-align: center;
     padding:0;
 }
@@ -47,9 +51,11 @@ header{
     transition: 2s ease-in-out;
 }
 .subMenuTop>li{
+	
     display: inline-block;
     box-sizing: border-box;
-    width: 252px;
+    min-width: 252px;
+    min-height: 56px;
     padding-top: 15px;
     padding-bottom: 15px;
     margin: 0px;

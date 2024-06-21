@@ -13,6 +13,8 @@
 
 <body>
 
+<jsp:include page="index/header.jsp" />
+
 <div class="bannerBgr">
     <div class="Banner">
         <div class="pageTitle">비전</div> <div class="pageRoute">홈 > 도서관 소개 > 비전</div>
@@ -35,7 +37,7 @@
 
 </main>
 
-<footer id="footer" class="footer"></footer>
+<jsp:include page="index/footer.jsp" />
 
 
 </body>

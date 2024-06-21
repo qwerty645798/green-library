@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.library.entity.Users;
 
-@Repository
+@Repository("UserRepository")
 public class UserRepositoryImpl implements UserRepository {
 
 	@Autowired
