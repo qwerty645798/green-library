@@ -1,3 +1,9 @@
+const usetime = document.getElementById('quick1');
+const booklong = document.getElementById('quick2');
+const hopebook = document.getElementById('quick3');
+const help = document.getElementById('quick4');
+const schedule = document.getElementById('quick5');
+
 const newbooks = document.querySelector('.newbook');
 const popbooks = document.querySelector('.popbook');
 
@@ -17,9 +23,16 @@ const goBtn2 = document.querySelector('.goBtn2');
 //let curlef = parseInt(newbooks.style.left,10)||0;
 //let brect = newbooks.getBoundingClientRect();
 
+//바로가기 이동 함수
+function quickPage(){
+	usetime.onclick = () => {window.location.href}
+	booklong.onclick = () => {window.location.href}
+	hopebook.onclick = () => {window.location.href}
+	help.onclick = () => {window.location.href}
+	schedule.onclick = () => {window.location.href}
+}
 
-
-
+//슬라이드 함수
 function slide(){
 	
 	let curIdx = 0;

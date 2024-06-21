@@ -24,8 +24,8 @@
     }
     
 	function lets_search(){
-		var inputText = document.querySelector('.sel_box2 input[type="text"]').value;
-		var inputCategory = document.querySelector('.sel_box1 select').value;
+		var inputText = document.querySelector('input[type="text"]').value;
+		var inputCategory = document.querySelector(' select').value;
 		
 		if(inputCategory=="인기도서"){
 			window.location.href='popularBook';

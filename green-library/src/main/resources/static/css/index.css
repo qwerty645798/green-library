@@ -1,3 +1,4 @@
+
 .mainPage{
     background-color: lemonchiffon;
 }
@@ -54,6 +55,10 @@ input[type=button]{
     justify-content: center;
     align-items: center;
 }
+.quickBundle a{
+	color: black;
+	text-decoration: none;
+}
 .quickPage{
     display: flex;
     flex-direction: column;
@@ -69,13 +74,14 @@ input[type=button]{
     background-color: white;
 }
 .quickPage img{
+	position: relative;
 	width: 64px;
 	height: 64px;
 }
 .quickPage:hover{
-    background-color: #47a168;
+    background-color: #d1ebdc;
     transition: 300ms;
-    color: #d8e9d9;
+    color: #47a168;
 }
 .logoChg{
     visibility: hidden;
@@ -214,9 +220,13 @@ input[type=button]{
 .backBtn2, .goBtn2{
 	width: 64px;
 	height: 64px;
-	background-color: green;
+/* 	background-color: green; */
 	opacity: 0.5;
 	cursor: pointer;
+}
+.arBtn{
+	width: 64px;
+	height: 64px;
 }
 /*js용*/
 .on{

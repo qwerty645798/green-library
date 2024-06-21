@@ -30,8 +30,9 @@
 					<option>인기도서</option>
 					<option>신착도서</option>
                 </select>
-                <input type="text" name="search">
-                <input type="button" value="자료 찾기">
+                <input type="text" class="sel_box2"
+                 name="search" onkeypress="checkEnter(event)">
+                <input type="button" value="자료 찾기" onclick="lets_search()">
             </div>
         </label>
     </div>
@@ -39,12 +40,12 @@
     <br><br>
 
     <div id="quickBundle" class="quickBundle">
-        <div id="quick1" class="quickPage"><img src="/images/useTime.png">
+       	<div id="quick1" class="quickPage"><img src="/images/useTime.png">
             이용 시간</div>
         <div id="quick2" class="quickPage"><img src="/images/bookExtension.png">
-            대출 연장</div>
+            대출 연장</div><!-- 유효성 검사 필요 -->
         <div id="quick3" class="quickPage"><img src="/images/hopeBook.png">
-            희망도서</div>
+            희망도서</div><!-- 유효성 검사 필요 -->
         <div id="quick4" class="quickPage"><img src="/images/help.png">
             문의사항</div>
         <div id="quick5" class="quickPage"><img src="/images/calendar.png">
@@ -53,6 +54,7 @@
 
     <br><br>
     
+    <div class="bookslide">
     <div class="tabCon1">
         <div class="tabCon2">
             <ul class="bookTab">
@@ -62,11 +64,9 @@
         </div>
     </div>
     
-    
-
-
     <div class="bookSwipe">
-    <div class="backBtn"></div>
+    <div class="backBtn">
+    <img class="arBtn" src="/images/goback.png"></div>
         <div class="window">
 	        <ul class="newbook">
 	        	<li><img src="/images/SmallThingsLikeThis.jpg">
@@ -108,11 +108,13 @@
 	       
 	        </ul>
         </div>
-        <div class="goBtn"></div>
+        <div class="goBtn">
+        <img class="arBtn" src="/images/go.png"></div>
     </div>
 
     <div class="bookSwipe2">
-        <div class="backBtn2"></div>
+        <div class="backBtn2">
+        <img class="arBtn" src="/images/goback.png"></div>
         <div class="window2">
         <ul class="popbook">
         	<li><img src="/images/녹나무의여신.jpg">
@@ -153,8 +155,11 @@
 	        	########################)</div></li>
         </ul>
         </div>
-        <div class="goBtn2"></div>
+        <div class="arBtn" class="goBtn2">
+        <img src="/images/go.png"></div>
     </div>
+    </div>
+    
 
     <br><br>
 
@@ -162,7 +167,7 @@
 		<div class="infoBoard2">
 		<div class="titleQuick">
 			<span>공지사항</span>
-			<img src="/images/gotoPage.png">
+			<a href=""><img src="/images/gotoPage.png"></a>
 		</div>
 		
 	        <table>
@@ -206,6 +211,7 @@
  
  <script src="/js/header.js"></script>
  <script src="/js/index.js"></script>
+ <script src="js/dataSearchBar.js"></script>
     
 </body>
 </html>
