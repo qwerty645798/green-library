@@ -20,11 +20,11 @@ public class BookDetailService {
  	@Autowired
  	private BookReservationRepository bookReservationRepository;
  	
- 	public void makeReservation(int bookId, String userId) {
+ 	public void makeReservation(String bookId, String userId) {
  		bookReservationRepository.reserveBook(bookId, userId);
  	}
  	
- 	public void updateAvailability(int bookId, String userId) {
+ 	public void updateAvailability(String bookId, String userId) {
  		bookReservationRepository.reserveBook2(bookId, userId);
  	}
 }

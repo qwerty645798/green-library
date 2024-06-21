@@ -45,8 +45,8 @@ public class BookController {
     	String bookId = request.getParameter("bookId");
     	String userId = request.getParameter("userId");
     	
-    	bookDetailService.makeReservation(Integer.parseInt(bookId), userId);
-    	bookDetailService.updateAvailability(Integer.parseInt(bookId), userId);
+    	bookDetailService.makeReservation(bookId, userId);
+    	bookDetailService.updateAvailability(bookId, userId);
     	
     	return "redirect:/bookDetail?bookId=" + bookId + "&auth=" + userId;
     }

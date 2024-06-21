@@ -108,7 +108,7 @@ public class MainController {
 	public String userLogin() {
 		return "public/userLogin";
 	}
-
+	
 	@GetMapping("/facilityInfo")
 	public String facilityInfo() {
 		return "facilityInfo";

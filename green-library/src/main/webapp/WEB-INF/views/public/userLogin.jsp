@@ -11,9 +11,12 @@
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userLogin.css" type="text/css" rel="stylesheet">
 <script>
-	let error = "${param.error}";
+	let error = "${error}";
 	if(error == "true")
 		alert("로그인이 되어있지 않습니다.");
+	let condition = "${param.condition}";
+	if(condition == "success")
+		alert("정상적으로 로그아웃 되었습니다.");
 </script>
 </head>
 <body> 
@@ -66,5 +69,6 @@
 	
 	
 	<jsp:include page="../index/footer.jsp" />
+	
 </body>
 </html>

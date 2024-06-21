@@ -75,6 +75,6 @@ public class UserController {
 		return "user/userInquiryDetail";
 	}
 
-	
+
 
 }

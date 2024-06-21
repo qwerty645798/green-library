@@ -1,5 +1,6 @@
 package com.library.entity;
 
+
 public class Users {
     private String user_id;
     private String user_pass;
@@ -70,4 +71,5 @@ public class Users {
 		this.suspended = suspended;
 	}
 	
+
 }
