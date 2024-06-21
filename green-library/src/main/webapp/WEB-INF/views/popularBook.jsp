@@ -190,7 +190,7 @@
 								<th>출판사</th>
 								<td class="bar">${items[index].publisherName}</td>
 								<th class="right">발행년도</th>
-								<td class="bar">####</td>
+								<td class="bar">${items[index].publicationDate}</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
