@@ -8,7 +8,7 @@ import com.library.dto.user.UserJoinDto;
 import com.library.dto.user.UserLoginDto;
 import com.library.entity.Users;
 
-@Component
+@Component("UserMapper")
 public class UserMapperImpl implements UserMapper {
 
 	@Override

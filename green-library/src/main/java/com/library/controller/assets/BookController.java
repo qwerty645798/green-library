@@ -20,7 +20,7 @@ import com.library.service.assets.DataSearchResultService;
 import com.library.service.assets.InitiativeBookService;
 import com.library.service.assets.PopularBookService;
 
-@Controller
+@Controller("AssetsBookController")
 public class BookController {
 
 	@Autowired
@@ -45,8 +45,8 @@ public class BookController {
     	String bookId = request.getParameter("bookId");
     	String userId = request.getParameter("userId");
     	
-    	bookDetailService.makeReservation(Integer.parseInt(bookId), userId);
-    	bookDetailService.updateAvailability(Integer.parseInt(bookId), userId);
+    	bookDetailService.makeReservation(bookId, userId);
+    	bookDetailService.updateAvailability(bookId, userId);
     	
     	return "redirect:/bookDetail?bookId=" + bookId + "&auth=" + userId;
     }

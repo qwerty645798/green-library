@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -22,13 +23,15 @@ import com.library.exception.DatabaseException;
 import com.library.mapper.user.UserMapper;
 import com.library.repository.user.UserRepository;
 
-@Service
+@Service("UserService")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
+	@Qualifier("UserRepository")
 	private UserRepository userRepository;
 
 	@Autowired
+	@Qualifier("UserMapper")
 	private UserMapper userMapper;
 
 	@Autowired
