@@ -53,10 +53,17 @@
 
     <br><br>
     
-    <ul class="bookTab">
-    	<li>신착 도서</li>
-    	<li>인기 도서</li>
-    </ul>
+    <div class="tabCon1">
+        <div class="tabCon2">
+            <ul class="bookTab">
+                <li class="here">신착 도서</li>
+                <li>인기 도서</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+
 
     <div class="bookSwipe">
     <div class="backBtn"></div>
@@ -104,7 +111,8 @@
         <div class="goBtn"></div>
     </div>
 
-    <div class="bookSwipe">
+    <div class="bookSwipe2">
+        <div class="backBtn2"></div>
         <div class="window2">
         <ul class="popbook">
         	<li><img src="/images/녹나무의여신.jpg">
@@ -145,7 +153,7 @@
 	        	########################)</div></li>
         </ul>
         </div>
-          
+        <div class="goBtn2"></div>
     </div>
 
     <br><br>
