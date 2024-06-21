@@ -1,3 +1,4 @@
+
 .mainPage{
     background-color: lemonchiffon;
 }
@@ -54,6 +55,10 @@ input[type=button]{
     justify-content: center;
     align-items: center;
 }
+.quickBundle a{
+	color: black;
+	text-decoration: none;
+}
 .quickPage{
     display: flex;
     flex-direction: column;
@@ -69,19 +74,46 @@ input[type=button]{
     background-color: white;
 }
 .quickPage img{
+	position: relative;
 	width: 64px;
 	height: 64px;
 }
 .quickPage:hover{
-    background-color: #47a168;
+    background-color: #d1ebdc;
     transition: 300ms;
-    color: #d8e9d9;
+    color: #47a168;
 }
 .logoChg{
     visibility: hidden;
     background-color: green;
     opacity: 0.5;
 }
+/* .movingBook{
+    width:200px;
+    height:255px;
+    filter: drop-shadow(0px 2px 5px black);
+} */
+
+/* .bookSwipe .newbook{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 960px;
+    height: 300px;
+    margin: 50px;
+    background-color: mediumaquamarine;
+} */
+/* .popularBooks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 960px;
+    height: 300px;
+    margin: 50px;
+    background-color: mediumaquamarine;
+} */
 .infoBoard1{
     display: flex;
     justify-content: center;
@@ -115,6 +147,7 @@ input[type=button]{
 	justify-content: center;
 	align-items: center;
 	width: 200px;
+    font-size: 14pt;
 	font-weight: bold;
 	background-color: aliceblue;
 }
@@ -127,7 +160,8 @@ input[type=button]{
 }
 
 /*추가*/
-.bookSwipe{/*이건 원래 있던 것*/
+.bookSwipe,
+.bookSwipe2{/*이건 원래 있던 것*/
 /* position: absolute; */
     display: flex;
     flex-direction: row;
@@ -143,8 +177,8 @@ input[type=button]{
 	overflow: hidden;
 	border: 3px dotted red;
 }
-.bookSwipe .newbook,
-.bookSwipe .popbook{
+.bookSwipe .newbook, 
+.bookSwipe2 .popbook{
 	position: relative;
 	left: 0px;
 	min-width: 3780px;
@@ -157,12 +191,12 @@ input[type=button]{
 	border: 3px dotted green;
 }
 .bookSwipe .window .newbook,
-.bookSwipe .window2 .popbook{
+.bookSwipe2 .window2 .popbook{
 	margin: 0px;
 	padding: 0px;
 }
 .bookSwipe .newbook li,
-.bookSwipe .popbook li{
+.bookSwipe2 .popbook li{
 	display: inline-block;
 	padding-left: 24px;
 	padding-right: 24px;
@@ -170,7 +204,7 @@ input[type=button]{
 
 }
 .bookSwipe .newbook li img,
-.bookSwipe .popbook li img{
+.bookSwipe2 .popbook li img{
 	width:200px;
     height:255px;
     filter: drop-shadow(0px 2px 5px black);
@@ -182,12 +216,17 @@ input[type=button]{
 	overflow: hidden;
 	background-color: white;
 }
-.backBtn, .goBtn{
+.backBtn, .goBtn,
+.backBtn2, .goBtn2{
 	width: 64px;
 	height: 64px;
-	background-color: green;
+/* 	background-color: green; */
 	opacity: 0.5;
 	cursor: pointer;
+}
+.arBtn{
+	width: 64px;
+	height: 64px;
 }
 /*js용*/
 .on{
@@ -195,8 +234,38 @@ input[type=button]{
 }
 
 /*탭*/
+.bookSwipe2{
+    display: none;
+}
+.tabCon1{
+    display: flex;
+    justify-content: center;
+}
+.tabCon2{
+    
+    min-width: 1260px;
+    min-height: 50px;
+    overflow: hidden;
+}
+.bookTab{
+    margin: 0px;
+    padding: 0px;
+    font-size: 0pt;
+    border: 1px solid brown;
+}
 .bookTab li{
-	list-style-type: none;
-	width: 200px;
+    padding-top: 25px;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+    display: inline-block;
+    list-style-type: none;
+	min-width: 200px;
+    min-height: 50px;
 	background-color: aliceblue;
+}
+.bookTab li:hover{
+    background-color: skyblue;
+    color: white;
+    cursor: pointer;
 }
