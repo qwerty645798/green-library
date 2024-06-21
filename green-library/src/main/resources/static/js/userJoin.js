@@ -94,3 +94,31 @@ function concatInput() {
 
     fullPhone.value = brief[0].value + "-" + brief[1].value + "-" + brief[2].value;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('checkUserIdBtn').addEventListener('click', function() {
+        var userId = document.getElementById('userid').value;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/checkUserId?user_id=' + encodeURIComponent(userId), true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response) {
+                        document.getElementById('duplicateIdError').textContent = '아이디가 이미 존재합니다.';
+                        document.getElementById('duplicateIdSuccess').textContent = '';
+                        alert("아이디가 이미 존재합니다.");
+                    } else {
+                        document.getElementById('duplicateIdError').textContent = '';
+                        document.getElementById('duplicateIdSuccess').textContent = '사용 가능한 아이디입니다.';
+                    }
+                } else {
+                    document.getElementById('duplicateIdError').textContent = '아이디 확인 중 오류가 발생했습니다.';
+                    document.getElementById('duplicateIdSuccess').textContent = '';
+                }
+            }
+        };
+        xhr.send();
+    });
+});
