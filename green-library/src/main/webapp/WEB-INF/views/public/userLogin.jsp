@@ -10,6 +10,14 @@
 <link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userLogin.css" type="text/css" rel="stylesheet">
+<script>
+	let error = "${error}";
+	if(error == "true")
+		alert("로그인이 되어있지 않습니다.");
+	let condition = "${param.condition}";
+	if(condition == "success")
+		alert("정상적으로 로그아웃 되었습니다.");
+</script>
 </head>
 <body> 
 	<jsp:include page="../index/header.jsp" />
@@ -30,11 +38,11 @@
 	
 	<main style="display:flex; justify-content:center;">
 		
-		<form action="${pageContext.request.contextPath}/userLogin-perform" method="post">
+		<form action="${pageContext.request.contextPath}/userLogin" method="post">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<div class="loginCon2">
-			<div class="floor"><input type="text" placeholder="아이디" name="userId" class="text"><br></div>
-			<div class="floor"><input type="password" placeholder="비밀번호" name="userPass" class="text"><br></div>
+			<div class="floor"><input type="text" placeholder="아이디" name="user_id" class="text"><br></div>
+			<div class="floor"><input type="password" placeholder="비밀번호" name="user_pass" class="text"><br></div>
 			<div class="floor"><input type="checkbox" name="#"> 아이디 저장 
 			<div style="width:120px; display:inline-block"> </div> <a href="#">아이디 찾기</a> / <a href="#">비밀번호 초기화</a></div>
 			<div class="floor" style="text-align:center;">
@@ -61,5 +69,6 @@
 	
 	
 	<jsp:include page="../index/footer.jsp" />
+	
 </body>
 </html>

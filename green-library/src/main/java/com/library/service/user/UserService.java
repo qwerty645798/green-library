@@ -1,61 +1,18 @@
 package com.library.service.user;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 
-import com.library.dto.user.UserDto;
-import com.library.repository.user.UserRepository;
+import com.library.dto.user.UserInfoDto;
+import com.library.dto.user.UserInfoModificationDto;
+import com.library.dto.user.UserJoinDto;
 
-@Service
-public class UserService implements UserDetailsService {
+public interface UserService extends UserDetailsService {
 
-	@Autowired
-	private UserRepository userRepository;
+    boolean checkUserId(String userId);
 
-	@Override
-	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-		UserDto userDto = userRepository.findByUserId(userId);
-		if (userDto == null) {
+    UserInfoDto getUserInfo(String userId);
 
-			throw new UsernameNotFoundException("UserDto not found");
-		}
+    void update(UserInfoModificationDto userDto, String userId);
 
-		List<GrantedAuthority> authorities = new ArrayList<>();
-
-		return User.withUsername(userDto.getId())
-				.password(userDto.getPass())
-				.authorities(authorities)
-				.build();
-	}
-
-	public UserDto getUserDetails() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication == null || !authentication.isAuthenticated()) {
-			throw new RuntimeException("User is not authenticated");
-		}
-
-		String userId = ((UserDetails) authentication.getPrincipal()).getUsername();
-		return userRepository.findDetailsByUserId(userId);
-	}
-
-	public boolean update(UserDto userDto) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication == null || !authentication.isAuthenticated()) {
-			throw new RuntimeException("User is not authenticated");
-		}
-
-		String userId = ((UserDetails) authentication.getPrincipal()).getUsername();
-		return userRepository.updateUserInfo(userDto, userId);
-	}
-
+    void insert(UserJoinDto userDto);
 }

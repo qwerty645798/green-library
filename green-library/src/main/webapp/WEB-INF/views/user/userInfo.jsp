@@ -8,6 +8,12 @@
     <title>Document</title>
     <link href="/CSS/userInfo.css" type="text/css" rel="stylesheet">
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
+    <script>
+	    let success = "${param.success}";
+	    if (success == "true") {
+	        alert("회원정보가 수정되었습니다.");
+	    }
+    </script>
 </head>
 <body>
 <div class="noname">
@@ -27,19 +33,19 @@
                 <table>
                     <tr>
                         <td class="infoItems">이름</td>
-                        <td>${user.name }</td>
+                        <td>${userInfo.name }</td>
                         <td class="infoItems">아이디</td>
-                        <td>${user.id }</td>
+                        <td>${userInfo.user_id }</td>
                     </tr>
                     <tr>
                         <td class="infoItems">생년월일</td>
-                        <td>${user.birth }</td>
+                        <td>${userInfo.birth }</td>
                         <td class="infoItems">휴대폰 번호</td>
-                        <td>${user.phone }</td>
+                        <td>${userInfo.phone }</td>
                     </tr>
                     <tr>
                         <td class="infoItems">이메일 주소</td>
-                        <td colspan="3">${user.email }</td>
+                        <td colspan="3">${userInfo.email }</td>
                     </tr>
                 </table>
                
@@ -47,7 +53,10 @@
 
             <div class="infoBtn">
                 <input type="button" value="회원정보 수정" onclick="location='userInfoModification'">
-                <input type="button" value="회원 탈퇴">
+                <input type="button" value="회원 탈퇴" id="modalOpenButton">
+                <form action="logout" method="post">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <input type="submit" value="로그아웃" id="logout"></form>
             </div>
         </div>
 
@@ -60,7 +69,16 @@
         
     </div>
 </div>
-
-    
+<div id="modalContainer" class="hidden">
+		<div id="modalContent">
+			<h3 style="text-align:center;"><b>정말로 계정을 삭제하시겠습니까?</b></h3>
+			<br>
+			<form action="userDelete" method="post" id="form">
+				<div style="display:flex; justify-content:center;"><input type="submit" value="계정삭제" style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></div>
+			</form>
+			<button id="modalCloseButton"><img src="images/x-icon.png" style="width:100%; height:auto;"></button>
+		</div>
+	</div>
+	<script src="js/userInfo.js"></script>
 </body>
 </html>

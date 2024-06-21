@@ -7,8 +7,9 @@
 <meta charset="utf-8">
 <title>자료 검색</title>
 
-<script src="js/dataSearch.js"></script>
+<script src="js/dataSearchBar.js"></script>
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="css/dataSearchBar.css">
 <link rel="stylesheet" type="text/css" href="css/dataSearch.css">
 
 
@@ -35,15 +36,15 @@
 				<option>저자</option>
 				<option>출판사</option>
 				<option>내용</option>
-				<option>인기도서</option><!-- 인기 신착은 셀렉트+검사하면 그냥 인기 신착 페이지로? -->
+				<option>인기도서</option>
 				<option>신착도서</option>
 			</select>
 		</div>
 		<div class="sel_box2">
-			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)">
+			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)" onkeypress="checkEnter(event)">
 		</div>
 		<div class="sel_box3">
-			<input type="button" value="검색" onclick="lets_search(event)">
+			<input type="button" value="검색" onclick="lets_search()">
 		</div>
 	</div>
 </div>
