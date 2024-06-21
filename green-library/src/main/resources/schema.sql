@@ -156,7 +156,7 @@ CREATE TABLE wishlists (
     wish_price NUMBER(10) DEFAULT 10000,
     wish_isbn VARCHAR2(20),
     wish_date DATE,
-    complete CHAR(1) DEFAULT 'W' CHECK (complete IN ('Y', 'W', 'N')),
+    complete CHAR(1) DEFAULT 'W' CHECK (complete IN ('Y', 'W', 'N')), -- W : wait, Y : accept, N : decline
     user_id VARCHAR2(20) REFERENCES users(user_id)
 );
 

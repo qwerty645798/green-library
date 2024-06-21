@@ -5,14 +5,16 @@ import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
 import com.library.repository.admin.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("AdminUserService")
 public class UserServiceImpl implements UserService {
 
     @Autowired
+    @Qualifier("AdminUserRepository")
     private UserRepository userRepository;
 
     @Override
