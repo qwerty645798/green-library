@@ -68,7 +68,7 @@
     				<tr>
                         <form action="bookExtension" method="post">
 	                        <td colspan="4" align="right" class="extends">
-	                        	<input type="hidden" name="bookId" value="${bookId}">
+	                        	<input type="hidden" name="userId" value="${userId}">
 	                        	<input type="submit" value="대출 연장" onclick="extendEachBook('book${num.index+1}')">&nbsp;&nbsp;&nbsp;&nbsp;
 	                        </td>
                         </form>

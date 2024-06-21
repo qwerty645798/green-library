@@ -164,6 +164,11 @@ public class MainController {
 		
 		return "notification";
 	}
+	
+	@PostMapping("/incrementViewCount")
+	public void incrementViewCount(@RequestParam("announcementId") int announcementId) {
+		 notificationService.incrementViewCount(announcementId);
+	}
 
 	@Autowired
 	private NotificationDetailService notificationDetailService;
