@@ -2,15 +2,17 @@ package com.library.service.admin;
 
 import com.library.dto.admin._normal.BookDTO;
 import com.library.repository.admin.BookRepository;
+import com.library.repository.admin.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("AdminBookService")
 public class BookServiceImpl implements BookService{
 
-    @Autowired
+    @Qualifier("AdminBookRepository")
     private BookRepository bookRepository;
 
     // 모든 책 조회

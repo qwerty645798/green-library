@@ -13,7 +13,6 @@ import java.util.List;
 @Service("AdminUserService")
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     @Qualifier("AdminUserRepository")
     private UserRepository userRepository;
 
