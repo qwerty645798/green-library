@@ -8,8 +8,11 @@
     <title>Green Library Main</title>
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
     <link href="/css/index.css" type="text/css" rel="stylesheet">
+    
 </head>
 <body>
+
+
 
   <jsp:include page="../index/header.jsp" />
 
@@ -19,9 +22,13 @@
         <label>
             <div class="customSearchform">
                 <select class="searchSel">
-                    <option value="도서명">도서명</option>
-                    <option value="저자명">저자명</option>
-                    <option value="출판사">출판사</option>
+                    <option>전체</option>
+					<option>도서명</option>
+					<option>저자</option>
+					<option>출판사</option>
+					<option>내용</option>
+					<option>인기도서</option>
+					<option>신착도서</option>
                 </select>
                 <input type="text" name="search">
                 <input type="button" value="자료 찾기">
@@ -45,6 +52,11 @@
     </div>
 
     <br><br>
+    
+    <ul class="bookTab">
+    	<li>신착 도서</li>
+    	<li>인기 도서</li>
+    </ul>
 
     <div class="bookSwipe">
     <div class="backBtn"></div>
@@ -65,19 +77,19 @@
         		<li><img src="/images/SmallThingsLikeThis.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+		        	########################)</div></li>
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+		        	########################)</div></li>
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+		        	########################)</div></li>
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
+		        	########################)</div></li>
+	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
         		<li><img src="/images/SmallThingsLikeThis.jpg">
@@ -110,21 +122,21 @@
         	<li><img src="/images/녹나무의여신.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	########################)</div></li>
+       		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	########################)</div></li>
+       		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	########################)</div></li>
+       		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
+        	########################)</div></li>
+       		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
+        	########################)</div></li>
         	<li><img src="/images/녹나무의여신.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
@@ -134,8 +146,6 @@
         </ul>
         </div>
           
-      
-      
     </div>
 
     <br><br>
@@ -187,6 +197,7 @@
  <jsp:include page="../index/footer.jsp" />
  
  <script src="/js/header.js"></script>
+ <script src="/js/index.js"></script>
     
 </body>
 </html>

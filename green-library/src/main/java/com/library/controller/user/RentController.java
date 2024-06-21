@@ -16,7 +16,7 @@ import com.library.service.user.BookLoanExtensionService;
 import com.library.service.user.My_WrittenService;
 import com.library.service.user.UserCreateInquiryService;
 
-@Controller
+@Controller("UserRentController")
 public class RentController {
 
 	@Autowired
