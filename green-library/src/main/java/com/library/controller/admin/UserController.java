@@ -2,6 +2,6 @@ package com.library.controller.admin;
 
 import org.springframework.stereotype.Controller;
 
-@Controller
+@Controller("AdminUserController")
 public class UserController {
 }

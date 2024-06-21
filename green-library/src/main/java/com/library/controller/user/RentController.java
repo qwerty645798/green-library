@@ -3,7 +3,7 @@ package com.library.controller.user;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+@Controller("UserRentController")
 public class RentController {
 
 	//david
