@@ -107,7 +107,7 @@ CREATE TABLE inquiries (
     inquiry_date DATE,
     inquiry_title VARCHAR2(50),
     contents VARCHAR2(500),
-    responserTF DEFAULT '1' CHECK (responserTF IN ('0', '1')),
+    responseTF DEFAULT '1' CHECK (responseTF IN ('0', '1')),
     user_id VARCHAR2(20) REFERENCES users(user_id)
 );
 
@@ -156,7 +156,7 @@ CREATE TABLE wishlists (
     wish_price NUMBER(10) DEFAULT 10000,
     wish_isbn VARCHAR2(20),
     wish_date DATE,
-    complete CHAR(1) DEFAULT 'W' CHECK (complete IN ('Y', 'W', 'N')),
+    complete CHAR(1) DEFAULT 'W' CHECK (complete IN ('Y', 'W', 'N')), -- W : wait, Y : accept, N : decline
     user_id VARCHAR2(20) REFERENCES users(user_id)
 );
 

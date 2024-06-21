@@ -8,24 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
-public class AdminService {
-
-    @Autowired
-    private AdminRepository adminRepository;
-
+public interface AdminService {
     // 관리자 로그인 확인
-    public AdminDTO loginAdmin(String adminId, String adminPass) {
-        return adminRepository.loginAdmin(adminId, adminPass);
-    }
-
+    public AdminDTO loginAdmin(String adminId, String adminPass);
     // 모든 관리자 목록 조회
-    public List<AdminDTO> allAdminManage() {
-        return adminRepository.allAdminManage();
-    }
+    public List<AdminDTO> allAdminManage();
 
-    public AdminDTO findAdminById(String adminId) {
-        return adminRepository.getMyInfo(adminId);
-    }
+    public AdminDTO findAdminById(String adminId);
 
 }
