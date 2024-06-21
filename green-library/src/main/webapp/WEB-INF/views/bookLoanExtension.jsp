@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,8 @@
 </div>
 
 <div class="bigbigDiv">
-    <div class="bigDiv">
+	<c:forEach var="extension" items="${extensions}">
+	<div class="bigDiv">
     	<div class="book_container">
 			<div class="book_label">
 				<label><input type="checkbox" class="book_chxbox" value="book1"></label>
@@ -67,13 +69,15 @@
     					<td colspan="4" align="right" class="extends">
                             <input type="button" value="대출 연장" onclick="extendEachBook('book1')">&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>
-    					<!-- 기능 어떻게 넣을 지 몰라서 일단 버튼으로 생성해둠 -->
-    					<!-- books(book_id) - rents(rent_history인듯?) -->
     				</tr>
     			</table>
     		</div>
     	</div>
     </div>
+    </c:forEach>
+    
+    
+    
     <div class="bigDiv">
     	<div class="book_container">
 			<div class="book_label">

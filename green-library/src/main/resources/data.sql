@@ -77,6 +77,8 @@ VALUES(announce_idx.NEXTVAL, '첫 공지사항', 'admin1', SYSDATE, 'asdf.hwp', 
 
 INSERT INTO inquiries(inquiry_id, inquiry_title, contents, user_id)
 VALUES(inquiry_idx.NEXTVAL, '문의 처음으로 드립니다', '사이트좀 제대로 만들어주라', 'id1');
+INSERT INTO inquiries(inquiry_id, inquiry_date, inquiry_title, contents, user_id)
+VALUES(inquiry_idx.NEXTVAL, sysdate, '문의 처음으로 드립니다', '사이트좀 제대로 만들어주라', 'id1');
 
 INSERT INTO inquiry_responses(response_id, inquiry_id, response_date, response_content, admin_id)
 VALUES(response_idx.NEXTVAL, 1, SYSDATE, '불편을 끼쳐 죄송합니다', 'admin1');

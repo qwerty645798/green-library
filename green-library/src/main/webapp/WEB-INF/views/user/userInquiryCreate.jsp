@@ -10,25 +10,34 @@
 <link rel="stylesheet" type="text/css" href="css/userInquiryCreate.css">
 
 <script>
-	function important_check(){
-		var userid = document.forms["userInquiryCreate"]["user_id"].value.trim();
-		var title = document.forms["userInquiryCreate"]["inquiry_title"].value.trim();
-		var contents = document.forms["userInquiryCreate"]["contents"].value.trim();
-			
-		if(userid==""){
-			alert("아이디를 입력하세요.");
-			return false;
-		}else if(title==""){
-			alert("제목을 입력하세요.");
-			return false;
-		}else if(contents==""){
-			alert("내용을 입력하세요. ");
-			return false;
-		}
-		
-	
-		return true;
-	}
+function validateForm() {
+    var userIdInput = document.querySelector('input[name="user_id"]');
+    var inquiryTitle = document.querySelector('input[name="inquiry_title"]');
+    var contents = document.querySelector('textarea[name="contents"]');
+    var hiddenUserId = document.querySelector('input[name="userId"]').value;
+
+    if (userIdInput.value.trim() === '') {
+        alert('아이디를 입력해주세요.');
+        userIdInput.focus();
+        return false;
+    }
+    if (inquiryTitle.value.trim() === '') {
+        alert('제목을 입력해주세요.');
+        inquiryTitle.focus();
+        return false;
+    }
+    if (contents.value.trim() === '') {
+        alert('내용을 입력해주세요.');
+        contents.focus();
+        return false;
+    }
+    if (userIdInput.value.trim() !== hiddenUserId.trim()) {
+        alert('아이디가 일치하지 않습니다.');
+        userIdInput.focus();
+        return false;
+    }
+    return true;
+}
 	
 	function lets_cancel(){
 		if( confirm("취소하시겠습니까? 작성한 내용은 저장되지 않습니다.")){
@@ -52,15 +61,14 @@
 <header id="header" class="header"></header>
 
 
-<!-- 로그인 없이 index에서 들어오려 하면 경고문(로그인이 필요합니다) -->
-<!-- 요거는 헤더에서 처리하는게 맞는 듯? -->
 
 <main>
 
-<form name="userInquiryCreate" action= "inquiryTest" method="post" onsubmit="return important_check()">
+<form action="inquiryCreate" method="post" onsubmit="return validateForm()">
+<input type="hidden" name="userId" value="${userId}">
 
 <div class="first_container">
-	<div class="table_container"><!-- 등록하기 버튼 - 아이디/제목/내용 입력 안하면 입력하라 경고문 --><!-- 아이디 일치 안하면 일치하지 않습니다 경고문? -->
+	<div class="table_container">
 		<table>
 			<tr>
 				<th class="con_table_top"></th>
@@ -68,7 +76,7 @@
 			</tr>
 			<tr>
 				<th><p class="great_p">&nbsp;*&nbsp;</p> 아이디</th>
-				<td><input type="text" size="10" style="height:20px;" name="user_id"></td>
+				<td><input type="text" size="10" style="height:20px;" name="user_id" value="${userId}"></td>
 			</tr>
 			<tr>
 				<th><p class="great_p">&nbsp;*&nbsp;</p> 제목</th>
@@ -86,7 +94,6 @@
 	<div class="button_container">
 		<input type="button" value="취소하기" onclick="lets_cancel()">
 		<input type="submit" value="등록하기">
-		<!-- submit 대신에 button 넣고 주의문 한 번 띄우면서 거기서 submit하게 구현? -->
 	</div>
 </div>
 	
