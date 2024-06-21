@@ -12,6 +12,16 @@
 <link rel="stylesheet" type="text/css" href="css/bookDetail.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
+<script>
+    function Reservation() {
+        alert("로그인 후 예약이 가능합니다.");
+        window.location.href = "initiativeBook";
+    }
+    function cantReservation(){
+    	alert("대출이 불가합니다.");
+    }
+</script>
+					                
 </head>
 <body>
 
@@ -33,8 +43,6 @@
 		</div>
 		<div class="book_table">
 			<table>
-			
-			
 				<tr>
 					<th>대출도서명</th>
 					<td>&nbsp;&nbsp;${book.title}</td>
@@ -51,27 +59,30 @@
 				</tr>
 				<tr>
 					<th>대출 상태</th>
+					
 					<td colspan="3">&nbsp;&nbsp;${book.availability}</td>
 				</tr>
 				<tr>
-					<td colspan="4" align="center" style="border:none;"><!-- 예약 기능 구현 후 수정 -->
+					<td colspan="4" align="center" style="border:none;">
 						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
-						<form action="reserveBook" method="post">
-							<input type="hidden" name="bookId" value="${book.bookId}">
-							<input type="hidden" name="userId" value="${userId}">
-							<input type="submit" value="대출 예약">
-						</form>
+						<c:choose>
+							<c:when test="${book.availability == 0}">
+								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button">
+							</c:when>
+							<c:otherwise>
+								<form action="reserveBook" method="post">
+									<input type="hidden" name="bookId" value="${book.bookId}">
+									<input type="hidden" name="userId" value="${userId}">
+									<input type="submit" value="대출 예약" class="reserve_button">
+								</form>
+							</c:otherwise>
+						</c:choose>
 						</c:if>
 						<c:if test="${empty sessionScope.SPRING_SECURITY_CONTEXT}">
-							<script>
-								alert("로그인 후 예약이 가능합니다.");
-								window.location.href="initiativeBook";
-							</script>
+					        <input type="button" onclick="Reservation()" value="대출 예약" class="reserve_button">
 						</c:if>
 					</td>
-				</tr>
-				
-							
+				</tr>		
 			</table>	
 		</div>
 	</div>
