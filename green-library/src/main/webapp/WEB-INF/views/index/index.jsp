@@ -52,6 +52,11 @@
     </div>
 
     <br><br>
+    
+    <ul class="bookTab">
+    	<li>신착 도서</li>
+    	<li>인기 도서</li>
+    </ul>
 
     <div class="bookSwipe">
     <div class="backBtn"></div>
