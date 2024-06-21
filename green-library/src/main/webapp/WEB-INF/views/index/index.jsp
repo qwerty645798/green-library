@@ -22,9 +22,13 @@
         <label>
             <div class="customSearchform">
                 <select class="searchSel">
-                    <option value="도서명">도서명</option>
-                    <option value="저자명">저자명</option>
-                    <option value="출판사">출판사</option>
+                    <option>전체</option>
+					<option>도서명</option>
+					<option>저자</option>
+					<option>출판사</option>
+					<option>내용</option>
+					<option>인기도서</option>
+					<option>신착도서</option>
                 </select>
                 <input type="text" name="search">
                 <input type="button" value="자료 찾기">
