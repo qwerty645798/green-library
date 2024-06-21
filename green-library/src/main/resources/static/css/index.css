@@ -172,6 +172,7 @@ input[type=button]{
 .bookSwipe .newbook,
 .bookSwipe .popbook{
 	position: relative;
+	left: 0px;
 	min-width: 3780px;
 	min-height: 370px;
 	width: 3780px;
