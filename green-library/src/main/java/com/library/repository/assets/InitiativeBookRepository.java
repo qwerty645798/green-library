@@ -37,6 +37,17 @@ public class InitiativeBookRepository {
                 book.setPublisherName(rs.getString("publisher_name"));
                 book.setPublicationDate(rs.getDate("publication_date"));
                 book.setAvailability(rs.getString("availabiltiy"));
+                
+                if (book.getAvailability() != null) {
+                    if (book.getAvailability().equals("1")) {
+                        book.setAvailability("대출가능");
+                    } else {
+                        book.setAvailability("대출불가");
+                    }
+                } else {
+                    book.setAvailability("알수없음");
+                }
+                
 				return book;
 			}
 		});
