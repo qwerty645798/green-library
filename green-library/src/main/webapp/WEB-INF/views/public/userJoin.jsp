@@ -9,6 +9,11 @@
 <link href="css/public/footer.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userJoin.css" type="text/css" rel="stylesheet">
+<script>
+	let message = "${message}";
+	if(message)
+		alert(message);
+</script>
 </head>
 <body>
     <jsp:include page="../index/header.jsp" />
@@ -27,21 +32,21 @@
         <table style="border-collapse:collapse;">
             <tr>
                 <td class="text"><div>이름</div></td>
-                <td class="input"><input type="text" value="${userJoin.name}" id="username" name="name" placeholder="홍길동" class="middle"></td>
+                <td class="input"><input type="text" id="username" name="name" placeholder="홍길동" class="middle"></td>
             </tr>
             <tr>
                 <td class="text"><div>생년월일</div></td>
-                <td class="input"><input type="text" value="${userJoin.birth}" id="birthDate" name="birth" placeholder="2000-01-01" class="middle"></td>
+                <td class="input"><input type="text" id="birthDate" name="birth" placeholder="2000-01-01" class="middle"></td>
             </tr>
             <tr>
                 <td class="text"><div>아이디</div></td>
                 <td class="input">
-                    <input type="text" id="userid" name="user_id" value="${userJoin.user_id}" class="middle">
-                    <input type="submit" formaction="checkUserId" formmethod="post" value="아이디 중복 확인" style="color:white; background:#786C67; border:none; height:30px; cursor:pointer;">
+                    <input type="text" id="userid" name="user_id" class="middle">
+                    <input type="button" id="checkUserIdBtn" value="아이디 중복 확인" style="color:white; background:#786C67; border:none; height:30px; cursor:pointer;">
                     <br>
                     <div class="comment">아이디는 영문 또는 숫자(개별 또는 혼용) 5자 이상 가능합니다. 아이디 영문은 모두 소문자입니다.</div>
-                    <div style="color:red;">${duplicateIdError}</div>
-                    <div style="color:green;">${duplicateIdSuccess}</div>
+                    <div id="duplicateIdError" style="color:red;"></div> 
+        			<div id="duplicateIdSuccess" style="color:green;"></div>
                 </td>
             </tr>
             <tr>

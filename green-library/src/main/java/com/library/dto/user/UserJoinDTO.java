@@ -4,8 +4,12 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public class UserJoinDto {
+@Getter
+@Setter
+public class UserJoinDTO {
 
 	@NotBlank(message = "아이디를 입력하지 않았습니다.")
 	@Pattern(regexp = "^[a-z0-9]{5,15}$", message = "아이디는 5자 이상 15자 이하 영문 소문자와 숫자로 구성되어야 합니다.")
@@ -33,42 +37,4 @@ public class UserJoinDto {
 	@NotBlank(message = "생년월일을 입력하지 않았습니다.")
 	@Pattern(regexp = "^(19\\d{2}|20[0-2][0-3])-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", message = "생년월일은 'yyyy-MM-dd' 형식이며, 2024년 이전이어야 합니다.")
 	private String birth;
-
-	public String getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-	public String getUser_pass() {
-		return user_pass;
-	}
-	public void setUser_pass(String user_pass) {
-		this.user_pass = user_pass;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-
 }

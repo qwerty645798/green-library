@@ -8,7 +8,11 @@
     <title>Green Library Main</title>
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
     <link href="/css/index.css" type="text/css" rel="stylesheet">
-    
+    <script>
+   	let message = "${message}";
+   	if(message == "userDelete")
+   		alert("회원탈퇴가 완료되었습니다.");
+    </script>
 </head>
 <body>
 

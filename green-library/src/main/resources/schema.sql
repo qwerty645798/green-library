@@ -179,3 +179,8 @@ CREATE SEQUENCE suspend_idx START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE rents_idx START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE wishlist_idx START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE reservation_idx START WITH 1 INCREMENT BY 1;
+
+-- 인덱스 추가
+CREATE INDEX idx_rents_user_id ON rents(user_id);
+CREATE INDEX idx_rents_book_id ON rents(book_id);
+CREATE INDEX idx_books_book_id ON books(book_id);

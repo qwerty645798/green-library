@@ -9,10 +9,9 @@
     <link href="/CSS/userInfo.css" type="text/css" rel="stylesheet">
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
     <script>
-	    let success = "${param.success}";
-	    if (success == "true") {
-	        alert("회원정보가 수정되었습니다.");
-	    }
+	    let message = "${message}";
+	    if(message)
+	    	alert(message);
     </script>
 </head>
 <body>
