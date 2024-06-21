@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>내가 쓴 글</title>
 
-
+<script src="js/myWritten.js"></script>
 <link rel="stylesheet" type="text/css" href="css/myWritten.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
@@ -34,7 +38,7 @@
 			</tr>
 			<tr>
 				<td>
-					<table class="innerContainer"><!-- 여기에 데이터 증가/감소 하는거 반영되게 짜면 될 듯 -->
+					<table class="innerContainer">
 						<tr>
 							<th style="width: 12%;">번호</th>
 							<th style="width: 12%;">아이디</th>
@@ -42,29 +46,20 @@
 							<th style="width: 52%;">도서명</th>
 							<th style="width: 12%;">승인 상태</th>
 						</tr>
-						<!-- 이 밑으로 추가/삭제 반영 기능 -->
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-						</tr>
-                        <tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-						</tr>
-                        <tr>
-							<td>1</td>
-							<td>2....</td>
-							<td>3</td>
-							<td>46666666666666666666666<br>66<br>6666666666666666 666666666666666 6666 6666666666666666666666666666666666666666666666666666666666666666666666666666</td>
-							<td>5</td>
-						</tr>
-                        <!-- 이 위로 추가/삭제 반영 기능 -->
+						<c:if test="${wishLists == null || wishLists.isEmpty()}">
+							<tr>
+								<td colspan="5">신청하신 내역이 없습니다.</td>
+							</tr>
+						</c:if>
+						<c:forEach items="${wishLists}" var="wishList"> 
+							<tr>
+								<td class="wishlistId">${wishList.wishlistId}</td>
+								<td>${wishList.userId}</td>
+								<td>${wishList.wishDate}</td>
+								<td>${wishList.wishTitle}</td>
+								<td>${wishList.complete}</td>
+							</tr>
+						</c:forEach>
 					</table>
 				</td>
 			</tr>
@@ -81,7 +76,7 @@
 			</tr>
 			<tr>
 				<td>
-					<table class="innerContainer"><!-- 여기에 데이터 증가/감소 하는거 반영되게 짜면 될 듯 -->
+					<table class="innerContainer">
 						<tr>
                             <th style="width: 12%;">번호</th>
 							<th style="width: 12%;">아이디</th>
@@ -89,29 +84,20 @@
 							<th style="width: 52%;">제목</th>
 							<th style="width: 12%;">답변 상태</th>
 						</tr>
-						<!-- 이 밑으로 추가/삭제 반영 기능 -->
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-						</tr>
-                        <tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-						</tr>
-                        <tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>46666666666666666666666<br>66<br>6666666666666666 666666666666666 6666 6666666666666666666666666666666666666666666666666666666666666666666666666666</td>
-							<td>5</td>
-						</tr>
-                        <!-- 이 위로 추가/삭제 반영 기능 -->
+						<c:if test="${inquiries == null || inquiries.isEmpty()}">
+							<tr>
+								<td colspan="5">신청하신 내역이 없습니다.</td>
+							</tr>
+						</c:if>
+						<c:forEach items="${inquiries}" var="inquiry"> 
+							<tr onclick="goInquiryDetail(event)">
+								<td class="inquiryId">${inquiry.inquiryId}</td>
+								<td>${inquiry.userId}</td>
+								<td>${inquiry.inquiryDate}</td>
+								<td>${inquiry.inquiryTitle}</td>
+								<td>${inquiry.responserTF}</td>
+							</tr>
+						</c:forEach>
 					</table>	
 				</td>
 			</tr>
