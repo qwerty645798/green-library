@@ -1,0 +1,47 @@
+### DTO
+
+1. **관리자 로그인**
+   - AdminLoginDTO: 관리자 로그인 관련 데이터 전송
+
+2. **관리자 정보, 관리**
+   - AdminListDTO: 관리자 정보 관리 관련 데이터 전송
+
+3. **이용자 관리**
+   - UserListDTO: 사용자 관리 관련 데이터 전송
+   - UserPaginationDTO : 사용자 페이지네이션
+   - UserDetailDTO: 특정 사용자의 상세 정보 데이터 전송
+   -- LoanStatusDTO: 대출 현황 관련 데이터 전송
+   -- RestrictionDTO: 이용 제한 관련 데이터 전송
+   - DeleteUserDTO: 이용자 삭제 관련 데이터 전송 #보류
+
+4. **장서**
+   - BookDTO: 책 정보 관련 데이터 전송
+   - BookSearchDTO: 책 검색 관련 데이터 전송
+   - BookPaginationDTO : 책 페이지네이션
+   - BookDetailDTO: 특정 책의 상세 정보 데이터 전송
+   - CreateBookDTO: 책 추가 관련 데이터 전송
+   - UpdateBookDTO: 책 수정 관련 데이터 전송
+   - DeleteBookDTO: 책 삭제 관련 데이터 전송
+
+5. **공지사항**
+   - NoticeDTO: 공지사항 관련 데이터 전송
+   - NoticeDetailDTO: 특정 공지사항의 상세 정보 데이터 전송
+   - NoticeSearchDTO: 공지사항 검색 관련 데이터 전송
+   - NoticePaginationDTO : 공지사항 페이지네이션
+   - CreateNoticeDTO: 공지사항 작성 관련 데이터 전송
+   - UpdateNoticeDTO: 공지사항 수정 관련 데이터 전송
+   - DeleteNoticeDTO: 공지사항 삭제 관련 데이터 전송
+
+6. **문의사항**
+   - InquiryDTO: 문의 사항 관련 데이터 전송
+   - InquiryDetailDTO: 특정 문의 사항의 상세 정보 데이터 전송
+   - InquirySearchDTO: 문의 사항 검색 관련 데이터 전송
+   - InquiryPaginationDTO : 문의 사항 페이지네이션
+   - CreateAnswerDTO: 문의 사항 답변 작성 관련 데이터 전송
+   - DeleteInquiryDTO: 문의 사항 삭제 관련 데이터 전송
+
+7. **수서**
+   - AcquisitionRequestDTO: 수서 신청 관련 데이터 전송
+   - AcquisitionRequestSearchDTO: 수서 신청 검색 관련 데이터 전송
+   - AcquisitionPaginationDTO : 수서 페이지네이션
+   - ApprovalDTO: 수서 신청 승인/거부 관련 데이터 전송

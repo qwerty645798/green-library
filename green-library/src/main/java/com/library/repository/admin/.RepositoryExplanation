@@ -1,0 +1,66 @@
+### Repository
+
+1. **관리자 관련** c
+   - `AdminRepository.java`: 관리자 관련 데이터 접근 인터페이스
+   method : allAdminManage / 모든 관리자 조회
+            getMyInfo / 내 계정 정보 조회
+
+2. **이용자 관리** c
+   - `UserRepository.java`: 사용자 관리 데이터 접근 인터페이스
+   method : allUserManage / 모든 이용자 조회
+            findUserById / 아이디로 조회
+            findUserByName / 이름으로 조회
+            getUserById / 특정 이용자 조회
+            loanUserById / 해당 유저의 대출 현황 조회
+            suspensionUserById / 해당 유저의 이용 제한 내역 조회
+            createSuspension/서비스 제한
+            deleteUsers / 유저 영구 삭제
+            releaseSuspension / 이용 제한 해제
+
+3. **장서 관리** c
+   - `BookRepository.java`: 책 관리 데이터 접근 인터페이스
+   method : allHavingBookManage / 모든 책 조회
+            findBookByTitle / 제목으로 조회
+            findBookByAuthor / 저자로 조회
+            findBookByGenre / 십진분류로 조회
+            createBook / 책 등록
+            updateBook / 책 수정
+            deleteBook / 책 삭제
+            getBookById / 특정 도서 상세 조회
+            previousBook / 이전 도서 제목 조회
+            nextBook// 다음 도서 제목 조회
+
+4. **공지사항 관리** c
+   - `AnnouncementRepository.java`: 공지사항 관리 데이터 접근 인터페이스
+      method : allAnnounceManage / 모든 공지 조회
+               findAnnounceByTitle / 제목으로 조회
+               findAnnounceByContents / 내용으로 조회
+               createAnnounce / 공지 생성
+               updateAnnounce / 공지 수정
+               deleteAnnounce / 공지 삭제
+               getAnnounceById / 특정 공지 상세 조회
+               previousAnnounce / 이전 문의 제목 조회
+               nextAnnounce / 다음 문의 제목 조회
+
+5. **문의사항 관리** c
+   - `InquiryRepository.java`: 문의사항 관리 데이터 접근 인터페이스
+   method : allInquiryManage / 모든 책 조회
+            findInquiryByTitle / 제목으로 조회
+            findInquiryByContents / 내용으로 조회
+            findAnsweredInquiry / 답변된 문의사항 조회
+            createInquiry / 답변 생성
+            deleteInquiry / 답변 삭제
+            getInquiryById / 특정 문의사항 상세 조회
+            previousInquiry / 이전 문의사항 제목 조회
+            nextInquiry// 다음 문의사항 제목 조회
+
+6. **수서 관리**
+   - `AcquisitionRequestRepository.java`: 수서 신청 관리 데이터 접근 인터페이스
+   method : allAcquisitionManage / 모든 책 조회
+            findAcquisitionByTitle / 제목으로 조회
+            findAcquisitionByAuthor / 저자로 조회
+            findAcquisitionByGenre / 십진분류로 조회
+
+             acceptsAcquisition / 책 구매 승인
+             deleteAcquisition / 책 구매 거절
+

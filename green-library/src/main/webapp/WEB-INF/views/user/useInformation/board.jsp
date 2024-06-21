@@ -34,7 +34,7 @@ table#board th, table#board td {
 			style="margin-bottom: 40px; font-size: 2em; font-weight: bold;"></caption>
 	</table>
 	<script>
-	let condition = "${param.condition}"
+	let condition = "${param.condition}";
 	let table = document.getElementById("board");
 	let tr = document.createElement("tr");
 	let th1, th2, th3, th4, th5, th6, th7;

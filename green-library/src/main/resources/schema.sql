@@ -38,6 +38,12 @@ CREATE TABLE publishers (
     publisher_name VARCHAR2(20)
 );
 
+-- 장르
+CREATE TABLE genres (
+    genre_id VARCHAR2(3) PRIMARY KEY,
+    genre_name VARCHAR2(20)
+);
+
 -- 유저
 CREATE TABLE users (
     user_id VARCHAR2(20) PRIMARY KEY NOT NULL,
@@ -51,12 +57,6 @@ CREATE TABLE users (
 );
 -- user_pass 칼럼 varchar2(20) -> varchar2(80)으로 변경
 -- alter table users modify user_pass varchar2(80);
-
--- 장르
-CREATE TABLE genres (
-    genre_id VARCHAR2(3) PRIMARY KEY,
-    genre_name VARCHAR2(20)
-);
 
 -- 책
 CREATE TABLE books (
@@ -104,8 +104,10 @@ CREATE TABLE announcements (
 -- 문의사항
 CREATE TABLE inquiries (
     inquiry_id NUMBER(10) PRIMARY KEY,
+    inquiry_date DATE,
     inquiry_title VARCHAR2(50),
     contents VARCHAR2(500),
+    responserTF DEFAULT '1' CHECK (responserTF IN ('0', '1')),
     user_id VARCHAR2(20) REFERENCES users(user_id)
 );
 
@@ -131,6 +133,7 @@ CREATE TABLE suspensions (
 CREATE TABLE rents (
     rent_num NUMBER(10) PRIMARY KEY,
     rent_history DATE,
+    return_date DATE, --sysdate + 14
     book_id NUMBER(10) REFERENCES books(book_id),
     user_id VARCHAR2(20) REFERENCES users(user_id),
     returned CHAR(1) DEFAULT '0' CHECK (returned IN ('0', '1'))

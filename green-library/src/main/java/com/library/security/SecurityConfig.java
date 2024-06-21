@@ -25,15 +25,17 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
             	.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                 .requestMatchers("/**","/resources/**","/static/**").permitAll()
-                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/admin1/**").hasRole("ADMIN1")
+                .requestMatchers("/admin2/**").hasAnyRole("ADMIN1","ADMIN2")
+                .requestMatchers("/admin3/**").hasAnyRole("ADMIN1","ADMIN2","ADMIN3")
                 .requestMatchers("/user/**").authenticated()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/userLogin")
                 .loginProcessingUrl("/userLogin")
-                .usernameParameter("userId")
-                .passwordParameter("userPass")
+                .usernameParameter("user_id")
+                .passwordParameter("user_pass")
                 .defaultSuccessUrl("/", true)
                 .permitAll()
             )
@@ -53,6 +55,10 @@ public class SecurityConfig {
             		.sameOrigin()
             	)
             );
+            /*.exceptionHandling(exception -> exception
+                .accessDeniedHandler(new CustomAccessDeniedHandler())  // 커스텀 접근 거부 처리기 설정
+            );*/
+
 //            .requiresChannel(channel -> channel
 //                .anyRequest().requiresSecure()
 //            )
