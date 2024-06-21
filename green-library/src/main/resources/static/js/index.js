@@ -20,8 +20,8 @@ const goBtn = document.querySelector('.goBtn');
 
 function slide(){
 	
-	const curIdx = 0;
-	const newWid = 1260;
+	let curIdx = 0;
+	let newWid = 1260;
 
 //		goBtn.onclick = () => {
 //			if(curlef!=0){
@@ -36,18 +36,22 @@ function slide(){
 //		}
 		if(curIdx===0){
 			goBtn.onclick = () => {
-				curIdx++;
-				newbooks.style.left = -curIdx*newWid + 'px';
+				newbooks.style.left = -newWid + 'px';
 				newbooks.style.transition = '200ms ease-in-out';
+               
+                curIdx+=1;
+                
 			}
 			backBtn.onclick = () => {
 				newbooks.style.left = 0 + 'px';
 			}
 		}else if(curIdx===1){
 			goBtn.onclick = () => {
-				curIdx++;
-				newbooks.style.left = -curIdx*newWid + 'px';
+                alert("oneclick");
+				newbooks.style.left = -newWid*2 + 'px';
 				newbooks.style.transition = '200ms ease-in-out';
+               
+                // curIdx++;
 			}
 			backBtn.onclick = () => {
 				newbooks.style.left = curIdx*newWid + 'px';
