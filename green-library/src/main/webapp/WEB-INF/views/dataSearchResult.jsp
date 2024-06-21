@@ -177,7 +177,6 @@
 </div>
 
 </main>
-
 <footer id="footer" class="footer"></footer>
 
 <script>	
@@ -250,7 +249,6 @@
         }
     }
 </script>
-
 
 
 <jsp:include page="index/footer.jsp" />

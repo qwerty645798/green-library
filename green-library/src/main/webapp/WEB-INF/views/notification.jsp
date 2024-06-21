@@ -44,13 +44,10 @@
 
 <body>
 
-
 <jsp:include page="index/header.jsp" />
-
 <c:set var="itemsPerPage" value="${itemsPerPage}"/>
 <c:set var="totalItems" value="${fn:length(announces)}" />
 <c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
-
 
 <div class="bannerBgr">
     <div class="Banner">
@@ -157,9 +154,7 @@
 
 </main>
 
-
 <jsp:include page="index/footer.jsp" />
-
 <footer id="footer" class="footer"></footer>
 
 <script>	
@@ -231,7 +226,6 @@
         }
     }
 </script>
-
 
 </body>
 </html>
