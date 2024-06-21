@@ -20,7 +20,7 @@ import com.library.service.assets.DataSearchResultService;
 import com.library.service.assets.InitiativeBookService;
 import com.library.service.assets.PopularBookService;
 
-@Controller
+@Controller("AssetsBookController")
 public class BookController {
 
 	@Autowired
