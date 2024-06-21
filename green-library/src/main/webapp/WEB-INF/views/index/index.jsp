@@ -40,6 +40,7 @@
     <br><br>
 
     <div id="quickBundle" class="quickBundle">
+    <a href=""></a>
        	<div id="quick1" class="quickPage"><img src="/images/useTime.png">
             이용 시간</div>
         <div id="quick2" class="quickPage"><img src="/images/bookExtension.png">
@@ -60,7 +61,7 @@
         <div class="tabCon2">
             <ul class="bookTab">
                 <li class="here">신착 도서</li>
-                <li>인기 도서</li>
+                <li class="here">인기 도서</li>
             </ul>
             <img src="/images/gotoPage.png">
         </div>
@@ -157,8 +158,8 @@
 	        	########################)</div></li>
         </ul>
         </div>
-        <div class="arBtn" class="goBtn2">
-        <img src="/images/go.png"></div>
+        <div class="goBtn2">
+        <img class="arBtn" src="/images/go.png"></div>
     </div>
     </div>
     
@@ -202,6 +203,13 @@
 	        	<td>(제목)</td>
 	        	<td>(게시 날짜)</td>
 	        	<tr>
+	        	
+	        	<tr>
+	        	<td>(게시자)</td>
+	        	<td>(제목)</td>
+	        	<td>(게시 날짜)</td>
+	        	<tr>
+	        	
 	        </table>
 	    </div>
 	</div>
@@ -213,7 +221,7 @@
  
  <script src="/js/header.js"></script>
  <script src="/js/index.js"></script>
- <script src="js/dataSearchBar.js"></script>
+ <script src="/js/dataSearchBar.js"></script>
     
 </body>
 </html>

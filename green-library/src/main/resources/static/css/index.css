@@ -51,7 +51,7 @@ input[type=text]{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: pink;
+    border: 3px dotted skyblue;
 }
 .quickBundle a{
 	color: black;
@@ -81,17 +81,14 @@ input[type=text]{
 .quickPage:hover{
     background-color: #d1ebdc;
     transition: 300ms;
-    color: #47a168;
-}
-.logoChg{
-    visibility: hidden;
-    background-color: green;
-    opacity: 0.5;
+    color: white;
 }
 .bookslide{
 	margin-top: 50px;
 	margin-bottom: 50px;
-	background-color: forestgreen;
+	  padding-top: 50px;
+    padding-bottom: 50px;
+	background-color: #d8e9d9;
 }
 .infoBoard1{
     display: flex;
@@ -132,10 +129,10 @@ input[type=text]{
 	font-weight: bold;
 /* 	background-color: aliceblue; */
 }
-/* .infoBoard2 table tr, */
-/* .infoBoard2 table td{ */
-/* 	border: 1px solid red; */
-/* } */
+.infoBoard2 table tr,
+.infoBoard2 table td{
+	border: 1px solid red;
+}
 .infoBoard2 table td:nth-child(2){
 	width: 700px;
 }
@@ -143,7 +140,6 @@ input[type=text]{
 /*추가*/
 .bookSwipe,
 .bookSwipe2{/*이건 원래 있던 것*/
-/* position: absolute; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -167,7 +163,7 @@ input[type=text]{
     height: 370px;
 	list-style-type: none;
 	display: inline-block;
-	background-color: skyblue;
+	background-color: white;
 	border: 3px dotted green;
 }
 .bookSwipe .window .newbook,
@@ -244,7 +240,7 @@ input[type=text]{
     display: inline-block;
     list-style-type: none;
 	min-width: 200px;
-    min-height: 30px;
+    min-height: 40px;
 	background-color: aliceblue;
 }
 .bookTab li:hover{
@@ -254,7 +250,7 @@ input[type=text]{
 }
 .tabCon2 img{
 	position: relative;
-	top: -50px;
+	top: -60px;
 	float: right;
 	width: 50px;
 	height: 50px;
