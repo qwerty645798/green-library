@@ -63,13 +63,16 @@
 	border-right: none;
 }
 
-.book_table input{
+.book_table .reserve_button{
 	background-color: #64B883;
 	border-radius : 5px;
 	border: none;
 	width: 150px;
 	height: 30px;
 }
+
+
+
 
 .book_container2 {
     display: flex;
