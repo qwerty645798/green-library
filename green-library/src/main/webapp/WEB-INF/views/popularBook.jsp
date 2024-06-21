@@ -214,24 +214,14 @@
 </div>
 
 <div class="arrCon">
-
-<img class="arrow" src="images/goback.png" onclick="showPage(1)">
-
-<div class="button_box">
-	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-		<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
-    </c:forEach>
+	<div class="button_box">
+		<c:forEach var="pageIndex" begin="1" end="${totalPages}">
+			<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+	    </c:forEach>
+	</div>
 </div>
 
-<img class="arrow" src="images/go.png" onclick="showPage(2)">
 
-</div>
-
-<%-- <div class="button_box">
-	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
-    </c:forEach>
-</div> --%>
 
 </main>
 
