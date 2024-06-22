@@ -15,34 +15,6 @@
 <link rel="stylesheet" type="text/css" href="css/dataSearchBar.css">
 <link rel="stylesheet" type="text/css" href="css/dataSearchResult.css">
 
-<style>
-    .hidden {
-        display: none;
-    }
-    
-    .button_box{
-		display: flex;
-		width:1260px;
-		margin: 0 auto;
-		
-		justify-content: center;
-		align-items: center;
-		margin-top: 20px;
-		box-sizing: border-box;
-	}
-	
-	.button_box input[type="button"]{
-		background-color: #64B883;
-		border-radius : 5px;
-		border: none;
-		width: 40px;
-		margin-right: 10px;
-		margin-left:10px;
-	}
-</style>
-
-
-
 
 </head>
 
