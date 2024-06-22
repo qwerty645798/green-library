@@ -16,6 +16,10 @@ const backBtn2 = document.querySelector('.backBtn2');
 const goBtn2 = document.querySelector('.goBtn2');
 //버튼들도 클래스가 옮겨가게 해보자. 
 
+const tab = document.querySelectorAll('.here');
+const swipe = document.querySelector('.bookSwipe');
+const swipe2 = document.querySelector('.bookSwipe2');
+
 
 
 //const clsname = "on";
@@ -139,19 +143,17 @@ window.onload = slide2();
 
 // 여기서부터는 탭 함수
 
-let tab = document.querySelectorAll('.bookTab li');
-let slides = document.querySelector('.bookSwipe');
-let slides2 = document.querySelector('.bookSwipe2');
+
 
 function booktab(){
-    tab[0].onclick = () => {
-        slides.style.display= "flex";
-        slides2.style.display = "none";
-    }
-    tab[1].onclick = () => {
-        slides.style.display = "none";
-        slides2.style.display = "flex";
-    }
+	tab[0].onclick = () => {
+		swipe.style.display = "flex";
+		swipe2.style.display = "none";
+	}
+	tab[1].onclick = () => {
+		swipe.style.display = "none";
+		swipe2.style.display = "flex";
+	}
 }
 
 window.onload = booktab();
