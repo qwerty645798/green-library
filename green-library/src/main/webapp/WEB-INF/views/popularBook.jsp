@@ -77,7 +77,7 @@
 								<th>출판사</th>
 								<td class="bar">${items[index].publisherName}</td>
 								<th class="right">발행년도</th>
-								<td class="bar">####</td>
+								<td class="bar">${items[index].publicationDate}</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
@@ -133,7 +133,7 @@
 								<th>출판사</th>
 								<td class="bar">${items[index].publisherName}</td>
 								<th class="right">발행년도</th>
-								<td class="bar">####</td>
+								<td class="bar">${items[index].publicationDate}</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
@@ -176,7 +176,6 @@
 					<div class="book_table">
 						<table>
 							<tr>
-								
 								<td colspan="3">
 								<span 
 								onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'">
@@ -190,7 +189,7 @@
 								<th>출판사</th>
 								<td class="bar">${items[index].publisherName}</td>
 								<th class="right">발행년도</th>
-								<td class="bar">####</td>
+								<td class="bar">${items[index].publicationDate}</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>

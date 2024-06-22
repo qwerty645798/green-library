@@ -1,5 +1,7 @@
 package com.library.dto.assets;
 
+import java.sql.Date;
+
 public class PopularBookDto {
 
 	private int book_id;
@@ -8,6 +10,8 @@ public class PopularBookDto {
     private String authorName;
     private String publisherName;
     private String availability;
+    
+    private Date publicationDate;
     
 	public int getBook_id() {
 		return book_id;
@@ -45,11 +49,13 @@ public class PopularBookDto {
 	public void setAvailability(String availability) {
 		this.availability = availability;
 	}
-	@Override
-	public String toString() {
-		return "PopularBookDto [book_id=" + book_id + ", img=" + img + ", title=" + title + ", authorName=" + authorName
-				+ ", publisherName=" + publisherName + ", availability=" + availability + "]";
+	public Date getPublicationDate() {
+		return publicationDate;
 	}
-    
+	public void setPublicationDate(Date publicationDate) {
+		this.publicationDate = publicationDate;
+	}
+	
+	
 	
 }
