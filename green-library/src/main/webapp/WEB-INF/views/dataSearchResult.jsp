@@ -47,7 +47,8 @@
 			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)" onkeypress="checkEnter(event)">
 		</div>
 		<div class="sel_box3">
-			<input type="button" value="검색" onclick="lets_search()">
+<!--			<input type="button" value="검색" onclick="lets_search()">-->
+			<img src="/images/searchBtn.png" onclick="lets_search()">
 		</div>
 	</div>
 </div>
@@ -83,11 +84,16 @@
 		<c:if test="${loop.index >= (page - 1) * itemsPerPage && loop.index < page * itemsPerPage}">
             <div class="bigDiv">
                 <div class="book_container">
+					
                     <div class="book_image">
                         <a href="bookDetail?bookId=${item.bookId}">
+							<div class="blackbox">
+		                    <img class="icon" src="images/whiteeye.png">
+		                    </div>
                             <img src="images/${item.img}">
                         </a>
                     </div>
+					
                     <div class="book_table">
                         <table>
                             <tr>
@@ -149,7 +155,6 @@
 </div>
 
 </main>
-<footer id="footer" class="footer"></footer>
 
 <script>	
 	window.onload = function(){

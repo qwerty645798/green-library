@@ -7,17 +7,18 @@
 .first_container{
 	display: flex; 
 	width:1260px;
-
 	margin: 0 auto;
 	padding:10px;
+	padding-bottom: 0px;
 	box-sizing: border-box;
 }
 
 .text_box{
 	display: flex;
+	justify-content: space-between;
 	border: none;
 	height: 30px;
-	width: 700px;
+	width: 1260px;
 	margin: auto;
 	
 }
@@ -31,11 +32,13 @@
 	align-items: center; /* 텍스트를 수직 가운데 */
 }
 .text_box2{
-	width:150px;
+	width:140px;
 }
 .text_box2 select{
 	margin:0 auto;
 	width: 140px;
+	height: 30px;
+	border: 1px solid #DAD5C9;
 }
 
 
@@ -43,9 +46,9 @@
 .second_container{
 	display: flex; 
 	width: 1260px;
-
 	margin: 0 auto;
 	padding:10px;
+	padding-top: 0px;
 	box-sizing: border-box;
 
 	flex-direction: column;
@@ -77,6 +80,8 @@
 }
 
 .book_image img{
+	position: relative;/*lhm 추가*/
+	top: -302px;/*lhm 추가*/
 	width:200px;
 	height:300px;
 	object-fit: cover;
@@ -95,6 +100,7 @@
 
 .book_table td {
     width: 150px;
+	padding-left: 20px;
 }
 
 .book_table th {
@@ -118,8 +124,8 @@
 
 .third_container{
 	display: flex;
-	margin: 0 auto;
-
+/*	margin: 0 auto;*/
+	margin-bottom: 75px;
 	padding:10px;
 	box-sizing: border-box;
 }
@@ -139,11 +145,57 @@
 	box-sizing: border-box;
 }
 
+/*.button_box input[type="button"]{*/
+/*	background-color: #64B883;*/
+/*	border-radius : 5px;*/
+/*	border: none;*/
+/*	width: 40px;*/
+/*	margin-right: 10px;*/
+/*	margin-left:10px;*/
+/*}*/
 .button_box input[type="button"]{
-	background-color: #64B883;
-	border-radius : 5px;
-	border: none;
-	width: 40px;
+	/* background-color: #64B883; */
+	border-radius : 2px;
+	border: 1px solid gray;
+	width: 30px;
+	height: 30px;
 	margin-right: 10px;
 	margin-left:10px;
+	cursor: pointer;
+	background-color: white;
+}
+input[type=button]:hover{
+	background-color: lightgray;
+	opacity: 0.8;
+}
+
+
+/*그림자 눈알*/
+.book_container a{
+	width:200px;
+	height:300px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.blackbox{
+
+	position: relative;
+	z-index: 15;
+	width:200px;
+	height:300px;
+	background-color: #155734;
+	opacity: 0;
+}
+.book_container .icon{
+	position: relative;
+	top: 87px;
+	left: 40px;
+	float: left;
+	width: 128px;
+	height: 128px;
+	border: none;
+}
+.book_container a:hover .blackbox{
+	opacity: 0.5;
+	transition: opacity 200ms ease-in-out;
 }
