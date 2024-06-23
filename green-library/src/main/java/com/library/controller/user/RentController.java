@@ -63,7 +63,6 @@ public class RentController {
 	public String bookLoanExtension(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model) {
 		List<BookLoanExtensionDto> extensions = bookLoanExtensionService.getLoanList(userId);
 		
-	    
 		model.addAttribute("extensions", extensions);
 		model.addAttribute("userId", userId);
 		return "bookLoanExtension";
