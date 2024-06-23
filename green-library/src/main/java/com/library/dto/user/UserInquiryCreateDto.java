@@ -2,35 +2,24 @@ package com.library.dto.user;
 
 import java.sql.Date;
 
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class UserInquiryCreateDto {
 
+	@NotBlank(message = "유저 아이디가 입력되지 않았습니다.")
 	private String userId;
+	
+	@NotBlank(message = "문의 제목이 입력되지 않았습니다.")
 	private String inquiryTitle;
+	
+	@NotBlank(message = "문의 내용이 입력되지 않았습니다.")
 	private String contents;
+	
+	@NotBlank(message = "문의 작성일이 입력되지 않았습니다.")
 	private Date inquiryDate;
 	
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public String getInquiryTitle() {
-		return inquiryTitle;
-	}
-	public void setInquiryTitle(String inquiryTitle) {
-		this.inquiryTitle = inquiryTitle;
-	}
-	public String getContents() {
-		return contents;
-	}
-	public void setContents(String contents) {
-		this.contents = contents;
-	}
-	public Date getInquiryDate() {
-		return inquiryDate;
-	}
-	public void setInquiryDate(Date inquiryDate) {
-		this.inquiryDate = inquiryDate;
-	}
 }

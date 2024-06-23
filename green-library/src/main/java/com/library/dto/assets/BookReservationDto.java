@@ -2,43 +2,27 @@ package com.library.dto.assets;
 
 import java.sql.Date;
 
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class BookReservationDto {
+	@NotBlank(message = "예약 번호가 입력되지 않았습니다.")
 	private int reservationId;
-	private String userId;
-	private int bookId;
-	private Date reservationDate;
-	private String availability;
 	
-	public int getReservationId() {
-		return reservationId;
-	}
-	public void setReservationId(int reservationId) {
-		this.reservationId = reservationId;
-	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public int getBookId() {
-		return bookId;
-	}
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
-	public Date getReservationDate() {
-		return reservationDate;
-	}
-	public void setReservationDate(Date reservationDate) {
-		this.reservationDate = reservationDate;
-	}
-	public String getAvailability() {
-		return availability;
-	}
-	public void setAvailability(String availability) {
-		this.availability = availability;
-	}
+	@NotBlank(message = "유저 아이디가 입력되지 않았습니다.")
+	private String userId;
+	
+	@NotBlank(message = "책 아이디가 입력되지 않았습니다.")
+	private int bookId;
+	
+	@NotBlank(message = "대출 예약일이 입력되지 않았습니다.")
+	private Date reservationDate;
+	
+	@NotBlank(message = "대출 가능 여부가 입력되지 않았습니다.")
+	private String availability;
 	
 	
 }
