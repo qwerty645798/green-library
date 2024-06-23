@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.library.dto.user.My_InquiryDto;
-import com.library.dto.user.My_WishListDto;
 
 
 @Repository
