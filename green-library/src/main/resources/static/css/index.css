@@ -51,7 +51,6 @@ input[type=text]{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 3px dotted skyblue;
 }
 .quickBundle a{
 	color: black;
@@ -90,54 +89,54 @@ input[type=text]{
     padding-bottom: 50px;
 	background-color: #d8e9d9;
 }
-.infoBoard1{
+.tabCon1{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    padding-bottom: 150px;
 }
-.infoBoard2{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-    width: 1260px;
-    height: 300px;
-/*     background-color: skyblue; */
-    left: 0;
+.tabCon2{
+    min-width: 1260px;
+    max-height: 54px;
+    min-height: 50px;
+    overflow: hidden;
+	background-color: aliceblue;
+	border-radius: 5px;
 }
-.infoBoard2 img{
+.bookTab{
+	min-width: 1210px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 0pt;
+    
+}
+.bookTab li{
+    padding-top: 14px;
+    padding-bottom: 6px;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+    display: inline-block;
+    list-style-type: none;
+	min-width: 200px;
+    min-height: 40px;
+	background-color: aliceblue;
+	border-radius: 5px;
+}
+.bookTab li:hover{
+    cursor: pointer;
+}
+.here{/*tab classlist 함수용*/
+	color: #64b883;
+	border: 3px solid #64b883;
+	border-radius: 5px;
+}
+.tabCon2 img{
+	position: relative;
+	top: -65px;
+	float: right;
 	width: 50px;
 	height: 50px;
+	cursor: pointer;
 }
-.infoBoard2 table{
-	width: 1260px;
-	height: 250px;
-/* 	border: 2px solid red; */
-}
-.titleQuick{
-	display: flex;
-	justify-content: space-between;
-	width: 1260px;
-}
-.infoBoard2 span{
-	display: flex;
-/* 	justify-content: center; */
-	align-items: center;
-	width: 200px;
-    font-size: 14pt;
-	font-weight: bold;
-/* 	background-color: aliceblue; */
-}
-.infoBoard2 table tr,
-.infoBoard2 table td{
-	border: 1px solid red;
-}
-.infoBoard2 table td:nth-child(2){
-	width: 700px;
-}
-
-/*추가*/
 .bookSwipe,
 .bookSwipe2{/*이건 원래 있던 것*/
     display: flex;
@@ -151,7 +150,8 @@ input[type=text]{
 	width: 1260px;
 	height: 370px;
 	overflow: hidden;
-	border: 3px dotted red;
+	border: 3px solid #64b883;
+	border-radius: 5px;
 }
 .bookSwipe .newbook, 
 .bookSwipe2 .popbook{
@@ -164,7 +164,6 @@ input[type=text]{
 	list-style-type: none;
 	display: inline-block;
 	background-color: white;
-	border: 3px dotted green;
 }
 .bookSwipe .window .newbook,
 .bookSwipe2 .window2 .popbook{
@@ -196,7 +195,6 @@ input[type=text]{
 .backBtn2, .goBtn2{
 	width: 64px;
 	height: 64px;
-/* 	background-color: green; */
 	opacity: 0.5;
 	cursor: pointer;
 }
@@ -204,55 +202,51 @@ input[type=text]{
 	width: 64px;
 	height: 64px;
 }
-/*js용*/
-.on{
-	visibility: hidden;
+.infoBoard1{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding-bottom: 150px;
 }
+.infoBoard2{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    width: 1260px;
+    height: 300px;
+    left: 0;
+}
+.infoBoard2 img{
+	width: 50px;
+	height: 50px;
+}
+.infoBoard2 table{
+	width: 1260px;
+	height: 250px;
+}
+.titleQuick{
+	display: flex;
+	justify-content: space-between;
+	width: 1260px;
+}
+.infoBoard2 span{
+	display: flex;
+	align-items: center;
+	width: 200px;
+    font-size: 14pt;
+	font-weight: bold;
+}
+.infoBoard2 table tr,
+.infoBoard2 table td{
+	border: 1px solid red;
+}
+.infoBoard2 table td:nth-child(2){
+	width: 700px;
+}
+
 
 /*탭*/
 .bookSwipe2{
     display: none;
-}
-.tabCon1{
-    display: flex;
-    justify-content: center;
-}
-.tabCon2{
-    min-width: 1260px;
-    max-height: 54px;
-    min-height: 50px;
-    overflow: hidden;
-    border: 1px solid brown;
-}
-.bookTab{
-	min-width: 1210px;
-    margin: 0px;
-    padding: 0px;
-    font-size: 0pt;
-    
-}
-.bookTab li{
-    padding-top: 14px;
-    padding-bottom: 6px;
-    text-align: center;
-    font-size: 14pt;
-    font-weight: bold;
-    display: inline-block;
-    list-style-type: none;
-	min-width: 200px;
-    min-height: 40px;
-	background-color: aliceblue;
-}
-.bookTab li:hover{
-    background-color: skyblue;
-    color: white;
-    cursor: pointer;
-}
-.tabCon2 img{
-	position: relative;
-	top: -60px;
-	float: right;
-	width: 50px;
-	height: 50px;
-	cursor: pointer;
 }
