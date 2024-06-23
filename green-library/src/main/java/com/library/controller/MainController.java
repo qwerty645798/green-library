@@ -19,8 +19,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.library.controller.user.UserController;
 import com.library.dto.assets.NotificationDetailDto;
 import com.library.dto.assets.NotificationDto;
-import com.library.dto.user.UserFindingIdDTO;
-import com.library.dto.user.UserJoinDTO;
+import com.library.dto.user.account.UserFindingIdDTO;
+import com.library.dto.user.account.UserFindingPwDTO;
+import com.library.dto.user.account.UserJoinDTO;
 import com.library.service.assets.NotificationDetailService;
 import com.library.service.assets.NotificationService;
 import com.library.service.user.UserService;
@@ -81,6 +82,15 @@ public class MainController {
 
 	@PostMapping("/userFindingId")
 	public String userFindingId(@ModelAttribute("user") @Valid UserFindingIdDTO userDTO, BindingResult result) {
+		if (result.hasErrors()) {// 미완성
+			return "redirect:/userFinding?message=invalidValue";
+		}
+		// 미완성
+		return "redirect:/userLogin";
+	}
+	
+	@PostMapping("/userFindingPw")
+	public String userFindingPw(@ModelAttribute("user") @Valid UserFindingPwDTO userDTO, BindingResult result) {
 		if (result.hasErrors()) {// 미완성
 			return "redirect:/userFinding?message=invalidValue";
 		}

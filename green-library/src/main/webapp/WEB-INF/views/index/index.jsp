@@ -65,7 +65,7 @@
         <div class="tabCon2">
             <ul class="bookTab">
                 <li class="here">신착 도서</li>
-                <li class="here">인기 도서</li>
+                <li>인기 도서</li>
             </ul>
             <img src="/images/gotoPage.png">
         </div>
@@ -106,12 +106,7 @@
 	        	<li><img src="/images/녹나무의여신.jpg">
 	        	<div class="bookt">(책 제목만 써주세요. 
 	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
+
 	       
 	        </ul>
         </div>
@@ -154,12 +149,7 @@
        		<li><img src="/images/SmallThingsLikeThis.jpg">
         	<div class="bookt">(책 제목만 써주세요. 
         	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
+
         </ul>
         </div>
         <div class="goBtn2">
@@ -179,39 +169,39 @@
 		
 	        <table>
 	        	<tr>
-	        	<td>announcementId</td>
-	        	<td>announcementTitle</td>
-	        	<td>announcementDate</td>
+	        	<td>${announce.announcementId}</td>
+	        	<td>${announce.announcementTitle}</td>
+	        	<td>${announce.writeDate}</td>
 	        	<tr>
 	        	
 	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
+	        	<td>${announce.announcementId}</td>
+	        	<td>${announce.announcementTitle}</td>
+	        	<td>${announce.writeDate}</td>
 	        	<tr>
 	        	
 	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
+	        	<td>${announce.announcementId}</td>
+	        	<td>${announce.announcementTitle}</td>
+	        	<td>${announce.writeDate}</td>
 	        	<tr>
 	        	
 	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
+	        	<td>${announce.announcementId}</td>
+	        	<td>${announce.announcementTitle}</td>
+	        	<td>${announce.writeDate}</td>
 	        	<tr>
 	        	
 	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
+	        	<td>${announce.announcementId}</td>
+	        	<td>${announce.announcementTitle}</td>
+	        	<td>${announce.writeDate}</td>
 	        	<tr>
 	        	
 	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
+	        	<td>${announce.announcementId}</td>
+	        	<td>${announce.announcementTitle}</td>
+	        	<td>${announce.writeDate}</td>
 	        	<tr>
 	        	
 	        </table>

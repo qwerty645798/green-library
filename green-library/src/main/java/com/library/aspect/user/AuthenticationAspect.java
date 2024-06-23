@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.stereotype.Component;
 
 import com.library.exception.SessionNotFoundException;
@@ -24,7 +25,7 @@ public class AuthenticationAspect {
         logger.info("AuthenticationAspect is called");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || !authentication.isAuthenticated()) {
+        if (authentication == null || !authentication.isAuthenticated() || authentication instanceof AnonymousAuthenticationToken) {
             throw new SessionNotFoundException("Session not found or user is not authenticated");
         }
 
@@ -34,7 +35,7 @@ public class AuthenticationAspect {
         logger.info("Original method arguments: " + Arrays.toString(args));
 
         for (int i = 0; i < args.length; i++) {
-        	logger.info("Argument " + i + ": type = " + args[i].getClass().getName() + ", value = " + args[i]);
+            logger.info("Argument " + i + ": type = " + args[i].getClass().getName() + ", value = " + args[i]);
             if (args[i] instanceof String && "abc".equals(args[i])) {
                 args[i] = userId;
                 logger.info("Aspect replaced userIdPlaceholder with: " + userId);
