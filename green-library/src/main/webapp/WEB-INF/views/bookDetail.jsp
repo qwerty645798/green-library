@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<header id="header" class="header"></header>
+<jsp:include page="index/header.jsp" />
 
 <div class="bannerBgr">
     <div class="Banner">
@@ -97,7 +97,7 @@
 
 </main>
 
-<footer id="footer" class="footer"></footer>
+ <jsp:include page="index/footer.jsp" />
 
 
 </body>
