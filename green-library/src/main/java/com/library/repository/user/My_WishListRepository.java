@@ -31,6 +31,19 @@ public class My_WishListRepository {
                 wishList.setWishDate(rs.getDate("wish_date"));
                 wishList.setWishTitle(rs.getString("wish_title")); 
                 wishList.setComplete(rs.getString("complete"));
+                
+                
+                /*
+				if (book.getAvailability() != null) {
+                    if (book.getAvailability().equals("1")) {
+                        book.setAvailability("대출가능");
+                    } else {
+                        book.setAvailability("대출불가");
+                    }
+                } else {
+                    book.setAvailability("알수없음");
+                }*/
+                
                 return wishList;
 			}
 		}, userId);
