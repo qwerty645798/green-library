@@ -47,10 +47,19 @@
 			onkeypress="checkEnter(event)">
 		</div>
 		<div class="sel_box3">
-			<input type="button" value="검색" onclick="lets_search()">
+<!--			<input type="button" value="검색" onclick="lets_search()">-->
+			<img src="/images/searchBtn.png" onclick="lets_search()">
 		</div>
 	</div>
 </div>
+
+<div class="subtitleContainer1">
+	<div class="subtitleContainer2">
+		<span class="themeSearch">주제별 검색</span>
+	</div>
+</div>
+
+	
 
 <div class="first_container">
 	<!-- 사진들도 넣을지 -->
@@ -66,6 +75,12 @@
 	<div class="class_box"><img src="images/900.png" width="50px"><br>역사</div>
 </div>
 
+
+<div class="subtitleContainer1">
+	<div class="subtitleContainer2">
+		<span class="themeSearch">주제별 번호 참고</span>
+	</div>
+</div>
 <div class="second_container">
 	<div class="img_box">
 		<img src="images/bookCategory.jpg">

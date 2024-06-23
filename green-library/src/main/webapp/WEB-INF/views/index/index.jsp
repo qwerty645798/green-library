@@ -23,7 +23,7 @@
 <div class="mainPage">
 
     <div class="bookSearchText">
-        <label>
+       
             <div class="customSearchform">
                 <select class="searchSel">
                     <option>전체</option>
@@ -34,16 +34,17 @@
 					<option>인기도서</option>
 					<option>신착도서</option>
                 </select>
-                <input type="text" class="sel_box2"
-                 name="search" onkeypress="checkEnter(event)">
-                <input type="button" value="자료 찾기" onclick="lets_search()">
+                <input type="text" name="search" onkeypress="checkEnter(event)">
+                <img src="/images/searchBtn.png" onclick="lets_search()">
+<!--                 <input type="button" value="자료 찾기"> -->
             </div>
-        </label>
+        
     </div>
     
     <br><br>
 
     <div id="quickBundle" class="quickBundle">
+    <a href=""></a>
        	<div id="quick1" class="quickPage"><img src="/images/useTime.png">
             이용 시간</div>
         <div id="quick2" class="quickPage"><img src="/images/bookExtension.png">
@@ -59,12 +60,14 @@
     <br><br>
     
     <div class="bookslide">
+    
     <div class="tabCon1">
         <div class="tabCon2">
             <ul class="bookTab">
                 <li class="here">신착 도서</li>
-                <li>인기 도서</li>
+                <li class="here">인기 도서</li>
             </ul>
+            <img src="/images/gotoPage.png">
         </div>
     </div>
     
@@ -159,8 +162,8 @@
 	        	########################)</div></li>
         </ul>
         </div>
-        <div class="arBtn" class="goBtn2">
-        <img src="/images/go.png"></div>
+        <div class="goBtn2">
+        <img class="arBtn" src="/images/go.png"></div>
     </div>
     </div>
     
@@ -176,9 +179,9 @@
 		
 	        <table>
 	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
+	        	<td>announcementId</td>
+	        	<td>announcementTitle</td>
+	        	<td>announcementDate</td>
 	        	<tr>
 	        	
 	        	<tr>
@@ -204,6 +207,13 @@
 	        	<td>(제목)</td>
 	        	<td>(게시 날짜)</td>
 	        	<tr>
+	        	
+	        	<tr>
+	        	<td>(게시자)</td>
+	        	<td>(제목)</td>
+	        	<td>(게시 날짜)</td>
+	        	<tr>
+	        	
 	        </table>
 	    </div>
 	</div>
@@ -215,7 +225,7 @@
  
  <script src="/js/header.js"></script>
  <script src="/js/index.js"></script>
- <script src="js/dataSearchBar.js"></script>
+ <script src="/js/dataSearchBar.js"></script>
     
 </body>
 </html>
