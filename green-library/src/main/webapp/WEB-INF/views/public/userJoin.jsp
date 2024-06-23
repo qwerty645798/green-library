@@ -29,7 +29,7 @@
     <form action="userJoin" method="post" id="form">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         <div class="container">
-        <table style="border-collapse:collapse;">
+        <table>
             <tr>
                 <td class="text"><div>이름</div></td>
                 <td class="input"><input type="text" id="username" name="name" placeholder="홍길동" class="middle"></td>

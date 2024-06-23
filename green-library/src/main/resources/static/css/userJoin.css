@@ -23,22 +23,30 @@ form > div.container{
 	justify-content:center;
 	margin:10px 310px;
 	width:900px;
-	padding:0px
+	padding:0px;
+}
+table{
+	height: 700px;
+	border-collapse:collapse;
 }
 td{
-	border:1px #E2E2E2 solid;
+/*	border:1px #E2E2E2 solid;*/
+	border-bottom: 1px solid #a0cab0;
+	border-top: 1px solid #a0cab0;
 	height:30px;
 }
 td.text{
 	width:160px;
-	background:#f2f2f2;
-	color:#777977;
+	background-color: #d8e9d9;
+/*	color:#777977;*/
+	color: black;
+	text-align: center;
 	font-weight:600;
-	vertical-align:top;
+	vertical-align:middle;
 	padding:0;
 }
 td.text > div{
-	margin-left:20px;
+/*	margin-left:20px;*/
 	margin-top:5px;
 }
 td.input{
@@ -67,13 +75,17 @@ input.short{
 	width:160px;
 	text-align:center;
 }
+select{
+	height: 30px;
+	border:1px #B2B2B2 solid;
+}
 input.brief{
 	width:60px;
 	text-align:center;
 }
 input[type=submit]{
 	color:white; 
-	background:#0D2E8C; 
+	background:#155734; 
 	width:120px; 
 	height:35px; 
 	margin-top:30px; 

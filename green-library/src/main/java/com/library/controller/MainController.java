@@ -18,13 +18,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.library.controller.user.UserController;
+import com.library.dto.assets.InitiativeBookDto;
 import com.library.dto.assets.NotificationDetailDto;
 import com.library.dto.assets.NotificationDto;
+import com.library.dto.assets.PopularBookDto;
 import com.library.dto.user.account.UserFindingIdDTO;
 import com.library.dto.user.account.UserFindingPwDTO;
 import com.library.dto.user.account.UserJoinDTO;
+import com.library.service.assets.InitiativeBookService;
 import com.library.service.assets.NotificationDetailService;
 import com.library.service.assets.NotificationService;
+import com.library.service.assets.PopularBookService;
 import com.library.service.user.UserService;
 
 import jakarta.validation.Valid;
@@ -38,8 +42,21 @@ public class MainController {
 	@Qualifier("UserService")
 	UserService userService;
 
+	@Autowired
+	private InitiativeBookService initiativeBookService;
+	@Autowired
+	private PopularBookService popularBookService;
 	@GetMapping("/")
-	public String home() {
+	public String home(Model model) {
+		List<InitiativeBookDto> initiative=
+				initiativeBookService.getBookId();
+				model.addAttribute("items", initiative);
+		List<PopularBookDto> popular=
+				popularBookService.getBookId();
+				model.addAttribute("pops", popular);
+		List<NotificationDto> announce=
+				notificationService.findAnnounce2();
+				model.addAttribute("announce", announce);
 		return "index/index";
 	}
 
@@ -173,7 +190,7 @@ public class MainController {
 	
 	@PostMapping("/incrementViewCount")
 	public void incrementViewCount(@RequestParam("announcementId") int announcementId) {
-		 notificationService.incrementViewCount(announcementId);
+		 notificationDetailService.incrementViewCount(announcementId);
 	}
 
 	@Autowired
@@ -186,6 +203,8 @@ public class MainController {
 		if (announcementId == null) {
 			return "redirect:/";
 		} // 리퀘파람 펄스 + 리다이렉트로 직접 bookdetail로 이동(bookId=null)은 인덱스로 돌려보냄
+		
+		notificationDetailService.incrementViewCount(Integer.parseInt(announcementId));
 
 		NotificationDetailDto announceDetail = notificationDetailService.getAnnounceDetail(announcementId);
 		model.addAttribute("announce", announceDetail);

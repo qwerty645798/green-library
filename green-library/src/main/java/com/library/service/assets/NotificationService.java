@@ -22,7 +22,5 @@ public class NotificationService {
 		return notificationRepository.findNotification2();
 	}
 	
-	public void incrementViewCount(int announcementId) {
-		notificationRepository.incrementViewCount(announcementId);
-	}
+	
 }
