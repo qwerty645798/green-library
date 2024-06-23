@@ -32,17 +32,25 @@ public class My_WishListRepository {
                 wishList.setWishTitle(rs.getString("wish_title")); 
                 wishList.setComplete(rs.getString("complete"));
                 
-                
-                /*
-				if (book.getAvailability() != null) {
-                    if (book.getAvailability().equals("1")) {
-                        book.setAvailability("대출가능");
-                    } else {
-                        book.setAvailability("대출불가");
+                String completeValue = wishList.getComplete();
+                if (completeValue != null) {
+                    switch (completeValue) {
+                        case "Y":
+                            wishList.setComplete("수락됨");
+                            break;
+                        case "W":
+                            wishList.setComplete("대기중");
+                            break;
+                        case "N":
+                            wishList.setComplete("반려됨");
+                            break;
+                        default:
+                            wishList.setComplete("알수없음");
+                            break;
                     }
                 } else {
-                    book.setAvailability("알수없음");
-                }*/
+                    wishList.setComplete("알수없음");
+                }
                 
                 return wishList;
 			}

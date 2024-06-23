@@ -32,16 +32,16 @@ public class My_InquiryRepository {
 				inquiryList.setInquiryDate(rs.getDate("inquiry_date"));
 				inquiryList.setInquiryTitle(rs.getString("inquiry_title")); 
 				inquiryList.setResponserTF(rs.getString("responserTF"));
-				/*
-				if (book.getAvailability() != null) {
-                    if (book.getAvailability().equals("1")) {
-                        book.setAvailability("대출가능");
+				
+				if (inquiryList.getResponserTF() != null) {
+                    if (inquiryList.getResponserTF().equals("1")) {
+                        inquiryList.setResponserTF("답변완료");
                     } else {
-                        book.setAvailability("대출불가");
+                        inquiryList.setResponserTF("답변없음");
                     }
                 } else {
-                    book.setAvailability("알수없음");
-                }*/
+                    inquiryList.setResponserTF("알수없음");
+                }
 				
                 return inquiryList;
 			}

@@ -47,6 +47,26 @@ public class NotificationRepository {
         
 	}
 	
+	public List<NotificationDto> findNotification2() {
+		String sql = "SELECT announcement_id, writer_id, announce_title, write_date, contents "
+		           + "FROM announcements ";        
+		sql += "ORDER BY announcement_id desc";
+		
+        return jdbcTemplate.query(sql, new RowMapper<NotificationDto>() {
+            @Override
+            public NotificationDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+                NotificationDto announce = new NotificationDto();
+                announce.setAnnouncementId(rs.getInt("announcement_id"));
+                announce.setWriterId(rs.getString("writer_id"));
+                announce.setAnnouncementTitle(rs.getString("announce_title"));
+                announce.setWriteDate(rs.getDate("write_date"));
+                announce.setContents(rs.getString("contents"));
+                return announce;
+            }
+        });
+        
+	}
+	
 	public void incrementViewCount(int announcementId) {
 		String sql = "Update announcements "
 				+ "SET view_count = view_count + 1 "
