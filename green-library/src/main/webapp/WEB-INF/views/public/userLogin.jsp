@@ -14,6 +14,9 @@
 	let error = "${param.error}";
 	if(error == "true")
 		alert("회원정보가 일치하지 않습니다.");
+	let message = "${message}";
+	if(message)
+		alert(message);
 </script>
 </head>
 <body> 

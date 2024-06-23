@@ -15,12 +15,5 @@ public class BookReservationRepository {
 		jdbcTemplate.update(sql, bookId, userId);
 	}
 	
-	public void reserveBook2(String bookId, String userId) {
-		String sql = "UPDATE books b "
-				+ "Join reservations r On b.book_id = r.book_id "
-				+ "Join users u On r.user_id = u.user_id "
-				+ "set b.availability = 0"
-				+ "where r.user_id = ? and b.book_id = ?";
-		jdbcTemplate.update(sql, userId, bookId);
-	}
+	
 }

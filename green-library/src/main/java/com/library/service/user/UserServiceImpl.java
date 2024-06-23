@@ -18,10 +18,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.library.dto.user.UserInfoDTO;
-import com.library.dto.user.UserInfoModificationDTO;
-import com.library.dto.user.UserJoinDTO;
-import com.library.dto.user.UserLoginDTO;
+import com.library.dto.user.account.UserFindingIdDTO;
+import com.library.dto.user.account.UserFindingPwDTO;
+import com.library.dto.user.account.UserJoinDTO;
+import com.library.dto.user.account.UserLoginDTO;
+import com.library.dto.user.profile.UserInfoDTO;
+import com.library.dto.user.profile.UserInfoModificationDTO;
 import com.library.entity.Users;
 import com.library.exception.DatabaseException;
 import com.library.mapper.user.UserMapper;
@@ -71,7 +73,30 @@ public class UserServiceImpl implements UserService {
         	return false;
         }
     }
-
+	
+	// 유저 아이디 찾기
+	@Override
+	public String findUserId(UserFindingIdDTO userDTO) {
+		try{
+			Users user = userRepository.getUsersEntity(userDTO.getName(), userDTO.getBirth(), userDTO.getEmail());
+			String userId = user.getUser_id();
+			return userId;
+		} catch (EmptyResultDataAccessException e) {
+			logger.warn("User Finding id failed - User not found with name: {}", userDTO.getName(), e);
+            throw new DatabaseException("User Finding id failed - User not found with name: {}" + userDTO.getName(), e);
+        }
+	}
+	
+	@Override
+	public boolean checkUserInfo(UserFindingPwDTO userDTO) {
+		try{
+			userRepository.getUsersEntity(userDTO.getUser_id(), userDTO.getName(), userDTO.getBirth(), userDTO.getEmail());
+			return true;
+		} catch (EmptyResultDataAccessException e) {
+            return false;
+        }
+	}
+	
 	// 유저 세부정보 불러오기
 	@Override
 	public UserInfoDTO getUserInfo(String userId) {

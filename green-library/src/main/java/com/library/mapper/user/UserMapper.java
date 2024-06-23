@@ -1,9 +1,9 @@
 package com.library.mapper.user;
 
-import com.library.dto.user.UserInfoDTO;
-import com.library.dto.user.UserInfoModificationDTO;
-import com.library.dto.user.UserJoinDTO;
-import com.library.dto.user.UserLoginDTO;
+import com.library.dto.user.account.UserJoinDTO;
+import com.library.dto.user.account.UserLoginDTO;
+import com.library.dto.user.profile.UserInfoDTO;
+import com.library.dto.user.profile.UserInfoModificationDTO;
 import com.library.entity.Users;
 
 public interface UserMapper {

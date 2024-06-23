@@ -24,7 +24,4 @@ public class BookDetailService {
  		bookReservationRepository.reserveBook(bookId, userId);
  	}
  	
- 	public void updateAvailability(String bookId, String userId) {
- 		bookReservationRepository.reserveBook2(bookId, userId);
- 	}
 }

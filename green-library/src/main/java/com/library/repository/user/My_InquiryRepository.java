@@ -32,6 +32,17 @@ public class My_InquiryRepository {
 				inquiryList.setInquiryDate(rs.getDate("inquiry_date"));
 				inquiryList.setInquiryTitle(rs.getString("inquiry_title")); 
 				inquiryList.setResponserTF(rs.getString("responserTF"));
+				
+				if (inquiryList.getResponserTF() != null) {
+                    if (inquiryList.getResponserTF().equals("1")) {
+                        inquiryList.setResponserTF("답변완료");
+                    } else {
+                        inquiryList.setResponserTF("답변없음");
+                    }
+                } else {
+                    inquiryList.setResponserTF("알수없음");
+                }
+				
                 return inquiryList;
 			}
 		}, userId);
