@@ -27,13 +27,8 @@ public class RentController {
 	
 	@GetMapping("/myWritten")
 	public String myWritten(@RequestParam(name="bookId", required = false) String bookId, Model model, 
-    		@RequestParam(name = "auth", defaultValue = "abc") String userId,
-    		HttpServletRequest request ) {
+    		@RequestParam(name = "auth", defaultValue = "abc") String userId ) {
 		
-		HttpSession session = request.getSession(false);
-	    if (session == null || session.getAttribute("userId") == null) {
-	        return "redirect:/userLogin"; 
-	    }
 	    
 		List<My_InquiryDto> inquiryList = my_WrittenService.getMyInquiryList(userId);
 		List<My_WishListDto> wishList = my_WrittenService.getMyWishList(userId);
