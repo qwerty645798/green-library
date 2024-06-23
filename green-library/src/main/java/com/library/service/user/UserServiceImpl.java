@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.library.dto.user.account.UserFindingIdDTO;
 import com.library.dto.user.account.UserJoinDTO;
 import com.library.dto.user.account.UserLoginDTO;
 import com.library.dto.user.profile.UserInfoDTO;
@@ -72,7 +73,18 @@ public class UserServiceImpl implements UserService {
         }
     }
 	
-	
+	// 유저 아이디 찾기
+	@Override
+	public String findUserId(UserFindingIdDTO userDTO) {
+		try{
+			Users user = userRepository.getUsersEntity(userDTO.getName(), userDTO.getBirth(), userDTO.getEmail());
+			String userId = user.getUser_id();
+			return userId;
+		} catch (EmptyResultDataAccessException e) {
+			logger.warn("User Finding id failed - User not found with name: {}", userDTO.getName(), e);
+            throw new DatabaseException("User Finding id failed - User not found with name: {}" + userDTO.getName(), e);
+        }
+	}
 
 	// 유저 세부정보 불러오기
 	@Override

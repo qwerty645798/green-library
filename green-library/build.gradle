@@ -31,6 +31,9 @@ dependencies {
 	//spring-boot-starter-validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation:3.3.0'
 	
+	//Spring Boot Starter Mail
+	implementation 'org.springframework.boot:spring-boot-starter-mail:3.3.1'
+	
     // JSP Support
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     

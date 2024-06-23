@@ -29,6 +29,20 @@ public class UserRepositoryImpl implements UserRepository {
 			}
 		}, userId);
 	}
+	
+	// Users
+	@Override
+	public Users getUsersEntity(String name, String birth, String email) {
+		String sql = "SELECT user_id, user_pass, name, email, phone, birth, overdue_count, suspended FROM users WHERE name = ? and birth = ? and email = ?";
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Users>() {
+			@Override
+			public Users mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return new Users(rs.getString("user_id"), rs.getString("user_pass"), rs.getString("name"),
+						rs.getString("email"), rs.getString("phone"), rs.getString("birth"), rs.getInt("overdue_count"),
+						rs.getString("suspended").charAt(0));
+			}
+		}, name, birth, email);
+	}
 
 	// 회원정보수정
 	@Override

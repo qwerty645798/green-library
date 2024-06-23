@@ -11,4 +11,6 @@ public interface UserRepository {
 
 	int deleteUser(String userId);
 
+	Users getUsersEntity(String name, String birth, String email);
+
 }

@@ -8,6 +8,11 @@
 <link href="css/userFinding.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <script src="js/userFinding.js"></script>
+<script>
+	let message = "${message}";
+	if(message)
+		alert(message);
+</script>
 </head>
 <body>
 	<jsp:include page="../index/header.jsp" />
