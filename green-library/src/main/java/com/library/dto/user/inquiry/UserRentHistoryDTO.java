@@ -1,4 +1,4 @@
-package com.library.dto.user;
+package com.library.dto.user.inquiry;
 
 import java.time.LocalDate;
 
@@ -11,7 +11,7 @@ public class UserRentHistoryDTO {
 	private int no;
     private int rentNum;
     private String bookTitle;
-    private LocalDate rentHistory;
-    private String returnDate;
+    private LocalDate rentDate;
+    private LocalDate returnDate;
     private String status;
 }

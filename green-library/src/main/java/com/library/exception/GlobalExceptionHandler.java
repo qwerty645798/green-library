@@ -16,8 +16,12 @@ public class GlobalExceptionHandler {
 
 	// 세션이 없을 때 발생하는 예외
 	@ExceptionHandler(SessionNotFoundException.class)
-	public void handleSessionNotFound(SessionNotFoundException ex) {
+	public ModelAndView handleSessionNotFound(SessionNotFoundException ex) {
 		logger.error("Session not found: {}", ex.getMessage());
+		ModelAndView modelAndView = new ModelAndView("public/userLogin");
+		modelAndView.addObject("message", "인증된 사용자가 존재하지 않습니다.");
+		modelAndView.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		return modelAndView;
 	}
 
 	// 요청 파라미터가 없을 때 발생하는 예외
@@ -32,6 +36,7 @@ public class GlobalExceptionHandler {
 		logger.error("Database error: {}", ex.getMessage());
 	}
 	
+	// 유저 로그인 실패시 발생하는 예외
 	@ExceptionHandler(UsernameNotFoundException.class)
 	public void handleUsernameNotFoundException(UsernameNotFoundException ex) {
 		logger.error("Username not found: {}", ex.getMessage());

@@ -1,4 +1,4 @@
-package com.library.dto.user;
+package com.library.dto.user.profile;
 
 import lombok.Getter;
 import lombok.Setter;
