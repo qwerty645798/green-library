@@ -82,10 +82,11 @@
     <img class="arBtn" src="/images/goback.png"></div>
         <div class="window">
 	        <ul class="newbook">
-				<c:forEach var="index" begin="0" end="9">
-<!--					<c:set var="index" value="${num}"/>-->
+				<c:forEach var="num" begin="0" end="9">
+					
 					
 		        	<li>
+						<c:set var="index" value="${num}"/>
 						<a href="bookDetail?bookId=${items[index].book_id}">
 						<img src="images/${items[index].img}">
 			        	<div class="bookt">
@@ -136,36 +137,50 @@
         <img class="arBtn" src="/images/goback.png"></div>
         <div class="window2">
         <ul class="popbook">
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-       		<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-       		<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-       		<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-       		<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
+			
+			<c:forEach var="num" begin="0" end="9">
+								
+								
+	        	<li>
+					<c:set var="index" value="${num}"/>
+					<a href="bookDetail?bookId=${pops[index].book_id}">
+					<img src="images/${pops[index].img}">
+		        	<div class="bookt">
+						${pops[index].title}
+					</div></a>
+				</li>
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+<!--       		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+<!--       		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+<!--       		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+<!--       		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+
+			</c:forEach>
 
         </ul>
         </div>
@@ -185,41 +200,44 @@
 		</div>
 		
 	        <table>
-	        	<tr>
-	        	<td>${announce.announcementId}</td>
-	        	<td>${announce.announcementTitle}</td>
-	        	<td>${announce.writeDate}</td>
-	        	<tr>
+				<c:forEach var="num" begin="0" end="5">
+					<tr>
+			        	<td>${announce[num].announcementId}</td>
+			        	<td>${announce[num].announcementTitle}</td>
+			        	<td>${announce[num].writeDate}</td>
+		        	<tr>
+				</c:forEach>
 	        	
-	        	<tr>
-	        	<td>${announce.announcementId}</td>
-	        	<td>${announce.announcementTitle}</td>
-	        	<td>${announce.writeDate}</td>
-	        	<tr>
 	        	
-	        	<tr>
-	        	<td>${announce.announcementId}</td>
-	        	<td>${announce.announcementTitle}</td>
-	        	<td>${announce.writeDate}</td>
-	        	<tr>
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
 	        	
-	        	<tr>
-	        	<td>${announce.announcementId}</td>
-	        	<td>${announce.announcementTitle}</td>
-	        	<td>${announce.writeDate}</td>
-	        	<tr>
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
 	        	
-	        	<tr>
-	        	<td>${announce.announcementId}</td>
-	        	<td>${announce.announcementTitle}</td>
-	        	<td>${announce.writeDate}</td>
-	        	<tr>
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
 	        	
-	        	<tr>
-	        	<td>${announce.announcementId}</td>
-	        	<td>${announce.announcementTitle}</td>
-	        	<td>${announce.writeDate}</td>
-	        	<tr>
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
+	        	
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
 	        	
 	        </table>
 	    </div>
