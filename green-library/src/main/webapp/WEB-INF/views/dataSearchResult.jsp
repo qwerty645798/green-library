@@ -149,8 +149,8 @@
 		    </div>
 		</c:forEach>
 	    
-		<input type="button" value=">" class="goNext_button " onclick="goNext()">
-		<input type="button" value=">>" class="goEnd_button " onclick="showPage(${Math.floor(totalPages)}, ${totalPages})">
+<!--		<input type="button" value=">" class="goNext_button " onclick="goNext()">-->
+<!--		<input type="button" value=">>" class="goEnd_button " onclick="showPage(${Math.floor(totalPages)}, ${totalPages})">-->
 	</div>
 </div>
 
