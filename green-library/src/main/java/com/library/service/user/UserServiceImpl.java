@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.library.dto.user.account.UserFindingIdDTO;
+import com.library.dto.user.account.UserFindingPwDTO;
 import com.library.dto.user.account.UserJoinDTO;
 import com.library.dto.user.account.UserLoginDTO;
 import com.library.dto.user.profile.UserInfoDTO;
@@ -85,7 +86,17 @@ public class UserServiceImpl implements UserService {
             throw new DatabaseException("User Finding id failed - User not found with name: {}" + userDTO.getName(), e);
         }
 	}
-
+	
+	@Override
+	public boolean checkUserInfo(UserFindingPwDTO userDTO) {
+		try{
+			userRepository.getUsersEntity(userDTO.getUser_id(), userDTO.getName(), userDTO.getBirth(), userDTO.getEmail());
+			return true;
+		} catch (EmptyResultDataAccessException e) {
+            return false;
+        }
+	}
+	
 	// 유저 세부정보 불러오기
 	@Override
 	public UserInfoDTO getUserInfo(String userId) {

@@ -12,6 +12,10 @@
 	let message = "${message}";
 	if(message)
 		alert(message);
+	let userId = "${userId}";
+	if(userId) {
+		alert("회원님의 아이디는 " + userId + "입니다.");
+	}
 </script>
 </head>
 <body>
@@ -56,7 +60,8 @@
 		<div id="modalContent">
 			<h3 style="text-align:center;"><b class="mainName">아이디 찾기</b></h3>
 			<br>
-			<form action="userFinding" method="post" id="form">
+			<form action="userFindingId" method="post" id="form">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				<table id="table" style="border-collapse:collapse;">
 					<tr>
 						<td class="text"><div>이메일</div></td>
