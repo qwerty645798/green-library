@@ -42,7 +42,7 @@
                 <td class="text"><div>아이디</div></td>
                 <td class="input">
                     <input type="text" id="userid" name="user_id" class="middle">
-                    <input type="button" id="checkUserIdBtn" value="아이디 중복 확인" style="color:white; background:#786C67; border:none; height:30px; cursor:pointer;">
+                    <input type="button" id="checkUserIdBtn" value="아이디 중복 확인">
                     <br>
                     <div class="comment">아이디는 영문 또는 숫자(개별 또는 혼용) 5자 이상 가능합니다. 아이디 영문은 모두 소문자입니다.</div>
                     <div id="duplicateIdError" style="color:red;"></div> 

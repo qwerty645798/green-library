@@ -8,6 +8,7 @@
     <title>Document</title>
     <link href="/CSS/userInfo.css" type="text/css" rel="stylesheet">
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/public/nav.css">
     <script>
 	    let message = "${message}";
 	    if(message)
@@ -15,17 +16,23 @@
     </script>
 </head>
 <body>
-<div class="noname">
+
+<jsp:include page="../index/header.jsp" />
+
+<div class="outBanner">
     <div class="bannerBgr">
-        <div class="userInfoBanner">
-            <div class="myPage">마이페이지</div> <div class="pageRoute">홈 > 마이페이지</div>
+        <div class="Banner">
+            <div class="pageTitle">마이페이지</div> 
+            <div class="pageRoute">홈 > 마이페이지</div>
         </div>
     </div>
-   
-
-    <div class="userInfoPage">
+    
+    <div class="outContainer">
+    <div class="innerContainer">
+<div class="userInfoPage">
         <div class="userInfoBox">
-            <div class="userImage"><img src=""></div>
+            <div class="userImage">
+            <img src="images/account_circle.png"></div>
 
             <div class="userInfoContent">
 
@@ -68,6 +75,13 @@
         
     </div>
 </div>
+	</div>
+    </div>
+    
+    
+   
+
+    
 <div id="modalContainer" class="hidden">
 		<div id="modalContent">
 			<h3 style="text-align:center;"><b>정말로 계정을 삭제하시겠습니까?</b></h3>
@@ -79,5 +93,8 @@
 		</div>
 	</div>
 	<script src="js/userInfo.js"></script>
+	
+	<jsp:include page="../index/footer.jsp" />
+	
 </body>
 </html>

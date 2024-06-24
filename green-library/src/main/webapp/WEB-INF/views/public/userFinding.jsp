@@ -33,26 +33,23 @@
 		</div>
 		<br> <br> <br>
 		<div class="container">
-			<div style="display: inline-block; width: 25px; height: 25px;">
-				<img src="images/check-button.jpg"
-					style="width: 100%; height: auto;">
+			<div class="chkBtn">
+				<img class="chkBtnImg" src="images/check-button.jpg">
 			</div>
-			<span style="font-size: 1em; font-weight: 600;" id="choose">아이디
+			<span class="chkSpan" id="choose">아이디
 				찾기 본인인증</span>
 		</div>
 		<Br> <br><Br>
 		<div class="container">
-			<div
-				style="width: 1200px; height: 150px; background: #F5F5F5; text-align: center;">
-				<a id="modalOpenButton"
-					style="height: 100px; width: 100px; cursor: pointer;"><img
-					src="images/userfind.png" style="height: 100%; width: auto;"></a>
+			<div class="modOpBtnBox">
+				<a id="modalOpenButton">
+				<img class="birthChk" src="images/calendar_month.png" ">
+				</a>
 			</div>
 		</div>
 	</main>
-	<div class="container"
-		style="color:#EE0000; margin-top: 10px; font-weight:600;">
-		<span>인증을 해주세요.</span>
+	<div class="container">
+		<span>생년월일 인증을 해주세요.</span>
 	</div>
 
 
@@ -76,13 +73,15 @@
 					<tr>
 						<td class="text"><div>생년월일</div></td>
 						<td class="input"><input type="text" name="birth"><br>
-							<span style="color:#DD0000; font-size:0.8em; font-weight:600;">* 입력 예 : 2000-10-10</span>
+							<span>* 입력 예 : 2000-10-10</span>
 						</td>
 					</tr>
 				</table>
-				<div style="display:flex; justify-content:center;"><input type="submit" value="확인" onclick="concatInput()"style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></div>
+				<div class="subBox">
+				<input type="submit" value="확인" onclick="concatInput()">
+				</div>
 			</form>
-			<button id="modalCloseButton"><img src="images/x-icon.png" style="width:100%; height:auto;"></button>
+			<button id="modalCloseButton"><img class="closeBtn" src="images/x-icon.png" ></button>
 		</div>
 	</div>
 	<script src="js/userFindingModal.js"></script>

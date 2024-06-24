@@ -85,7 +85,9 @@ input.brief{
 }
 input[type=submit]{
 	color:white; 
-	background:#155734; 
+	background:#155734;
+	border: none;
+	border-radius: 5px; 
 	width:120px; 
 	height:35px; 
 	margin-top:30px; 
@@ -93,4 +95,14 @@ input[type=submit]{
 }
 input.short{/*lhm 추가*/
 	text-align: left;
+}
+
+#checkUserIdBtn{
+	position: relative;
+	top: 2px;
+	color:white; 
+	background:#786C67; 
+	border:none; 
+	height:28px; 
+	cursor:pointer;
 }
