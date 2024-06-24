@@ -13,15 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/popularBook.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
-<script>
-    function showPage(pageNumber) {
-        document.querySelectorAll('.page').forEach(function(page) {
-            page.classList.add('hidden');
-        });
-        
-        document.getElementById('page_' + pageNumber).classList.remove('hidden');
-    }
-</script>
+<script src="js/popInitiBook.js"></script>
 
 </head>
 <body>
