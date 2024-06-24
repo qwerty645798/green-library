@@ -1,15 +1,15 @@
 package com.library.mapper.user;
 
-import com.library.dto.user.UserInfoDto;
-import com.library.dto.user.UserInfoModificationDto;
-import com.library.dto.user.UserJoinDto;
-import com.library.dto.user.UserLoginDto;
+import com.library.dto.user.UserInfoDTO;
+import com.library.dto.user.UserInfoModificationDTO;
+import com.library.dto.user.UserJoinDTO;
+import com.library.dto.user.UserLoginDTO;
 import com.library.entity.Users;
 
 public interface UserMapper {
-    UserLoginDto toUserLoginDto(Users user);
-	UserInfoDto toUserInfoDto(Users user);
-	Users toEntity(UserInfoModificationDto userDto);
-	Users toEntity(UserJoinDto userDto);
+    UserLoginDTO toUserLoginDTO(Users user);
+	UserInfoDTO toUserInfoDTO(Users user);
+	Users toEntity(UserInfoModificationDTO userDTO);
+	Users toEntity(UserJoinDTO userDTO);
 	
 }

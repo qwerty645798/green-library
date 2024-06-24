@@ -10,9 +10,9 @@
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
 <link href="css/userJoin.css" type="text/css" rel="stylesheet">
 <script>
-	let error = "${param.error}";
-	if(error == "true")
-		alert("오류가 발생했습니다. 다시 시도해주세요.");
+	let message = "${message}";
+	if(message)
+		alert(message);
 </script>
 </head>
 <body>

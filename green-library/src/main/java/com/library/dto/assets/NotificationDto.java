@@ -9,6 +9,7 @@ public class NotificationDto {
 	private String announcementTitle;
 	private Date writeDate;
 	private String contents;
+	private int viewCount;
 	
 	public int getAnnouncementId() {
 		return announcementId;
@@ -39,6 +40,12 @@ public class NotificationDto {
 	}
 	public void setContents(String contents) {
 		this.contents = contents;
+	}
+	public int getViewCount() {
+		return viewCount;
+	}
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
 	}
 	
 	

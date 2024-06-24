@@ -44,5 +44,12 @@ public class UserRepositoryImpl implements UserRepository {
 		return jdbcTemplate.update(sql, user.getUser_id(), hashedPassword, user.getName(), user.getPhone(),
 				user.getEmail(), user.getBirth());
 	}
+	
+	// 회원탈퇴
+	@Override
+	public int deleteUser(String userId) {
+        String sql = "DELETE FROM users WHERE user_id = ?";
+        return jdbcTemplate.update(sql, userId);
+    }
 
 }
