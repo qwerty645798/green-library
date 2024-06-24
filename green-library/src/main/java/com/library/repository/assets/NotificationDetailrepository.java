@@ -17,7 +17,7 @@ public class NotificationDetailrepository {
 	private JdbcTemplate jdbcTemplate;
 
 	public NotificationDetailDto findByannouncementId(String announcementId) {
-		String sql = "SELECT announce_title, write_date, view_count, fileName, contents "
+		String sql = "SELECT announce_title, write_date, view_count, fileName, contents, writer_id "
                 + "FROM announcements "
                 + "WHERE announcement_id = ?";
 		
@@ -30,6 +30,7 @@ public class NotificationDetailrepository {
 				announce.setViewCount(rs.getInt("view_count"));
 				announce.setFileName(rs.getString("fileName"));
 				announce.setContents(rs.getString("contents"));
+				announce.setWriterId(rs.getString("writer_id"));
 				
 				return announce;
 			}
