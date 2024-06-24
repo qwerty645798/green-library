@@ -43,21 +43,10 @@
 	    var announcementId = tr.querySelector('.num_table').textContent.trim();
 	    url += announcementId;
 	    
-	    /* hidden form 사용 방법
-	    var form = document.createElement('form');
-	    form.setAttribute('method', 'post');
-	    form.setAttribute('action', '/incrementViewCount');
+	    window.location.href = url;
 	    
-	    var input = document.createElement('input');
-	    input.setAttribute('type', 'hidden');
-	    input.setAttribute('name', 'announcementId');
-	    input.setAttribute('value', announcementId);
 	    
-	    form.appendChild(input);
-	    document.body.appendChild(form);
-	    form.submit();
-	    */
-	   
+	    /*
 	    $.ajax({
         type: "POST",
 	        url: "/incrementViewCount", // 컨트롤러에서 매핑한 URL
@@ -71,7 +60,7 @@
 	        error: function(xhr, status, error) {
 	            console.error("조회수 증가 처리 중 문제 발생 : " + error);
 	        }
-	    });
+	    });*/
 	    
 	}
 	

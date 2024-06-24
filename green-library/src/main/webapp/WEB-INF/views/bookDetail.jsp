@@ -12,15 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/bookDetail.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
-<script>
-    function Reservation() {
-        alert("로그인 후 예약이 가능합니다.");
-        window.location.href = "userLogin";
-    }
-    function cantReservation(){
-    	alert("대출이 불가합니다.");
-    }
-</script>
+<script src="js/bookDetail.js"></script>
 					                
 </head>
 <body>

@@ -3,7 +3,6 @@ package com.library.controller.user;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +39,7 @@ public class RentController {
 	}
 	
 	@GetMapping("/userInquiryCreate")
-	public String userInquiryCreate( Model model, @RequestParam(name = "auth", defaultValue = "abc") String userId) {
+	public String userInquiryCreate(@RequestParam(name = "auth", defaultValue = "abc") String userId,  Model model) {
 		model.addAttribute("userId", userId);
 		return "user/userInquiryCreate";
 	}
