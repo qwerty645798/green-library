@@ -164,7 +164,7 @@ public class MainController {
 	
 	@PostMapping("/incrementViewCount")
 	public void incrementViewCount(@RequestParam("announcementId") int announcementId) {
-		 notificationService.incrementViewCount(announcementId);
+		 notificationDetailService.incrementViewCount(announcementId);
 	}
 
 	@Autowired
@@ -177,6 +177,8 @@ public class MainController {
 		if (announcementId == null) {
 			return "redirect:/";
 		} // 리퀘파람 펄스 + 리다이렉트로 직접 bookdetail로 이동(bookId=null)은 인덱스로 돌려보냄
+		
+		notificationDetailService.incrementViewCount(Integer.parseInt(announcementId));
 
 		NotificationDetailDto announceDetail = notificationDetailService.getAnnounceDetail(announcementId);
 		model.addAttribute("announce", announceDetail);
