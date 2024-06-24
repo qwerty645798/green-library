@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,54 +67,65 @@
         <div class="tabCon2">
             <ul class="bookTab">
                 <li class="here">신착 도서</li>
-                <li class="here">인기 도서</li>
+                <li>인기 도서</li>
             </ul>
             <img src="/images/gotoPage.png">
         </div>
     </div>
+	
+	<c:set var="itemsPerPage" value="8"/>
+	<c:set var="totalItems" value="${fn:length(items)}" />
+	<c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
     
     <div class="bookSwipe">
     <div class="backBtn">
     <img class="arBtn" src="/images/goback.png"></div>
         <div class="window">
 	        <ul class="newbook">
-	        	<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-	        	<li><img src="/images/녹나무의여신.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-		        	########################)</div></li>
-	        	<li><img src="/images/녹나무의여신.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-		        	########################)</div></li>
-	        	<li><img src="/images/녹나무의여신.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-		        	########################)</div></li>
-	        	<li><img src="/images/녹나무의여신.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-		        	########################)</div></li>
-	        	<li><img src="/images/녹나무의여신.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        		<li><img src="/images/SmallThingsLikeThis.jpg">
-	        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-	       
+				<c:forEach var="num" begin="0" end="9">
+					
+					
+		        	<li>
+						<c:set var="index" value="${num}"/>
+						<a href="bookDetail?bookId=${items[index].book_id}">
+						<img src="images/${items[index].img}">
+			        	<div class="bookt">
+							${items[index].title}
+						</div></a>
+					</li>
+					
+<!--	        	<li><img src="images/${items[1].img}">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--	        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--		        	########################)</div></li>-->
+<!--	        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--		        	########################)</div></li>-->
+<!--	        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--		        	########################)</div></li>-->
+<!--	        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--		        	########################)</div></li>-->
+<!--	        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--	        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+
+	       		</c:forEach>
 	        </ul>
         </div>
         <div class="goBtn">
@@ -124,42 +137,51 @@
         <img class="arBtn" src="/images/goback.png"></div>
         <div class="window2">
         <ul class="popbook">
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-       		<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-       		<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-       		<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-       		<li><img src="/images/SmallThingsLikeThis.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
-        	<li><img src="/images/녹나무의여신.jpg">
-        	<div class="bookt">(책 제목만 써주세요. 
-	        	########################)</div></li>
+			
+			<c:forEach var="num" begin="0" end="9">
+								
+								
+	        	<li>
+					<c:set var="index" value="${num}"/>
+					<a href="bookDetail?bookId=${pops[index].book_id}">
+					<img src="images/${pops[index].img}">
+		        	<div class="bookt">
+						${pops[index].title}
+					</div></a>
+				</li>
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/녹나무의여신.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--	        	########################)</div></li>-->
+<!--        	<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+<!--       		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+<!--       		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+<!--       		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+<!--       		<li><img src="/images/SmallThingsLikeThis.jpg">-->
+<!--        	<div class="bookt">(책 제목만 써주세요. -->
+<!--        	########################)</div></li>-->
+
+			</c:forEach>
+
         </ul>
         </div>
         <div class="goBtn2">
@@ -178,41 +200,44 @@
 		</div>
 		
 	        <table>
-	        	<tr>
-	        	<td>announcementId</td>
-	        	<td>announcementTitle</td>
-	        	<td>announcementDate</td>
-	        	<tr>
+				<c:forEach var="num" begin="0" end="5">
+					<tr>
+			        	<td>${announce[num].announcementId}</td>
+			        	<td>${announce[num].announcementTitle}</td>
+			        	<td>${announce[num].writeDate}</td>
+		        	<tr>
+				</c:forEach>
 	        	
-	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
-	        	<tr>
 	        	
-	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
-	        	<tr>
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
 	        	
-	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
-	        	<tr>
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
 	        	
-	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
-	        	<tr>
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
 	        	
-	        	<tr>
-	        	<td>(게시자)</td>
-	        	<td>(제목)</td>
-	        	<td>(게시 날짜)</td>
-	        	<tr>
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
+	        	
+<!--	        	<tr>-->
+<!--	        	<td>${announce.announcementId}</td>-->
+<!--	        	<td>${announce.announcementTitle}</td>-->
+<!--	        	<td>${announce.writeDate}</td>-->
+<!--	        	<tr>-->
 	        	
 	        </table>
 	    </div>

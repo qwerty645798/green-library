@@ -3,6 +3,7 @@ package com.library.controller.user;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,9 @@ public class RentController {
 	
 	@GetMapping("/myWritten")
 	public String myWritten(@RequestParam(name="bookId", required = false) String bookId, Model model, 
-    		@RequestParam(name = "auth", defaultValue = "abc") String userId) {
+    		@RequestParam(name = "auth", defaultValue = "abc") String userId ) {
 		
+	    
 		List<My_InquiryDto> inquiryList = my_WrittenService.getMyInquiryList(userId);
 		List<My_WishListDto> wishList = my_WrittenService.getMyWishList(userId);
 		
@@ -53,7 +55,7 @@ public class RentController {
     	
     	userCreateInquiryService.createInquiry(userId, inquiryTitle, contents);
     	
-    	return "myWritten";
+    	return "redirect:/myWritten";
     }
 	
 	@Autowired
@@ -63,7 +65,6 @@ public class RentController {
 	public String bookLoanExtension(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model) {
 		List<BookLoanExtensionDto> extensions = bookLoanExtensionService.getLoanList(userId);
 		
-	    
 		model.addAttribute("extensions", extensions);
 		model.addAttribute("userId", userId);
 		return "bookLoanExtension";

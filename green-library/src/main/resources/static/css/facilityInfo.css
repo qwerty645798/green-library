@@ -6,9 +6,12 @@ a:hover{
 	text-decoration:underline;
 	color:dodgerblue;
 }
+.explain{
+	color: #1d7647;
+}
 .map{
-	border-top:3px solid #999999;
-	border-bottom:3px solid #999999;
+	border-top:3px solid #a0cab0;
+	border-bottom:3px solid #a0cab0;
 	height:450px;
 	width:1260px;
 	display:flex;
@@ -35,7 +38,7 @@ a:hover{
 }
 .flex{
 	flex:1;
-	border-bottom:3px solid #999999;
+	border-bottom:3px solid #a0cab0;
 	position:relative;
 	padding-top:6px;
 }

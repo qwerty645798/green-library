@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +18,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.library.controller.user.UserController;
+import com.library.dto.assets.InitiativeBookDto;
 import com.library.dto.assets.NotificationDetailDto;
 import com.library.dto.assets.NotificationDto;
-import com.library.dto.user.UserFindingIdDTO;
-import com.library.dto.user.UserJoinDTO;
+import com.library.dto.assets.PopularBookDto;
+import com.library.dto.user.account.UserFindingIdDTO;
+import com.library.dto.user.account.UserFindingPwDTO;
+import com.library.dto.user.account.UserJoinDTO;
+import com.library.service.assets.InitiativeBookService;
 import com.library.service.assets.NotificationDetailService;
 import com.library.service.assets.NotificationService;
+import com.library.service.assets.PopularBookService;
 import com.library.service.user.UserService;
 
 import jakarta.validation.Valid;
@@ -36,8 +42,21 @@ public class MainController {
 	@Qualifier("UserService")
 	UserService userService;
 
+	@Autowired
+	private InitiativeBookService initiativeBookService;
+	@Autowired
+	private PopularBookService popularBookService;
 	@GetMapping("/")
-	public String home() {
+	public String home(Model model) {
+		List<InitiativeBookDto> initiative=
+				initiativeBookService.getBookId();
+				model.addAttribute("items", initiative);
+		List<PopularBookDto> popular=
+				popularBookService.getBookId();
+				model.addAttribute("pops", popular);
+		List<NotificationDto> announce=
+				notificationService.findAnnounce2();
+				model.addAttribute("announce", announce);
 		return "index/index";
 	}
 
@@ -80,16 +99,34 @@ public class MainController {
 	}
 
 	@PostMapping("/userFindingId")
-	public String userFindingId(@ModelAttribute("user") @Valid UserFindingIdDTO userDTO, BindingResult result) {
-		if (result.hasErrors()) {// 미완성
-			return "redirect:/userFinding?message=invalidValue";
+	public String userFindingId(@ModelAttribute("user") @Valid UserFindingIdDTO userDTO, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			for (ObjectError error : result.getAllErrors()) {
+				logger.error("Validation error: {}", error.getDefaultMessage());
+			}
+			model.addAttribute("message", "유효하지 않은 입력입니다.");
+			return "public/userFinding";
 		}
-		// 미완성
-		return "redirect:/userLogin";
+		String userId = userService.findUserId(userDTO);
+		model.addAttribute("userId", userId);
+		return "public/userFinding";
 	}
-
+	
 	@PostMapping("/userFindingPw")
-	public String userFindingPw() {
+	public String userFindingPw(@ModelAttribute("user") @Valid UserFindingPwDTO userDTO, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			for (ObjectError error : result.getAllErrors()) {
+				logger.error("Validation error: {}", error.getDefaultMessage());
+			}
+			model.addAttribute("message", "유효하지 않은 입력입니다.");
+			return "public/userFinding";
+		}
+		boolean check = userService.checkUserInfo(userDTO);
+		if(check) {
+		model.addAttribute("userInfo", userDTO);
+		return "public/userFinding";
+		}
+		model.addAttribute("message", "사용자 정보가 유효하지 않습니다.");
 		return "public/userFinding";
 	}
 
