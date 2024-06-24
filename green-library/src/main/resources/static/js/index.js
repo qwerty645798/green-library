@@ -3,6 +3,7 @@ const booklong = document.getElementById('quick2');
 const hopebook = document.getElementById('quick3');
 const help = document.getElementById('quick4');
 const schedule = document.getElementById('quick5');
+const notiQuick = document.querySelector('.gotoNotify');
 
 const newbooks = document.querySelector('.newbook');
 const popbooks = document.querySelector('.popbook');
@@ -20,16 +21,23 @@ const tab = document.querySelectorAll('.bookTab li');
 const swipe = document.querySelector('.bookSwipe');
 const swipe2 = document.querySelector('.bookSwipe2');
 
+const bookQuick = document.querySelector('.tabCon2 img');
+
+
+
 
 
 //바로가기 이동 함수
 function quickPage(){
-	usetime.onclick = () => {window.location.href}
-	booklong.onclick = () => {window.location.href}
-	hopebook.onclick = () => {window.location.href}
-	help.onclick = () => {window.location.href}
-	schedule.onclick = () => {window.location.href}
+	usetime.onclick = () => {window.location.href='placeUsetime';}
+	booklong.onclick = () => {window.location.href='bookLoanExtension';}
+	hopebook.onclick = () => {window.location.href='hopeBookApply';}
+	help.onclick = () => {window.location.href='oftenAsk';}
+	schedule.onclick = () => {window.location.href='schedule';}
+	notiQuick.onclick = () => {window.location.href='notification';}
 }
+
+window.onload=quickPage();
 
 //슬라이드 함수
 function slide(){
@@ -81,19 +89,29 @@ window.onload = slide2();
 
 
 function booktab(){
+	if(tab[0].classList.contains("here")){
+		bookQuick.onclick = () => {
+			window.location.href='initiativeBook';
+		}
+	}
 	tab[0].onclick = () => {
 		tab[0].classList.add("here");
 		tab[1].classList.remove("here");
 		swipe.style.display = "flex";
 		swipe2.style.display = "none";
+		
 	}
 	tab[1].onclick = () => {
 		tab[0].classList.remove("here");
 		tab[1].classList.add("here");
 		swipe.style.display = "none";
 		swipe2.style.display = "flex";
+		bookQuick.onclick = () => {
+			window.location.href='popularBook';
+		}
 	}
 }
+
 
 window.onload = booktab();
 
