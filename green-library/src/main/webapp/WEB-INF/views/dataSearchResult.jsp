@@ -158,7 +158,6 @@
 
 <script>	
 	window.onload = function(){
-		console.log("total : ", ${totalPages});
         hideFirstTime(${totalPages});	
         showPage(1,${totalPages});
 	};
