@@ -1,12 +1,14 @@
 package com.library.repository.admin;
 
 import com.library.dto.admin._normal.AdminDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
+@Transactional
 @Repository
 public class AdminRepositoryImpl implements AdminRepository {
 
@@ -18,7 +20,7 @@ public class AdminRepositoryImpl implements AdminRepository {
 
     @Override
     public List<AdminDTO> allAdminManage() {
-        String sql = "SELECT ADMIN_ID, ADMIN_PASS, ADMIN_EMAIL, GRANT_RANK FROM ADMINS";
+        String sql = "select ADMIN_ID, ADMIN_PASS, ADMIN_EMAIL, GRANT_RANK from ADMINS";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             AdminDTO admin = new AdminDTO();
             admin.setAdminId(rs.getString("ADMIN_ID"));
@@ -32,7 +34,11 @@ public class AdminRepositoryImpl implements AdminRepository {
     @Override
     public AdminDTO getMyInfo(String adminId) {
         String sql = "SELECT ADMIN_ID, ADMIN_PASS, ADMIN_EMAIL, GRANT_RANK FROM ADMINS WHERE ADMIN_ID = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{adminId}, (rs, rowNum) -> {
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, adminId);
+            return ps;
+        }, rs -> {
             AdminDTO admin = new AdminDTO();
             admin.setAdminId(rs.getString("ADMIN_ID"));
             admin.setAdminPass(rs.getString("ADMIN_PASS"));
@@ -45,7 +51,12 @@ public class AdminRepositoryImpl implements AdminRepository {
     @Override
     public AdminDTO loginAdmin(String adminId, String adminPass) {
         String sql = "SELECT ADMIN_ID, ADMIN_PASS FROM ADMINS WHERE ADMIN_ID = ? AND ADMIN_PASS = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{adminId, adminPass}, (rs, rowNum) -> {
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, adminId);
+            ps.setString(2, adminPass);
+            return ps;
+        }, rs -> {
             AdminDTO admin = new AdminDTO();
             admin.setAdminId(rs.getString("ADMIN_ID"));
             admin.setAdminPass(rs.getString("ADMIN_PASS"));

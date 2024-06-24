@@ -3,13 +3,16 @@ package com.library.repository.admin;
 import com.library.dto.admin._normal.BookDTO;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Transactional
 @Repository("AdminBookRepository")
-public class BookRepositoryImpl implements BookRepository{
+public class BookRepositoryImpl implements BookRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -31,8 +34,10 @@ public class BookRepositoryImpl implements BookRepository{
 
     // 모든 책 목록 조회
     public List<BookDTO> allHavingBookManage() {
-        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, "
-                   + "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS";
+        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, " +
+                "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS " +
+                "JOIN AUTHORS ON BOOKS.AUTHOR_ID = AUTHORS.AUTHOR_ID " +
+                "JOIN PUBLISHERS ON BOOKS.PUBLISHER_ID = PUBLISHERS.PUBLISHER_ID";
 
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             BookDTO book = new BookDTO();
@@ -49,11 +54,17 @@ public class BookRepositoryImpl implements BookRepository{
 
     // 제목으로 책 검색
     public List<BookDTO> findBookByTitle(String title) {
-        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, "
-                   + "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS WHERE TITLE LIKE ?";
+        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, " +
+                "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS " +
+                "JOIN AUTHORS ON BOOKS.AUTHOR_ID = AUTHORS.AUTHOR_ID " +
+                "JOIN PUBLISHERS ON BOOKS.PUBLISHER_ID = PUBLISHERS.PUBLISHER_ID " +
+                "WHERE TITLE LIKE ?";
         String queryParam = "%" + title + "%";
-
-        return jdbcTemplate.query(sql, new Object[]{queryParam}, (rs, rowNum) -> {
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, queryParam);
+            return ps;
+        }, (rs, rowNum) -> {
             BookDTO book = new BookDTO();
             book.setBookId(rs.getInt("book_id"));
             book.setTitle(rs.getString("title"));
@@ -68,11 +79,18 @@ public class BookRepositoryImpl implements BookRepository{
 
     // 저자로 책 검색
     public List<BookDTO> findBookByAuthor(String authorName) {
-        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, "
-                   + "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS WHERE AUTHOR_NAME LIKE ?";
+        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, " +
+                "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS " +
+                "JOIN AUTHORS ON BOOKS.AUTHOR_ID = AUTHORS.AUTHOR_ID " +
+                "JOIN PUBLISHERS ON BOOKS.PUBLISHER_ID = PUBLISHERS.PUBLISHER_ID " +
+                "WHERE AUTHOR_NAME LIKE ?";
         String queryParam = "%" + authorName + "%";
 
-        return jdbcTemplate.query(sql, new Object[]{queryParam}, (rs, rowNum) -> {
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, queryParam);
+            return ps;
+        }, (rs, rowNum) -> {
             BookDTO book = new BookDTO();
             book.setBookId(rs.getInt("book_id"));
             book.setTitle(rs.getString("title"));
@@ -87,11 +105,18 @@ public class BookRepositoryImpl implements BookRepository{
 
     // 십진분류로 책 검색
     public List<BookDTO> findBookByGenre(String genreFullName) {
-        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, "
-                   + "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS WHERE GENRE_FULLNAME LIKE ?";
-        String queryParam = genreFullName + "%";
+        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, " +
+                "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS " +
+                "JOIN AUTHORS ON BOOKS.AUTHOR_ID = AUTHORS.AUTHOR_ID " +
+                "JOIN PUBLISHERS ON BOOKS.PUBLISHER_ID = PUBLISHERS.PUBLISHER_ID " +
+                "WHERE GENRE_FULLNAME LIKE ?";
+        String queryParam = "%" + genreFullName + "%";
 
-        return jdbcTemplate.query(sql, new Object[]{queryParam}, (rs, rowNum) -> {
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, queryParam);
+            return ps;
+        }, (rs, rowNum) -> {
             BookDTO book = new BookDTO();
             book.setBookId(rs.getInt("book_id"));
             book.setTitle(rs.getString("title"));
@@ -106,20 +131,14 @@ public class BookRepositoryImpl implements BookRepository{
 
     // 책 등록
     public int createBook(BookDTO book) {
-        String sql = "INSERT INTO BOOKS (BOOK_ID, GENRE_FULLNAME, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, ISBN, LOCATION, IMG, SUMMARY) "
-                   + "VALUES (BOOK.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(sql, book.getGenreFullname(), book.getTitle(), book.getAuthorName(),
-                                   book.getPublisherName(), book.getPublicationDate(), book.getIsbn(),
-                                   book.getLocation(), book.getImg(), book.getSummary());
+        String sql = "INSERT INTO BOOKS (BOOK_ID, GENRE_FULLNAME, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, ISBN, LOCATION, IMG, SUMMARY) " + "VALUES (BOOK.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, book.getGenreFullname(), book.getTitle(), author.getAuthorName(), book.getPublisherName(), book.getPublicationDate(), book.getIsbn(), book.getLocation(), book.getImg(), book.getSummary());
     }
 
     // 책 수정
     public int updateBook(BookDTO book) {
-        String sql = "UPDATE BOOKS SET GENRE_FULLNAME = ?, TITLE = ?, AUTHOR_NAME = ?, PUBLISHER_NAME = ?, PUBLICATION_DATE = ?, "
-                   + "ISBN = ?, LOCATION = ?, IMG = ?, SUMMARY = ? WHERE BOOK_ID = ?";
-        return jdbcTemplate.update(sql, book.getGenreFullname(), book.getTitle(), book.getAuthorName(),
-                                   book.getPublisherName(), book.getPublicationDate(), book.getIsbn(),
-                                   book.getLocation(), book.getImg(), book.getSummary(), book.getBookId());
+        String sql = "UPDATE BOOKS SET GENRE_FULLNAME = ?, TITLE = ?, AUTHOR_NAME = ?, PUBLISHER_NAME = ?, PUBLICATION_DATE = ?, " + "ISBN = ?, LOCATION = ?, IMG = ?, SUMMARY = ? WHERE BOOK_ID = ?";
+        return jdbcTemplate.update(sql, book.getGenreFullname(), book.getTitle(), book.getAuthorName(), book.getPublisherName(), book.getPublicationDate(), book.getIsbn(), book.getLocation(), book.getImg(), book.getSummary(), book.getBookId());
     }
 
     // 책 삭제
@@ -130,9 +149,17 @@ public class BookRepositoryImpl implements BookRepository{
 
     // 특정 도서 상세 조회
     public BookDTO getBookById(int bookId) {
-        String sql = "SELECT BOOK_ID, GENRE_FULLNAME, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, ISBN, LOCATION, IMG, SUMMARY "
-                   + "FROM BOOKS WHERE BOOK_ID = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{bookId}, (rs, rowNum) -> {
+        String sql = "SELECT BOOK_ID, GENRE_FULLNAME, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, ISBN, LOCATION, IMG, SUMMARY " +
+                "FROM BOOKS " +
+                "JOIN AUTHORS ON BOOKS.AUTHOR_ID = AUTHORS.AUTHOR_ID " +
+                "JOIN PUBLISHERS ON BOOKS.PUBLISHER_ID = PUBLISHERS.PUBLISHER_ID " +
+                "WHERE BOOK_ID = ?";
+
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, bookId);
+            return ps;
+        }, rs -> {
             BookDTO book = new BookDTO();
             book.setBookId(rs.getInt("book_id"));
             book.setGenreFullname(rs.getString("genre_fullname"));
@@ -150,13 +177,15 @@ public class BookRepositoryImpl implements BookRepository{
 
     // 이전 도서 제목 조회
     public String previousBook(int bookId) {
-        String sql = "SELECT TITLE FROM BOOKS WHERE BOOK_ID < ? ORDER BY BOOK_ID DESC LIMIT 1";
-        return jdbcTemplate.queryForObject(sql, new Object[]{bookId}, String.class);
+        String sql = "SELECT TITLE FROM (SELECT TITLE, ROWNUM AS rnum FROM BOOKS WHERE BOOK_ID < ? ORDER BY BOOK_ID DESC) WHERE rnum = 1";
+        return jdbcTemplate.queryForObject(sql, String.class, bookId);
     }
+
 
     // 다음 도서 제목 조회
     public String nextBook(int bookId) {
-        String sql = "SELECT TITLE FROM BOOKS WHERE BOOK_ID > ? ORDER BY BOOK_ID ASC LIMIT 1";
-        return jdbcTemplate.queryForObject(sql, new Object[]{bookId}, String.class);
+        String sql = "SELECT TITLE FROM (SELECT TITLE, ROWNUM AS rnum FROM BOOKS WHERE BOOK_ID > ? ORDER BY BOOK_ID) WHERE rnum = 1";
+        return jdbcTemplate.queryForObject(sql, String.class, bookId);
     }
+
 }

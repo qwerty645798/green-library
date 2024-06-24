@@ -85,14 +85,14 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
 
     @Override
     public void acceptsAcquisition(Integer requestId) {
-        String sql = "UPDATE WISHLISTS SET REQUEST_STATUS = ? WHERE REQUEST_ID = ?";
+        String sql = "UPDATE WISHLISTS SET COMPLETE = ? WHERE WISHLIST_ID = ?";
         String complete = "1";
         jdbcTemplate.update(sql, complete, requestId);
     }
 
     @Override
     public void deleteAcquisition(Integer requestId) {
-        String sql = "DELETE FROM WISHLISTS WHERE REQUEST_ID = ?";
+        String sql = "DELETE FROM WISHLISTS WHERE WISHLIST_ID = ?";
         jdbcTemplate.update(sql, requestId);
     }
 }

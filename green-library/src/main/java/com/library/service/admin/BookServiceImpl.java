@@ -2,18 +2,22 @@ package com.library.service.admin;
 
 import com.library.dto.admin._normal.BookDTO;
 import com.library.repository.admin.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.library.dto.admin._normal.BookDTO;
-import com.library.repository.admin.BookRepository;
+import java.util.List;
 
+@Transactional
 @Service("AdminBookService")
 public class BookServiceImpl implements BookService{
 
     @Qualifier("AdminBookRepository")
     private BookRepository bookRepository;
+
+    public BookServiceImpl(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     // 모든 책 조회
     public List<BookDTO> allHavingBookManage() {
