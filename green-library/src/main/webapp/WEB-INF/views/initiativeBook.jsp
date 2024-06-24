@@ -12,15 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/initiativeBook.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
-<script>
-    function showPage(pageNumber) {
-        document.querySelectorAll('.page').forEach(function(page) {
-            page.classList.add('hidden');
-        });
-        
-        document.getElementById('page_' + pageNumber).classList.remove('hidden');
-    }
-</script>
+<script src="js/popInitiBook.js"></script>
     
 </head>
 <body>
@@ -55,11 +47,11 @@
 	                    
                    		<ul class="bookInfo">
                    			<li><span><a href="bookDetail?bookId=${items[index].book_id}">
-                   			제목: ####</a></span></li><hr>
-                   			<li>저자 <span class="border">|</span> ####</li>
-                   			<li>출판사 <span class="border">|</span> ####</li>
-                   			<li>발행년도 <span class="border">|</span> ####</li>
-                   			<li>대출상태 <span class="border">|</span> ####</li>
+                   			제목: ${items[index].title}</a></span></li><hr>
+                   			<li>저자 <span class="border">|</span> ${items[index].authorName}</li>
+                   			<li>출판사 <span class="border">|</span> ${items[index].publisherName}</li>
+                   			<li>발행년도 <span class="border">|</span> ${items[index].publicationDate}</li>
+                   			<li>대출상태 <span class="border">|</span> ${items[index].availability}</li>
                    		</ul>
                    	
                     </div>
@@ -86,11 +78,11 @@
 	                    
                    		<ul class="bookInfo">
                    			<li><span><a href="bookDetail?bookId=${items[index].book_id}">
-                   			제목: ####</a></span></li><hr>
-                   			<li>저자 <span class="border">|</span> ####</li>
-                   			<li>출판사 <span class="border">|</span> ####</li>
-                   			<li>발행년도 <span class="border">|</span> ####</li>
-                   			<li>대출상태 <span class="border">|</span> ####</li>
+                   			제목: ${items[index].title}</a></span></li><hr>
+                   			<li>저자 <span class="border">|</span> ${items[index].authorName}</li>
+                   			<li>출판사 <span class="border">|</span> ${items[index].publisherName}</li>
+                   			<li>발행년도 <span class="border">|</span> ${items[index].publicationDate}</li>
+                   			<li>대출상태 <span class="border">|</span> ${items[index].availability}</li>
                    		</ul>
                    	
                     </div>
@@ -116,11 +108,11 @@
 	                    
                    		<ul class="bookInfo">
                    			<li><span><a href="bookDetail?bookId=${items[index].book_id}">
-                   			제목: ####</a></span></li><hr>
-                   			<li>저자 <span class="border">|</span> ####</li>
-                   			<li>출판사 <span class="border">|</span> ####</li>
-                   			<li>발행년도 <span class="border">|</span> ####</li>
-                   			<li>대출상태 <span class="border">|</span> ####</li>
+                   			제목: ${items[index].title}</a></span></li><hr>
+                   			<li>저자 <span class="border">|</span> ${items[index].authorName}</li>
+                   			<li>출판사 <span class="border">|</span> ${items[index].publisherName}</li>
+                   			<li>발행년도 <span class="border">|</span> ${items[index].publicationDate}</li>
+                   			<li>대출상태 <span class="border">|</span> ${items[index].availability}</li>
                    		</ul>
                    	
                     </div>
@@ -135,19 +127,11 @@
 	
 	
 <div class="arrCon">
-
-
-
-<img class="arrow" src="images/goback.png" onclick="showPage(${pageIndex})">
-
-<div class="button_box">
-	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-		<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
-    </c:forEach>
-</div>
-
-<img class="arrow" src="images/go.png" onclick="showPage(${pageIndex})">
-
+	<div class="button_box">
+		<c:forEach var="pageIndex" begin="1" end="${totalPages}">
+			<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+	    </c:forEach>
+	</div>
 </div>
 
 

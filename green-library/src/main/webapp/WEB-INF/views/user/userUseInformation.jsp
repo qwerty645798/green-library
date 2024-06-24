@@ -71,7 +71,7 @@
 				</div>
 			</div>
 			<div class="container" style="margin-top: 60px;">
-			<iframe src="useInformationBoard" width="1260" height="600" id="iframe"></iframe>
+			<iframe src="useInformationBoard?condition=rentHistory" width="1260" height="600" id="iframe"></iframe>
 			</div>
 		</main>
 	</div>

@@ -42,5 +42,30 @@
 		var tr = event.target.closest('tr');
 	    var announcementId = tr.querySelector('.num_table').textContent.trim();
 	    url += announcementId;
-		window.location.href = url;
+	    
+	    window.location.href = url;
+	    
+	    
+	    /*
+	    $.ajax({
+        type: "POST",
+	        url: "/incrementViewCount", // 컨트롤러에서 매핑한 URL
+	        data: {
+	            announcementId: announcementId
+	        },
+	        success: function(response) {
+	            // 조회수 증가 성공 후 페이지 이동
+	            window.location.href = url;
+	        },
+	        error: function(xhr, status, error) {
+	            console.error("조회수 증가 처리 중 문제 발생 : " + error);
+	        }
+	    });*/
+	    
 	}
+	
+	
+	
+	
+	
+	

@@ -2,70 +2,70 @@ package com.library.mapper.user;
 
 import org.springframework.stereotype.Component;
 
-import com.library.dto.user.UserInfoDto;
-import com.library.dto.user.UserInfoModificationDto;
-import com.library.dto.user.UserJoinDto;
-import com.library.dto.user.UserLoginDto;
+import com.library.dto.user.account.UserJoinDTO;
+import com.library.dto.user.account.UserLoginDTO;
+import com.library.dto.user.profile.UserInfoDTO;
+import com.library.dto.user.profile.UserInfoModificationDTO;
 import com.library.entity.Users;
 
 @Component("UserMapper")
 public class UserMapperImpl implements UserMapper {
 
 	@Override
-	public UserLoginDto toUserLoginDto(Users user) {
+	public UserLoginDTO toUserLoginDTO(Users user) {
 		if (user == null) {
 			return null;
 		}
 
-		UserLoginDto userLoginDto = new UserLoginDto();
-		userLoginDto.setUser_id(user.getUser_id());
-		userLoginDto.setUser_pass(user.getUser_pass());
+		UserLoginDTO userLoginDTO = new UserLoginDTO();
+		userLoginDTO.setUser_id(user.getUser_id());
+		userLoginDTO.setUser_pass(user.getUser_pass());
 
-		return userLoginDto;
+		return userLoginDTO;
 	}
 
 	@Override
-	public UserInfoDto toUserInfoDto(Users user) {
+	public UserInfoDTO toUserInfoDTO(Users user) {
 		if (user == null) {
 			return null;
 		}
-		UserInfoDto userInfoDto = new UserInfoDto();
-		userInfoDto.setUser_id(user.getUser_id());
-		userInfoDto.setName(user.getName());
-		userInfoDto.setBirth(user.getBirth());
-		userInfoDto.setPhone(user.getPhone());
-		userInfoDto.setEmail(user.getEmail());
+		UserInfoDTO userInfoDTO = new UserInfoDTO();
+		userInfoDTO.setUser_id(user.getUser_id());
+		userInfoDTO.setName(user.getName());
+		userInfoDTO.setBirth(user.getBirth());
+		userInfoDTO.setPhone(user.getPhone());
+		userInfoDTO.setEmail(user.getEmail());
 
-		return userInfoDto;
+		return userInfoDTO;
 	}
 
 	@Override
-	public Users toEntity(UserInfoModificationDto userDto) {
-		if (userDto == null) {
+	public Users toEntity(UserInfoModificationDTO userDTO) {
+		if (userDTO == null) {
 			return null;
 		}
 
 		Users user = new Users();
-		user.setUser_pass(userDto.getUser_pass());
-		user.setEmail(userDto.getEmail());
-		user.setPhone(userDto.getPhone());
+		user.setUser_pass(userDTO.getUser_pass());
+		user.setEmail(userDTO.getEmail());
+		user.setPhone(userDTO.getPhone());
 
 		return user;
 	}
 
 	@Override
-	public Users toEntity(UserJoinDto userDto) {
-		if (userDto == null) {
+	public Users toEntity(UserJoinDTO userDTO) {
+		if (userDTO == null) {
 			return null;
 		}
 
 		Users user = new Users();
-		user.setUser_id(userDto.getUser_id());
-		user.setUser_pass(userDto.getUser_pass());
-		user.setName(userDto.getName());
-		user.setEmail(userDto.getEmail());
-		user.setPhone(userDto.getPhone());
-		user.setBirth(userDto.getBirth());
+		user.setUser_id(userDTO.getUser_id());
+		user.setUser_pass(userDTO.getUser_pass());
+		user.setName(userDTO.getName());
+		user.setEmail(userDTO.getEmail());
+		user.setPhone(userDTO.getPhone());
+		user.setBirth(userDTO.getBirth());
 
 		return user;
 	}

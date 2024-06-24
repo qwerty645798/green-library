@@ -1,0 +1,163 @@
+package com.library.repository.user;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.library.dto.user.inquiry.UserBorrowDTO;
+import com.library.dto.user.inquiry.UserInterestDTO;
+import com.library.dto.user.inquiry.UserRentHistoryDTO;
+import com.library.dto.user.inquiry.UserReserveDTO;
+
+@Repository("UserInquiryRepository")
+public class InquiryRepositoryImpl implements InquiryRepository {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Override
+    public List<UserRentHistoryDTO> getUserRentHistory(String userId) {
+        String sql = "SELECT " +
+                     "    ROWNUM AS no, " +
+                     "    r.rent_num AS rentNum, " +
+                     "    b.title AS bookTitle, " +
+                     "    r.rent_history AS rentDate, " +
+                     "    r.return_date AS returnDate, " +
+                     "    CASE " +
+                     "        WHEN r.returned = '1' THEN '반납완료' " +
+                     "        ELSE '대출중' " +
+                     "    END AS status " +
+                     "FROM " +
+                     "    rents r " +
+                     "JOIN " +
+                     "    books b ON r.book_id = b.book_id " +
+                     "WHERE " +
+                     "    r.user_id = ? " +
+                     "ORDER BY " +
+                     "    r.rent_num";
+
+        return jdbcTemplate.query(sql, new RowMapper<UserRentHistoryDTO>() {
+            @Override
+            public UserRentHistoryDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                UserRentHistoryDTO history = new UserRentHistoryDTO();
+                history.setNo(rs.getInt("no"));
+                history.setRentNum(rs.getInt("rentNum"));
+                history.setBookTitle(rs.getString("bookTitle"));
+                history.setRentDate(rs.getDate("rentDate").toLocalDate());
+                history.setReturnDate(rs.getDate("returnDate").toLocalDate());
+                history.setStatus(rs.getString("status"));
+                return history;
+            }
+        }, userId);
+    }
+
+    @Override
+    public List<UserBorrowDTO> getUserBorrow(String userId) {
+        String sql = "SELECT " +
+                     "    ROWNUM AS no, " +
+                     "    r.rent_num AS rentNum, " +
+                     "    b.title AS bookTitle, " +
+                     "    r.rent_history AS rentDate, " +
+                     "    r.return_date AS returnDate, " +
+                     "    CASE " +
+                     "        WHEN r.return_date < SYSDATE THEN '연체' " +
+                     "        ELSE '미납' " +
+                     "    END AS status " +
+                     "FROM " +
+                     "    rents r " +
+                     "JOIN " +
+                     "    books b ON r.book_id = b.book_id " +
+                     "WHERE " +
+                     "    r.user_id = ? " +
+                     "ORDER BY " +
+                     "    r.rent_num";
+
+        return jdbcTemplate.query(sql, new RowMapper<UserBorrowDTO>() {
+            @Override
+            public UserBorrowDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                UserBorrowDTO history = new UserBorrowDTO();
+                history.setNo(rs.getInt("no"));
+                history.setRentNum(rs.getInt("rentNum"));
+                history.setBookTitle(rs.getString("bookTitle"));
+                history.setRentDate(rs.getDate("rentDate").toLocalDate());
+                history.setReturnDate(rs.getDate("returnDate").toLocalDate());
+                history.setStatus(rs.getString("status"));
+                return history;
+            }
+        }, userId);
+    }
+
+    @Override
+    public List<UserReserveDTO> getUserReserve(String userId) {
+        String sql = "SELECT " +
+                     "    ROWNUM AS no, " +
+                     "    r.reservation_id AS reservationId, " +
+                     "    b.title AS bookTitle, " +
+                     "    r.reservation_date AS reservationDate, " +
+                     "    CASE " +
+                     "        WHEN b.availability = '0' THEN '대출불가능' " +
+                     "        ELSE '대출가능' " +
+                     "    END AS availability, " +
+                     "    DENSE_RANK() OVER (PARTITION BY r.book_id ORDER BY r.reservation_date) AS reservationRank " +
+                     "FROM " +
+                     "    reservations r " +
+                     "JOIN " +
+                     "    books b ON r.book_id = b.book_id " +
+                     "WHERE " +
+                     "    r.user_id = ? " +
+                     "ORDER BY " +
+                     "    r.reservation_id";
+
+        return jdbcTemplate.query(sql, new RowMapper<UserReserveDTO>() {
+            @Override
+            public UserReserveDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                UserReserveDTO reserve = new UserReserveDTO();
+                reserve.setNo(rs.getInt("no"));
+                reserve.setReservationId(rs.getInt("reservationId"));
+                reserve.setBookTitle(rs.getString("bookTitle"));
+                reserve.setReservationDate(rs.getDate("reservationDate").toLocalDate());
+                reserve.setAvailability(rs.getString("availability"));
+                reserve.setReservationRank(rs.getInt("reservationRank"));
+                return reserve;
+            }
+        }, userId);
+    }
+
+    @Override
+    public List<UserInterestDTO> getUserInterest(String userId) {
+        String sql = "SELECT " +
+                     "    ROWNUM AS no, " +
+                     "    ib.interest_id AS interestId, " +
+                     "    b.title AS bookTitle, " +
+                     "    a.author_name AS bookAuthor, " +
+                     "    CASE WHEN b.availability = '1' THEN '대출가능' ELSE '대출불가' END AS availability " +
+                     "FROM " +
+                     "    interested_books ib " +
+                     "JOIN " +
+                     "    books b ON ib.book_id = b.book_id " +
+                     "JOIN " +
+                     "    authors a ON b.author_id = a.author_id " +
+                     "WHERE " +
+                     "    ib.user_id = ? " +
+                     "ORDER BY " +
+                     "    ib.interest_id";
+
+        return jdbcTemplate.query(sql, new RowMapper<UserInterestDTO>() {
+            @Override
+            public UserInterestDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                UserInterestDTO interest = new UserInterestDTO();
+                interest.setNo(rs.getInt("no"));
+                interest.setInterestId(rs.getInt("interestId"));
+                interest.setBookTitle(rs.getString("bookTitle"));
+                interest.setBookAuthor(rs.getString("bookAuthor"));
+                interest.setAvailability(rs.getString("availability"));
+                return interest;
+            }
+        }, userId);
+    }
+}

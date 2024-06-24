@@ -13,15 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/popularBook.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
-<script>
-    function showPage(pageNumber) {
-        document.querySelectorAll('.page').forEach(function(page) {
-            page.classList.add('hidden');
-        });
-        
-        document.getElementById('page_' + pageNumber).classList.remove('hidden');
-    }
-</script>
+<script src="js/popInitiBook.js"></script>
 
 </head>
 <body>
@@ -77,7 +69,7 @@
 								<th>출판사</th>
 								<td class="bar">${items[index].publisherName}</td>
 								<th class="right">발행년도</th>
-								<td class="bar">####</td>
+								<td class="bar">${items[index].publicationDate}</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
@@ -133,7 +125,7 @@
 								<th>출판사</th>
 								<td class="bar">${items[index].publisherName}</td>
 								<th class="right">발행년도</th>
-								<td class="bar">####</td>
+								<td class="bar">${items[index].publicationDate}</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
@@ -176,7 +168,6 @@
 					<div class="book_table">
 						<table>
 							<tr>
-								
 								<td colspan="3">
 								<span 
 								onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'">
@@ -190,7 +181,7 @@
 								<th>출판사</th>
 								<td class="bar">${items[index].publisherName}</td>
 								<th class="right">발행년도</th>
-								<td class="bar">####</td>
+								<td class="bar">${items[index].publicationDate}</td>
 							</tr>
 							<tr>
 								<th>대출 가능 여부</th>
@@ -214,24 +205,14 @@
 </div>
 
 <div class="arrCon">
-
-<img class="arrow" src="images/goback.png" onclick="showPage(1)">
-
-<div class="button_box">
-	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-		<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
-    </c:forEach>
+	<div class="button_box">
+		<c:forEach var="pageIndex" begin="1" end="${totalPages}">
+			<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+	    </c:forEach>
+	</div>
 </div>
 
-<img class="arrow" src="images/go.png" onclick="showPage(2)">
 
-</div>
-
-<%-- <div class="button_box">
-	<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
-    </c:forEach>
-</div> --%>
 
 </main>
 

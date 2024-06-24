@@ -9,4 +9,10 @@ public interface UserRepository {
 
 	int insertUserInfo(Users user, String hashedPassword);
 
+	int deleteUser(String userId);
+
+	Users getUsersEntity(String name, String birth, String email);
+
+	Users getUsersEntity(String userId, String name, String birth, String email);
+
 }

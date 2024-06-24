@@ -17,4 +17,12 @@ public class NotificationService {
 	public List<NotificationDto> findAnnounce(String inputCategory, String inputText) {
 		return notificationRepository.findNotification(inputCategory, inputText);
 	}
+	
+	public List<NotificationDto> findAnnounce2() {
+		return notificationRepository.findNotification2();
+	}
+	
+	public void incrementViewCount(int announcementId) {
+		notificationRepository.incrementViewCount(announcementId);
+	}
 }

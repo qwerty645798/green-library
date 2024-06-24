@@ -1,31 +1,23 @@
 package com.library.dto.assets;
 
+import java.sql.Date;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class InitiativeBookDto {
 	
 	private int book_id;
 	private String img;
 	
-
-	public int getBook_id() {
-		return book_id;
-	}
-
-	public void setBook_id(int book_id) {
-		this.book_id = book_id;
-	}
+	private String title;
+	private String authorName;
+	private String publisherName;
+	private Date publicationDate;
+	private String availability;
 	
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
-	@Override
-	public String toString() {
-		return "InitiativeBookDto [book_id=" + book_id + ", img=" + img + "]";
-	}
 
 	
 }

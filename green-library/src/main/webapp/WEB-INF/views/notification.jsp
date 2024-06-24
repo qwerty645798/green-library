@@ -13,32 +13,6 @@
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 <link rel="stylesheet" type="text/css" href="css/notification.css">
 
-<style>
-    .hidden {
-        display: none;
-    }
-    
-    .button_box{
-		display: flex;
-		width:1260px;
-		margin: 0 auto;
-		
-		justify-content: center;
-		align-items: center;
-		margin-top: 20px;
-		box-sizing: border-box;
-	}
-	
-	.button_box input[type="button"]{
-		background-color: #64B883;
-		border-radius : 5px;
-		border: none;
-		width: 40px;
-		margin-right: 10px;
-		margin-left:10px;
-	}
-</style>
-
 </head>
 
 
@@ -81,7 +55,8 @@
 		</div>
 		<div class="text_box4">
 			<input type="text" value="검색어를 입력하세요" onfocus="want_search(event)" onblur="zero_back(event)" onkeypress="checkEnter(event)">
-			<input type="button" value="검색" onclick="lets_search(event)">
+<!--			<input type="button" value="검색" onclick="lets_search(event)">-->
+			<img src="/images/searchBtn.png" onclick="lets_search(event)">
 		</div>
 	</div>
 </div>

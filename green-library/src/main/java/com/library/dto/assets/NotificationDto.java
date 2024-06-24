@@ -2,6 +2,12 @@ package com.library.dto.assets;
 
 import java.sql.Date;
 
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class NotificationDto {
 	
 	private int announcementId;
@@ -10,38 +16,7 @@ public class NotificationDto {
 	private Date writeDate;
 	private String contents;
 	
-	public int getAnnouncementId() {
-		return announcementId;
-	}
-	public void setAnnouncementId(int announcementId) {
-		this.announcementId = announcementId;
-	}
-	public String getWriterId() {
-		return writerId;
-	}
-	public void setWriterId(String writerId) {
-		this.writerId = writerId;
-	}
-	public String getAnnouncementTitle() {
-		return announcementTitle;
-	}
-	public void setAnnouncementTitle(String announcementTitle) {
-		this.announcementTitle = announcementTitle;
-	}
-	public Date getWriteDate() {
-		return writeDate;
-	}
-	public void setWriteDate(Date writeDate) {
-		this.writeDate = writeDate;
-	}
-	public String getContents() {
-		return contents;
-	}
-	public void setContents(String contents) {
-		this.contents = contents;
-	}
-	
-	
-	
+	@NotBlank(message = "조회수가 입력되지 않았습니다.")
+	private int viewCount;
 	
 }

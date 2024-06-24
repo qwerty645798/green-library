@@ -2,12 +2,12 @@ package com.library.service.admin;
 
 import com.library.dto.admin._normal.BookDTO;
 import com.library.repository.admin.BookRepository;
-import com.library.repository.admin.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.library.dto.admin._normal.BookDTO;
+import com.library.repository.admin.BookRepository;
 
 @Service("AdminBookService")
 public class BookServiceImpl implements BookService{

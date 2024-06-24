@@ -1,4 +1,21 @@
--- 테이블 삭제
+-- 전체 시퀀스와 테이블 제거
+DROP SEQUENCE author_idx;
+DROP SEQUENCE publisher_idx;
+DROP SEQUENCE book_idx;
+DROP SEQUENCE announce_idx;
+DROP SEQUENCE inquiry_idx;
+DROP SEQUENCE response_idx;
+DROP SEQUENCE suspend_idx;
+DROP SEQUENCE rents_idx;
+DROP SEQUENCE wishlist_idx;
+DROP SEQUENCE reservation_idx;
+DROP SEQUENCE interest_idx;
+
+DROP INDEX idx_rents_user_id;
+DROP INDEX idx_rents_book_id;
+DROP INDEX idx_interest_user_id;
+DROP INDEX idx_interest_book_id;
+
 DROP TABLE reservations CASCADE CONSTRAINTS;
 DROP TABLE wishlists CASCADE CONSTRAINTS;
 DROP TABLE user_genres CASCADE CONSTRAINTS;
@@ -14,24 +31,14 @@ DROP TABLE genres CASCADE CONSTRAINTS;
 DROP TABLE users CASCADE CONSTRAINTS;
 DROP TABLE publishers CASCADE CONSTRAINTS;
 DROP TABLE authors CASCADE CONSTRAINTS;
-
--- 시퀀스 삭제
-DROP SEQUENCE author_idx;
-DROP SEQUENCE publisher_idx;
-DROP SEQUENCE book_idx;
-DROP SEQUENCE announce_idx;
-DROP SEQUENCE inquiry_idx;
-DROP SEQUENCE response_idx;
-DROP SEQUENCE suspend_idx;
-DROP SEQUENCE rents_idx;
-DROP SEQUENCE wishlist_idx;
-DROP SEQUENCE reservation_idx;
+DROP TABLE interested_books CASCADE CONSTRAINTS;
 
 -- 작가
 CREATE TABLE authors (
     author_id NUMBER(10) PRIMARY KEY,
     author_name VARCHAR2(20)
 );
+
 -- 출판사
 CREATE TABLE publishers (
     publisher_id NUMBER(10) PRIMARY KEY,
@@ -55,8 +62,6 @@ CREATE TABLE users (
     overdue_count NUMBER(10) DEFAULT 0,
     suspended CHAR(1) DEFAULT '0' CHECK (suspended IN ('0', '1'))
 );
--- user_pass 칼럼 varchar2(20) -> varchar2(80)으로 변경
--- alter table users modify user_pass varchar2(80);
 
 -- 책
 CREATE TABLE books (
@@ -107,7 +112,7 @@ CREATE TABLE inquiries (
     inquiry_date DATE,
     inquiry_title VARCHAR2(50),
     contents VARCHAR2(500),
-    responserTF CHAR(1) DEFAULT '1' CHECK (responserTF IN ('0', '1')),
+    responserTF CHAR(1) DEFAULT '0' CHECK (responserTF IN ('0', '1')),
     user_id VARCHAR2(20) REFERENCES users(user_id)
 );
 
@@ -168,6 +173,14 @@ CREATE TABLE reservations (
     reservation_date DATE
 );
 
+-- 테이블 추가
+-- 관심 도서
+CREATE TABLE interested_books (
+    interest_id NUMBER(10) PRIMARY KEY,
+    user_id VARCHAR2(20) REFERENCES users(user_id),
+    book_id NUMBER(10) REFERENCES books(book_id)
+);
+
 -- 시퀀스 생성
 CREATE SEQUENCE author_idx START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE publisher_idx START WITH 1 INCREMENT BY 1;
@@ -179,3 +192,12 @@ CREATE SEQUENCE suspend_idx START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE rents_idx START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE wishlist_idx START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE reservation_idx START WITH 1 INCREMENT BY 1;
+-- 추가
+CREATE SEQUENCE interest_idx START WITH 1 INCREMENT BY 1;
+
+-- 인덱스 추가
+CREATE INDEX idx_rents_user_id ON rents(user_id);
+CREATE INDEX idx_rents_book_id ON rents(book_id);
+-- 추가
+CREATE INDEX idx_interest_user_id ON interested_books(user_id);
+CREATE INDEX idx_interest_book_id ON interested_books(book_id);

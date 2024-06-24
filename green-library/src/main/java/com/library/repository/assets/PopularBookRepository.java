@@ -18,9 +18,9 @@ public class PopularBookRepository {
 	private JdbcTemplate jdbcTemplate;
 	
 	public List<PopularBookDto> findBookId() {
-		String sql = "SELECT book_id, img, title, author_name, publisher_name, availability "
+		String sql = "SELECT book_id, img, title, author_name, publisher_name, availability, publication_date "
 		           + "FROM ("
-		           + "SELECT b.book_id, b.img, b.title, a.author_name, p.publisher_name, b.availability "
+		           + "SELECT b.book_id, b.img, b.title, a.author_name, p.publisher_name, b.availability, b.publication_date "
 		           + "FROM books b "
 		           + "JOIN authors a ON b.author_id = a.author_id "
 		           + "JOIN publishers p ON b.publisher_id = p.publisher_id "
@@ -37,6 +37,7 @@ public class PopularBookRepository {
                 book.setAuthorName(rs.getString("author_name"));
                 book.setPublisherName(rs.getString("publisher_name"));
                 book.setAvailability(rs.getString("availability"));  
+                book.setPublicationDate(rs.getDate("publication_date"));
                                 
                 if (book.getAvailability() != null) {
                     if (book.getAvailability().equals("1")) {
