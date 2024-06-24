@@ -76,7 +76,7 @@
                 <td class="input">
                 <input type="hidden" id="fullEmail" name="email" value="">
                 <input type="text" id="email" class="short"> @ 
-                <input type="text" id="email2" class="short" readonly>
+                <input type="text" id="email2" class="short">
                 <select id="emailSel" onchange="mailText()">
                     <option value="" selected></option>
                     <option value="naver.com">naver.com</option>

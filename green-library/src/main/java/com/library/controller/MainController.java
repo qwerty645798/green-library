@@ -214,10 +214,10 @@ public class MainController {
 		return "vision";
 	}
 
-	@GetMapping("/businessStructure")
-	public String businessStructure() {
-		return "businessStructure";
-	}
+//	@GetMapping("/businessStructure")
+//	public String businessStructure() {
+//		return "businessStructure";
+//	}
 
 	@GetMapping("/schedule")
 	public String schedule() {
