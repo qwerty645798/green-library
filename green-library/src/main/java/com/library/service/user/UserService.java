@@ -3,6 +3,7 @@ package com.library.service.user;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.library.dto.user.account.UserFindingIdDTO;
+import com.library.dto.user.account.UserFindingPwDTO;
 import com.library.dto.user.account.UserJoinDTO;
 import com.library.dto.user.profile.UserInfoDTO;
 import com.library.dto.user.profile.UserInfoModificationDTO;
@@ -12,6 +13,8 @@ public interface UserService extends UserDetailsService {
     boolean checkUserId(String userId);
     
     String findUserId(UserFindingIdDTO userDTO);
+    
+    boolean checkUserInfo(UserFindingPwDTO userDTO);
 
     UserInfoDTO getUserInfo(String userId);
 
