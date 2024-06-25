@@ -50,6 +50,8 @@ public class UserController {
 		logger.info("Received auth: {}", userId);
 		UserInfoDTO userDTO = userService.getUserInfo(userId);
 		model.addAttribute("userInfo", userDTO);
+		UserCountDTO userDTO2 = inquiryService.getUserCount(userId);
+		model.addAttribute("count", userDTO2);
 		return "user/userInfo";
 	}
 
