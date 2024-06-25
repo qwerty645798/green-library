@@ -23,8 +23,12 @@
 		          	<sec:authorize access="isAuthenticated()">
 				        <div>환영합니다, <sec:authentication property="name"/>님! /</div>
 				        <form action="logout" method="post"> 
-		                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		                <input type="submit" value="로그아웃" ></form>
+				        <label>
+				        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		                <img class="logout" src="images/logout.png">
+		                <input type="submit" value="로그아웃" >
+				        </label>
+		                </form>
 				    </sec:authorize>
 					</div>
 				    <sec:authorize access="!isAuthenticated()">
