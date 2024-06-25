@@ -62,6 +62,9 @@
 							<c:when test="${book.availability == '대출불가'}">
 								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden">&nbsp;
 							</c:when>
+							<c:when test="${reservationCount >= 5}">
+            					<input type="button" onclick="cantReservation2()" value="대출 예약" class="reserve_button hidden">&nbsp;
+       				 		</c:when>	
 							<c:otherwise>
 								<form action="reserveBook" method="post">
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
