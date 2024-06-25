@@ -97,14 +97,14 @@ function concatInput() {
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('checkUserIdBtn').addEventListener('click', function() {
-        var userId = document.getElementById('userid').value;
-        var xhr = new XMLHttpRequest();
+        let userId = document.getElementById('userid').value;
+        let xhr = new XMLHttpRequest();
         xhr.open('GET', '/checkUserId?user_id=' + encodeURIComponent(userId), true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
+                    let response = JSON.parse(xhr.responseText);
                     if (response) {
                         document.getElementById('duplicateIdError').textContent = '아이디가 이미 존재합니다.';
                         document.getElementById('duplicateIdSuccess').textContent = '';

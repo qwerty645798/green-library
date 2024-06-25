@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.library.dto.user.inquiry.UserBorrowDTO;
 import com.library.dto.user.inquiry.UserInterestDTO;
@@ -54,6 +56,46 @@ public class InquiryServiceImpl implements InquiryService{
             return inquiryRepository.getUserInterest(userId);
         } catch (DataAccessException e) {
             throw new DatabaseException("Database error occurred while inquirying user's interest history with id: " + userId, e);
+        }
+	}
+	
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public void deleteRentHistory(String id) {
+		System.out.println(id);
+		try {
+			int rowsAffected = inquiryRepository.deleteRentHistory(id);
+			if (rowsAffected == 0) {
+	            throw new DatabaseException("Failed to delete rent history with id: " + id);
+	        }
+        } catch (DataAccessException e) {
+            throw new DatabaseException("Database error occurred while removing user's rent history with id: " + id, e);
+        }
+	}
+	
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public void cancelReserve(String id) {
+		try {
+			int rowsAffected = inquiryRepository.cancelReserve(id);
+            if (rowsAffected == 0) {
+	            throw new DatabaseException("Failed to cancel reservation with id: " + id);
+	        }
+        } catch (DataAccessException e) {
+            throw new DatabaseException("Database error occurred while cancelling reservation with id: " + id, e);
+        }
+	}
+	
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public void deleteInterest(String id) {
+		try {
+			int rowsAffected = inquiryRepository.deleteInterest(id);
+            if (rowsAffected == 0) {
+	            throw new DatabaseException("Failed to delete interest with id: " + id);
+	        }
+        } catch (DataAccessException e) {
+            throw new DatabaseException("Database error occurred while removing interest with id: " + id, e);
         }
 	}
 }
