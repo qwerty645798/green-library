@@ -11,12 +11,6 @@
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/public/nav.css">
     <link href="css/userUseInformation.css" type="text/css" rel="stylesheet">
-    
-    <script>
-	    let message = "${message}";
-	    if(message)
-	    	alert(message);
-    </script>
 </head>
 <body>
 
