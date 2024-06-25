@@ -26,24 +26,33 @@ function extendEachBook(book_sel, rentHistory, returnDate, more=false){
     }
 }
 
-function extendAllCheckedbox(){
+function extendAllCheckedbox() {
+    const form = document.getElementById('extendForm');
+    const chxboxes = document.querySelectorAll(".book_chxbox:checked");
 
-	const chxboxes = document.querySelectorAll(".book_chxbox:checked");
-	
-	if(chxboxes.length==0){
-		alert("책을 선택해 주십시오.");
-		return;
-	}
-	
-	for (const checkbox of chxboxes) {
+    if (chxboxes.length === 0) {
+        alert("책을 선택해 주십시오.");
+        return false;
+    }
+
+    for (const checkbox of chxboxes) {
+        const hiddenField = document.createElement("input");
+        hiddenField.type = "hidden";
+        hiddenField.name = "bookIds";
+        hiddenField.value = checkbox.value;
+        form.appendChild(hiddenField);
+
+        const bookId = checkbox.value;
         const bookContainer = checkbox.closest('.book_container');
         const rentHistory = bookContainer.getAttribute('data-rent-history');
         const returnDate = bookContainer.getAttribute('data-return-date');
-        if (!extendEachBook(checkbox.value, rentHistory, returnDate, true)) {
-			alert("대출 불가능한 책이 선택되어 있습니다.");
-            return;
+
+        if (!extendEachBook(bookId, rentHistory, returnDate, true)) {
+            alert("대출 불가능한 책이 선택되어 있습니다.");
+            return false;
         }
     }
 
-	alert("선택하신 책들의 대출이 연장되었습니다.");
+    alert("선택하신 책들의 대출이 연장되었습니다.");
+    return true;
 }

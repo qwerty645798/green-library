@@ -86,7 +86,16 @@ VALUES(response_idx.NEXTVAL, 1, SYSDATE, '불편을 끼쳐 죄송합니다', 'ad
 INSERT INTO suspensions(suspension_id, start_date, end_date, reason, user_id)
 VALUES(suspend_idx.NEXTVAL, '2024-06-11', '2024-06-25', '그냥 테스트로', 'id1');
 
-
+INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 
+VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 2, 'gigi1234', 0); 
+INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 
+VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 4, 'gigi1234', 0); 
+INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 
+VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 5, 'gigi1234', 0); 
+INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 
+VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 6, 'gigi1234', 0); 
+INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 
+VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 7, 'gigi1234', 1); 
 
 commit;
 
