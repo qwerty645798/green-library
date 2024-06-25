@@ -19,22 +19,19 @@ public class My_InquiryRepository {
 	private JdbcTemplate jdbcTemplate;
 	
 	public List<My_InquiryDto> myInquiryList(String userId) {
-		System.out.println(userId);
 		String sql = "SELECT inquiry_id, user_id, inquiry_date, inquiry_title, responserTF "
 		           + "FROM inquiries "
 		           + "WHERE user_id = ?";
-		System.out.println("1");
 		return jdbcTemplate.query(sql, new RowMapper<My_InquiryDto>() {
 			@Override
 			public My_InquiryDto mapRow(ResultSet rs, int rowNum) throws SQLException {
-				System.out.println("2");
 				My_InquiryDto inquiryList = new My_InquiryDto();
 				inquiryList.setInquiryId(rs.getInt("inquiry_id"));
 				inquiryList.setUserId(rs.getString("user_id"));
 				inquiryList.setInquiryDate(rs.getDate("inquiry_date"));
 				inquiryList.setInquiryTitle(rs.getString("inquiry_title")); 
 				inquiryList.setResponserTF(rs.getString("responserTF"));
-				System.out.println("3");
+				
 				if (inquiryList.getResponserTF() != null) {
                     if (inquiryList.getResponserTF().equals("1")) {
                         inquiryList.setResponserTF("답변완료");
@@ -44,7 +41,7 @@ public class My_InquiryRepository {
                 } else {
                     inquiryList.setResponserTF("알수없음");
                 }
-				System.out.println("4");
+
                 return inquiryList;
 			}
 		}, userId);

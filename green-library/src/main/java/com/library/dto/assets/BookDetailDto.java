@@ -14,5 +14,6 @@ public class BookDetailDto {
     private String location;
     private String availability;
     private String summary;
+    private int bookId;
     
 }
