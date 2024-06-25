@@ -9,6 +9,13 @@
         <link href="/css/public/footer.css" type="text/css" rel="stylesheet">
     </head>
     <body>
+    
+    <div class="scrollBtn">
+    
+    </div>
+    
+    
+    
     <footer>
     
     <div class="footBox1">
