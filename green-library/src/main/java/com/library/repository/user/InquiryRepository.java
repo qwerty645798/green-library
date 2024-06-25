@@ -25,6 +25,7 @@ public interface InquiryRepository {
 
 	int deleteInterest(String id);
 
+
 	String checkRentCondition(String userId, String id);
 
 	UserCountDTO getUserCount(String userId);

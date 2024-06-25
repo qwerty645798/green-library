@@ -10,7 +10,9 @@ body{
     justify-content:center;
 }
 table#board {
+
     width: 1280px;
+
     border-collapse: collapse;
     border-top: 2px #ADADAD solid;
 }
@@ -92,6 +94,7 @@ table#board td {
 
         const tableBody = document.getElementById('table-body');
         tableBody.innerHTML = "";
+
         if (data.length === 0) {
             const tr = document.createElement('tr');
             const td = document.createElement('td');
@@ -147,6 +150,7 @@ table#board td {
             message = "관심 목록에서 삭제하시겠습니까?";
         }
         const confirmed = confirm(message);
+
         if (confirmed) {
             submitForm(action, id);
         }
@@ -161,6 +165,7 @@ table#board td {
         formData.append("_csrf", csrfToken);
 
         fetch(action, {
+
             method: "POST",
             body: formData
         })
@@ -178,6 +183,7 @@ table#board td {
                     condition = 'interest';
                 }
                 updateTable(condition, data.data);
+
                 alert("작업이 성공적으로 완료되었습니다.");
             } else {
                 alert("오류 발생: " + data.message);

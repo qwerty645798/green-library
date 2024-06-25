@@ -24,10 +24,12 @@
                 <div class="center btnbox">
                     <table class="btn">
                         <tr>
+
                             <th>예약</th>
                         </tr>
                         <tr>
                             <td>${count.reserve_count} / 5</td>
+
                         </tr>
                     </table>
                 </div>
@@ -39,6 +41,7 @@
                         </tr>
                         <tr>
                             <td>${count.rent_count} / 5</td>
+
                         </tr>
                     </table>
                 </div>
@@ -59,6 +62,7 @@
 							        </c:otherwise>
 							    </c:choose>
                             </td>
+
                         </tr>
                     </table>
                 </div>

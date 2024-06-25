@@ -206,6 +206,7 @@ public class InquiryRepositoryImpl implements InquiryRepository {
 
         return userCountDTO;
     }
+<<<<<<< HEAD
 	
 	@Override
     public UserInquiryDetailDTO getInquiryDetail(String userId, String id) {
@@ -231,4 +232,7 @@ public class InquiryRepositoryImpl implements InquiryRepository {
             }
         }, id, userId);
     }
+=======
+
+>>>>>>> 82386a90767f578fc4669cdf9f2f393116cceed1
 }

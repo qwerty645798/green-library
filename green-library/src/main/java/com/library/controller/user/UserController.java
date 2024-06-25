@@ -121,7 +121,9 @@ public class UserController {
 	@PostMapping("/deleteRentHistory")
     @ResponseBody
     public Map<String, Object> deleteRentHistory(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("id") String id) {
+
 		inquiryService.deleteRentHistory(userId, id);
+
 		
         List<UserRentHistoryDTO> updatedRentHistory = inquiryService.getUserRentHistory(userId);
         Map<String, Object> response = new HashMap<>();
