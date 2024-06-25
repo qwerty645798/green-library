@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css" href="css/dataSearchResult.css">
 
 
+<script src = "js/bottomButtonBox.js"></script>
+
 </head>
 
 <body>
@@ -74,7 +76,13 @@
 
 <c:set var="itemsPerPage" value="${itemsPerPage}"/>
 <c:set var="totalItems" value="${fn:length(items)}" />
-<c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
+<%
+    int totalItems = (Integer) pageContext.getAttribute("totalItems");
+    int itemsPerPage = (Integer) pageContext.getAttribute("itemsPerPage");
+    int totalPages = (totalItems + itemsPerPage - 1) / itemsPerPage;
+    pageContext.setAttribute("totalPages", totalPages);
+    
+%>
 
 <div class="second_container">
 	<c:forEach var="page" begin="1" end="${totalPages}">
@@ -133,98 +141,38 @@
 </div>
 
 <div class="third_container">
+
 	<div class="button_box">
 		<input type="button" value="<<" class="goFirst_button " onclick="showPage(1, ${totalPages})">
-		<input type="button" value="<" class="goPrevious_button " onclick="goPrevious()">
+		<input type="button" value="<" class="goPrevious_button " onclick="goPrevious(${totalPages})">
 		
-		<c:forEach var="groupStart" begin="1" step="5" end="${totalPages}">
+	  	<c:forEach var="groupStart" begin="1" step="5" end="${totalPages}">
 		    <c:set var="groupEnd" value="${groupStart + 4}"/>
 		    <c:if test="${groupEnd > totalPages}">
 		        <c:set var="groupEnd" value="${totalPages}"/>
 		    </c:if>
-		    <div class="page-group " id="pageGroup_${groupStart}">
+		    <div class="pageGroup " id="pageGroup_${groupStart}">
 			    <c:forEach var="pageIndex" begin="${groupStart}" end="${groupEnd}">
 			        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex}, ${totalPages})">
 			    </c:forEach>
 		    </div>
-		</c:forEach>
+		</c:forEach>	
 	    
-		<input type="button" value=">" class="goNext_button " onclick="goNext()">
-		<input type="button" value=">>" class="goEnd_button " onclick="showPage(${Math.floor(totalPages)}, ${totalPages})">
+		<input type="button" value=">" class="goNext_button " onclick="goNext(${totalPages})">
+		<input type="button" value=">>" class="goEnd_button " onclick="showPage(${totalPages}, ${totalPages})">
 	</div>
+
 </div>
 
 </main>
 
-<script>	
-	window.onload = function(){
-        hideFirstTime(${totalPages});	
-        showPage(1,${totalPages});
-	};
-	
-	function hideFirstTime(totalPages){
-        document.querySelector('.goFirst_button').classList.add('hidden');
-        document.querySelector('.goPrevious_button').classList.add('hidden');
-        document.querySelector('.goNext_button').classList.add('hidden');
-        document.querySelector('.goEnd_button').classList.add('hidden');
-    }
-	
-    function showPage(pageNumber, totalPage) {
-    	// > >> 버튼 생성 조건
-    	var totalGroups = Math.ceil(totalPage / 5);
-    	if(Math.floor(totalPage)%5===0) totalGroups-=1;
-        var currentGroup = Math.ceil(pageNumber / 5);
-        if(Math.floor(totalPage)===0) currentGroup = 0;
-    	
-    	
-    	if (currentGroup === totalGroups) {
-    	    document.querySelector('.goNext_button').classList.add('hidden');
-    	    document.querySelector('.goEnd_button').classList.add('hidden');
-    	}else{
-    		document.querySelector('.goNext_button').classList.remove('hidden');
-        	document.querySelector('.goEnd_button').classList.remove('hidden');
-    	} 
-    	
-    	// << < 버튼 생성 조건
-    	if(pageNumber<=5){
-     		document.querySelector('.goFirst_button').classList.add('hidden');
-     		document.querySelector('.goPrevious_button').classList.add('hidden');
-     	}else{
-     		document.querySelector('.goFirst_button').classList.remove('hidden');
-        	document.querySelector('.goPrevious_button').classList.remove('hidden');
-     	} 
-    	
-    	
-    	//이 밑은 데이터들 출력 페이지
-        document.querySelectorAll('.page').forEach(function(page) {
-            page.classList.add('hidden');
-        });
-        
-        document.getElementById('page_' + pageNumber).classList.remove('hidden');
-        
-        //다른 그룹들 hidden
-        document.querySelectorAll('.page-group').forEach(function(group) {
-            group.classList.add('hidden');
-        });	
-        
-        var currentGroupStart = Math.floor((pageNumber - 1) / 5) * 5 + 1;
-        document.getElementById('pageGroup_' + currentGroupStart).classList.remove('hidden');
-    }
-    
-    function goPrevious(){
-        var currentPage = parseInt(document.querySelector('.page:not(.hidden)').id.split('_')[1]);
-        var previousGroupStart = Math.max(currentPage - 5, 1);
-        showPage(previousGroupStart, ${totalPages});
-    }
-   	
-   	function goNext(){
-        var currentPage = parseInt(document.querySelector('.page:not(.hidden)').id.split('_')[1]);
-        var nextGroupStart = currentPage + 5;
-        if (nextGroupStart <= ${totalPages}) {
-            showPage(nextGroupStart, ${totalPages});
-        }
-    }
+<script>
+window.onload = function(){
+	hideFirstTime(${totalPages});
+    showPage(1, ${totalPages});
+};
 </script>
+
 
 
 <jsp:include page="index/footer.jsp" />

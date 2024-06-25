@@ -24,7 +24,7 @@ public class InitiativeBookRepository {
 		           + "FROM books b "
 		           + "JOIN authors a ON b.author_id = a.author_id "
 		           + "JOIN publishers p ON b.publisher_id = p.publisher_id "
-		           + "ORDER BY b.borrow_count DESC) "
+		           + "ORDER BY b.publication_date DESC) "
 		           + "WHERE ROWNUM <= 24";
 		
 		return jdbcTemplate.query(sql, new RowMapper<InitiativeBookDto>() {

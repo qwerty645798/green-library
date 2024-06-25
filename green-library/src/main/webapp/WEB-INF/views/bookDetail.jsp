@@ -58,7 +58,7 @@
 					<td colspan="4" align="center" style="border:none;">
 						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
 						<c:choose>
-							<c:when test="${book.availability == 0}">
+							<c:when test="${book.availability == '대출가능'}">
 								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button">
 							</c:when>
 							<c:otherwise>
