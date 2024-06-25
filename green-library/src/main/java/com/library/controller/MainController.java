@@ -231,4 +231,9 @@ public class MainController {
 	public String missingServletRequestParam() {
 		return "public/missingServletRequestParam";
 	}
+	
+	@GetMapping("/oftenAsk")
+	public String oftenAsk() {
+		return "oftenAsk";
+	}
 }
