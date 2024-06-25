@@ -18,14 +18,18 @@ public interface InquiryService {
 
 	List<UserInterestDTO> getUserInterest(String userId);
 
+
 	void deleteRentHistory(String userId, String id);
+
 
 	void cancelReserve(String id);
 
 	void deleteInterest(String id);
 
+
 	boolean checkRentCondition(String userId, String id);
 
 	UserCountDTO getUserCount(String userId);
+
 
 }

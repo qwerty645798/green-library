@@ -205,4 +205,5 @@ public class InquiryRepositoryImpl implements InquiryRepository {
 
         return userCountDTO;
     }
+
 }

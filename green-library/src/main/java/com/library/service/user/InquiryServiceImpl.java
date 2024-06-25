@@ -75,6 +75,7 @@ public class InquiryServiceImpl implements InquiryService{
 	
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+
 	public void deleteRentHistory(String userId, String id) {
 		try {
 			if(checkRentCondition(userId, id)) {
@@ -83,6 +84,7 @@ public class InquiryServiceImpl implements InquiryService{
 		            throw new DatabaseException("Failed to delete rent history with id: " + id);
 		        }
 			}
+
         } catch (DataAccessException e) {
             throw new DatabaseException("Database error occurred while removing user's rent history with id: " + id, e);
         }
@@ -113,6 +115,7 @@ public class InquiryServiceImpl implements InquiryService{
             throw new DatabaseException("Database error occurred while removing interest with id: " + id, e);
         }
 	}
+
 	
 	@Override
 	public UserCountDTO getUserCount(String userId) {
@@ -122,4 +125,5 @@ public class InquiryServiceImpl implements InquiryService{
             throw new DatabaseException("Database error occurred while checking user's count with id: " + userId, e);
         }
 	}
+
 }
