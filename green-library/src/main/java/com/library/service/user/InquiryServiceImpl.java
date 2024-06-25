@@ -126,13 +126,9 @@ public class InquiryServiceImpl implements InquiryService{
             throw new DatabaseException("Database error occurred while checking user's count with id: " + userId, e);
         }
 	}
-<<<<<<< HEAD
 	
 	@Override 
 	public UserInquiryDetailDTO getInquiryDetail(String userId, String id) {
             return inquiryRepository.getInquiryDetail(userId, id);
 	}
-=======
-
->>>>>>> 82386a90767f578fc4669cdf9f2f393116cceed1
 }
