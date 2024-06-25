@@ -12,6 +12,9 @@ a:hover {
 .container{
 	display:flex;
 	justify-content:center;
+	color:#EE0000; 
+	margin-top: 10px; 
+	font-weight:600;
 }
 main{
 	padding-top:30px;
@@ -26,14 +29,20 @@ input.btn{
 	cursor:pointer;
 }
 input#id{
-	background:#0D2E8C;
+/* 	background:#0D2E8C; */
+	background: #155734;
 	color:white;
 }
 input#pw{
-	background:#EBEBEB;
+	background:#d8e9d9;
 	color:black
 }
 #modalOpenButton, #modalCloseButton {
+	cursor: pointer;
+}
+#modalOpenButton{
+	height: 100px; 
+	width: 100px; 
 	cursor: pointer;
 }
 #modalCloseButton{
@@ -74,17 +83,19 @@ table{
 	width:600px;
 }
 td{
-	border:1px #E2E2E2 solid;
+	border:1px #a0cab0 solid;
 	height:30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 td.text{
 	width:160px;
-	background:#f2f2f2;
+	background:#d8e9d9;
 	color:#777977;
 	font-weight:600;
 	vertical-align:top;
-	padding:0;
+	padding-top:10px;
 }
 td.text > div{
 	margin-left:20px;
@@ -103,4 +114,58 @@ input{
 input.short{
 	width:160px;
 	text-align:center;
+}
+
+/*추가*/
+
+.chkBtn{
+	display: inline-block; 
+	width: 25px; 
+	height: 25px;
+}
+.chkBtnImg{
+	width: 100%; 
+	height: auto;
+}
+.chkSpan{
+	font-size: 1em; 
+	font-weight: 600;
+}
+.birthChk{
+	position: relative;
+	top: 15px;
+	width: 64px;
+	height: 64px;
+}
+.modOpBtnBox{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1200px; 
+	height: 150px; 
+	background: #d8e9d9; 
+	text-align: center;
+}
+.input span{
+	color:#DD0000; 
+	font-size:0.8em; 
+	font-weight:600;
+}
+.subBox{
+	display:flex; 
+	justify-content:center;
+}
+input[type=submit]{
+	position: relative;
+	top: -20px;
+	color:white; 
+	background:#155734; 
+	width:120px; 
+	height:35px; 
+	margin-top:30px; 
+	cursor:pointer;
+}
+.closeBtn{
+	width:100%; 
+	height:auto;
 }

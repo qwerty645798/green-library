@@ -31,6 +31,8 @@
 	<div class="table_box">
 		<table class="notice_table">
 			<tr>
+				<th>작성자</th>
+				<td>익명</td>
 				<th>작성일</th>
 				<td>${announce.writeDate}</td>
 				<th>조회수</th>
@@ -38,10 +40,10 @@
 			</tr>
 			<tr>
 				<th>첨부파일</th>
-				<td colspan="3">${announce.fileName}</td><!-- 이건 나중에 유무 확인해서 텍스트 변환 기능? -->
+				<td colspan="5">${announce.fileName}</td><!-- 이건 나중에 유무 확인해서 텍스트 변환 기능? -->
 			</tr>
 			<tr>
-				<td colspan="4" class="notice_detail">${announce.contents}</td>
+				<td colspan="6" class="notice_detail">${announce.contents}</td>
 			</tr>
 		</table>
 	</div>

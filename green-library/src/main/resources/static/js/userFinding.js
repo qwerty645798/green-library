@@ -13,10 +13,10 @@ function ID() {
 		let pw = document.getElementById("pw");
 
 		id.style.color = "white";
-		id.style.background = "#0D2E8C";
+		id.style.background = "#155734";
 
 		pw.style.color = "black";
-		pw.style.background = "#EBEBEB";
+		pw.style.background = "#d8e9d9";
 
 		let choose = document.getElementById("choose");
 		choose.innerHTML = "아이디 찾기 본인인증";
@@ -37,10 +37,10 @@ function PW() {
 		let pw = document.getElementById("pw");
 
 		pw.style.color = "white";
-		pw.style.background = "#0D2E8C";
+		pw.style.background = "#155734";
 
 		id.style.color = "black";
-		id.style.background = "#EBEBEB";
+		id.style.background = "#d8e9d9";
 
 		let choose = document.getElementById("choose");
 		choose.innerHTML = "비밀번호 찾기 본인인증";

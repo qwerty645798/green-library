@@ -9,7 +9,7 @@ const eselect = document.getElementById('emailSel');
 const form = document.getElementById("form");
 const birthRegexp = /(19|20)[0-9]{2}\-[0-9]{1,2}\-[0-9]{1,2}/;
 const idRegexp = /[a-z|0-9]{5,}/;
-const pswdRegexp = /(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#^*_]){8,20}/;
+const pswdRegexp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#^*_])[A-Za-z\\d!@#^*_]{8,20}$/;
 
 form.addEventListener('submit', function(e) {
     concatInput();

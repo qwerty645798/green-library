@@ -20,8 +20,7 @@
 
 <body>
 
-<header id="header" class="header"></header>
-
+<jsp:include page="index/header.jsp" />
 
 <div class="bannerBgr">
     <div class="Banner">
@@ -64,7 +63,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="go_button"><a href="hopeBookApply"><input type="button" value="글쓰기" class="gogo_button"></a></td>
+				<td class="go_button"><a href="hopeBookApply">
+				<input type="button" value="글쓰기" class="gogo_button"></a></td>
 			</tr>
 		</table>
 	</div>
@@ -102,13 +102,15 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="go_button"><a href="userInquiryCreate"><input type="button" value="글쓰기" class="gogo_button"></a></td>
+				<td class="go_button"><a href="userInquiryCreate">
+				<input type="button" value="글쓰기" class="gogo_button"></a></td>
 			</tr>
 		</table>
 	</div>
 
 </main>
 
-<footer id="footer" class="footer"></footer>
+<jsp:include page="index/footer.jsp" />
+
 </body>
 </html>

@@ -25,7 +25,7 @@ public class RentController {
 	private My_WrittenService my_WrittenService;
 	
 	@GetMapping("/myWritten")
-	public String myWritten(@RequestParam(name="bookId", required = false) String bookId, Model model, 
+	public String myWritten(Model model, 
     		@RequestParam(name = "auth", defaultValue = "abc") String userId ) {
 		
 	    
