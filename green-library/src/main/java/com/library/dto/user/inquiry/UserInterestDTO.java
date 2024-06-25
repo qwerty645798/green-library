@@ -12,4 +12,5 @@ public class UserInterestDTO {
 	private String bookTitle;
 	private String bookAuthor;
 	private String availability;
+	private String genre;
 }

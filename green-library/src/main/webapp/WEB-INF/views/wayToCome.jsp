@@ -26,7 +26,7 @@
 					</div>
 					<hr>
 					<br>
-					<div class="container"><div id="map" class="map"></div><div>
+					<div class="container"><div id="map" class="map"></div></div>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91923fd361ed583dba90f7d5171f8349&libraries=services"></script>
 					<script src="js/wayToCome.js"></script>
 				</main>

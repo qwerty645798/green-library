@@ -17,4 +17,10 @@ public interface InquiryRepository {
 
 	List<UserInterestDTO> getUserInterest(String userId);
 
+	int deleteRentHistory(String id);
+
+	int cancelReserve(String id);
+
+	int deleteInterest(String id);
+
 }
