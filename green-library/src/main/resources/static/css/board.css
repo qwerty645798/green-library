@@ -4,7 +4,7 @@ body{
 }
 table#board {
 
-    width: 1260px;
+    width: 1240px;
 
     border-collapse: collapse;
     border-top: 2px #697DA0 solid;
@@ -17,12 +17,37 @@ table#board th {
 table#board th, table#board td {
     height: 50px;
     text-align: center;
+    padding-top:20px;
+}
+table#board th:nth-child(1), table#board td:nth-child(1){
+	flex:2;
+}
+table#board th:nth-child(2), table#board td:nth-child(2){
+	flex:2;
+}
+table#board th:nth-child(3), table#board td:nth-child(3){
+	flex:4;
+}
+table#board th:nth-child(4), table#board td:nth-child(4){
+	flex:3;
+}
+table#board th:nth-child(5), table#board td:nth-child(5){
+	flex:3;
+}
+table#board th:nth-child(6), table#board td:nth-child(6){
+	flex:2;
+}
+table#board th:nth-child(7), table#board td:nth-child(7){
+	flex:2;
 }
 table#board th {
     border-bottom: 2px #d8e9d9 solid;
 }
 table#board td {
     border-top: 2px #D7D7D7 solid;
+}
+table#board tr {
+    display:flex;
 }
 .hidden {
     display: none;
