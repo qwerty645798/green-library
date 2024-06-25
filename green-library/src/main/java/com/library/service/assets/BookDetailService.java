@@ -28,4 +28,9 @@ public class BookDetailService {
  		bookReservationRepository.changeAvail(bookId);
  	}
  	
+ 	public int reservationsCount(String userId) {
+ 		
+ 		return bookReservationRepository.reserveCountByUserId(userId);
+ 		
+ 	}
 }

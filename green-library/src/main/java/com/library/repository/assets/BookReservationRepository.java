@@ -22,4 +22,11 @@ public class BookReservationRepository {
 
 		jdbcTemplate.update(sql, bookId);
 	}
+	
+	public int reserveCountByUserId(String userId) {
+		String sql = "SELECT count(*) "
+				+ "FROM reservations "
+				+ "where user_id = ?";
+		return jdbcTemplate.queryForObject(sql, Integer.class, userId);
+	}
 }

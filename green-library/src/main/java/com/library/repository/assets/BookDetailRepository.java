@@ -48,4 +48,6 @@ public class BookDetailRepository {
 			}
 		}, bookId); //요게 bookID 기준으로 데이터 셋하는거?
 	}
+	
+	
 }

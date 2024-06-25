@@ -37,6 +37,7 @@ public class RentController {
 		return "myWritten";
 	}
 	
+	
 	@GetMapping("/userInquiryCreate")
 	public String userInquiryCreate(@RequestParam(name = "auth", defaultValue = "abc") String userId,  Model model) {
 		

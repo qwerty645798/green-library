@@ -79,6 +79,9 @@
 	text-align: center;
 	font-size: 14pt;
 }
+.hidden{
+	display: none;
+}
 .book_table .reserve_button:hover{
 	background-color: #64B883;
 }
