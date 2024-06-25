@@ -1,61 +1,30 @@
-body{
+
+
+.outContainer{
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-}/*header와 중복*/
-.noname{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 1260px;
-    height: auto;
-    background-color: aliceblue;
+    margin-top: 100px;
+}
+.innerContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .userInfoPage{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 1260px;
+    
 }
 .infoItems{
     width: 110px;
     padding: 15px;
     font-weight: bold;
 }
-.bannerBgr{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 7672px;
-    height: 90px;
-    background-color: #ecd9bc;
-}
-.userInfoBanner{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 1260px;
-    height: 90px;
-    vertical-align: middle;
-    background-color: #ecd9bc;
-}
-.myPage{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    height: 60px;
-    font-weight: bold;
-    font-size: 18pt;
-    text-align: center;
-}
-.pageRoute{
-    height: 30px;
-    padding-top: 3px;
-    text-align: right;
-}
+
 .userInfoBox{
     display: flex;
     flex-direction: row;
@@ -63,6 +32,10 @@ body{
     align-items: center;
     width: 1260px;
     height: 250px;
+    margin-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 5px;
     background-color: lemonchiffon;
 }
 .userInfoContent{
@@ -72,14 +45,16 @@ body{
     width: 550px;
     height: 200px;
     padding: 20px;
-    border: 2px solid black;
+    border: 2px solid #ecd9bc;
     border-radius: 10px;
 }
-.userImage{
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    background-image: url("/images/freepik_person.png");
+/* .userImage{ */
+/*     width: 200px; */
+/*     height: 200px; */
+/* } */
+.userImage img{
+	width: 200px;
+	height: 200px;
 }
 .infoBtn{
     display: flex;
@@ -87,32 +62,22 @@ body{
     justify-content: center;
     align-items: center;
 }
-input[type=button],#logout{
+input[type=button],
+#logout{
     width: 200px;
     height: 50px;
     margin: 10px 20px;
     font-weight: bold;
+    color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: #64b883;
+    background-color: #471C0A;
 }
 .infoQuicks{
-    display: grid;
-    grid-template-columns: 600px 600px;
-    grid-auto-rows: 400px 400px;
-    place-items: center;
-}
-.userInfoQuick{
     display: flex;
-    align-items: center;
-    width: 400px;
-    height: 200px;
-    padding: 15px;
-    border: 5px solid #ecd9bc;
-    border-radius: 15px;
-    background-color: white;
 }
+
 #modalOpenButton, #modalCloseButton {
 	cursor: pointer;
 }

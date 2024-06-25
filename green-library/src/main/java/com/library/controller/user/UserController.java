@@ -1,6 +1,8 @@
 package com.library.controller.user;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +16,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.library.dto.user.inquiry.UserBorrowDTO;
+import com.library.dto.user.inquiry.UserCountDTO;
+import com.library.dto.user.inquiry.UserInterestDTO;
+import com.library.dto.user.inquiry.UserRentHistoryDTO;
+import com.library.dto.user.inquiry.UserReserveDTO;
 import com.library.dto.user.profile.UserInfoDTO;
 import com.library.dto.user.profile.UserInfoModificationDTO;
 import com.library.service.user.InquiryService;
@@ -80,34 +88,75 @@ public class UserController {
 	}
 
 	@GetMapping("/userUseInformation")
-	public String userUseInformation(@RequestParam(name = "auth", defaultValue = "abc") String userId) {
+	public String userUseInformation(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model) {
+		UserCountDTO userDTO = inquiryService.getUserCount(userId);
+		model.addAttribute("count", userDTO);
 		return "user/userUseInformation";
 	}
 
 	@GetMapping("/useInformationBoard")
-    public String useInformationBoard(@RequestParam(name = "auth", defaultValue = "abc") String userId,
-                                      @RequestParam("condition") String condition, Model model) {
-        List<?> list = null;
-        if (condition.equals("rentHistory")) {
-            list = inquiryService.getUserRentHistory(userId);
-            logger.info("Rent History List: {}", list);
-        } else if (condition.equals("borrow")) {
-            list = inquiryService.getUserBorrow(userId);
-            logger.info("Borrow List: {}", list);
-        } else if (condition.equals("reserve")) {
-            list = inquiryService.getUserReserve(userId);
-            logger.info("Reserve List: {}", list);
-        } else if (condition.equals("interest")) {
-            list = inquiryService.getUserInterest(userId);
-            logger.info("Interest List: {}", list);
-        }
-        model.addAttribute("list", list);
+    public String useInformationBoard() {
         return "user/useInformation/board";
     }
+	
+	@GetMapping("/getUserData")
+    @ResponseBody
+    public Map<String, Object> getAllData(@RequestParam(name = "auth", defaultValue = "abc") String userId) {
+        Map<String, Object> response = new HashMap<>();
 
-	@GetMapping("/userInquiryDetail")
-	public String userInquiryDetail() {
-		return "user/userInquiryDetail";
-	}
+        List<UserRentHistoryDTO> rentHistory = inquiryService.getUserRentHistory(userId);
+        List<UserBorrowDTO> borrow = inquiryService.getUserBorrow(userId);
+        List<UserReserveDTO> reserve = inquiryService.getUserReserve(userId);
+		List<UserInterestDTO> interest = inquiryService.getUserInterest(userId);
 
+        response.put("rentHistory", rentHistory);
+        response.put("borrow", borrow);
+        response.put("reserve", reserve);
+		response.put("interest", interest);
+
+        return response;
+    }
+	
+	@PostMapping("/deleteRentHistory")
+    @ResponseBody
+    public Map<String, Object> deleteRentHistory(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("id") String id) {
+
+		inquiryService.deleteRentHistory(userId, id);
+
+		
+        List<UserRentHistoryDTO> updatedRentHistory = inquiryService.getUserRentHistory(userId);
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "success");
+        response.put("data", updatedRentHistory);
+        
+        return response;
+    }
+
+    @PostMapping("/cancelReserve")
+    @ResponseBody
+    public Map<String, Object> cancelReserve(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("id") String id) {
+    	
+    	inquiryService.cancelReserve(id);
+    	
+        List<UserReserveDTO> updatedReserve = inquiryService.getUserReserve(userId);
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "success");
+        response.put("data", updatedReserve);
+        
+        return response;
+    }
+
+    @PostMapping("/deleteInterest")
+    @ResponseBody
+    public Map<String, Object> deleteInterest(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("id") String id) {
+    	
+    	inquiryService.deleteInterest(id);
+    	
+        List<UserInterestDTO> updatedInterest = inquiryService.getUserInterest(userId);
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "success");
+        response.put("data", updatedInterest);
+        
+        return response;
+    }
 }

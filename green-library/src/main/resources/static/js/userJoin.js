@@ -9,7 +9,7 @@ const eselect = document.getElementById('emailSel');
 const form = document.getElementById("form");
 const birthRegexp = /(19|20)[0-9]{2}\-[0-9]{1,2}\-[0-9]{1,2}/;
 const idRegexp = /[a-z|0-9]{5,}/;
-const pswdRegexp = /(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#^*_]){8,20}/;
+const pswdRegexp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#^*_])[A-Za-z\\d!@#^*_]{8,20}$/;
 
 form.addEventListener('submit', function(e) {
     concatInput();
@@ -97,14 +97,14 @@ function concatInput() {
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('checkUserIdBtn').addEventListener('click', function() {
-        var userId = document.getElementById('userid').value;
-        var xhr = new XMLHttpRequest();
+        let userId = document.getElementById('userid').value;
+        let xhr = new XMLHttpRequest();
         xhr.open('GET', '/checkUserId?user_id=' + encodeURIComponent(userId), true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
+                    let response = JSON.parse(xhr.responseText);
                     if (response) {
                         document.getElementById('duplicateIdError').textContent = '아이디가 이미 존재합니다.';
                         document.getElementById('duplicateIdSuccess').textContent = '';

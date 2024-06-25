@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.library.dto.user.inquiry.UserBorrowDTO;
+import com.library.dto.user.inquiry.UserCountDTO;
 import com.library.dto.user.inquiry.UserInterestDTO;
 import com.library.dto.user.inquiry.UserRentHistoryDTO;
 import com.library.dto.user.inquiry.UserReserveDTO;
@@ -130,22 +131,26 @@ public class InquiryRepositoryImpl implements InquiryRepository {
 
     @Override
     public List<UserInterestDTO> getUserInterest(String userId) {
-        String sql = "SELECT " +
-                     "    ROWNUM AS no, " +
-                     "    ib.interest_id AS interestId, " +
-                     "    b.title AS bookTitle, " +
-                     "    a.author_name AS bookAuthor, " +
-                     "    CASE WHEN b.availability = '1' THEN '대출가능' ELSE '대출불가' END AS availability " +
-                     "FROM " +
-                     "    interested_books ib " +
-                     "JOIN " +
-                     "    books b ON ib.book_id = b.book_id " +
-                     "JOIN " +
-                     "    authors a ON b.author_id = a.author_id " +
-                     "WHERE " +
-                     "    ib.user_id = ? " +
-                     "ORDER BY " +
-                     "    ib.interest_id";
+    	String sql = "SELECT " +
+                "    ROWNUM AS no, " +
+                "    ib.interest_id AS interestId, " +
+                "    b.title AS bookTitle, " +
+                "    a.author_name AS bookAuthor, " +
+                "    CASE WHEN b.availability = '1' THEN '대출가능' ELSE '대출불가' END AS availability, " +
+                "    g.genre_name AS genre " +
+                "FROM " +
+                "    interested_books ib " +
+                "JOIN " +
+                "    books b ON ib.book_id = b.book_id " +
+                "JOIN " +
+                "    authors a ON b.author_id = a.author_id " +
+                "JOIN " +
+                "    genres g ON b.genre_id = g.genre_id " +
+                "WHERE " +
+                "    ib.user_id = ? " +
+                "ORDER BY " +
+                "    ib.interest_id";
+
 
         return jdbcTemplate.query(sql, new RowMapper<UserInterestDTO>() {
             @Override
@@ -156,8 +161,49 @@ public class InquiryRepositoryImpl implements InquiryRepository {
                 interest.setBookTitle(rs.getString("bookTitle"));
                 interest.setBookAuthor(rs.getString("bookAuthor"));
                 interest.setAvailability(rs.getString("availability"));
+                interest.setGenre(rs.getString("genre"));
                 return interest;
             }
         }, userId);
     }
+    
+    @Override
+	public int deleteRentHistory(String id) {
+        String sql = "DELETE FROM rents WHERE rent_num = ?";
+        return jdbcTemplate.update(sql, id);
+    }
+	
+	@Override
+	public int cancelReserve(String id) {
+        String sql = "DELETE FROM reservations WHERE reservation_id = ?";
+        return jdbcTemplate.update(sql, id);
+    }
+	
+	@Override
+	public int deleteInterest(String id) {
+        String sql = "DELETE FROM interested_books WHERE interest_id = ?";
+        return jdbcTemplate.update(sql, id);
+    }
+	
+	@Override
+	public String checkRentCondition(String userId, String id) {
+        String sql = "SELECT returned FROM rents WHERE user_id = ? AND rent_num = ?";
+        return jdbcTemplate.queryForObject(sql, String.class, userId, id);
+    }
+	
+	@Override
+    public UserCountDTO getUserCount(String userId) {
+        String rentSql = "SELECT COUNT(*) FROM rents WHERE user_id = ? and returned = 0";
+        String reserveSql = "SELECT COUNT(*) FROM reservations WHERE user_id = ?";
+
+        int rentCount = jdbcTemplate.queryForObject(rentSql, Integer.class, userId);
+        int reserveCount = jdbcTemplate.queryForObject(reserveSql, Integer.class, userId);
+
+        UserCountDTO userCountDTO = new UserCountDTO();
+        userCountDTO.setRent_count(rentCount);
+        userCountDTO.setReserve_count(reserveCount);
+
+        return userCountDTO;
+    }
+
 }

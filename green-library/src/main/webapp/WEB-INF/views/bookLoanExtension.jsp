@@ -41,7 +41,7 @@
 <div class="bigbigDiv">
 	<c:forEach var="extension" items="${extensions}" varStatus="num">
 	<div class="bigDiv">
-    	<div class="book_container">
+    	<div class="book_container" data-rent-history="${extension.rentHistory}" data-return-date="${extension.returnDate}">
 			<div class="book_label">
 				<label><input type="checkbox" class="book_chxbox" value="book${num.index+1}"></label>
 			</div>
@@ -66,10 +66,10 @@
     					<td colspan="3">${extension.returnDate}</td>
     				</tr>
     				<tr>
-                        <form action="bookExtension" method="post">
+                        <form action="bookExtension" method="post" onsubmit="return extendEachBook('book${num.index+1}', '${extension.rentHistory}', '${extension.returnDate}')">
 	                        <td colspan="4" align="right" class="extends">
 	                        	<input type="hidden" name="userId" value="${userId}">
-	                        	<input type="submit" value="대출 연장" onclick="extendEachBook('book${num.index+1}')">&nbsp;&nbsp;&nbsp;&nbsp;
+	                        	<input type="submit" value="대출 연장">&nbsp;&nbsp;&nbsp;&nbsp;
 	                        </td>
                         </form>
     				</tr>

@@ -17,8 +17,10 @@
 	      <div class="center">
 	        <div class="headerTop">
 	          <div class="logo">로고</div>
-	          <div id="login" class="loginLink">로그인 /</div>
-	          <div id="userjoin" class="joinLink">회원가입</div>
+<!-- 	          <div class="joinGroup"> -->
+		          <div id="login" class="loginLink">로그인 /</div>
+		          <div id="userjoin" class="joinLink">회원가입</div>
+<!-- 	          </div> -->
 	        </div>
 	      </div>
         
