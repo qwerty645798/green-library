@@ -45,13 +45,13 @@ function welcome(){
 	let logo = document.querySelector('.logo');
 
 	logo.onclick = () => {
-		window.location.href = 'index';
+		window.location.href = '/';
 	}
 	login.onclick = () => {
 		window.location.href = 'userLogin';
 	}
 	join.onclick = () => {
-		window.location.href = 'userJoin';
+		window.location.href = 'userAgreement';
 	}
 }
 

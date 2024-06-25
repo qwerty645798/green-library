@@ -242,6 +242,9 @@ input[type=text]{
 	justify-content: space-between;
 	width: 1260px;
 }
+.titleQuick img:hover{
+	cursor: pointer;
+}
 .infoBoard2 span{
 	display: flex;
 	align-items: center;

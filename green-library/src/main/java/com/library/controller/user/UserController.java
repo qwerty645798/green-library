@@ -164,7 +164,9 @@ public class UserController {
     }
     
     @GetMapping("/userInquiryDetail")
-	public String userInquiryDetail(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("inquiryId") String id, Model model) {
+	public String userInquiryDetail(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
+    	if(id.equals("error"))
+    		return "redirect:/myWritten";
     	UserInquiryDetailDTO userDTO = inquiryService.getInquiryDetail(userId, id);
     	model.addAttribute("inquiryDetail", userDTO);
     	return "user/userInquiryDetail";

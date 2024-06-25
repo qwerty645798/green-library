@@ -9,11 +9,11 @@
     <title>Document</title>
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
     <link href="/CSS/placeUsetime.css" type="text/css" rel="stylesheet">
-    <link href="/CSS/nav.css" type="text/css" rel="stylesheet">
+    <link href="/CSS/public/nav.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 
-    <header id="header" class="header"></header>
+    <jsp:include page="index/header.jsp" />
 
     <div class="bannerBgr">
         <div class="Banner">
@@ -77,7 +77,7 @@
 
     
 
-    <footer id="footer" class="footer"></footer>
+    <jsp:include page="index/footer.jsp" />
     
 </body>
 </html>
