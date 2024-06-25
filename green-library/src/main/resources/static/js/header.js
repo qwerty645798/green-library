@@ -51,7 +51,7 @@ function welcome(){
 		window.location.href = 'userLogin';
 	}
 	join.onclick = () => {
-		window.location.href = 'userJoin';
+		window.location.href = 'userAgreement';
 	}
 }
 
