@@ -16,16 +16,13 @@
 
 <body>
 
+<jsp:include page="../index/header.jsp" />
 
 <div class="bannerBgr">
     <div class="Banner">
         <div class="pageTitle">문의하기</div> <div class="pageRoute">홈 > 마이페이지 > 문의하기</div>
     </div>
 </div>
-
-<header id="header" class="header"></header>
-
-
 
 <main>
 
@@ -37,7 +34,9 @@
 		<table>
 			<tr>
 				<th class="con_table_top"></th>
-				<td class="con_table_top"><p class="great_p">&nbsp;*&nbsp;</p>표시 항목은 필수 입력 항목입니다.</td>
+				<td class="con_table_top">
+				<p class="great_p">&nbsp;*&nbsp;</p>
+				표시 항목은 필수 입력 항목입니다.</td>
 			</tr>
 			<tr>
 				<th><p class="great_p">&nbsp;*&nbsp;</p> 아이디</th>
@@ -67,7 +66,7 @@
 
 </main>
 
-<footer id="footer" class="footer"></footer>
+<jsp:include page="../index/footer.jsp" />
 
 
 </body>

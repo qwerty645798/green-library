@@ -1,0 +1,36 @@
+.container{
+	margin-left: 400px;
+	margin-top: 100px;
+}
+h1{
+	margin-bottom: 100px;
+}
+ul{
+	line-height: 2em;
+	margin-bottom: 30px;
+}
+li:first-child{
+	list-style-type: none;
+	padding: 0px;
+}
+li:not(:first-child)::marker{
+	content: "-";
+}
+span{
+	font-size: 13pt;
+	font-weight: bold;
+}
+img{
+	position: relative;
+	top: 5px;
+	width: 40px;
+	height: 40px;
+}
+a{
+	position: relative;
+	left: 40px;
+	color: blue;
+}
+a:hover{
+	text-decoration: none;
+}
