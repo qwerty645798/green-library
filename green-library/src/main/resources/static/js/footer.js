@@ -4,6 +4,8 @@ const scrollPosition = document.documentElement.scrollTop;
 const scrollBtn = document.querySelector('.scrollBtn');
 let scrollPercentage = (scrollPosition*100)/(pageHeight-clientHeight);
 
+
+
 function scrollUp(){
 	if(scrollPercentage>=50){
 		scrollBtn.style.bottom = 400 + "px";
@@ -20,3 +22,4 @@ function scrollUp(){
 }
 
 window.onload = scrollUp();
+
