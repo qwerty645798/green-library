@@ -28,7 +28,9 @@
 <li>이메일: abcabc@naver.com</li>
 </ul>
 
-<a href="../">홈페이지로 돌아가기</a>
+<a href="../">
+<img src="images/home.png">
+홈페이지로 돌아가기</a>
 
 </div>
 
