@@ -18,7 +18,7 @@ public class BookLoanExtensionService {
 		return bookLoanExtensionRepository.loanList(userId);
 	}
 	
-	public void getExtension(String userId) {
-		bookLoanExtensionRepository.makeExtension(userId);
+	public void getExtension(int bookId) {
+		bookLoanExtensionRepository.makeExtension(bookId);
 	}
 }

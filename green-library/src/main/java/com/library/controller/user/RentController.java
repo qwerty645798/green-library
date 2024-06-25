@@ -2,8 +2,6 @@ package com.library.controller.user;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -72,12 +70,20 @@ public class RentController {
 	}
 
 	@PostMapping("/bookExtension")
-	public String bookExtension(HttpServletRequest request) {
-		String userId = request.getParameter("userId");
+	public String bookExtension(@RequestParam(name="bookId", required = false) int bookId) {
 		
-		bookLoanExtensionService.getExtension(userId);
-		return "bookLoanExtension";
+		bookLoanExtensionService.getExtension(bookId);
+		return "redirect:/bookLoanExtension";
 	}
+	
+	@PostMapping("/bookExtensionBatch")
+	public String bookExtensionBatch(@RequestParam(name = "bookIds") List<Integer> bookIds) {
+	    for (int bookId : bookIds) {
+	        bookLoanExtensionService.getExtension(bookId);
+	    }
+	    return "redirect:/bookLoanExtension";
+	}
+	
 	
 	@Autowired
 	private BookDetailService bookDetailService;

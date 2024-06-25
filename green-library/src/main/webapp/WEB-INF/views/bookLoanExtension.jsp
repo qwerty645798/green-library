@@ -35,51 +35,61 @@
         <input type="checkbox" id="selectAllBook" onclick="toggleAllChxbox(this)">
     </label>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="button" value="일괄 대출 연장" onclick="extendAllCheckedbox()">
+    <form id="extendForm" action="bookExtensionBatch" method="post" onsubmit="return extendAllCheckedbox()">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <input type="hidden" name="userId" value="${userId}">
+        <input type="submit" value="일괄 대출 연장">
+    </form>
 </div>
 
 <div class="bigbigDiv">
-	<c:forEach var="extension" items="${extensions}" varStatus="num">
-	<div class="bigDiv">
-    	<div class="book_container" data-rent-history="${extension.rentHistory}" data-return-date="${extension.returnDate}">
-			<div class="book_label">
-				<label><input type="checkbox" class="book_chxbox" value="book${num.index+1}"></label>
-			</div>
-    		<div class="book_image">
-    			<img src="images/${extension.img}">
-    		</div>
-    		<div class="book_table">
-    			<table>
-    				<tr>
-    					<th>대출도서명</th><td>${extension.title}</td><th>등록 번호</th><td>${extension.isbn}</td>
-    				</tr>
-    				<tr>
-    					<th>저자명</th>
-    					<td colspan="3">${extension.authorName}</td>
-    				</tr>
-    				<tr>
-    					<th>대출일자</th>
-    					<td colspan="3">${extension.rentHistory}</td>
-    				</tr>
-    				<tr>
-    					<th>반납일자</th>
-    					<td colspan="3">${extension.returnDate}</td>
-    				</tr>
-    				<tr>
-                        <form action="bookExtension" method="post" onsubmit="return extendEachBook('book${num.index+1}', '${extension.rentHistory}', '${extension.returnDate}')">
-	                        <td colspan="4" align="right" class="extends">
-	                        	<input type="hidden" name="userId" value="${userId}">
-	                        	<input type="submit" value="대출 연장">&nbsp;&nbsp;&nbsp;&nbsp;
-	                        </td>
-                        </form>
-    				</tr>
-    			</table>
-    		</div>
-    	</div>
-    </div>
+    <c:forEach var="extension" items="${extensions}" varStatus="num">
+        <div class="bigDiv">
+            <div class="book_container" data-rent-history="${extension.rentHistory}" data-return-date="${extension.returnDate}">
+                <div class="book_label">
+                    <label><input type="checkbox" class="book_chxbox" name="bookIds" value="${extension.bookId}"></label>
+                </div>
+                <div class="book_image">
+                    <img src="images/${extension.img}">
+                </div>
+                <div class="book_table">
+                    <table>
+                        <tr>
+                            <th>대출도서명</th><td>${extension.title}</td><th>등록 번호</th><td>${extension.isbn}</td>
+                        </tr>
+                        <tr>
+                            <th>저자명</th>
+                            <td colspan="3">${extension.authorName}</td>
+                        </tr>
+                        <tr>
+                            <th>대출일자</th>
+                            <td colspan="3">${extension.rentHistory}</td>
+                        </tr>
+                        <tr>
+                            <th>반납예정일자</th>
+                            <td colspan="3">${extension.returnDate}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="right" class="extends">
+                                <form action="bookExtension" method="post" onsubmit="return extendEachBook('${extension.bookId}', '${extension.rentHistory}', '${extension.returnDate}')">
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                    <input type="hidden" name="userId" value="${userId}">
+                                    <input type="hidden" name="bookId" value="${extension.bookId}">
+                                    <input type="submit" value="대출 연장">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </c:forEach>
-    
 </div>
+
+
+
+
+
 </main>
 
 <footer id="footer" class="footer"></footer>
