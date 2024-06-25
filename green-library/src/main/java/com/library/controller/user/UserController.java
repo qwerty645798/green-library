@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.library.dto.user.inquiry.UserBorrowDTO;
 import com.library.dto.user.inquiry.UserCountDTO;
+import com.library.dto.user.inquiry.UserInquiryDetailDTO;
 import com.library.dto.user.inquiry.UserInterestDTO;
 import com.library.dto.user.inquiry.UserRentHistoryDTO;
 import com.library.dto.user.inquiry.UserReserveDTO;
@@ -157,4 +158,11 @@ public class UserController {
         
         return response;
     }
+    
+    @GetMapping("/userInquiryDetail")
+	public String userInquiryDetail(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("inquiryId") String id, Model model) {
+    	UserInquiryDetailDTO userDTO = inquiryService.getInquiryDetail(userId, id);
+    	model.addAttribute("inquiryDetail", userDTO);
+    	return "user/userInquiryDetail";
+	}
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.library.dto.user.inquiry.UserBorrowDTO;
 import com.library.dto.user.inquiry.UserCountDTO;
+import com.library.dto.user.inquiry.UserInquiryDetailDTO;
 import com.library.dto.user.inquiry.UserInterestDTO;
 import com.library.dto.user.inquiry.UserRentHistoryDTO;
 import com.library.dto.user.inquiry.UserReserveDTO;
@@ -121,5 +122,10 @@ public class InquiryServiceImpl implements InquiryService{
         } catch (DataAccessException e) {
             throw new DatabaseException("Database error occurred while checking user's count with id: " + userId, e);
         }
+	}
+	
+	@Override 
+	public UserInquiryDetailDTO getInquiryDetail(String userId, String id) {
+            return inquiryRepository.getInquiryDetail(userId, id);
 	}
 }
