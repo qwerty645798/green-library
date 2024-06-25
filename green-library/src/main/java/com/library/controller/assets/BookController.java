@@ -26,17 +26,19 @@ public class BookController {
 	  @Autowired private BookDetailService bookDetailService;
 	  
 	  @GetMapping("/bookDetail") public String
-	  bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model
-	  model,
-	  
-	  @RequestParam(name = "auth", defaultValue = "abc") String userId) {
+	  bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model model, 
+			  @RequestParam(name = "auth", defaultValue = "abc") String userId) {
 	  
 	  BookDetailDto bookDetail = bookDetailService.getBookDetail(bookId);
-	  model.addAttribute("book", bookDetail); model.addAttribute("userId", userId);
-	  System.out.println(userId); int reservationCount =
-	  bookDetailService.reservationsCount(userId);
+	  model.addAttribute("book", bookDetail); 
+	  model.addAttribute("userId", userId);
+	  System.out.println(userId); 
+	  
+	  int reservationCount = bookDetailService.reservationsCount(userId);
 	  model.addAttribute("reservationCount", reservationCount);
-	  System.out.println(reservationCount); return "bookDetail"; 
+	  System.out.println(reservationCount); 
+	  
+	  return "bookDetail"; 
 	  }
 	 
     
