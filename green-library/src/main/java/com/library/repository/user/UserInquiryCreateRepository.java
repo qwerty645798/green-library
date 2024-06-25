@@ -11,7 +11,7 @@ public class UserInquiryCreateRepository {
 	private JdbcTemplate jdbcTemplate;
 	
 	public void makeInquiry(String userId, String inquiryTitle, String contents) {
-		String sql = "INSERT INTO inquiries (user_id, inquiry_date, inquiry_title, contents ) values(?, current_date, ?, ?)";
+		String sql = "INSERT INTO inquiries (inquiry_id, user_id, inquiry_date, inquiry_title, contents) VALUES (inquiry_idx.NEXTVAL, ?, current_date, ?, ?)";
 		jdbcTemplate.update(sql, userId, inquiryTitle, contents);
 	}
 	
