@@ -1,0 +1,39 @@
+body{
+    display:flex;
+    justify-content:center;
+}
+table#board {
+
+    width: 1260px;
+
+    border-collapse: collapse;
+    border-top: 2px #697DA0 solid;
+}
+
+table#board th {
+    background: #f0f7f0;
+}
+
+table#board th, table#board td {
+    height: 50px;
+    text-align: center;
+}
+table#board th {
+    border-bottom: 2px #d8e9d9 solid;
+}
+table#board td {
+    border-top: 2px #D7D7D7 solid;
+}
+.hidden {
+    display: none;
+}
+#message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: green;
+}
+#error {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: red;
+}

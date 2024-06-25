@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.library.dto.user.inquiry.UserBorrowDTO;
+import com.library.dto.user.inquiry.UserCountDTO;
+import com.library.dto.user.inquiry.UserInquiryDetailDTO;
 import com.library.dto.user.inquiry.UserInterestDTO;
 import com.library.dto.user.inquiry.UserRentHistoryDTO;
 import com.library.dto.user.inquiry.UserReserveDTO;
@@ -22,6 +24,19 @@ public class InquiryServiceImpl implements InquiryService{
 	@Autowired
 	@Qualifier("UserInquiryRepository")
 	InquiryRepository inquiryRepository;
+	
+	@Override
+	public boolean checkRentCondition(String userId, String id) {
+		try {
+            String check = inquiryRepository.checkRentCondition(userId, id);
+            if(check.equals("0"))
+            	return false;
+            else
+            	return true;
+        } catch (DataAccessException e) {
+            throw new DatabaseException("Database error occurred while checking user's rent condition with id: " + userId, e);
+        }
+	}
 	
 	@Override
 	public List<UserRentHistoryDTO> getUserRentHistory(String userId) {
@@ -61,13 +76,16 @@ public class InquiryServiceImpl implements InquiryService{
 	
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public void deleteRentHistory(String id) {
-		System.out.println(id);
+
+	public void deleteRentHistory(String userId, String id) {
 		try {
-			int rowsAffected = inquiryRepository.deleteRentHistory(id);
-			if (rowsAffected == 0) {
-	            throw new DatabaseException("Failed to delete rent history with id: " + id);
-	        }
+			if(checkRentCondition(userId, id)) {
+				int rowsAffected = inquiryRepository.deleteRentHistory(id);
+				if (rowsAffected == 0) {
+		            throw new DatabaseException("Failed to delete rent history with id: " + id);
+		        }
+			}
+
         } catch (DataAccessException e) {
             throw new DatabaseException("Database error occurred while removing user's rent history with id: " + id, e);
         }
@@ -97,5 +115,20 @@ public class InquiryServiceImpl implements InquiryService{
         } catch (DataAccessException e) {
             throw new DatabaseException("Database error occurred while removing interest with id: " + id, e);
         }
+	}
+
+	
+	@Override
+	public UserCountDTO getUserCount(String userId) {
+		try {
+            return inquiryRepository.getUserCount(userId);
+        } catch (DataAccessException e) {
+            throw new DatabaseException("Database error occurred while checking user's count with id: " + userId, e);
+        }
+	}
+	
+	@Override 
+	public UserInquiryDetailDTO getInquiryDetail(String userId, String id) {
+            return inquiryRepository.getInquiryDetail(userId, id);
 	}
 }

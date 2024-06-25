@@ -95,7 +95,7 @@
 								<td>${inquiry.userId}</td>
 								<td>${inquiry.inquiryDate}</td>
 								<td>${inquiry.inquiryTitle}</td>
-								<td>${inquiry.responserTF}</td>
+								<td class="responserTF">${inquiry.responserTF}</td>
 							</tr>
 						</c:forEach>
 					</table>	

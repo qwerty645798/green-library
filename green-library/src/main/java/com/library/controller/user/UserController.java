@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.library.dto.user.inquiry.UserBorrowDTO;
+import com.library.dto.user.inquiry.UserCountDTO;
+import com.library.dto.user.inquiry.UserInquiryDetailDTO;
 import com.library.dto.user.inquiry.UserInterestDTO;
 import com.library.dto.user.inquiry.UserRentHistoryDTO;
 import com.library.dto.user.inquiry.UserReserveDTO;
@@ -49,6 +51,8 @@ public class UserController {
 		logger.info("Received auth: {}", userId);
 		UserInfoDTO userDTO = userService.getUserInfo(userId);
 		model.addAttribute("userInfo", userDTO);
+		UserCountDTO userDTO2 = inquiryService.getUserCount(userId);
+		model.addAttribute("count", userDTO2);
 		return "user/userInfo";
 	}
 
@@ -87,7 +91,9 @@ public class UserController {
 	}
 
 	@GetMapping("/userUseInformation")
-	public String userUseInformation(@RequestParam(name = "auth", defaultValue = "abc") String userId) {
+	public String userUseInformation(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model) {
+		UserCountDTO userDTO = inquiryService.getUserCount(userId);
+		model.addAttribute("count", userDTO);
 		return "user/userUseInformation";
 	}
 
@@ -117,8 +123,9 @@ public class UserController {
 	@PostMapping("/deleteRentHistory")
     @ResponseBody
     public Map<String, Object> deleteRentHistory(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("id") String id) {
-		System.out.println(id);
-		inquiryService.deleteRentHistory(id);
+
+		inquiryService.deleteRentHistory(userId, id);
+
 		
         List<UserRentHistoryDTO> updatedRentHistory = inquiryService.getUserRentHistory(userId);
         Map<String, Object> response = new HashMap<>();
@@ -155,4 +162,11 @@ public class UserController {
         
         return response;
     }
+    
+    @GetMapping("/userInquiryDetail")
+	public String userInquiryDetail(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("inquiryId") String id, Model model) {
+    	UserInquiryDetailDTO userDTO = inquiryService.getInquiryDetail(userId, id);
+    	model.addAttribute("inquiryDetail", userDTO);
+    	return "user/userInquiryDetail";
+	}
 }

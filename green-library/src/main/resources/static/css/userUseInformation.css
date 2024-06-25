@@ -53,24 +53,40 @@ table.btn th, table.btn td {
 }
 
 table.btn th {
-	background: #E3E6E9;
+/* 	background: #E3E6E9; */
+	background: #d8e9d9;
 }
 
 table.btn td {
 	font-weight: bold;
 	color: #666666;
-	background: #F2F2F2;
+/* 	background: #F2F2F2; */
+	background: #f0f7f0;
 }
 
 .Dheader {
 	width: 200px;
 	height: 100px;
 	font-size: 1.4em;
+	font-weight: bold;
 	margin: 0 50px;
-	background: #EBEBEB;
+/* 	background: #EBEBEB; */
+	background: #f0f7f0;
 	cursor: pointer;
+	border: 2px #697DA0 solid;
+	border-radius: 5px;
+}
+.Dheader:hover{
+	background: #dfeedf;
 }
 
 iframe{
 	border:none;
+}
+
+
+
+/* 여기서부터 추가분 */
+.container{
+	margin: 50px auto;
 }
