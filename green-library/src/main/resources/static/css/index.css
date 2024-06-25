@@ -252,9 +252,14 @@ input[type=text]{
     font-size: 14pt;
 	font-weight: bold;
 }
+.infoBoard2 table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 .infoBoard2 table tr,
 .infoBoard2 table td{
-	border: 1px solid red;
+	border-top: 1px solid #a0cab0;
+	border-bottom: 1px solid #a0cab0;
 }
 .infoBoard2 table td:nth-child(2){
 	width: 700px;
