@@ -27,7 +27,7 @@
                             <th>예약</th>
                         </tr>
                         <tr>
-                            <td>0 / 5</td>
+                            <td>${count.reserve_count} / 5</td>
                         </tr>
                     </table>
                 </div>
@@ -38,7 +38,7 @@
                             <th>대출</th>
                         </tr>
                         <tr>
-                            <td>0 / 5</td>
+                            <td>${count.rent_count} / 5</td>
                         </tr>
                     </table>
                 </div>
@@ -49,7 +49,16 @@
                             <th>나의 상태</th>
                         </tr>
                         <tr>
-                            <td>대출 가능</td>
+                            <td>
+                            	<c:choose>
+							        <c:when test="${count.rent_count <= 5}">
+							            대출 가능
+							        </c:when>
+							        <c:otherwise>
+							            대출 불가능
+							        </c:otherwise>
+							    </c:choose>
+                            </td>
                         </tr>
                     </table>
                 </div>

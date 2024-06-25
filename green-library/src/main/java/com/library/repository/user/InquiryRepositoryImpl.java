@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.library.dto.user.inquiry.UserBorrowDTO;
+import com.library.dto.user.inquiry.UserCountDTO;
 import com.library.dto.user.inquiry.UserInterestDTO;
 import com.library.dto.user.inquiry.UserRentHistoryDTO;
 import com.library.dto.user.inquiry.UserReserveDTO;
@@ -188,5 +189,20 @@ public class InquiryRepositoryImpl implements InquiryRepository {
 	public String checkRentCondition(String userId, String id) {
         String sql = "SELECT returned FROM rents WHERE user_id = ? AND rent_num = ?";
         return jdbcTemplate.queryForObject(sql, String.class, userId, id);
+    }
+	
+	@Override
+    public UserCountDTO getUserCount(String userId) {
+        String rentSql = "SELECT COUNT(*) FROM rents WHERE user_id = ? and returned = 0";
+        String reserveSql = "SELECT COUNT(*) FROM reservations WHERE user_id = ?";
+
+        int rentCount = jdbcTemplate.queryForObject(rentSql, Integer.class, userId);
+        int reserveCount = jdbcTemplate.queryForObject(reserveSql, Integer.class, userId);
+
+        UserCountDTO userCountDTO = new UserCountDTO();
+        userCountDTO.setRent_count(rentCount);
+        userCountDTO.setReserve_count(reserveCount);
+
+        return userCountDTO;
     }
 }
