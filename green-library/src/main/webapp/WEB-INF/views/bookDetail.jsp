@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html>
@@ -59,7 +60,7 @@
 						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
 						<c:choose>
 							<c:when test="${book.availability == '대출불가'}">
-								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button">
+								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden">&nbsp;
 							</c:when>
 							<c:otherwise>
 								<form action="reserveBook" method="post">
