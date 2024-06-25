@@ -10,7 +10,7 @@ body{
     justify-content:center;
 }
 table#board {
-    width: 1290px;
+    width: 1280px;
     border-collapse: collapse;
     border-top: 2px #ADADAD solid;
 }
@@ -92,32 +92,61 @@ table#board td {
 
         const tableBody = document.getElementById('table-body');
         tableBody.innerHTML = "";
-        data.forEach(item => {
+        if (data.length === 0) {
             const tr = document.createElement('tr');
-            dataKeys[condition].forEach(key => {
-                const td = document.createElement('td');
-                td.innerText = item[key];
-                tr.appendChild(td);
-            });
-
-            const actionTd = document.createElement('td');
-            if (condition === "rentHistory") {
-                actionTd.innerHTML = '<input type="button" value="제거" onclick="confirmAction(\'deleteRentHistory\', ${item["rentNum"]})">';
-            } else if (condition === "borrow") {
-                actionTd.innerHTML = '<input type="button" value="연장" onclick="window.open(\'bookLoanExtension\', \'_blank\', \'noopener,noreferrer\');">';
-            } else if (condition === "reserve") {
-                actionTd.innerHTML = '<input type="button" value="취소" onclick="confirmAction(\'cancelReserve\', ${item["reservationId"]})">';
-            } else if (condition === "interest") {
-                actionTd.innerHTML = '<input type="button" value="제거" onclick="confirmAction(\'deleteInterest\', ${item["interestId"]})">';
-            }
-            tr.appendChild(actionTd);
-
+            const td = document.createElement('td');
+            td.colSpan = headers[condition].length;
+            td.innerText = "데이터가 없습니다.";
+            tr.appendChild(td);
             tableBody.appendChild(tr);
-        });
+        } else {
+            data.forEach(item => {
+                const tr = document.createElement('tr');
+                dataKeys[condition].forEach(key => {
+                    const td = document.createElement('td');
+                    td.innerText = item[key];
+                    tr.appendChild(td);
+                });
+
+                const actionTd = document.createElement('td');
+                if (condition === "rentHistory") {
+                    if (item["status"] === "반납완료") {
+                        actionTd.innerHTML = '<input type="button" value="제거" onclick="confirmAction(\'deleteRentHistory\', \'' + item["rentNum"] + '\')">';
+                    } else {
+                        actionTd.innerHTML = "<span style='color:red;'>불가능</span>";
+                    }
+                } else if (condition === "borrow") {
+                    const rentDate = new Date(item["rentDate"]);
+                    const returnDate = new Date(item["returnDate"]);
+                    const diffTime = Math.abs(returnDate - rentDate);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    if (diffDays > 14) {
+                        actionTd.innerHTML = "<span style='color:red;'>불가능</span>";
+                    } else {
+                        actionTd.innerHTML = '<input type="button" value="연장" onclick="window.open(\'bookLoanExtension\', \'_blank\', \'noopener,noreferrer\');">';
+                    }
+                } else if (condition === "reserve") {
+                    actionTd.innerHTML = '<input type="button" value="취소" onclick="confirmAction(\'cancelReserve\', \'' + item["reservationId"] + '\')">';
+                } else if (condition === "interest") {
+                    actionTd.innerHTML = '<input type="button" value="제거" onclick="confirmAction(\'deleteInterest\', \'' + item["interestId"] + '\')">';
+                }
+                tr.appendChild(actionTd);
+
+                tableBody.appendChild(tr);
+            });
+        }
     }
 
     function confirmAction(action, id) {
-        const confirmed = confirm("이 작업을 수행하시겠습니까?");
+    	let message = "이 작업을 수행하시겠습니까?";
+        if (action === 'deleteRentHistory') {
+            message = "대출 기록을 삭제하시겠습니까?";
+        } else if (action === 'cancelReserve') {
+            message = "예약을 취소하시겠습니까?";
+        } else if (action === 'deleteInterest') {
+            message = "관심 목록에서 삭제하시겠습니까?";
+        }
+        const confirmed = confirm(message);
         if (confirmed) {
             submitForm(action, id);
         }
@@ -131,14 +160,24 @@ table#board td {
         formData.append("id", id);
         formData.append("_csrf", csrfToken);
 
-        fetch(`/your-endpoint/${action}`, {
+        fetch(action, {
             method: "POST",
             body: formData
         })
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
-                updateTable(action.replace('delete', '').toLowerCase(), data.data);
+            	let condition;
+                if (action === 'deleteRentHistory') {
+                    condition = 'rentHistory';
+                } else if (action === 'deleteBorrow') {
+                    condition = 'borrow';
+                } else if (action === 'cancelReserve') {
+                    condition = 'reserve';
+                } else if (action === 'deleteInterest') {
+                    condition = 'interest';
+                }
+                updateTable(condition, data.data);
                 alert("작업이 성공적으로 완료되었습니다.");
             } else {
                 alert("오류 발생: " + data.message);

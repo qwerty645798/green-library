@@ -183,4 +183,10 @@ public class InquiryRepositoryImpl implements InquiryRepository {
         String sql = "DELETE FROM interested_books WHERE interest_id = ?";
         return jdbcTemplate.update(sql, id);
     }
+	
+	@Override
+	public String checkRentCondition(String userId, String id) {
+        String sql = "SELECT returned FROM rents WHERE user_id = ? AND rent_num = ?";
+        return jdbcTemplate.queryForObject(sql, String.class, userId, id);
+    }
 }

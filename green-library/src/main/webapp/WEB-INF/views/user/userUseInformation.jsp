@@ -24,10 +24,10 @@
                 <div class="center btnbox">
                     <table class="btn">
                         <tr>
-                            <th>일반 예약</th>
+                            <th>예약</th>
                         </tr>
                         <tr>
-                            <td>0 / 3</td>
+                            <td>0 / 5</td>
                         </tr>
                     </table>
                 </div>
@@ -35,10 +35,10 @@
                 <div class="center btnbox">
                     <table class="btn">
                         <tr>
-                            <th>대출 / 연체</th>
+                            <th>대출</th>
                         </tr>
                         <tr>
-                            <td>0 / 0</td>
+                            <td>0 / 5</td>
                         </tr>
                     </table>
                 </div>
