@@ -3,13 +3,13 @@ let windowHeight = document.documentElement.clientHeight;
 let scrollPosition = document.documentElement.scrollTop;
 const scrollBtn = document.querySelector('.scrollBtn');
 //let scrollPercentage = (scrollPosition*100)/(pageHeight-clientHeight);
-let scrollPercentage = scrollPosition/(pageHeight-windowHeight);
+let scrollPercentage = scrollPosition/(pageHeight-windowHeight)*100;
 
 const footerPage = document.querySelectorAll('.footPage')
 
 function scrollUp(){
-	if(scrollPercentage*100>=50){
-		scrollBtn.style.bottom = 300 + "px";
+	if(scrollPercentage>=50){
+//		scrollBtn.style.bottom = 300 + "px";
 		scrollBtn.style.display = "block";
 		scrollBtn.style.transition = "300ms ease-in-out";
 		scrollBtn.onclick = () => {
@@ -20,8 +20,8 @@ function scrollUp(){
 			});
 		}
 		
-	}else if(scrollPercentage*100<50){
-		scrollBtn.style.bottom = 0 + "px";
+	}else if(scrollPercentage<50){
+//		scrollBtn.style.bottom = 0 + "px";
 		scrollBtn.style.display = "none";
 		scrollBtn.style.transition = "300ms ease-in-out";
 	}
