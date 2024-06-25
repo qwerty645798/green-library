@@ -32,9 +32,5 @@ public interface InquiryService {
 
 	UserCountDTO getUserCount(String userId);
 
-<<<<<<< HEAD
 	UserInquiryDetailDTO getInquiryDetail(String userId, String id);
-=======
->>>>>>> 82386a90767f578fc4669cdf9f2f393116cceed1
-
 }
