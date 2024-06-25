@@ -15,4 +15,8 @@ public class NotificationDetailService {
 	public NotificationDetailDto getAnnounceDetail(String announcementId) {
 		return notificationDetailrepository.findByannouncementId(announcementId);
 	}
+	
+	public void incrementViewCount(int announcementId) {
+		notificationDetailrepository.incrementViewCount(announcementId);
+	}
 }

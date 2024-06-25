@@ -1,5 +1,34 @@
 @charset "utf-8";
 
+main{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+}
+h1{
+	margin-top: 50px;
+	font-size: 20pt;
+	font-weight: bold;
+}
+.hr1{
+	width: 1260px;
+	border: 2px solid #a0cab0;
+}
+.hr2{
+	width: 700px;
+	border: 1px solid gray;
+}
+.color{
+	position: relative;
+	z-index: -10;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	background-color: #d8e9d9;
+}
+
 .title_vision{
 	display: flex;
 	width: 1260px;
@@ -11,6 +40,8 @@
 }
 
 
+
+/*기존의 vision.css*/
 .first_container{
 	display: flex;
 	width: 1260px;
@@ -21,16 +52,103 @@
 
 .img_box{
 	display: flex;
-	width: 800px;
+	width: 1260px;
 	height: 600px;
 	align-items: center;
     justify-content: center;
 	
-	margin-top: 20px;
+	margin-bottom: 200px;
 }
 
 .img_box img{
-	width: 700px;
+	width: 1260px;
 	height: 540px;
 	object-fit: cover; /*fill?*/
 }
+
+/*businessStructure css*/
+.background1,
+.background2,
+.background3{
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 1295px;
+	height: 400px;
+	margin: 50px;
+	
+	border-radius: 5px;
+}
+.background1::before,
+.background3::before{
+	content: "";
+	position: absolute;
+	z-index: -5;
+	width: 1295px;
+	height: 400px;
+	background-image: url("/images/library.jpg");
+	background-size: cover;
+	opacity: 0.3;
+	border-radius: 5px;
+}
+.background2::before{
+	content: "";
+	position: absolute;
+	z-index: -5;
+	width: 1295px;
+	height: 400px;
+	background-image: url("/images/woodLeaf.jpg");
+	background-size: cover;
+	opacity: 0.3;
+	border-radius: 5px;
+}
+.background1,
+.background3{
+	left: -100px;
+}
+.background2{
+	left: 100px;
+}
+
+.icon,
+.icon img{
+	width: 285px;
+	height: 285px;
+	border-radius: 15px;
+}
+.bgrbox{
+	display: flex;
+	box-sizing: border-box;
+	width: 800px;
+	height: 285px;
+	border-radius: 5px;
+}
+.bgrbox::before{
+	content: "";
+	display: flex;
+	box-sizing: border-box;
+	position: absolute;
+	z-index: -5;
+	width: 800px;
+	height: 285px;
+	background-color: white;
+	opacity: 0.5;
+	border-radius: 5px;
+}
+.text{
+/* 	box-sizing: border-box; */
+	width: 700px;
+	height: 285px;
+	padding: 30px;
+	font-size: 13pt;
+	font-weight: 600;
+	line-height: 2em;
+}
+.text span{
+	font-size: 15pt;
+	font-weight: bold;
+	color: #1d7647;
+}
+
+

@@ -67,10 +67,5 @@ public class NotificationRepository {
         
 	}
 	
-	public void incrementViewCount(int announcementId) {
-		String sql = "Update announcements "
-				+ "SET view_count = view_count + 1 "
-				+ "WHERE announcement_id = ?";
-		jdbcTemplate.update(sql, announcementId);
-	}
+	
 }

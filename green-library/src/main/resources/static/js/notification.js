@@ -28,9 +28,12 @@
 		if(inputText==="" || inputText==="검색어를 입력하세요"){
 			alert("검색어를 입력하세요");
 		}else{
+			
+			var encodedInputText = encodeURIComponent(inputText);
+			
 			var url = "notification?inputCategory="; 
 			url+=inputCategory;
-			url+="&inputText="+inputText;
+			url+="&inputText="+encodedInputText;
 			
 			window.location.href = url;
 			
@@ -46,21 +49,6 @@
 	    window.location.href = url;
 	    
 	    
-	    /*
-	    $.ajax({
-        type: "POST",
-	        url: "/incrementViewCount", // 컨트롤러에서 매핑한 URL
-	        data: {
-	            announcementId: announcementId
-	        },
-	        success: function(response) {
-	            // 조회수 증가 성공 후 페이지 이동
-	            window.location.href = url;
-	        },
-	        error: function(xhr, status, error) {
-	            console.error("조회수 증가 처리 중 문제 발생 : " + error);
-	        }
-	    });*/
 	    
 	}
 	

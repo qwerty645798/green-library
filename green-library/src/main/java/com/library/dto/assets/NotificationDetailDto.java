@@ -14,5 +14,5 @@ public class NotificationDetailDto {
 	private String fileName;
 	private String contents;
 	
-	
+	private String writerId;
 }

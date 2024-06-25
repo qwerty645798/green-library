@@ -35,9 +35,11 @@
 			alert("검색어를 입력하세요");
 		}else{
 			
+			var encodedInputText = encodeURIComponent(inputText);
+			
 			var url = "dataSearchResult?inputCategory="; 
 			url+=inputCategory;
-			url+="&inputText="+inputText;
+			url+="&inputText="+encodedInputText;
 			
 			window.location.href = url;
 			
