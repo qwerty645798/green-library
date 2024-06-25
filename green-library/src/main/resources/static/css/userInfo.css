@@ -5,16 +5,12 @@
     justify-content: center;
     align-items: center;
     margin-top: 100px;
-    
-    border: 2px dotted red;
 }
 .innerContainer{
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-/* 	width: 1260px; */
-	
-	border: 2px solid skyblue;
 }
 .userInfoPage{
     display: flex;
@@ -36,6 +32,10 @@
     align-items: center;
     width: 1260px;
     height: 250px;
+    margin-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 5px;
     background-color: lemonchiffon;
 }
 .userInfoContent{
@@ -45,14 +45,16 @@
     width: 550px;
     height: 200px;
     padding: 20px;
-    border: 2px solid black;
+    border: 2px solid #ecd9bc;
     border-radius: 10px;
 }
-.userImage{
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    background-image: url("/images/freepik_person.png");
+/* .userImage{ */
+/*     width: 200px; */
+/*     height: 200px; */
+/* } */
+.userImage img{
+	width: 200px;
+	height: 200px;
 }
 .infoBtn{
     display: flex;
@@ -60,32 +62,22 @@
     justify-content: center;
     align-items: center;
 }
-input[type=button],#logout{
+input[type=button],
+#logout{
     width: 200px;
     height: 50px;
     margin: 10px 20px;
     font-weight: bold;
+    color: white;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: #64b883;
+    background-color: #471C0A;
 }
 .infoQuicks{
-    display: grid;
-    grid-template-columns: 600px 600px;
-    grid-auto-rows: 400px 400px;
-    place-items: center;
-}
-.userInfoQuick{
     display: flex;
-    align-items: center;
-    width: 400px;
-    height: 200px;
-    padding: 15px;
-    border: 5px solid #ecd9bc;
-    border-radius: 15px;
-    background-color: white;
 }
+
 #modalOpenButton, #modalCloseButton {
 	cursor: pointer;
 }
