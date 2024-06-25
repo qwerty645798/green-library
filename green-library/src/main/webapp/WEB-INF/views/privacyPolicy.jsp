@@ -8,7 +8,7 @@
         <title>Document</title>
         <link href="/reset/reset.css" rel="stylesheet" type="text/css">
         <link href="/CSS/privacyPolicy.css" rel="stylesheet" type="text/css">
-        <link href="/CSS/nav.css" rel="stylesheet" type="text/css">
+        <link href="/CSS/public/nav.css" rel="stylesheet" type="text/css">
     </head>
     <body>
     

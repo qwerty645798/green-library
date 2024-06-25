@@ -21,8 +21,8 @@
     <div class="footBox1">
         <div class="footBox2">
     
-            <p class="bold"><span class="footPage">개인정보처리방침</span> / <span>찾아오시는 길</span> 
-            / <span>사이트맵</span> / <span>고객센터<span></span></p> 
+            <p class="bold"><span class="footPage">개인정보처리방침</span> / <span class="footPage">찾아오시는 길</span> 
+            / <span class="footPage">사이트맵</span> / <span class="footPage">고객센터</span></p> 
             <p>locate: 서울특별시 강남구 테헤란로5길 24 <br>
             대표전화: 010-0000-0000 <br>
             FAX: 02-111-1111<br><br></p>
@@ -36,7 +36,7 @@
     
     </footer>
     
-    <script src="js/footer.js" type="text/javascript"></script>
+    <script src="/js/footer.js" type="text/javascript"></script>
     
     </body>
     </html>
