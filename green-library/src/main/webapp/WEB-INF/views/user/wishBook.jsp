@@ -19,7 +19,7 @@
 
 <body>
 
-<jsp:include page="index/header.jsp" />
+<jsp:include page="../index/header.jsp" />
 
 <div class="bannerBgr">
     <div class="Banner">
@@ -32,59 +32,46 @@
 
 
 <div class="bigDiv">
-	<div class="book_container"><!-- 좌 이미지 우 테이블 -->
+	<div class="book_container">
 		<div class="book_image">
-			<img src="images/${book.img}">
+			<img src="images/exex2.png">
 		</div>
 		<div class="book_table">
 			<table>
 				<tr>
 					<th>현재 상태</th>
-					<td>&nbsp;&nbsp;<%-- ${complete} --%></td>
+					<td>&nbsp;&nbsp;${wishs.complete}</td>
+					<th>신청일</th>
+					<td>&nbsp;&nbsp;${wishs.wishDate}</td>
+				</tr>
+				<tr>
+					<th>도서명</th>
+					<td>&nbsp;&nbsp;${wishs.wishTitle}</td>
 					<th>등록 번호</th>
-					<td>&nbsp;&nbsp;${book.isbn}</td>
+					<td>&nbsp;&nbsp;${wishs.wishIsbn}</td>
 				</tr>
 				<tr>
-					<th>저자명</th>
-					<td colspan="3">&nbsp;&nbsp;${book.authorName}</td>
+					<th>저자</th>
+					<td>&nbsp;&nbsp;${wishs.wishAuthor}</td>
+					<th>가격</th>
+					<td>&nbsp;&nbsp;${wishs.wishPrice}</td>				
 				</tr>
 				<tr>
-					<th>서가 위치</th>
-					<td colspan="3">&nbsp;&nbsp;${book.location}</td>
+					<th>출판사</th>
+					<td>&nbsp;&nbsp;${wishs.wishPublisher}</td>
+					<th>출판일</th>
+					<td>&nbsp;&nbsp;${wishs.wishPublication}</td>
 				</tr>
+				
+				<!-- 여기 밑에 이제  수정하기 삭제하기 목록으로 (수정은 complete = "W" 일때만 보이게)-->
+				<!-- 수정은 jsp하나 만들어서 hopebookapply 그대로 복붙해서 value에 원래값 넣고, input은 포스트 submit -->
 				<tr>
-					<th>대출 상태</th>
-					
-					<td colspan="3">&nbsp;&nbsp;${book.availability}</td>
-				</tr>
-				<tr>
-					<td colspan="4" align="center" style="border:none;">
-						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
-						<c:choose>
-							<c:when test="${!canReserve}">
-								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
-							</c:when>
-							<c:otherwise>
-								<form action="reserveBook" method="post">
-									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-									<input type="hidden" name="bookId" value="${book.bookId}">
-									<input type="hidden" name="userId" value="${userId}">
-									<input type="submit" value="대출 예약" class="reserve_button">
-								</form>
-							</c:otherwise>
-						</c:choose>
+					<td colspan="4" align="right" style="border:none;">
+						<c:if test="${wishs.complete == '심사대기'}">
+							<input type = "button" value="수정하기">
 						</c:if>
-						
-						<c:if test="${empty sessionScope.SPRING_SECURITY_CONTEXT}">
-						<c:choose>
-							<c:when test="${!canReserve}">
-								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
-							</c:when>
-							<c:otherwise>
-								<input type="button" onclick="Reservation()" value="대출 예약" class="reserve_button">
-							</c:otherwise>
-						</c:choose>
-						</c:if>
+						<input type = "button" value="삭제하기">
+						<a href="myWritten"><input type="button" value="목록으로"></a>
 					</td>
 				</tr>		
 			</table>	
@@ -96,7 +83,7 @@
 
 </main>
 
- <jsp:include page="index/footer.jsp" />
+ <jsp:include page="../index/footer.jsp" />
 
 
 
