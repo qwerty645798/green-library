@@ -1,10 +1,21 @@
 -- 작가
 INSERT INTO authors(author_id, author_name)
+VALUES(1, '작가1');
+INSERT INTO authors(author_id, author_name)
 VALUES(author_idx.NEXTVAL, '작가1');
-
+INSERT INTO authors(author_id, author_name)
+VALUES(author_idx.NEXTVAL, '작가2');
+INSERT INTO authors(author_id, author_name)
+VALUES(author_idx.NEXTVAL, '작가3');
 -- 출판사
 INSERT INTO publishers(publisher_id, publisher_name)
+VALUES(1, '출판사1');
+INSERT INTO publishers(publisher_id, publisher_name)
 VALUES(publisher_idx.NEXTVAL, '출판사1');
+INSERT INTO publishers(publisher_id, publisher_name)
+VALUES(publisher_idx.NEXTVAL, '출판사2');
+INSERT INTO publishers(publisher_id, publisher_name)
+VALUES(publisher_idx.NEXTVAL, '출판사3');
 
 -- 유저
 INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
@@ -88,6 +99,7 @@ INSERT INTO admins (admin_id, admin_name, admin_pass, grant_rank) VALUES('system
 INSERT INTO admins (admin_id, admin_name, admin_pass, admin_email, grant_rank) VALUES('admin4', 'name', 'pass', 'admin@admin', 2);
 INSERT INTO admins (admin_id, admin_name, admin_pass, admin_email, grant_rank) VALUES('admin5', 'name', 'system','admin@admin', 1);
 
+COMMIT;
 -- 이후는 JDBC query 작성 참고용으로 작성된 것들 입니다.
 
 

@@ -3,6 +3,7 @@ package com.library.service.admin;
 import com.library.dto.admin._normal.RentDTO;
 import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
+import com.library.dto.admin.userManagement.UserDetailDTO;
 
 import java.util.List;
 
@@ -14,15 +15,17 @@ public interface UserService {
 
     List<UserDTO> findUserByName(String name);
 
-    UserDTO getUserById(int id);
+    UserDetailDTO getUserDetail(String id);
 
-    List<RentDTO> loanUserById(int userId);
+    UserDTO getUserById(String id);
 
-    List<SuspensionDTO> suspensionUserById(int userId);
+    List<RentDTO> loanUserById(String userId);
+
+    List<SuspensionDTO> suspensionUserById(String userId);
 
     int createSuspension(SuspensionDTO suspension);
 
-    void deleteUser(int userId);
+    void deleteUser(String userId);
 
-    void releaseUserSuspension(int userId);
+//    void releaseUserSuspension(String userId);
 }

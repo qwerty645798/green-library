@@ -18,5 +18,6 @@ public class AnnouncementDTO {
     private String fileName;
     private String contents;
     private int viewCount;
+    private int total_count;
 
 }

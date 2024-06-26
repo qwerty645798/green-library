@@ -4,12 +4,12 @@ import com.library.dto.admin._normal.AdminDTO;
 import com.library.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin")
 public class AdminController {
 
     private final AdminService adminService;
@@ -19,21 +19,34 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @PostMapping("/login")
-    @ResponseBody
-    public AdminDTO loginAdmin(@RequestParam String adminId, @RequestParam String adminPass) {
-        return adminService.loginAdmin(adminId, adminPass);
+    @GetMapping("/admin")
+    public String home() {
+        return "admin/adminLogin/adminLogin";
     }
 
-    @GetMapping("/all")
-    @ResponseBody
-    public List<AdminDTO> allAdminManage() {
-        return adminService.allAdminManage();
+    //login -> main index
+    @GetMapping("/adminIndex")
+    public String adminIndex(Model model) {
+        return "admin/adminIndex/adminIndex";
     }
 
-    @GetMapping("/{adminId}")
-    @ResponseBody
-    public AdminDTO findAdminById(@PathVariable String adminId) {
-        return adminService.findAdminById(adminId);
+
+//    내 계정 정보
+//    @GetMapping("/adminInfo")
+//    public String adminInfo(Model model){
+//        AdminDTO admin = adminService.findAdminById("system");
+//        model.addAttribute("admin", admin);
+//        return "admin/adminInfo/adminInfo";
+//    }
+
+
+    //    관리자 정보 모음
+    @GetMapping("/adminInfo")
+    public String adminList(Model model) {
+        List<AdminDTO> admins = adminService.allAdminManage();
+        model.addAttribute("admins", admins);
+        return "admin/adminInfo/adminInfo";
     }
+
+
 }

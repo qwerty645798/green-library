@@ -12,6 +12,10 @@ public interface AnnounceService {
     // 모든 공지 조회
     public List<AnnouncementDTO> allAnnounceManage();
 
+//    select 제한 두기
+//    int getTotalAnnouncementsCount();
+//    List<AnnouncementDTO> getAnnouncements(int limit);
+
     // 제목으로 조회
     public List<AnnouncementDTO> findAnnounceByTitle(String title);
 

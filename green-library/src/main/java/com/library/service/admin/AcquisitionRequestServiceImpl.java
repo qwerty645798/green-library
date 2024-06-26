@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 public class AcquisitionRequestServiceImpl implements AcquisitionRequestService {
 
+    @Autowired
     private AcquisitionRequestRepository acquisitionRequestRepository;
 
     //    전체 확인

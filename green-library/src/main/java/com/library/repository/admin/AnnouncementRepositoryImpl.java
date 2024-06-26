@@ -20,7 +20,8 @@ public class AnnouncementRepositoryImpl implements AnnouncementRepository {
 
     // 모든 공지사항 목록 조회
     public List<AnnouncementDTO> allAnnounceManage() {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME, " + "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count FROM ANNOUNCEMENTS";
+        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME as FILE_NAME, "
+                + "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count FROM ANNOUNCEMENTS";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             AnnouncementDTO announce = new AnnouncementDTO();
             announce.setAnnouncementId(rs.getInt("announcement_id"));

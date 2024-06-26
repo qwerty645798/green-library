@@ -3,8 +3,8 @@ package com.library.service.admin;
 import com.library.dto.admin._normal.RentDTO;
 import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
+import com.library.dto.admin.userManagement.UserDetailDTO;
 import com.library.repository.admin.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,6 @@ public class UserServiceImpl implements UserService {
     @Qualifier("AdminUserRepository")
     private UserRepository userRepository;
 
-    @Autowired
     public UserServiceImpl(@Qualifier("AdminUserRepository") UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -37,17 +36,26 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO getUserById(int id) {
+    public UserDetailDTO getUserDetail(String userId) {
+        UserDetailDTO userDetails = new UserDetailDTO();
+        userDetails.setUser(userRepository.getUserById(userId));
+        userDetails.setLoans(userRepository.loanUserById(userId));
+        userDetails.setSuspensions(userRepository.suspensionUserById(userId));
+        return userDetails;
+    }
+
+    @Override
+    public UserDTO getUserById(String id) {
         return userRepository.getUserById(id);
     }
 
     @Override
-    public List<RentDTO> loanUserById(int userId) {
+    public List<RentDTO> loanUserById(String userId) {
         return userRepository.loanUserById(userId);
     }
 
     @Override
-    public List<SuspensionDTO> suspensionUserById(int userId) {
+    public List<SuspensionDTO> suspensionUserById(String userId) {
         return userRepository.suspensionUserById(userId);
     }
 
@@ -57,12 +65,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(int userId) {
+    public void deleteUser(String userId) {
         userRepository.deleteUsers(userId);
-    }
-
-    @Override
-    public void releaseUserSuspension(int userId) {
-        userRepository.releaseSuspension(userId);
     }
 }

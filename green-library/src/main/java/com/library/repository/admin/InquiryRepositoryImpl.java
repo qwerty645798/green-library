@@ -44,7 +44,8 @@ public class InquiryRepositoryImpl implements InquiryRepository {
             inquiry.setContents(rs.getString("CONTENTS"));
             inquiry.setUserId(rs.getString("USER_ID"));
             inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
-            setResponse(rs, inquiry);
+            inquiry.setResponseTF((char) rs.getInt("ResponseTF"));
+//            setResponse(rs, inquiry);
             return inquiry;
         });
     }

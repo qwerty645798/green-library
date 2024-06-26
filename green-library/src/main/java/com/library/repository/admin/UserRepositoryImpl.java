@@ -3,6 +3,7 @@ package com.library.repository.admin;
 import com.library.dto.admin._normal.RentDTO;
 import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
+import com.library.dto.admin.userManagement.UserDetailDTO;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,11 +76,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     // 특정 이용자 조회
     @Override
-    public UserDTO getUserById(int userId) {
+    public UserDTO getUserById(String userId) {
         String sql = "SELECT USER_ID, NAME, EMAIL, PHONE FROM USERS WHERE USER_ID = ?";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, userId);
+            ps.setString(1, userId);
             return ps;
         }, rs -> {
             if (rs.next()) {
@@ -97,11 +98,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     // 해당 유저의 대출 현황 조회
     @Override
-    public List<RentDTO> loanUserById(int userId) {
+    public List<RentDTO> loanUserById(String userId) {
         String sql = "SELECT TITLE, AUTHOR_NAME, PUBLISHER_NAME, GENRE_FULLNAME, RENT_HISTORY " + "FROM RENTS " + "JOIN BOOKS ON BOOKS.BOOK_ID = RENTS.BOOK_ID " + "JOIN AUTHORS ON AUTHORS.AUTHOR_ID = BOOKS.AUTHOR_ID " + "JOIN PUBLISHERS ON PUBLISHERS.PUBLISHER_ID = BOOKS.PUBLISHER_ID " + "WHERE USER_ID = ?";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, userId);
+            ps.setString(1, userId);
             return ps;
         }, (rs, rowNum) -> {
             RentDTO loan = new RentDTO();
@@ -117,11 +118,11 @@ public class UserRepositoryImpl implements UserRepository {
 
     // 해당 유저의 이용 제한 내역 조회
     @Override
-    public List<SuspensionDTO> suspensionUserById(int userId) {
+    public List<SuspensionDTO> suspensionUserById(String userId) {
         String sql = "SELECT REASON, START_DATE, END_DATE, (END_DATE - START_DATE) AS DURATION " + "FROM SUSPENSIONS " + "WHERE USER_ID = ?";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, userId);
+            ps.setString(1, userId);
             return ps;
         }, (rs, rowNum) -> {
             SuspensionDTO suspension = new SuspensionDTO();
@@ -143,17 +144,17 @@ public class UserRepositoryImpl implements UserRepository {
 
     // 유저 영구 삭제
     @Override
-    public void deleteUsers(int userId) {
+    public void deleteUsers(String userId) {
         String sql = "DELETE FROM USERS WHERE USER_ID = ?";
         jdbcTemplate.update(sql, userId);
     }
 
     // 이용 제한 해제
-    @Override
-    public void releaseSuspension(int userId) {
-        String sql1 = "UPDATE USERS SET SUSPENDED = 0 WHERE USER_ID = ?";
-        String sql2 = "UPDATE SUSPENSIONS SET END_DATE = SYSDATE WHERE USER_ID = ?";
-        jdbcTemplate.update(sql1, userId);
-        jdbcTemplate.update(sql2, userId);
-    }
+//    @Override
+//    public void releaseSuspension(String userId) {
+//        String sql1 = "UPDATE USERS SET SUSPENDED = 0 WHERE USER_ID = ?";
+//        String sql2 = "UPDATE SUSPENSIONS SET END_DATE = SYSDATE WHERE USER_ID = ?";
+//        jdbcTemplate.update(sql1, userId);
+//        jdbcTemplate.update(sql2, userId);
+//    }
 }

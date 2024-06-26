@@ -4,6 +4,7 @@ package com.library.repository.admin;
 import com.library.dto.admin._normal.RentDTO;
 import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
+import com.library.dto.admin.userManagement.UserDetailDTO;
 
 import java.util.List;
 
@@ -20,20 +21,20 @@ public interface UserRepository {
     List<UserDTO> findUserByName(String userName);
 
     // 특정 이용자 조회
-    UserDTO getUserById(int userId);
+    UserDTO getUserById(String userId);
 
     // 해당 유저의 대출 현황 조회
-    List<RentDTO> loanUserById(int userId);
+    List<RentDTO> loanUserById(String userId);
 
     // 해당 유저의 이용 제한 내역 조회
-    List<SuspensionDTO> suspensionUserById(int userId);
+    List<SuspensionDTO> suspensionUserById(String userId);
 
     // 서비스 제한 생성
     int createSuspension(SuspensionDTO suspension);
 
     // 유저 영구 삭제
-    void deleteUsers(int userId);
+    void deleteUsers(String userId);
 
     // 이용 제한 해제
-    void releaseSuspension(int userId);
+//    void releaseSuspension(String userId);
 }

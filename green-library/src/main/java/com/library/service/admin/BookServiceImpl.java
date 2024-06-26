@@ -2,6 +2,7 @@ package com.library.service.admin;
 
 import com.library.dto.admin._normal.BookDTO;
 import com.library.repository.admin.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,7 @@ import java.util.List;
 public class BookServiceImpl implements BookService{
 
     @Qualifier("AdminBookRepository")
+    @Autowired
     private BookRepository bookRepository;
 
     public BookServiceImpl(BookRepository bookRepository) {

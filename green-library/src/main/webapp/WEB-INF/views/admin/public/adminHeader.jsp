@@ -36,7 +36,7 @@
                 </div>
                 <ul>
                     <li><a href="${pageContext.request.contextPath}/adminInfo">관리자 목록</a></li>
-                    <li><a href="${pageContext.request.contextPath}/User/">이용자 목록</a></li>
+                    <li><a href="${pageContext.request.contextPath}/User">이용자 목록</a></li>
                 </ul>
             </li>
         </ul>

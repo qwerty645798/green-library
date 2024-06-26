@@ -95,6 +95,9 @@ CREATE TABLE admins (
     grant_rank NUMBER(1) REFERENCES admin_grants(grant_rank)
 );
 
+ALTER TABLE admins MODIFY (admin_name VARCHAR2(10));
+COMMIT;
+
 -- 공지사항
 CREATE TABLE announcements (
     announcement_id NUMBER(10) PRIMARY KEY,
