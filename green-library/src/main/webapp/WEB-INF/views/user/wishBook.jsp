@@ -23,7 +23,7 @@
 
 <div class="bannerBgr">
     <div class="Banner">
-        <div class="pageTitle">도서 상세 정보</div> 
+        <div class="pageTitle">신청 도서 정보</div> 
         <div class="pageRoute">홈 > 마이 페이지 > 신청 도서</div>
     </div>
 </div>
