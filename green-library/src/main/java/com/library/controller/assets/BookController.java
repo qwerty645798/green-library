@@ -5,6 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +17,7 @@ import com.library.dto.assets.BookDetailDto;
 import com.library.dto.assets.DataSearchResultDto;
 import com.library.dto.assets.InitiativeBookDto;
 import com.library.dto.assets.PopularBookDto;
+import com.library.exception.SessionNotFoundException;
 import com.library.service.assets.BookDetailService;
 import com.library.service.assets.DataSearchResultService;
 import com.library.service.assets.InitiativeBookService;
@@ -26,17 +30,28 @@ public class BookController {
 	  @Autowired private BookDetailService bookDetailService;
 	  
 	  @GetMapping("/bookDetail") public String
-	  bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model
-	  model,
+	  bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model model ) {
 	  
-	  @RequestParam(name = "auth", defaultValue = "abc") String userId) {
+					
+	  Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
 	  
+	  
+	  if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
+		    // 로그인된 상태에서는 실제 사용자의 아이디를 가져옴
+		  String userId = authentication.getName();
+		  model.addAttribute("userId", userId);
+		  System.out.println(userId); 
+		  
+		  int reservationCount = bookDetailService.reservationsCount(userId);
+		  model.addAttribute("reservationCount", reservationCount);
+		  System.out.println(reservationCount); 
+	  }					 
+	        
 	  BookDetailDto bookDetail = bookDetailService.getBookDetail(bookId);
-	  model.addAttribute("book", bookDetail); model.addAttribute("userId", userId);
-	  System.out.println(userId); int reservationCount =
-	  bookDetailService.reservationsCount(userId);
-	  model.addAttribute("reservationCount", reservationCount);
-	  System.out.println(reservationCount); return "bookDetail"; 
+	  model.addAttribute("book", bookDetail); 
+	  
+	  
+	  return "bookDetail"; 
 	  }
 	 
     

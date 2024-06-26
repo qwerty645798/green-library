@@ -167,10 +167,10 @@
 </main>
 
 <script>
-window.onload = function(){
+addLoadEvent(function(){
 	hideFirstTime(${ztotalPages});
     showPage(1, ${totalPages});
-};
+});
 </script>
 
 

@@ -60,10 +60,10 @@
 						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
 						<c:choose>
 							<c:when test="${book.availability == '대출불가'}">
-								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden">&nbsp;
+								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
 							</c:when>
 							<c:when test="${reservationCount >= 5}">
-            					<input type="button" onclick="cantReservation2()" value="대출 예약" class="reserve_button hidden">&nbsp;
+            					<input type="button" onclick="cantReservation2()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
        				 		</c:when>	
 							<c:otherwise>
 								<form action="reserveBook" method="post">
@@ -75,8 +75,16 @@
 							</c:otherwise>
 						</c:choose>
 						</c:if>
+						
 						<c:if test="${empty sessionScope.SPRING_SECURITY_CONTEXT}">
-					        <input type="button" onclick="Reservation()" value="대출 예약" class="reserve_button">
+						<c:choose>
+							<c:when test="${book.availability == '대출불가'}">
+								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
+							</c:when>
+							<c:otherwise>
+								<input type="button" onclick="Reservation()" value="대출 예약" class="reserve_button">
+							</c:otherwise>
+						</c:choose>
 						</c:if>
 					</td>
 				</tr>		

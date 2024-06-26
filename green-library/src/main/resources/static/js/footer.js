@@ -53,3 +53,4 @@ footerPage[3].onclick = () =>{
 	window.location.href = 'oftenAsk';	
 }
 
+
