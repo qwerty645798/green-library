@@ -2,8 +2,6 @@ package com.library.controller.user;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.library.dto.user.BookLoanExtensionDto;
 import com.library.dto.user.My_InquiryDto;
 import com.library.dto.user.My_WishListDto;
+import com.library.service.assets.BookDetailService;
 import com.library.service.user.BookLoanExtensionService;
 import com.library.service.user.My_WrittenService;
 import com.library.service.user.UserCreateInquiryService;
@@ -38,8 +37,10 @@ public class RentController {
 		return "myWritten";
 	}
 	
+	
 	@GetMapping("/userInquiryCreate")
 	public String userInquiryCreate(@RequestParam(name = "auth", defaultValue = "abc") String userId,  Model model) {
+		
 		model.addAttribute("userId", userId);
 		return "user/userInquiryCreate";
 	}
@@ -70,12 +71,32 @@ public class RentController {
 	}
 
 	@PostMapping("/bookExtension")
-	public String bookExtension(HttpServletRequest request) {
-		String userId = request.getParameter("userId");
+	public String bookExtension(@RequestParam(name="bookId", required = false) int bookId) {
 		
-		bookLoanExtensionService.getExtension(userId);
-		return "bookLoanExtension";
+		bookLoanExtensionService.getExtension(bookId);
+		return "redirect:/bookLoanExtension";
 	}
 	
+	@PostMapping("/bookExtensionBatch")
+	public String bookExtensionBatch(@RequestParam(name = "bookIds") List<Integer> bookIds) {
+	    for (int bookId : bookIds) {
+	        bookLoanExtensionService.getExtension(bookId);
+	    }
+	    return "redirect:/bookLoanExtension";
+	}
+	
+	
+	@Autowired
+	private BookDetailService bookDetailService;
+	
+	@PostMapping("/reserveBook")
+    public String reserveBook(@RequestParam(name = "auth", defaultValue = "abc") String userId, 
+    		@RequestParam(name="bookId", required = false) int bookId ) {
+    	
+    	bookDetailService.makeReservation(bookId, userId);
+    	bookDetailService.changeAvailability(bookId);
+    	
+    	return "redirect:/bookDetail?bookId=" + bookId + "&auth=" + userId;
+    }
 	
 }

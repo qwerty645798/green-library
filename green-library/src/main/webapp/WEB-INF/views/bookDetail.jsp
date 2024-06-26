@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html>
@@ -58,11 +59,15 @@
 					<td colspan="4" align="center" style="border:none;">
 						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
 						<c:choose>
-							<c:when test="${book.availability == '대출가능'}">
-								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button">
+							<c:when test="${book.availability == '대출불가'}">
+								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
 							</c:when>
+							<c:when test="${reservationCount >= 5}">
+            					<input type="button" onclick="cantReservation2()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
+       				 		</c:when>	
 							<c:otherwise>
 								<form action="reserveBook" method="post">
+									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 									<input type="hidden" name="bookId" value="${book.bookId}">
 									<input type="hidden" name="userId" value="${userId}">
 									<input type="submit" value="대출 예약" class="reserve_button">
@@ -70,8 +75,16 @@
 							</c:otherwise>
 						</c:choose>
 						</c:if>
+						
 						<c:if test="${empty sessionScope.SPRING_SECURITY_CONTEXT}">
-					        <input type="button" onclick="Reservation()" value="대출 예약" class="reserve_button">
+						<c:choose>
+							<c:when test="${book.availability == '대출불가'}">
+								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
+							</c:when>
+							<c:otherwise>
+								<input type="button" onclick="Reservation()" value="대출 예약" class="reserve_button">
+							</c:otherwise>
+						</c:choose>
 						</c:if>
 					</td>
 				</tr>		

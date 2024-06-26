@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.library.dto.user.inquiry.UserBorrowDTO;
 import com.library.dto.user.inquiry.UserCountDTO;
+import com.library.dto.user.inquiry.UserInquiryDetailDTO;
 import com.library.dto.user.inquiry.UserInterestDTO;
 import com.library.dto.user.inquiry.UserRentHistoryDTO;
 import com.library.dto.user.inquiry.UserReserveDTO;
@@ -204,6 +205,31 @@ public class InquiryRepositoryImpl implements InquiryRepository {
         userCountDTO.setReserve_count(reserveCount);
 
         return userCountDTO;
+    }
+	
+	@Override
+    public UserInquiryDetailDTO getInquiryDetail(String userId, String id) {
+		String sql = "SELECT " +
+	                "    i.inquiry_title, " +
+	                "    i.contents AS inquiry_contents, " +
+	                "    r.response_content AS response_contents " +
+	                "FROM " +
+	                "    inquiries i " +
+	                "LEFT JOIN " +
+	                "    inquiry_responses r ON i.inquiry_id = r.inquiry_id " +
+	                "WHERE " +
+	                "    i.inquiry_id = ? AND i.user_id = ?";
+
+        return jdbcTemplate.queryForObject(sql, new RowMapper<UserInquiryDetailDTO>() {
+            @Override
+            public UserInquiryDetailDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                UserInquiryDetailDTO dto = new UserInquiryDetailDTO();
+                dto.setInquiryTitle(rs.getString("inquiry_title"));
+                dto.setInquiryContents(rs.getString("inquiry_contents"));
+                dto.setResponseContents(rs.getString("response_contents"));
+                return dto;
+            }
+        }, id, userId);
     }
 
 }

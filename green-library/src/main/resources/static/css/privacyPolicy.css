@@ -1,11 +1,16 @@
 body{
-/*     display: flex;
-    flex-direction: row;
-    justify-content: left;
-   /*  align-items: center; */ 
-   /*  height: 4000px; */
     font-weight:lighter;
     line-height: 2;
+}
+h3{
+    margin-top: 100px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+hr{
+	width: 1260px;
+	border: 2px solid #a0cab0;
 }
 .policyList1{
     display: flex;
@@ -19,25 +24,21 @@ body{
     justify-content: left;
     align-items: center;
     width: 1260px;
-    margin-top: 150px;
-    margin-bottom: 300px;
+/*     margin-top: 150px; */
+/*     margin-bottom: 300px; */
 }
 .policyContent{
     display: flex;
     flex-direction: column;
     justify-content: left;
 }
-h3{
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-}
+
 ul, ol{
-    margin-left: 40px;
+    margin-left: 20px;
 }
 .policyPart{
     color:mediumseagreen;
+    font-size: 13pt;
     font-weight: bold;
 }
 .listNumber>li{
@@ -57,14 +58,12 @@ ul, ol{
 .SemiBold{
     font-weight: 500;
 }
-/* .privacyCommittee{
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: left;  
-} */
+.privacyCommittee{
+	padding-left: 30px;
+}
 .privacyKeeper{
     color: firebrick;
+    font-weight: bold;
 }
 ul{
     list-style-type: disc;

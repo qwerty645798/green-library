@@ -11,7 +11,7 @@
 <link href="css/userAgreement.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="../index/header1.jsp" />
+	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">회원정보수정</div>
@@ -50,7 +50,8 @@
 				</div>
 				<div style="font-weight:600; display:flex; margin-top:10px;"><input class="check" onclick="checkTotalBtn()" type="checkbox" name="agree" style="width:17px; height:17px;"> &nbsp;동의합니다.</div>
 				<div style="font-weight:600; display:flex; margin-top:10px;"><input id="totalCheck" onclick="checkBtn()" type="checkbox" name="agree" style="width:17px; height:17px;"> &nbsp;전체&nbsp;<span style="color:red;">서비스 이용약관</span>에 동의합니다.</div>
-				<div class="container" style="margin-top:50px;"><input type="submit" value="확인" style="background:#786C67; color:white; width:180px; height:48px;"></div>
+				<div class="container" style="margin-top:50px;">
+				<input type="submit" value="확인"></div>
 			</form>
 		</main>
 	</div>

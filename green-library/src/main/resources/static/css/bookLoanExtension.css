@@ -13,7 +13,7 @@
 	margin-bottom: 20px;
 }
 
-.sel_All input[type="button"]{
+.sel_All input[type="submit"]{
 /* 	background-color: #64B883; */
 	border-radius: 5px;
 	border: none;
@@ -99,7 +99,7 @@
 	border:none;
 }
 
-.book_table .extends input[type="button"]{
+.book_table .extends input[type="submit"]{
 	border-radius : 5px;
 	border:none;
 	background-color: #64B883;

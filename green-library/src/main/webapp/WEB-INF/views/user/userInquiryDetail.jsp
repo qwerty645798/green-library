@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,31 +22,42 @@
 		</div>
 	</nav>
 	
+	<h2>문의 세부내역</h2>
+			<hr>
+	
 	<main class="container">
 		<div class="main">
-			<h2>문의 세부내역</h2>
+			
 			<table>
+				<caption>
+				</caption>
 				<tr>
 					<td class="td1">제목</td>
-					<td class="td2"></td>
+					<td class="td2">${inquiryDetail.inquiryTitle}</td>
 				</tr>
 				<tr>
 					<td class="td1">내용</td>
 					<td class="td2">
-						<div class="text"></div>
+						<div class="text">${inquiryDetail.inquiryContents }</div>
 					</td>
 				</tr>
+				<c:if test="${param.responserTF == 'T'}">
 				<tr>
 					<td class="td1">답변</td>
-					<td class="td2"></td>
-				</tr>
-				<tr>
-					<td class="td1">내용</td>
 					<td class="td2">
-						<div class="text"></div>
+						<div class="text">${inquiryDetail.responseContents}</div>
 					</td>
 				</tr>
+				</c:if>
 			</table>
+			
+			<div class="writeBtn">
+				<input type="button" value="수정하기">
+				<input type="button" value="삭제하기">
+				<a href="myWritten"><input type="button" value="목록으로"></a>
+			</div>
+			
+			
 		</div>
 	</main>
 	

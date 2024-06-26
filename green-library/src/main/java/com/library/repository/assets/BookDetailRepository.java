@@ -16,8 +16,8 @@ public class BookDetailRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	public BookDetailDto findByBookId(String bookId) {
-		String sql = "SELECT books.title, books.isbn, authors.author_name, books.img, books.location, books.availability, books.summary "
+	public BookDetailDto findByBookId(int bookId) {
+		String sql = "SELECT books.title, books.isbn, authors.author_name, books.img, books.location, books.availability, books.summary, books.book_id "
                 + "FROM books JOIN authors ON books.author_id = authors.author_id "
                 + "WHERE books.book_id = ?";
 		
@@ -32,6 +32,7 @@ public class BookDetailRepository {
                 book.setLocation(rs.getString("location"));
                 book.setAvailability(rs.getString("availability"));
                 book.setSummary(rs.getString("summary"));
+                book.setBookId(rs.getInt("book_id"));
                 
                 if (book.getAvailability() != null) {
                     if (book.getAvailability().equals("1")) {
@@ -47,4 +48,6 @@ public class BookDetailRepository {
 			}
 		}, bookId); //요게 bookID 기준으로 데이터 셋하는거?
 	}
+	
+	
 }

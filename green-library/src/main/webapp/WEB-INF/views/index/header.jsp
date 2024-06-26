@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -7,6 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Green Library</title>
         <link href="/css/public/header.css" type="text/css" rel="stylesheet">
+        
+        <script src = "js/commonWindowOnload.js"></script>
+        
         
     </head>
     <body>
@@ -16,12 +20,24 @@
       <div class="header1">
 	      <div class="center">
 	        <div class="headerTop">
-	          <div class="logo">로고</div>
-<!-- 	          <div class="joinGroup"> -->
-		          <div id="login" class="loginLink">로그인 /</div>
-		          <div id="userjoin" class="joinLink">회원가입</div>
-<!-- 	          </div> -->
-	        </div>
+	          <div class="logo">
+	          <a href="/">로고</a>
+	          </div>
+		          	<sec:authorize access="isAuthenticated()">
+				        <div>환영합니다, <b><sec:authentication property="name"/>님!</b> &nbsp;</div>
+				        <form action="logout" method="post"> 
+				        <label>
+				        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		                <img class="logout" src="images/logout.png">
+		                <input class="bye" type="submit" value="로그아웃" >
+				        </label>
+		                </form>
+				    </sec:authorize>
+					</div>
+				    <sec:authorize access="!isAuthenticated()">
+				        <div id="login" class="loginLink">로그인 /</div>
+		          		<div id="userjoin" class="joinLink">회원가입</div>
+				    </sec:authorize>
 	      </div>
         
           

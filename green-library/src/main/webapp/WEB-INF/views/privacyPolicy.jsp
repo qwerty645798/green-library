@@ -8,7 +8,7 @@
         <title>Document</title>
         <link href="/reset/reset.css" rel="stylesheet" type="text/css">
         <link href="/CSS/privacyPolicy.css" rel="stylesheet" type="text/css">
-        <link href="/CSS/nav.css" rel="stylesheet" type="text/css">
+        <link href="/CSS/public/nav.css" rel="stylesheet" type="text/css">
     </head>
     <body>
     
@@ -24,7 +24,9 @@
     <div class="policyList1">
         <div class="policyList2">
     
-            <h3>개인정보 처리방침</h3><br><br>
+            <h3>개인정보 처리방침</h3><br>
+            
+            <hr>
     
         <div class="policyContent">
             <ol class="listNumber">
@@ -170,8 +172,6 @@
             </div>
             </div>
         
-           
-            
         </div>
     </div>
     

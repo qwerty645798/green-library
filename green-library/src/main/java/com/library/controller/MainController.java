@@ -216,11 +216,6 @@ public class MainController {
 		return "vision";
 	}
 
-//	@GetMapping("/businessStructure")
-//	public String businessStructure() {
-//		return "businessStructure";
-//	}
-
 	@GetMapping("/schedule")
 	public String schedule() {
 		return "schedule";
@@ -235,5 +230,10 @@ public class MainController {
 	@GetMapping("/missingServletRequestParam")
 	public String missingServletRequestParam() {
 		return "public/missingServletRequestParam";
+	}
+	
+	@GetMapping("/oftenAsk")
+	public String oftenAsk() {
+		return "oftenAsk";
 	}
 }

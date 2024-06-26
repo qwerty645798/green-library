@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +11,6 @@
     <link href="/reset/reset.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/public/nav.css">
     <link href="css/userUseInformation.css" type="text/css" rel="stylesheet">
-    
-    <script>
-	    let message = "${message}";
-	    if(message)
-	    	alert(message);
-    </script>
 </head>
 <body>
 
@@ -75,10 +70,12 @@
                 <div class="center btnbox">
                     <table class="btn">
                         <tr>
-                            <th>일반 예약</th>
+
+                            <th>예약</th>
                         </tr>
                         <tr>
-                            <td>0 / 3</td>
+                            <td>${count.reserve_count} / 5</td>
+
                         </tr>
                     </table>
                 </div>
@@ -86,10 +83,11 @@
                 <div class="center btnbox">
                     <table class="btn">
                         <tr>
-                            <th>대출 / 연체</th>
+                            <th>대출</th>
                         </tr>
                         <tr>
-                            <td>0 / 0</td>
+                            <td>${count.rent_count} / 5</td>
+
                         </tr>
                     </table>
                 </div>
@@ -100,7 +98,17 @@
                             <th>나의 상태</th>
                         </tr>
                         <tr>
-                            <td>대출 가능</td>
+                            <td>
+                            	<c:choose>
+							        <c:when test="${count.rent_count <= 5}">
+							            대출 가능
+							        </c:when>
+							        <c:otherwise>
+							            대출 불가능
+							        </c:otherwise>
+							    </c:choose>
+                            </td>
+
                         </tr>
                     </table>
                 </div>
@@ -172,32 +180,7 @@
 	<jsp:include page="../index/footer.jsp" />
 	
 	
-<!-- 	<script> -->
-//         document.addEventListener('DOMContentLoaded', function() {
-//             fetchDataAndSendToIframe('rentHistory');
-//         });
-        
-//         document.querySelectorAll('.Dheader').forEach(header => {
-//             header.addEventListener('click', function() {
-//                 let condition = this.getAttribute('data-condition');
-//                 fetchDataAndSendToIframe(condition);
-//             });
-//         });
 
-//         function initialLoadIframe() {
-//             fetchDataAndSendToIframe('rentHistory');
-//         }
-
-//         function fetchDataAndSendToIframe(condition) {
-//             fetch(`/getUserData`)
-//                 .then(response => response.json())
-//                 .then(data => {
-//                     let iframe = document.getElementById('iframe');
-//                     iframe.contentWindow.postMessage({ condition: condition, data: data[condition] }, '*');
-//                 })
-//                 .catch(error => console.error('Error fetching data:', error));
-//         }
-<!--     </script> -->
 	
 	
 	
