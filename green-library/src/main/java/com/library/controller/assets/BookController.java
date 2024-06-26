@@ -24,25 +24,20 @@ import com.library.service.assets.PopularBookService;
 @Controller("AssetsBookController")
 public class BookController {
 
-	
 	  @Autowired private BookDetailService bookDetailService;
 	  
 	  @GetMapping("/bookDetail") public String
 	  bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model model ) {
-	  
-					
+	  			
 	  Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
-	  
 	  
 	  if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
 		    // 로그인된 상태에서는 실제 사용자의 아이디를 가져옴
 		  String userId = authentication.getName();
 		  model.addAttribute("userId", userId);
-		  System.out.println(userId); 
 		  
 		  int reservationCount = bookDetailService.reservationsCount(userId);
 		  model.addAttribute("reservationCount", reservationCount);
-		  System.out.println(reservationCount); 
 	  }					 
 	        
 	  BookDetailDto bookDetail = bookDetailService.getBookDetail(bookId);
