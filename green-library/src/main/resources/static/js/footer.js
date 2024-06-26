@@ -28,7 +28,8 @@ function scrollUp(){
 	
 }
 
-window.onload = scrollUp();
+addLoadEvent(scrollUp);
+/*window.onload = scrollUp();*/
 //window.addEventListener("scroll", scrollUp);
 
 function gotoFootpage(){
@@ -46,4 +47,5 @@ function gotoFootpage(){
 	}
 }
 
-window.onload = gotoFootpage();
+addLoadEvent(gotoFootpage);
+/*window.onload = gotoFootpage();*/
