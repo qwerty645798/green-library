@@ -36,13 +36,13 @@ public class My_WishListRepository {
                 if (completeValue != null) {
                     switch (completeValue) {
                         case "Y":
-                            wishList.setComplete("수락됨");
+                            wishList.setComplete("심사통과");
                             break;
                         case "W":
-                            wishList.setComplete("대기중");
+                            wishList.setComplete("심사대기");
                             break;
                         case "N":
-                            wishList.setComplete("반려됨");
+                            wishList.setComplete("심사탈락");
                             break;
                         default:
                             wishList.setComplete("알수없음");
