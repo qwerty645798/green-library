@@ -29,8 +29,22 @@ public class BookDetailService {
  	}
  	
  	public int reservationsCount(String userId) {
- 		
  		return bookReservationRepository.reserveCountByUserId(userId);
- 		
  	}
+ 	
+ 	
+ 	
+ 	public boolean canReserveBook(int bookId, String userId) {
+        BookDetailDto bookDetail = bookDetailRepository.findByBookId(bookId);
+        int reservationCount = bookReservationRepository.reserveCountByUserId(userId);
+        
+        if (bookDetail.getAvailability() == null || bookDetail.getAvailability().equals("대출불가")) {
+            return false; // 대출 불가 상태
+        }
+        if (reservationCount >= 5) {
+            return false; // 사용자가 이미 5권 이상 예약한 경우
+        }
+        
+        return true; // 예약 가능한 상태
+    }
 }
