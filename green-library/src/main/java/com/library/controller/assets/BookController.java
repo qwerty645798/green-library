@@ -2,6 +2,7 @@ package com.library.controller.assets;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,19 +22,23 @@ import com.library.service.assets.PopularBookService;
 @Controller("AssetsBookController")
 public class BookController {
 
-	@Autowired
-	private BookDetailService bookDetailService;
 	
-    @GetMapping("/bookDetail")
-    public String bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model model, 
-    		@RequestParam(name = "auth", defaultValue = "abc") String userId) {
-    	
-    	
-    	BookDetailDto bookDetail = bookDetailService.getBookDetail(bookId);
-    	model.addAttribute("book", bookDetail);
-    	model.addAttribute("userId", userId);
-    	return "bookDetail";
-    }
+	  @Autowired private BookDetailService bookDetailService;
+	  
+	  @GetMapping("/bookDetail") public String
+	  bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model
+	  model,
+	  
+	  @RequestParam(name = "auth", defaultValue = "abc") String userId) {
+	  
+	  BookDetailDto bookDetail = bookDetailService.getBookDetail(bookId);
+	  model.addAttribute("book", bookDetail); model.addAttribute("userId", userId);
+	  System.out.println(userId); int reservationCount =
+	  bookDetailService.reservationsCount(userId);
+	  model.addAttribute("reservationCount", reservationCount);
+	  System.out.println(reservationCount); return "bookDetail"; 
+	  }
+	 
     
     
     

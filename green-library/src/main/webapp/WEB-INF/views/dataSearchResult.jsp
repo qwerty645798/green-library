@@ -168,7 +168,7 @@
 
 <script>
 window.onload = function(){
-	hideFirstTime(${totalPages});
+	hideFirstTime(${ztotalPages});
     showPage(1, ${totalPages});
 };
 </script>
