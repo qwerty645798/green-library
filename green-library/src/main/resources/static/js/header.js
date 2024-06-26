@@ -68,7 +68,17 @@ addLoadEvent(accordian);
 	window.onload = welcome();
 	
     
-  
+
+    /*logo.onclick = () => {
+		window.location.href = '/';
+	}
+	login.onclick = () => {
+		window.location.href = 'userLogin';
+	}
+	join.onclick = () => {
+		window.location.href = 'userAgreement';
+
+	}*/
 
 
 
