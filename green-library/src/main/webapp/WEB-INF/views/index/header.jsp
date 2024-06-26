@@ -9,6 +9,9 @@
         <title>Green Library</title>
         <link href="/css/public/header.css" type="text/css" rel="stylesheet">
         
+        <script src = "js/commonWindowOnload.js"></script>
+        
+        
     </head>
     <body>
     

@@ -140,10 +140,10 @@
 </main>
 
 <script>
-window.onload = function(){
-	hideFirstTime(${totalPages});
+addLoadEvent(function(){
+	hideFirstTime(${ztotalPages});
     showPage(1, ${totalPages});
-};
+});
 </script>
 
 <jsp:include page="index/footer.jsp" />
