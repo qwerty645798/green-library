@@ -21,9 +21,10 @@ public class AdminRepositoryImpl implements AdminRepository {
 
     @Override
     public List<AdminDTO> allAdminManage() {
-        String sql = "select ADMIN_ID, ADMIN_PASS, ADMIN_EMAIL, GRANT_RANK from ADMINS";
+        String sql = "select ADMIN_NAME, ADMIN_ID, ADMIN_PASS, ADMIN_EMAIL, GRANT_RANK from ADMINS";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             AdminDTO admin = new AdminDTO();
+            admin.setAdminName(rs.getString("ADMIN_NAME"));
             admin.setAdminId(rs.getString("ADMIN_ID"));
             admin.setAdminPass(rs.getString("ADMIN_PASS"));
             admin.setAdminEmail(rs.getString("ADMIN_EMAIL"));
