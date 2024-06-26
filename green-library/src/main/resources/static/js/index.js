@@ -37,7 +37,8 @@ function quickPage(){
 	notiQuick.onclick = () => {window.location.href='notification';}
 }
 
-window.onload=quickPage();
+addLoadEvent(quickPage);
+/*window.onload=quickPage();*/
 
 //슬라이드 함수
 function slide(){
@@ -79,8 +80,8 @@ function slide2(){
 		}
 	}
 
-window.onload = slide();
-window.onload = slide2();
+	addLoadEvent(slide);
+	addLoadEvent(slide2);
 
 
 

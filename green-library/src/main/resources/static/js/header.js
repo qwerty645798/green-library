@@ -5,7 +5,7 @@
     let subMenuTop = document.getElementById('subMenuTop').children;
     let subMenu = document.getElementById('subMenu');
     let input = document.getElementsByTagName("input");
-//function accordian(){
+function accordian(){
     for(let i=0;i<5;i++){
 
         subMenuTop[i].onclick = () => {
@@ -31,9 +31,9 @@
     }
 
     
-//}
+}
 
-//addLoadEvent(accordian);
+addLoadEvent(accordian);
 /*window.onload = accordian();*/
 
 //로그인 회원가입 페이지로 이동
