@@ -7,6 +7,3 @@
     	alert("대출이 불가합니다.");
     }
     
-    function cantReservation2(){
-    	alert("더 이상 대출이 불가합니다.");
-    }

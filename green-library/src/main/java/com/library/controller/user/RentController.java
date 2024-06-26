@@ -96,7 +96,7 @@ public class RentController {
     	bookDetailService.makeReservation(bookId, userId);
     	bookDetailService.changeAvailability(bookId);
     	
-    	return "redirect:/bookDetail?bookId=" + bookId + "&auth=" + userId;
+    	return "redirect:/bookDetail?bookId=" + bookId;
     }
 	
 }

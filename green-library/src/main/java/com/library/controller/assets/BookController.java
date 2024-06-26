@@ -24,28 +24,30 @@ import com.library.service.assets.PopularBookService;
 @Controller("AssetsBookController")
 public class BookController {
 
-	  @Autowired private BookDetailService bookDetailService;
-	  
-	  @GetMapping("/bookDetail") public String
-	  bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model model ) {
-	  			
-	  Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
-	  
-	  if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
-		    // 로그인된 상태에서는 실제 사용자의 아이디를 가져옴
-		  String userId = authentication.getName();
-		  model.addAttribute("userId", userId);
+	@Autowired private BookDetailService bookDetailService;
+  
+	@GetMapping("/bookDetail") public String
+	bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model model ) {
+		  			
+		  Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); 
 		  
-		  int reservationCount = bookDetailService.reservationsCount(userId);
-		  model.addAttribute("reservationCount", reservationCount);
-	  }					 
+		  if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
+			    // 로그인된 상태에서는 실제 사용자의 아이디를 가져옴
+			  String userId = authentication.getName();
+			  model.addAttribute("userId", userId);
+			  
+			  int reservationCount = bookDetailService.reservationsCount(userId);
+			  model.addAttribute("reservationCount", reservationCount);
+		  }					 
+		        
+		  BookDetailDto bookDetail = bookDetailService.getBookDetail(bookId);
+		  model.addAttribute("book", bookDetail); 
+		  
+		  boolean canReserve = bookDetailService.canReserveBook(bookId, authentication.getName());
+	      model.addAttribute("canReserve", canReserve);
 	        
-	  BookDetailDto bookDetail = bookDetailService.getBookDetail(bookId);
-	  model.addAttribute("book", bookDetail); 
-	  
-	  
-	  return "bookDetail"; 
-	  }
+		  return "bookDetail"; 
+	}
 	 
     
     

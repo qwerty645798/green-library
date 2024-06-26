@@ -59,12 +59,9 @@
 					<td colspan="4" align="center" style="border:none;">
 						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
 						<c:choose>
-							<c:when test="${book.availability == '대출불가'}">
+							<c:when test="${!canReserve}">
 								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
 							</c:when>
-							<c:when test="${reservationCount >= 5}">
-            					<input type="button" onclick="cantReservation2()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
-       				 		</c:when>	
 							<c:otherwise>
 								<form action="reserveBook" method="post">
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -78,7 +75,7 @@
 						
 						<c:if test="${empty sessionScope.SPRING_SECURITY_CONTEXT}">
 						<c:choose>
-							<c:when test="${book.availability == '대출불가'}">
+							<c:when test="${!canReserve}">
 								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
 							</c:when>
 							<c:otherwise>
