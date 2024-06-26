@@ -38,7 +38,7 @@ window.onload = accordian();
 //로그인 회원가입 페이지로 이동
 
 
-function welcome(){
+
 	
 	let login = document.querySelector('.loginLink');
 	let join = document.querySelector('.joinLink');
@@ -53,9 +53,9 @@ function welcome(){
 	join.onclick = () => {
 		window.location.href = 'userAgreement';
 	}
-}
 
-window.onload = welcome();
+
+
 
     
 
