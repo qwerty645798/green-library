@@ -113,7 +113,9 @@ function booktab(){
 }
 
 
-window.onload = booktab();
+addLoadEvent(booktab);
+
+/*window.onload = booktab();*/
 
 
 

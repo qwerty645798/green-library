@@ -33,7 +33,8 @@ function accordian(){
     
 }
 
-window.onload = accordian();
+addLoadEvent(accordian);
+/*window.onload = accordian();*/
 
 //로그인 회원가입 페이지로 이동
 
@@ -44,15 +45,38 @@ window.onload = accordian();
 	let join = document.querySelector('.joinLink');
 	let logo = document.querySelector('.logo');
 
-	logo.onclick = () => {
-		window.location.href = '/';
-	}
-	login.onclick = () => {
-		window.location.href = 'userLogin';
-	}
-	join.onclick = () => {
-		window.location.href = 'userAgreement';
-	}
+	//NULL 체크
+		if (logo) {
+	        logo.onclick = () => {
+	            window.location.href = '/';
+	        }
+	    }
+
+	    if (login) {
+	        login.onclick = () => {
+	            window.location.href = 'userLogin';
+	        }
+	    }
+
+	    if (join) {
+	        join.onclick = () => {
+	            window.location.href = 'userAgreement';
+	        }
+	    }
+	    
+	    /*logo.onclick = () => {
+			window.location.href = '/';
+		}
+		login.onclick = () => {
+			window.location.href = 'userLogin';
+		}
+		join.onclick = () => {
+			window.location.href = 'userAgreement';
+
+		}*/
+
+
+	window.onload = welcome();
 
 
 
@@ -68,10 +92,7 @@ window.onload = accordian();
 
 
 
-// let a = document.getElementById('userjoin');
-// a.onclick = () => {
-//     a.style.color = "red";
-// }
+
 
    
 

@@ -1,8 +1,8 @@
-let order = document.querySelectorAll('#orderBtn');
+let order = document.querySelectorAll('.orderBtn');
 
 function orderNum(){
-	order.onclick = () => {
-		order[0].classLIst.add("curPage");
+	order[0].onclick = () => {
+		order[0].classList.add("curPage");
 	}
 }
 

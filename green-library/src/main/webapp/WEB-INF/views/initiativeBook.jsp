@@ -129,7 +129,7 @@
 <div class="arrCon">
 	<div class="button_box">
 		<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-			<input id="orderBtn" class="curPage" type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+			<input class="orderBtn curPage" type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
 	    </c:forEach>
 	</div>
 </div>
@@ -141,7 +141,7 @@
 
  <jsp:include page="index/footer.jsp" />
  
- <script src="js/orderButton.js" type="text/javascript"></script>
+<!--  <script src="js/orderButton.js" type="text/javascript"></script> -->
  
 <!--  <script src="/js/header.js"></script> -->
 
