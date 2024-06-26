@@ -152,7 +152,11 @@
 /*	margin-right: 10px;*/
 /*	margin-left:10px;*/
 /*}*/
-.orderBtn{
+.orderBtn,
+.goFirst_button,
+.goPrevious_button,
+.goNext_button,
+.goEnd_button{
 	/* background-color: #64B883; */
 	border-radius : 2px;
 	border: 1px solid gray;
@@ -164,7 +168,7 @@
 	background-color: white;
 }
 input[type=button]:hover{
-	background-color: lightgray;
+	background-color: #d8e9d9;
 	opacity: 0.8;
 }
 
@@ -201,6 +205,6 @@ input[type=button]:hover{
 
 /*js용*/
 .curPage{
-	border: 2px solid green;
+	border: 2px solid #64B883;
 	background-color: #d8e9d9;
 }
