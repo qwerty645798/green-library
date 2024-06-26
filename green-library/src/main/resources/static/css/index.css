@@ -11,7 +11,7 @@
     background-size: cover;
 }
 .customSearchform{
-    z-index: 5;
+    z-index: 2;
     display: flex;
     flex-direction: row;
     width: 768px;
@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 .searchSel{
-    z-index: 5;
+    z-index: 2;
     float: left;
     width: 100px;
     height: 58px;
@@ -32,7 +32,7 @@
     background-color: white;
 }
 input[type=text]{
-    z-index: 5;
+    z-index: 2;
     display: flex;
     width: 768px;
     height: 48px;
