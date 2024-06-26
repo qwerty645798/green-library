@@ -5,9 +5,10 @@
     display: flex;
     width: 1260px;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 100px;
     flex-direction: column;
-    border: 2px solid #ECD9BC;
+/*     border: 2px solid #1d7647; */
+    border: 2px solid #A0CAB0;
     border-radius: 5px;
 }
 
@@ -22,7 +23,7 @@
 	 font-size: 15pt;
 	 font-weight: bold;
 	 padding-bottom: 10px;
-	 border-bottom: 2px solid #ECD9BC;
+	 border-bottom: 4px solid #6c5a3f;
 }
 
 .innerContainer{
@@ -73,16 +74,12 @@
 	padding-right:20px;
 }
 .go_button .gogo_button{
-/* 	width: 150px; */
 	width:120px; 
 	height:35px; 
-	background-color: #155734;
+	background-color: #1d7647;
 	color: white;
 	font-weight: bold;
 	border: none;
 	border-radius: 5px;
-}
-.go_button .gogo_button:hover{
-	background-color: #64B883;
 	cursor: pointer;
 }

@@ -22,7 +22,10 @@
 		</div>
 	</nav>
 	
+	<div class="htwo">
 	<h2>문의 세부내역</h2>
+	</div>
+	
 			<hr>
 	
 	<main class="container">
@@ -33,6 +36,10 @@
 				</caption>
 				<tr>
 					<td class="td1">제목</td>
+					<td class="td2">${inquiryDetail.inquiryTitle}</td>
+				</tr>
+				<tr>
+					<td class="td1">작성일</td>
 					<td class="td2">${inquiryDetail.inquiryTitle}</td>
 				</tr>
 				<tr>

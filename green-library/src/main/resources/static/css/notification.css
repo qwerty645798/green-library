@@ -172,10 +172,10 @@
 	cursor: pointer;
 	background-color: white;
 }
-input[type=button]:hover{
-	background-color: #d8e9d9;
-	opacity: 0.8;
-}
+/* input[type=button]:hover{ */
+/* 	background-color: #d8e9d9; */
+/* 	opacity: 0.8; */
+/* } */
 .hidden {
     display: none;
 }

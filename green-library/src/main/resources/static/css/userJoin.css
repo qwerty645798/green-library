@@ -84,13 +84,14 @@ input.brief{
 	text-align:center;
 }
 input[type=submit]{
-	color:white; 
-	background:#155734;
-	border: none;
-	border-radius: 5px; 
+	margin-top:30px;
 	width:120px; 
 	height:35px; 
-	margin-top:30px; 
+	font-weight: bold;
+	color:white; 
+	background-color: #1d7647;
+	border: none;
+	border-radius: 5px;
 	cursor:pointer;
 }
 input.short{/*lhm 추가*/
