@@ -17,6 +17,26 @@ INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, 
 VALUES('id4', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
 INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
 VALUES('id5', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id6', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름6', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id7', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id8', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id9', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id10', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id11', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id12', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id13', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id14', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
+INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
+VALUES('id15', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름2', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');
 -- 유저 비밀번호(pass1)해싱한값
 
 
@@ -100,3 +120,4 @@ INSERT INTO suspensions(suspension_id, start_date, end_date, reason, user_id)
 VALUES(suspend_idx.NEXTVAL, '2024-06-11', '2024-06-25', '그냥 테스트로', 'id1');
 
 commit;
+ROLLBACK ;

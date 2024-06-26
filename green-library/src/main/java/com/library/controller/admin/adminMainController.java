@@ -1,12 +1,16 @@
 package com.library.controller.admin;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
+import com.library.dto.admin._normal.UserDTO;
+import com.library.service.admin.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 @Controller
 public class adminMainController {
@@ -16,6 +20,10 @@ public class adminMainController {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+
+    @Autowired
+    private UserService userService;
+
 
     //    login, home
     @GetMapping("/admin")
@@ -64,12 +72,6 @@ public class adminMainController {
     @GetMapping("/DetailInquiry")
     public String detailInquiry(Model model) {
         return "admin/adminManagements/inquiry/inquiryDetail";
-    }
-
-    //    users
-    @GetMapping("/User")
-    public String usersInfo(Model model) {
-        return "admin/adminManagements/user/userManage";
     }
 //    book
     @GetMapping("/BuyBook")

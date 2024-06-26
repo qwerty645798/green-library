@@ -26,9 +26,10 @@ public class UserRepositoryImpl implements UserRepository {
         String sql = "SELECT USER_ID, NAME, EMAIL, (SELECT COUNT(*) FROM USERS) AS total_count FROM USERS";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             UserDTO user = new UserDTO();
-            user.setUserId(rs.getString("user_id"));
-            user.setUserName(rs.getString("user_name"));
-            user.setUserEmail(rs.getString("user_email"));
+            user.setUserId(rs.getString("USER_ID"));
+            user.setUserName(rs.getString("NAME"));
+            user.setUserEmail(rs.getString("EMAIL"));
+            user.setTotalCount(rs.getInt("total_count"));
             return user;
         });
     }
@@ -36,7 +37,7 @@ public class UserRepositoryImpl implements UserRepository {
     // 아이디로 사용자 조회
     @Override
     public List<UserDTO> findUserById(String userId) {
-        String sql = "SELECT USER_ID, NAME, EMAIL, (SELECT COUNT(*) FROM USERS) AS total_count " + "FROM USERS WHERE USER_ID LIKE ?";
+        String sql = "SELECT USER_ID, NAME, EMAIL, (SELECT COUNT(*) FROM USERS) AS total_count FROM USERS WHERE USER_ID LIKE ?";
         String queryParam = "%" + userId + "%";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -47,6 +48,7 @@ public class UserRepositoryImpl implements UserRepository {
             user.setUserId(rs.getString("USER_ID"));
             user.setUserName(rs.getString("NAME"));
             user.setUserEmail(rs.getString("EMAIL"));
+            user.setTotalCount(rs.getInt("total_count"));
             return user;
         });
     }
@@ -54,18 +56,19 @@ public class UserRepositoryImpl implements UserRepository {
 
     // 이름으로 사용자 조회
     @Override
-    public List<UserDTO> findUserByName(String userName) {
-        String sql = "SELECT USER_ID, NAME, EMAIL , (SELECT COUNT(*) FROM USERS) AS total_count FROM USERS WHERE NAME LIKE ?";
-        String queryParam = "%" + userName + "%";
+    public List<UserDTO> findUserByName(String name) {
+        String sql = "SELECT USER_ID, NAME, EMAIL, (SELECT COUNT(*) FROM USERS) AS total_count FROM USERS WHERE NAME LIKE ?";
+        String queryParam = "%" + name + "%";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, queryParam);
             return ps;
         }, (rs, rowNum) -> {
             UserDTO user = new UserDTO();
-            user.setUserId(rs.getString("user_id"));
-            user.setUserName(rs.getString("user_name"));
-            user.setUserEmail(rs.getString("user_email"));
+            user.setUserId(rs.getString("USER_ID"));
+            user.setUserName(rs.getString("NAME"));
+            user.setUserEmail(rs.getString("EMAIL"));
+            user.setTotalCount(rs.getInt("total_count"));
             return user;
         });
     }

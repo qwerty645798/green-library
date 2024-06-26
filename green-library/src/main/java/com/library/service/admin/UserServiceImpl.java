@@ -16,6 +16,11 @@ public class UserServiceImpl implements UserService {
     @Qualifier("AdminUserRepository")
     private UserRepository userRepository;
 
+    @Autowired
+    public UserServiceImpl(@Qualifier("AdminUserRepository") UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @Override
     public List<UserDTO> getAllUsers() {
         return userRepository.allUserManage();

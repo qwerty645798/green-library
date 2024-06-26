@@ -2,7 +2,7 @@
 <header>
     <div class="accountContainer">
         <h1 class="adminLogo">
-            <img src="admin/assets/imgs/adminImg.png" alt="">
+            <img src="/admin/assets/imgs/adminImg.png" alt="">
         </h1>
         <div>
             <p>관리자</p>
@@ -36,7 +36,7 @@
                 </div>
                 <ul>
                     <li><a href="${pageContext.request.contextPath}/adminInfo">관리자 목록</a></li>
-                    <li><a href="${pageContext.request.contextPath}/User">이용자 목록</a></li>
+                    <li><a href="${pageContext.request.contextPath}/User/">이용자 목록</a></li>
                 </ul>
             </li>
         </ul>

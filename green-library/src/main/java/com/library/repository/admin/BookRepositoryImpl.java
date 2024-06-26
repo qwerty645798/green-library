@@ -2,12 +2,15 @@ package com.library.repository.admin;
 
 import com.library.dto.admin._normal.BookDTO;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -26,11 +29,64 @@ public class BookRepositoryImpl implements BookRepository {
         Character availability = null; // 기본값 설정
 
         if (availabilityStr != null && !availabilityStr.isEmpty()) {
-            availability = availabilityStr.charAt(0); // 첫 번째 문자를 char로 변환
+            availability = availabilityStr.charAt(0); // 첫 번째 문자 char 변환
         }
 
         book.setAvailability(availability);
     }
+
+    //    작가 Id 찾거나 추가하기
+    private long getOrCreateAuthor(String authorName) {
+        String getAuthorSql = "SELECT AUTHOR_ID FROM AUTHORS WHERE AUTHOR_NAME = ?";
+        Long authorId = jdbcTemplate.queryForObject(getAuthorSql, Long.class, authorName);
+
+        if (authorId != null) {
+            return authorId;
+        }
+
+        String insertAuthorSql = "INSERT INTO AUTHORS VALUES (AUTHOR_IDX.nextval, ?)";
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(insertAuthorSql, new String[]{"author_id"});
+            ps.setString(1, authorName);
+            return ps;
+        }, keyHolder);
+
+        Number generatedId = keyHolder.getKey();
+        if (generatedId != null) {
+            return generatedId.longValue();
+        } else {
+            throw new IllegalStateException("Generated author ID is null");
+        }
+    }
+
+    // 출판사 Id 찾거나 추가하기
+    private long getOrCreatePublisher(String publisherName) {
+        String getPublisherSql = "SELECT PUBLISHER_ID FROM PUBLISHERS WHERE PUBLISHER_NAME = ?";
+        Long publisherId = jdbcTemplate.queryForObject(getPublisherSql, Long.class, publisherName);
+
+        if (publisherId != null) {
+            return publisherId;
+        }
+
+        String insertPublisherSql = "INSERT INTO publishers VALUES (PUBLISHER_IDX.NEXTVAL, ?)";
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(insertPublisherSql, new String[]{"publisher_id"});
+            ps.setString(1, publisherName);
+            return ps;
+        }, keyHolder);
+
+        Number generatedId = keyHolder.getKey();
+        if (generatedId != null) {
+            return generatedId.longValue();
+        } else {
+            throw new IllegalStateException("Generated publisher ID is null");
+        }
+    }
+
 
     // 모든 책 목록 조회
     public List<BookDTO> allHavingBookManage() {
@@ -131,14 +187,19 @@ public class BookRepositoryImpl implements BookRepository {
 
     // 책 등록
     public int createBook(BookDTO book) {
-        String sql = "INSERT INTO BOOKS (BOOK_ID, GENRE_FULLNAME, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, ISBN, LOCATION, IMG, SUMMARY) " + "VALUES (BOOK.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(sql, book.getGenreFullname(), book.getTitle(), author.getAuthorName(), book.getPublisherName(), book.getPublicationDate(), book.getIsbn(), book.getLocation(), book.getImg(), book.getSummary());
+        long authorId = getOrCreateAuthor(book.getAuthorName());
+        long publisherId = getOrCreatePublisher(book.getPublisherName());
+        String sql = "INSERT INTO BOOKS (BOOK_ID, AUTHOR_ID, PUBLISHER_ID, GENRE_ID, GENRE_FULLNAME, TITLE, IMG, ISBN, LOCATION, SUMMARY, PUBLICATION_DATE) " + "VALUES (BOOK_IDX.NEXTVAL, AUTHOR_ID, PUBLISHER_ID, ?, ?, ?, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, authorId, publisherId, book.getGenreId(), book.getGenreFullname(), book.getTitle(), book.getImg(), book.getIsbn(), book.getLocation(), book.getSummary(), new Date(book.getPublicationDate().getTime()));
     }
 
     // 책 수정
     public int updateBook(BookDTO book) {
-        String sql = "UPDATE BOOKS SET GENRE_FULLNAME = ?, TITLE = ?, AUTHOR_NAME = ?, PUBLISHER_NAME = ?, PUBLICATION_DATE = ?, " + "ISBN = ?, LOCATION = ?, IMG = ?, SUMMARY = ? WHERE BOOK_ID = ?";
-        return jdbcTemplate.update(sql, book.getGenreFullname(), book.getTitle(), book.getAuthorName(), book.getPublisherName(), book.getPublicationDate(), book.getIsbn(), book.getLocation(), book.getImg(), book.getSummary(), book.getBookId());
+        Long authorId = getOrCreateAuthor(book.getAuthorName());
+        Long publisherId = getOrCreatePublisher(book.getPublisherName());
+
+        String sql = "UPDATE BOOKS SET AUTHOR_ID = ?, PUBLISHER_ID = ?, GENRE_ID = ?, GENRE_FULLNAME = ?, TITLE = ?, IMG = ?, ISBN = ?, LOCATION = ?, SUMMARY = ?, PUBLICATION_DATE = ? " + "WHERE BOOK_ID = ?";
+        return jdbcTemplate.update(sql, authorId, publisherId, book.getGenreId(), book.getGenreFullname(), book.getTitle(), book.getImg(), book.getIsbn(), book.getLocation(), book.getSummary(), new Date(book.getPublicationDate().getTime()), book.getBookId());
     }
 
     // 책 삭제

@@ -1,7 +1,6 @@
 package com.library.repository.admin;
 
 import com.library.dto.admin._normal.WishlistDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -18,8 +17,10 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
 
     @Override
     public List<WishlistDTO> allAcquisitionManage() {
-        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count\n" +
-                "FROM WISHLISTS\n";
+        String sql = """
+                SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count
+                FROM WISHLISTS
+                """;
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             WishlistDTO request = new WishlistDTO();
             request.setWishlistId(rs.getInt("WISHLIST_ID"));
