@@ -94,7 +94,8 @@ hr{
 	box-sizing: border-box;
 }
 
-.button_box input[type="button"]{
+/* .button_box input[type="button"] */
+.orderBtn{
 	/* background-color: #64B883; */
 	border-radius : 2px;
 	border: 1px solid gray;

@@ -66,6 +66,18 @@ function showPage(pageNumber, totalPage) {
     document.getElementById('pageGroup_' + k).classList.remove('hidden');
 	
 	
+	//클릭한 버튼만 강조되는 함수/*lhm 추가 */
+	let order = document.querySelectorAll('.orderBtn');/*lhm 추가 */
+			order = Array.from(order);
+		
+	order[pageNumber-1].classList.add("curPage");
+		
+	order.forEach(function(outord, index){
+		if(index!==pageNumber-1){
+			outord.classList.remove("curPage");
+		}
+	});
+	
 }
 
 //됐음
