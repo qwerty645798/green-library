@@ -106,6 +106,11 @@ function hopeApplyCheck(){
         isbn.focus();
 		/*form.addEventListener("submit", (e) => {e.preventDefault()});*/
         return false;
+    } else if (!/^\d+$/.test(isbn.value)) { 
+		// isbn 유효성 검사
+        alert("ISBN은 숫자만 포함해야 합니다.");
+        isbn.focus();
+        return false;
     }    
     
     alert("신청이 완료되었습니다.");
