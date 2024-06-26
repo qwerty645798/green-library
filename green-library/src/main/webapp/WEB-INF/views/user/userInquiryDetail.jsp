@@ -22,9 +22,12 @@
 		</div>
 	</nav>
 	
+	<h2>문의 세부내역</h2>
+			<hr>
+	
 	<main class="container">
 		<div class="main">
-			<h2>문의 세부내역</h2>
+			
 			<table>
 				<caption>
 				</caption>
@@ -47,6 +50,14 @@
 				</tr>
 				</c:if>
 			</table>
+			
+			<div class="writeBtn">
+				<input type="button" value="수정하기">
+				<input type="button" value="삭제하기">
+				<a href="myWritten"><input type="button" value="목록으로"></a>
+			</div>
+			
+			
 		</div>
 	</main>
 	

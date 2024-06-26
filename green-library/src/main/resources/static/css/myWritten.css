@@ -40,6 +40,9 @@
     background-color: #E7F3E8;
     word-break: break-all;
     overflow-wrap: break-word;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .innerContainer td{
     border-top: 1px solid #A0CAB0;
@@ -58,6 +61,9 @@
 	border-right:none;
 }
 
+.innerContainer tr:hover{
+	cursor: pointer;
+}
 .innerContainer td:not(:nth-child(4)){
 	text-align:center;
 }
