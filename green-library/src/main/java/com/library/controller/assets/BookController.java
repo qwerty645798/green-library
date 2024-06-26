@@ -2,7 +2,6 @@ package com.library.controller.assets;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -17,7 +16,6 @@ import com.library.dto.assets.BookDetailDto;
 import com.library.dto.assets.DataSearchResultDto;
 import com.library.dto.assets.InitiativeBookDto;
 import com.library.dto.assets.PopularBookDto;
-import com.library.exception.SessionNotFoundException;
 import com.library.service.assets.BookDetailService;
 import com.library.service.assets.DataSearchResultService;
 import com.library.service.assets.InitiativeBookService;
