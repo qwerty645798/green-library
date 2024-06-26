@@ -17,7 +17,7 @@
 
 <div class="bannerBgr">
     <div class="Banner">
-        <div class="pageTitle">사업구조</div> <div class="pageRoute">홈 > 도서관 소개 > 사업구조</div>
+        <div class="pageTitle">비전</div> <div class="pageRoute">홈 > 도서관 소개 > 비전</div>
     </div>
 </div>
 
@@ -41,7 +41,7 @@
 <div class="color">
 <div class="background1">
 	<div class="icon">
-		<img src="images/exex2.png">
+		<img src="images/house.png">
 	</div>
 	<div class="bgrbox">
 		<div class="text">
@@ -57,7 +57,7 @@
 
 <div class="background2">
 	<div class="icon">
-		<img src="images/exex2.png">
+		<img src="images/holdingPeople.png">
 	</div>
 	<div class="bgrbox">
 		<div class="text">
@@ -76,7 +76,7 @@
 <div class="color">
 <div class="background3">
 	<div class="icon">
-		<img src="images/exex2.png">
+		<img src="images/plant.png">
 	</div>
 	<div class="bgrbox">
 		<div class="text">
