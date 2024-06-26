@@ -24,12 +24,12 @@
 	          <a href="/">로고</a>
 	          </div>
 		          	<sec:authorize access="isAuthenticated()">
-				        <div>환영합니다, <sec:authentication property="name"/>님! /</div>
+				        <div>환영합니다, <b><sec:authentication property="name"/>님!</b> &nbsp;</div>
 				        <form action="logout" method="post"> 
 				        <label>
 				        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		                <img class="logout" src="images/logout.png">
-		                <input type="submit" value="로그아웃" >
+		                <input class="bye" type="submit" value="로그아웃" >
 				        </label>
 		                </form>
 				    </sec:authorize>

@@ -12,8 +12,8 @@ header{
 	height: 30px;
 	cursor:pointer;
 }
-input[type=submit]{
-	display: hidden;
+.bye{
+	display: none;
 }
 .center{
 	display:flex;
