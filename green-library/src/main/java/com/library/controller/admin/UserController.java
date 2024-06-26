@@ -47,7 +47,7 @@ public class UserController {
                     users = userService.findUserById(searchKeyword);
                     break;
                 default:
-                    users = userService.getAllUsers();
+                    users = userService.findUserByTotal(searchKeyword);
                     break;
             }
         }

@@ -36,6 +36,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<UserDTO> findUserByTotal(String total){
+        return userRepository.findUserByTotal(total);
+    }
+
+
+    @Override
     public UserDetailDTO getUserDetail(String userId) {
         UserDetailDTO userDetails = new UserDetailDTO();
         userDetails.setUser(userRepository.getUserById(userId));

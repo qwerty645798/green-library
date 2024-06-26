@@ -16,7 +16,6 @@ INSERT INTO publishers(publisher_id, publisher_name)
 VALUES(publisher_idx.NEXTVAL, '출판사2');
 INSERT INTO publishers(publisher_id, publisher_name)
 VALUES(publisher_idx.NEXTVAL, '출판사3');
-
 -- 유저
 INSERT INTO users(user_id, user_pass, name, email, phone, birth, overdue_count, suspended)
 VALUES('id1', '$2b$12$aVAu2OU4I0efQn8fPgwGreoJAguc3JGT5wGeAyVo7GIY2Bw0LA7gO', '이름1', 'e@gmail.com', '000-0000-0000', '1990-01-01', 0, '0');

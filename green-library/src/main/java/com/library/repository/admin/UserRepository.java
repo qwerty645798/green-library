@@ -20,6 +20,10 @@ public interface UserRepository {
     // 이름으로 사용자 조회
     List<UserDTO> findUserByName(String userName);
 
+//    전체로 사용자 조회
+    List<UserDTO> findUserByTotal(String total);
+
+
     // 특정 이용자 조회
     UserDTO getUserById(String userId);
 

@@ -15,6 +15,8 @@ public interface UserService {
 
     List<UserDTO> findUserByName(String name);
 
+    List<UserDTO> findUserByTotal(String total);
+
     UserDetailDTO getUserDetail(String id);
 
     UserDTO getUserById(String id);

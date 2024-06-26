@@ -24,9 +24,9 @@
                     </section>
                     <section class="mainContainer">
                         <div class="leftContainer">
-                            <form class="searchContainer" method="get" action="/User/search">
+                            <div class="searchContainer">
                                 <div>
-                                    <select name="searchType">
+                                    <select name="searchType" id="searchSelectType">
                                         <option value="all">전체</option>
                                         <option value="name">이름</option>
                                         <option value="userId">아이디</option>
@@ -34,10 +34,12 @@
                                     <div class="inputBox">
                                         <input type="text" id="inputText" class="inputText" name="searchKeyword"
                                             maxlength="20" placeholder="검색어를 입력하세요" value="" />
-                                        <button type="submit" id="searchBtn" class="searchBtn">검색</button>
+                                        <button type="button" id="searchBtn" class="searchBtn" onclick="searchBtnEvt()">
+                                            검색
+                                        </button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                             <div class="resultContainer">
                                 <div class="results">
                                     <p>검색 결과 : ${users.size()}명</p>
@@ -63,24 +65,10 @@
                                                 <th></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <c:if test="${not empty users}">
-                                                <c:forEach var="user" items="${users}">
-                                                    <tr>
-                                                        <td><input type="checkbox" name="userCheckbox"
-                                                                id="userCheckbox"></td>
-                                                        <td>${user.userId}</td>
-                                                        <td>${user.userName}</td>
-                                                        <td>${user.userEmail}</td>
-                                                        <td><input type="button" class="modifyBtn" value="수정"></td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </c:if>
-                                            <c:if test="${empty users}">
-                                                <tr>
-                                                    <td colspan="5">검색 결과가 없습니다.</td>
-                                                </tr>
-                                            </c:if>
+                                        <tbody id="userListTBody">
+                                        <%--                                                <tr>--%>
+                                        <%--                                                    <td colspan="5">검색 결과가 없습니다.</td>--%>
+                                        <%--                                                </tr>--%>
                                         </tbody>
                                     </table>
                                 </div>
@@ -139,65 +127,105 @@
                 </main>
                 <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
                 <script>
+                    <%--                    window.onload()--%>
                     $(document).ready(function () {
+                        searchBtnEvt();
+
                         // 수정 버튼 클릭 시 사용자 정보 로드
                         $('table').on('click', '.modifyBtn', function () {
                             var userId = $(this).closest('tr').find('td:eq(1)').text().trim(); // 클릭한 버튼의 사용자 ID 가져오기
                             loadUserInfo(userId);
                         });
 
-                        function loadUserInfo(userId) {
-                            $.ajax({
-                                url: '/User/details',
-                                type: 'GET',
-                                data: { userId: userId },
-                                success: function (response) {
-                                    if (response) {
-                                        $('#userName').text(response.user.userName);
-                                        $('#userId').text(response.user.userId);
-                                        $('#userEmail').text(response.user.userEmail);
-                                        $('#userPhone').text(response.user.userPhone);
-
-
-                                        var loanInfoBody = $('#loanInfoBody');
-                                        loanInfoBody.empty();
-                                        if (response.loanInfo && response.loanInfo.length > 0) {
-                                            response.loanInfo.forEach(function (loan) {
-                                                var row = '<tr>' +
-                                                    '<td>' + loan.title + '</td>' +
-                                                    '<td>' + loan.author + '</td>' +
-                                                    '<td>' + loan.publisher + '</td>' +
-                                                    '<td>' + loan.classificationNumber + '</td>' +
-                                                    '<td>' + loan.borrowDate + '</td>' +
-                                                    '</tr>';
-                                                loanInfoBody.append(row);
-                                            });
-                                        } else {
-                                            loanInfoBody.append('<tr><td colspan="5">대출 이력이 없습니다.</td></tr>');
-                                        }
-
-                                        // 이용 제한 정보 업데이트
-                                        var banInfoBody = $('#banInfoBody');
-                                        banInfoBody.empty(); // 이전 데이터 초기화
-                                        if (response.banInfo && response.banInfo.length > 0) {
-                                            response.banInfo.forEach(function (ban) {
-                                                var row = '<tr>' +
-                                                    '<td>' + ban.reason + '</td>' +
-                                                    '<td>' + ban.banDate + '</td>' +
-                                                    '<td>' + ban.period + '</td>' +
-                                                    '<td><input type="button" value="해제"></td>' +
-                                                    '</tr>';
-                                                banInfoBody.append(row);
-                                            });
-                                        } else {
-                                            banInfoBody.append('<tr><td colspan="4">이용 제한 기록이 없습니다.</td></tr>');
-                                        }
-                                    }
-                                }
-                            });
-                        }
+                        loadUserInfo(userId);
                     });
 
+                    function searchBtnEvt(e) {
+                        const inputText = document.getElementById('inputText');
+                        const searchType = document.getElementById('searchSelectType');
+                        const userListTBody = document.getElementById('userListTBody');
+                        $.ajax({
+                            url: '/User/search',
+                            type: 'GET',
+                            data: {"searchType": searchType.value, "searchKeyword": inputText.value},
+                            success: function (response) {
+                                if (response) {
+                                    let responseText = '';
+                                    for (let i = 0; i < response.length; i++){
+                                        responseText += "<tr>";
+                                        responseText += "<td><input type='checkbox' name='userCheckbox'id='userCheckbox'/></td>";
+                                        responseText += "<td>" + response[i].userId + "</td>";
+                                        responseText += "<td>" + response[i].userName + "</td>";
+                                        responseText += "<td>" + response[i].userEmail + "</td>";
+                                        responseText += "<td><input type='button' className='modifyBtn' onclick=loadUserInfo('" + response[i].userId + "') /> </td></tr>";
+                                    }
+
+                                    userListTBody.innerHTML = responseText;
+                                }
+                            }
+                        });
+                    }
+
+                    function loadUserInfo(userId) {
+                        $.ajax({
+                            url: '/User/details',
+                            type: 'GET',
+                            data: {userId: userId},
+                            success: function (response) {
+                                if (response) {
+                                    $('#userName').text(response.user.userName);
+                                    $('#userId').text(response.user.userId);
+                                    $('#userEmail').text(response.user.userEmail);
+                                    $('#userPhone').text(response.user.userPhone);
+
+
+                                    var loanInfoBody = $('#loanInfoBody');
+                                    loanInfoBody.empty();
+                                    if (response.loanInfo && response.loanInfo.length > 0) {
+                                        response.loanInfo.forEach(function (loan) {
+                                            var row = '<tr>' +
+                                                '<td>' + loan.title + '</td>' +
+                                                '<td>' + loan.author + '</td>' +
+                                                '<td>' + loan.publisher + '</td>' +
+                                                '<td>' + loan.classificationNumber + '</td>' +
+                                                '<td>' + loan.borrowDate + '</td>' +
+                                                '</tr>';
+                                            loanInfoBody.append(row);
+                                        });
+                                    } else {
+                                        loanInfoBody.append('<tr><td colspan="5">대출 이력이 없습니다.</td></tr>');
+                                    }
+
+                                    // 이용 제한 정보 업데이트
+                                    var banInfoBody = $('#banInfoBody');
+                                    banInfoBody.empty(); // 이전 데이터 초기화
+                                    if (response.suspensions && response.suspensions.length > 0) {
+                                        response.suspensions.forEach(function (ban) {
+                                            var row = '<tr>' +
+                                                '<td>' + ban.reason + '</td>' +
+                                                '<td>' + ban.startDate + '</td>' +
+                                                '<td>' + ban.duration + '</td>' +
+                                                '<td><input type="button" value="해제"></td>' +
+                                                '</tr>';
+                                            banInfoBody.append(row);
+                                        });
+                                    } else {
+                                        banInfoBody.append('<tr><td colspan="4">이용 제한 기록이 없습니다.</td></tr>');
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    // 유저 목록 태그 생성
+
+                    // <tr>
+                    //     <td><input type="checkbox" name="userCheckbox"
+                    //                id="userCheckbox"/></td>
+                    //     <td></td>
+                    //     <td></td>
+                    //     <td></td>
+                    //     <td><input type="button" className="modifyBtn" value="수정"/></td>
+                    // </tr>
                 </script>
             </body>
 

@@ -74,6 +74,27 @@ public class UserRepositoryImpl implements UserRepository {
         });
     }
 
+//    전체에서 이용자 검색
+    @Override
+    public List<UserDTO> findUserByTotal(String total){
+        String sql = "SELECT USER_ID, NAME, EMAIL, (SELECT COUNT(*) FROM USERS) AS total_count FROM USERS WHERE NAME LIKE ? OR USER_ID LIKE ?";
+        String queryParam = "%" + total + "%";
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, queryParam);
+            ps.setString(2, queryParam);
+            return ps;
+        }, (rs, rowNum) ->{
+            UserDTO user = new UserDTO();
+            user.setUserId(rs.getString("USER_ID"));
+            user.setUserName(rs.getString("NAME"));
+            user.setUserEmail(rs.getString("EMAIL"));
+            user.setTotalCount(rs.getInt("total_count"));
+            return user;
+        });
+    }
+
+
     // 특정 이용자 조회
     @Override
     public UserDTO getUserById(String userId) {
