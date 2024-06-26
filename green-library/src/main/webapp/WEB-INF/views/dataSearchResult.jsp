@@ -153,7 +153,7 @@
 		    </c:if>
 		    <div class="pageGroup " id="pageGroup_${groupStart}">
 			    <c:forEach var="pageIndex" begin="${groupStart}" end="${groupEnd}">
-			        <input type="button" value="${pageIndex}" onclick="showPage(${pageIndex}, ${totalPages})">
+			        <input class="orderBtn" type="button" value="${pageIndex}" onclick="showPage(${pageIndex}, ${totalPages})">
 			    </c:forEach>
 		    </div>
 		</c:forEach>	
