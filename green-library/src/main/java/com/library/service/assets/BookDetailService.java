@@ -29,8 +29,6 @@ public class BookDetailService {
  	}
  	
  	public int reservationsCount(String userId) {
- 		
  		return bookReservationRepository.reserveCountByUserId(userId);
- 		
  	}
 }
