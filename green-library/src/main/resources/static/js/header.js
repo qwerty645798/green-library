@@ -74,7 +74,6 @@ addLoadEvent(accordian);
 		window.location.href = 'userAgreement';
 
 	}*/
-}
 
 
 window.onload = welcome();
