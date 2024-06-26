@@ -80,10 +80,12 @@ function slide2(){
 		}
 	}
 
+
 addLoadEvent(slide);
 addLoadEvent(slide2);
 /*window.onload = slide();
 window.onload = slide2();*/
+
 
 
 
