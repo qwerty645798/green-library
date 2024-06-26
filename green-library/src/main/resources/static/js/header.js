@@ -46,24 +46,29 @@ addLoadEvent(accordian);
 	let logo = document.querySelector('.logo');
 
 	//NULL 체크
-	if (logo) {
-        logo.onclick = () => {
-            window.location.href = '/';
-        }
-    }
+		if (logo) {
+	        logo.onclick = () => {
+	            window.location.href = '/';
+	        }
+	    }
 
-    if (login) {
-        login.onclick = () => {
-            window.location.href = 'userLogin';
-        }
-    }
+	    if (login) {
+	        login.onclick = () => {
+	            window.location.href = 'userLogin';
+	        }
+	    }
 
-    if (join) {
-        join.onclick = () => {
-            window.location.href = 'userAgreement';
-        }
-    }
+	    if (join) {
+	        join.onclick = () => {
+	            window.location.href = 'userAgreement';
+	        }
+	    }
+	    
+
+	window.onload = welcome();
+	
     
+
     /*logo.onclick = () => {
 		window.location.href = '/';
 	}
@@ -76,7 +81,7 @@ addLoadEvent(accordian);
 	}*/
 
 
-window.onload = welcome();
+
 
 
     
@@ -90,10 +95,7 @@ window.onload = welcome();
 
 
 
-// let a = document.getElementById('userjoin');
-// a.onclick = () => {
-//     a.style.color = "red";
-// }
+
 
    
 

@@ -152,7 +152,7 @@
 /*	margin-right: 10px;*/
 /*	margin-left:10px;*/
 /*}*/
-.button_box input[type="button"]{
+.orderBtn{
 	/* background-color: #64B883; */
 	border-radius : 2px;
 	border: 1px solid gray;
@@ -197,4 +197,10 @@ input[type=button]:hover{
 .book_container a:hover .blackbox{
 	opacity: 0.5;
 	transition: opacity 200ms ease-in-out;
+}
+
+/*js용*/
+.curPage{
+	border: 2px solid green;
+	background-color: #d8e9d9;
 }

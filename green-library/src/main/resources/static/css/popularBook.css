@@ -151,7 +151,7 @@ tr:first-child td{
 	box-sizing: border-box;
 }
 
-.button_box input[type="button"]{
+.orderBtn{
 	/* background-color: #64B883; */
 	border-radius : 2px;
 	border: 1px solid gray;
@@ -178,5 +178,12 @@ input[type=button]:hover{
 	display: flex;
 	justify-content: center;
 	height: 30px;
+}
+
+
+/*js용*/
+.curPage{
+	border: 2px solid green;
+	background-color: #d8e9d9;
 }
 
