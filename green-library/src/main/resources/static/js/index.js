@@ -90,26 +90,33 @@ function slide2(){
 
 
 function booktab(){
+
 	if(tab[0].classList.contains("here")){
-		bookQuick.onclick = () => {
-			window.location.href='initiativeBook';
-		}
-	}
+				bookQuick.onclick = () => {
+					window.location.href='initiativeBook';
+				}
+			}
 	tab[0].onclick = () => {
 		tab[0].classList.add("here");
 		tab[1].classList.remove("here");
 		swipe.style.display = "flex";
 		swipe2.style.display = "none";
-		
+		if(tab[0].classList.contains("here")){
+				bookQuick.onclick = () => {
+					window.location.href='initiativeBook';
+				}
+			}
 	}
 	tab[1].onclick = () => {
 		tab[0].classList.remove("here");
 		tab[1].classList.add("here");
 		swipe.style.display = "none";
 		swipe2.style.display = "flex";
-		bookQuick.onclick = () => {
-			window.location.href='popularBook';
-		}
+		if(tab[1].classList.contains("here")){
+				bookQuick.onclick = () => {
+									window.location.href='popularBook';
+								}
+			}
 	}
 }
 
