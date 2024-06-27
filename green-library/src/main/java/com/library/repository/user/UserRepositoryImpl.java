@@ -64,6 +64,13 @@ public class UserRepositoryImpl implements UserRepository {
 		String sql = "UPDATE users SET user_pass = ?, email = ?, phone = ? WHERE user_id = ?";
 		return jdbcTemplate.update(sql, hashedPassword, user.getEmail(), user.getPhone(), userId);
 	}
+	
+	// 비밀번호 초기화
+	@Override
+	public int updateUserPass(String email, String hashedPassword) {
+		String sql = "UPDATE users SET user_pass = ? WHERE email = ?";
+		return jdbcTemplate.update(sql, hashedPassword, email);
+	}
 
 	// 회원가입
 	@Override

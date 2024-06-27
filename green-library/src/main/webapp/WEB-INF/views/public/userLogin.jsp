@@ -50,7 +50,6 @@
 			
 			<input type="submit" value="로그인" >
 			
-<!-- 			sec 추가해봄 -->
 			<sec:authorize access="!isAuthenticated()">
 			<a href="userJoin">
 			<input type="button" value="회원가입" >

@@ -64,3 +64,6 @@ input[type=button]{
 	border-radius: 5px;
 	cursor: pointer;
 }
+caption{
+	text-align:right;
+}

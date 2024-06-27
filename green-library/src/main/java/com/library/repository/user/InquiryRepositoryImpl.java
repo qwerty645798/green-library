@@ -211,6 +211,7 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     public UserInquiryDetailDTO getInquiryDetail(String userId, String id) {
 		String sql = "SELECT " +
 	                "    i.inquiry_title, " +
+	                "    i.inquiry_date, " + 
 	                "    i.contents AS inquiry_contents, " +
 	                "    r.response_content AS response_contents " +
 	                "FROM " +
@@ -227,6 +228,7 @@ public class InquiryRepositoryImpl implements InquiryRepository {
                 dto.setInquiryTitle(rs.getString("inquiry_title"));
                 dto.setInquiryContents(rs.getString("inquiry_contents"));
                 dto.setResponseContents(rs.getString("response_contents"));
+                dto.setInquiryDate(rs.getDate("inquiry_date").toLocalDate());
                 return dto;
             }
         }, id, userId);
