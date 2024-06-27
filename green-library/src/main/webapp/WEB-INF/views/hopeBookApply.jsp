@@ -32,13 +32,15 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" name="userId" value="${userId}">
 			
-                <span class="star">*는 필수 입력 항목입니다.</span><br><br>
+                <span class="star">*</span>
+                <span class="word">&nbsp;는 필수 입력 항목입니다.</span><br><br>
     
                 <table>
     
                     <tr>
                         <td class="hopeBook"><span>*</span> 신청자 이름</td>
                         <td>${userId}</td>
+
                     </tr>
                     <!-- 접속했을 때 입력할 필요 없이 이미 입력한 상태였으면 좋겠음 -->
     
@@ -49,32 +51,32 @@
                      <!-- 접속했을 때 입력할 필요 없이 이미 입력한 상태였으면 좋겠음 -->
     
                     <tr>
-                        <td class="hopeBook"><span>*</span>도서명</td>
+                        <td class="hopeBook"><span class="star">*</span>도서명</td>
                         <td><input type="text" id="title" name="wishTitle"></td>
                     </tr>
     
                     <tr>
-                        <td class="hopeBook"><span>*</span>저자명</td>
+                        <td class="hopeBook"><span class="star">*</span>저자명</td>
                         <td><input type="text" id="author" name="wishAuthor"></td>
                     </tr>
     
                     <tr>
-                        <td class="hopeBook"><span>*</span>출판사</td>
+                        <td class="hopeBook"><span class="star">*</span>출판사</td>
                         <td><input type="text" id="publisher" name="wishPublisher"></td>
                     </tr>
     
                     <tr>
-                        <td class="hopeBook"><span>*</span>발행년도</td>
+                        <td class="hopeBook"><span class="star">*</span>발행년도</td>
                         <td><input type="text" id="bookYear" name="wishPublication"></td>
                     </tr>
     
                     <tr>
-                        <td class="hopeBook"><span>*</span>가격</td>
+                        <td class="hopeBook"><span class="star">*</span>가격</td>
                         <td><input type="text" id="price" name="wishPrice"></td>
                     </tr>
     
                     <tr>
-                        <td class="hopeBook"><span>*</span>ISBN</td>
+                        <td class="hopeBook"><span class="star">*</span>ISBN</td>
                         <td><input type="text" id="isbn" placeholder="바코드 위의 숫자를, -를 제외하고 입력해주세요." name = "wishIsbn"></td>
                     </tr>
     
