@@ -79,7 +79,7 @@ input[type=text]{
 .quickPage:hover{
     background-color: rgb(234, 247, 239);
     transition: 300ms ease-in-out;
-    color: #64b883;
+    color: #1d7647;
 }
 .bookslide{
 	margin: 50px 0 50px 0;
