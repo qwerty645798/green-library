@@ -84,40 +84,7 @@
     </div>
     <jsp:include page="../index/footer.jsp" />
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetchDataAndSendToIframe('rentHistory');
-        });
         
-        document.querySelectorAll('.Dheader').forEach(header => {
-            header.addEventListener('click', function() {
-                let condition = this.getAttribute('data-condition');
-                fetchDataAndSendToIframe(condition);
-            });
-        });
-
-        function initialLoadIframe() {
-            fetchDataAndSendToIframe('rentHistory');
-        }
-
-        function iframeHeight(condition, data) {
-            let iframe = document.getElementById('iframe');
-            if (data.length < 10) {
-                iframe.style.height = 720 - (10 - data.length) * 34 + "px";
-            } else {
-                iframe.style.height = "720px";
-            }
-        }
-
-        function fetchDataAndSendToIframe(condition) {
-            fetch(`/getUserData`)
-                .then(response => response.json())
-                .then(data => {
-                    let iframe = document.getElementById('iframe');
-                    iframe.contentWindow.postMessage({ condition: condition, data: data[condition] }, '*');
-                    iframeHeight(condition, data[condition]);
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
     </script>
 </body>
 </html>
