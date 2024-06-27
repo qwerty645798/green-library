@@ -31,8 +31,8 @@ import com.library.exception.DatabaseException;
 import com.library.exception.UserNotFoundException;
 import com.library.mapper.user.UserMapper;
 import com.library.repository.user.UserRepository;
-import com.library.service.EmailService;
 import com.library.service.RedisService;
+import com.library.service.email.EmailSender;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 	
 	@Autowired
-    private EmailService emailService;
+    private EmailSender emailSender;
 	
 	@Autowired
     private RedisService redisService;
@@ -76,9 +76,21 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	//아이디 중복체크
+	@Override
 	public boolean checkUserId(String userId) {
         try{
         	userRepository.getUsersEntity(userId);
+        	return true;
+        } catch (EmptyResultDataAccessException e) {
+        	return false;
+        }
+    }
+	
+	//가입된 사용자인지 체크
+	@Override
+	public boolean checkUserAccount(UserJoinDTO userDTO) {
+        try{
+        	userRepository.getUsersEntity(userDTO.getBirth(), userDTO.getName());
         	return true;
         } catch (EmptyResultDataAccessException e) {
         	return false;
@@ -129,7 +141,7 @@ public class UserServiceImpl implements UserService {
 	public void sendVerificationEmail(String email) {
         String token = UUID.randomUUID().toString();
         redisService.saveToken(token, email);
-        emailService.sendVerificationEmail(email, token);
+        emailSender.sendEmail(email, token);
     }
 
 	// 이메일인증

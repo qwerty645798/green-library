@@ -1,11 +1,15 @@
 package com.library.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -64,22 +68,26 @@ public class MainController {
 	@GetMapping("/userJoin")
 	public String userJoin(Model model) {
 		model.addAttribute("userJoin", new UserJoinDTO());
-		logger.info("회원가입 시작");
 		return "public/userJoin";
 	}
 
 	@PostMapping("/userJoin")
 	public String userJoinPerform(@ModelAttribute("userJoin") @Valid UserJoinDTO userDTO, BindingResult result,
 			RedirectAttributes redirectAttributes) {
-		logger.info("회원가입 중간");
 		if (result.hasErrors()) {
 			result.getAllErrors().forEach(error -> logger.error("Validation error: {}", error.getDefaultMessage()));
 			redirectAttributes.addFlashAttribute("message", "유효하지 않은 입력입니다.");
 			return "redirect:/userJoin";
 		}
-		logger.info("회원가입 후반");
+		
+		boolean check = userService.checkUserAccount(userDTO);
+		if(check) {
+			redirectAttributes.addFlashAttribute("message", "이미 존재하는 사용자입니다.");
+			return "redirect:/userFinding";
+		}
+			
 		userService.insert(userDTO);
-		logger.info("회원가입 끝");
+		redirectAttributes.addFlashAttribute("message", "회원가입이 완료되었습니다.");
 		return "redirect:/userLogin";
 	}
 
@@ -135,13 +143,21 @@ public class MainController {
     }
     
     @PostMapping("/initializePassword")
-	public void initializePassword(@ModelAttribute("user") @Valid initializePasswordDTO userDTO, BindingResult result, Model model) {
+    @ResponseBody
+	public ResponseEntity<Map<String, Object>> initializePassword(@ModelAttribute("user") @Valid initializePasswordDTO userDTO, BindingResult result, Model model) {
     	userService.initializePassword(userDTO);
+    	Map<String, Object> response = new HashMap<>();
     	if (result.hasErrors()) {
 			for (ObjectError error : result.getAllErrors()) {
 				logger.error("Validation error: {}", error.getDefaultMessage());
+				response.put("message", "유효하지 않은 입력입니다.");
+	            response.put("success", false);
+	            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 			}
 		}
+		response.put("message", "비밀번호가 변경되었습니다.");
+		response.put("success", true);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
 	@GetMapping("/userLogin")

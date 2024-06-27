@@ -30,4 +30,6 @@ public interface UserService extends UserDetailsService {
 	String verifyUser(String token);
 
 	void initializePassword(initializePasswordDTO userDTO);
+
+	boolean checkUserAccount(UserJoinDTO userDTO);
 }
