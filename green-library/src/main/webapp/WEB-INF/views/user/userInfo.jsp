@@ -30,7 +30,7 @@
 <div class="userInfoPage">
         <div class="userInfoBox">
             <div class="userImage">
-            <img src="images/account_circle.png"></div>
+            <img src="images/account_box.png"></div>
 
             <div class="userInfoContent">
 
@@ -170,10 +170,17 @@
 			<h3 style="text-align:center;"><b>정말로 계정을 삭제하시겠습니까?</b></h3>
 			<br>
 			<form action="userDelete" method="post" id="form">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-				<div style="display:flex; justify-content:center;"><input type="submit" value="계정삭제" style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;" ></div>
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<div style="display:flex; justify-content:center;">
+				<input class="delete" type="submit" value="계정삭제">
+				<input id="cancel" class="cancel" type="button" value="취소">
+				</div>
+				
+
 			</form>
-			<button id="modalCloseButton"><img src="images/x-icon.png" style="width:100%; height:auto;"></button>
+			<button id="modalCloseButton">
+			<img src="images/x-icon.png" style="width:100%; height:auto;"></button>
 		</div>
 	</div>
 	<script src="js/userInfo.js"></script>
