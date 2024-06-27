@@ -123,10 +123,9 @@
                 <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
                 <script>
                     let currentPage = 1;
-
+                    let totalPage = currentPage;
                     $(document).ready(function () {
                         searchBtnEvt();
-
                         // 전체 선택 & 해제
                         $('#selectAllCheckbox').on('change', function () {
                             $('input[name="userCheckbox"]').prop('checked', this.checked);
@@ -134,7 +133,7 @@
 
                         // 수정 버튼 클릭 시 사용자 정보 로드
                         $('table').on('click', '.modifyBtn', function () {
-                            var userId = $(this).closest('tr').find('td:eq(1)').text().trim(); // 클릭한 버튼의 사용자 ID 가져오기
+                            let userId = $(this).closest('tr').find('td:eq(1)').text().trim(); // 클릭한 버튼의 사용자 ID 가져오기
                             loadUserInfo(userId);
                         });
 
@@ -145,9 +144,11 @@
 
                         // 다음 버튼 클릭 시 페이징 처리
                         $('.next').click(function () {
-                            currentPage++;
-                            clearCheckboxes();
-                            searchBtnEvt();
+                            if(totalPage > currentPage) {
+                                currentPage++;
+                                clearCheckboxes();
+                                searchBtnEvt();
+                            }
                         });
 
                         // 이전 버튼 클릭 시 페이징 처리
@@ -179,7 +180,7 @@
                                 if (response) {
                                     let responseText = '';
                                     let len = response.length;
-                                    let totalPage = Math.ceil(len / selectValue);
+                                    totalPage = Math.ceil(len / selectValue);
                                     let startPrint = currentPage * selectValue - selectValue;
                                     let endPrint = currentPage * selectValue;
                                     for (let i = startPrint; i < endPrint; i++) {
@@ -269,15 +270,13 @@
 
                     // 유저 영구 삭제 함수
                     function deleteUsers() {
-                        var userIds = [];
+                        let userIds = [];
 
                         // 체크된 체크박스에서 userId 값을 배열에 저장
                         $('input[name="userCheckbox"]:checked').each(function () {
-                            var userId = $(this).closest('tr').find('td:eq(1)').text().trim(); // 각 체크박스가 속한 행의 userId 가져오기
+                            let userId = $(this).closest('tr').find('td:eq(1)').text().trim(); // 각 체크박스가 속한 행의 userId 가져오기
                             userIds.push(userId);
                         });
-
-                        console.log(userId);
 
                         if (userIds.length === 0) {
                             alert('삭제할 사용자를 선택해주세요.');
@@ -285,11 +284,13 @@
                         }
 
                         if (confirm('선택한 사용자를 영구 삭제하시겠습니까?')) {
+                            console.log(typeof userIds, userIds)
+
                             $.ajax({
                                 url: '/User/deleteUsers',
                                 type: 'POST',
-                                data: { userIds: userIds },
-                                traditional: true, // 배열 데이터 전송을 위한 설정
+                                contentType: 'application/json',
+                                data: JSON.stringify({ userIds: userIds }),
                                 success: function (response) {
                                     alert('선택한 사용자가 성공적으로 삭제되었습니다.');
                                     // 삭제 후에는 다시 검색을 실행하여 목록을 업데이트합니다.

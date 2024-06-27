@@ -4,7 +4,6 @@ package com.library.repository.admin;
 import com.library.dto.admin._normal.RentDTO;
 import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
-import com.library.dto.admin.userManagement.UserDetailDTO;
 
 import java.util.List;
 

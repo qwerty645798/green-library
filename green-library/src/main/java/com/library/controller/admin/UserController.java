@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 @Controller("AdminUserController")
 @RequestMapping("/User")
 public class UserController {
@@ -47,7 +49,6 @@ public class UserController {
                 default -> userService.findUserByTotal(searchKeyword); //제목 + 저자 + 출판
             };
         }
-
         return ResponseEntity.ok(users);
     }
 
@@ -57,14 +58,19 @@ public class UserController {
         return ResponseEntity.ok(userDetails);
     }
 
+//    @PostMapping("/deleteUsers")
+//    public ResponseEntity<String> deleteUsers(@RequestBody List<UserDTO> userIds) {
+//            userService.deleteUsers(userIds);
+//            return ResponseEntity.ok("이용자가 삭제되었습니다.");
+//    }
     @PostMapping("/deleteUsers")
-    public ResponseEntity<String> deleteUsers(@RequestBody List<String> userIds) {
-            userService.deleteUsers(userIds);
-            return ResponseEntity.ok("이용자가 삭제되었습니다.");
+    public ResponseEntity<String> deleteUsers(@RequestBody Map<String, List<String>> userIds) {
+        List<String> ids = userIds.get("userIds");
+        userService.deleteUsers(ids);
+        return ResponseEntity.ok("이용자가 삭제되었습니다.");
     }
 
     // Endpoint to release ban for a user
-    @GetMapping("/releaseBan")
     @PostMapping("/releaseBan")
     public ResponseEntity<String> releaseBan(@RequestParam("userId") String userId) {
             userService.releaseSuspension(userId);
