@@ -24,7 +24,7 @@ public class BookLoanExtensionService {
 	
 	public boolean allLoanList(String userId) {
         int rentCount = bookLoanExtensionRepository.rentCountByUserId(userId);
-        System.out.println(rentCount);
+        
         if (rentCount < 1) {
             return false; // 사용자가 대출하고 있는 책이 없는 경우
         }

@@ -75,7 +75,7 @@ public class RentController {
 		
 		boolean loanExist = bookLoanExtensionService.allLoanList(userId);
 	    model.addAttribute("loanExist", loanExist);
-		System.out.println(loanExist);
+	    
 		return "user/bookLoanExtension";
 	}
 
