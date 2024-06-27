@@ -47,10 +47,6 @@ footerPage[1].onclick = () =>{
 	window.location.href = 'wayToCome';	
 }
 footerPage[2].onclick = () =>{
-	window.location.href = 'wayToCome';	
-}
-footerPage[3].onclick = () =>{
 	window.location.href = 'oftenAsk';	
 }
-
 

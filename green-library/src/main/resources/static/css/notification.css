@@ -108,6 +108,7 @@
 }
 .notice_table .title_table{
 	width: 800px;
+	text-align :center;
 }
 .notice_table .date_table{
 	width: 200px;
