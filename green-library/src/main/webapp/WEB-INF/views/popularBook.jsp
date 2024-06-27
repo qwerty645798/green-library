@@ -44,20 +44,22 @@
                    <%--  <div class="book_image">
 						<img src="images/${items[index].img}">
 					</div> --%>
-					<a href="bookDetail?bookId=${items[index].book_id}">
-	                    <div class="blackbox">
-	                    <img class="icon" src="images/whiteeye.png">
-	                    </div>
-	                    <div class="book_image">
-	                    <img class="img" src="images/${items[index].img}">
-	                    </div>
-                    </a>
+					<div class="image_box">
+						<a href="bookDetail?bookId=${items[index].book_id}">
+		                    <div class="blackbox">
+		                    <img class="icon" src="images/whiteeye.png">
+		                    </div>
+		                    <div class="book_image">
+		                    <img class="img" src="images/${items[index].img}">
+		                    </div>
+	                    </a>
+                    </div>
                     
 					<div class="book_table">
 						<table>
 							<tr>
 								
-								<td colspan="3">
+								<td colspan="4">
 								<span 
 								onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'">
 								${items[index].title}</span></td>
@@ -101,19 +103,20 @@
                    <%--  <div class="book_image">
 						<img src="images/${items[index].img}">
 					</div> --%>
-					<a href="bookDetail?bookId=${items[index].book_id}">
-	                    <div class="blackbox">
-	                    <img class="icon" src="images/whiteeye.png">
-	                    </div>
-	                    <div class="book_image">
-	                    <img class="img" src="images/${items[index].img}">
-	                    </div>
-                    </a>
-                    
+					<div class="image_box">
+						<a href="bookDetail?bookId=${items[index].book_id}">
+		                    <div class="blackbox">
+		                    <img class="icon" src="images/whiteeye.png">
+		                    </div>
+		                    <div class="book_image">
+		                    <img class="img" src="images/${items[index].img}">
+		                    </div>
+	                    </a>
+                    </div>
 					<div class="book_table">
 						<table>
 							<tr>
-								<td colspan="3">
+								<td colspan="4">
 								<span 
 								onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'">
 								${items[index].title}</span></td>
@@ -157,19 +160,20 @@
                    <%--  <div class="book_image">
 						<img src="images/${items[index].img}">
 					</div> --%>
-					<a href="bookDetail?bookId=${items[index].book_id}">
-	                    <div class="blackbox">
-	                    <img class="icon" src="images/whiteeye.png">
-	                    </div>
-	                    <div class="book_image">
-	                    <img class="img" src="images/${items[index].img}">
-	                    </div>
-                    </a>
-                    
+					<div class="image_box">
+						<a href="bookDetail?bookId=${items[index].book_id}">
+		                    <div class="blackbox">
+		                    <img class="icon" src="images/whiteeye.png">
+		                    </div>
+		                    <div class="book_image">
+		                    <img class="img" src="images/${items[index].img}">
+		                    </div>
+	                    </a>
+                    </div>
 					<div class="book_table">
 						<table>
 							<tr>
-								<td colspan="3">
+								<td colspan="4">
 								<span 
 								onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'">
 								${items[index].title}</span></td>

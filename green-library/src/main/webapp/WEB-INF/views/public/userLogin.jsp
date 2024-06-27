@@ -38,12 +38,13 @@
 	
 	<main style="display:flex; justify-content:center;">
 		
-		<form action="${pageContext.request.contextPath}/userLogin" method="post">
+		<form action="${pageContext.request.contextPath}/userLogin" method="post" id="form">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<div class="loginCon2">
-			<div class="floor"><input type="text" placeholder="아이디" name="user_id" class="text"><br></div>
-			<div class="floor"><input type="password" placeholder="비밀번호" name="user_pass" class="text"><br></div>
-			<div class="floor"><input type="checkbox" name="#"> 아이디 저장 
+			<div class="floor"><input type="text" placeholder="아이디" name="user_id" class="text" id="id"><br></div>
+			<div class="floor"><input type="password" placeholder="비밀번호" name="user_pass" class="text" id="pw"><br></div>
+			<div class="floor"><input type="checkbox" id="remember-me" name="remember-me">
+			<label for="remember-me">아이디 저장</label> 
 			<div style="width:120px; display:inline-block"> </div> <a href="userFinding">아이디 찾기</a> 
 			/ <a href="userFinding">비밀번호 초기화</a></div>
 			<div class="floor" style="text-align:center;">
@@ -51,7 +52,7 @@
 			<input type="submit" value="로그인" >
 			
 			<sec:authorize access="!isAuthenticated()">
-			<a href="userJoin">
+			<a href="userAgreement">
 			<input type="button" value="회원가입" >
 			</a>
 			</sec:authorize>
@@ -77,6 +78,6 @@
 	
 	
 	<jsp:include page="../index/footer.jsp" />
-	
+	<script src="js/userLogin.js"></script>
 </body>
 </html>

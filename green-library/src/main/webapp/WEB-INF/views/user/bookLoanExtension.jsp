@@ -19,7 +19,7 @@
 
 <body>
 
-<jsp:include page="index/header.jsp" />
+<jsp:include page="../index/header.jsp" />
 
 
 <div class="bannerBgr">
@@ -92,7 +92,7 @@
 
 </main>
 
-<jsp:include page="index/footer.jsp" />
+<jsp:include page="../index/footer.jsp" />
 
 </body>
 </html>

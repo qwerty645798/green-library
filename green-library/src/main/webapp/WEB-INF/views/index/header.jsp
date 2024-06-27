@@ -21,7 +21,7 @@
 	      <div class="center">
 	        <div class="headerTop">
 	          <div class="logo">
-	          <a href="/">로고</a>
+	          <a href="/"><img src="images/로고.png"></a>
 	          </div>
 		          	<sec:authorize access="isAuthenticated()">
 				        <div>환영합니다, <b><sec:authentication property="name"/>님!</b> &nbsp;</div>
@@ -55,7 +55,7 @@
               <div id="subMenu" class="subMenu"><!-- 테스트용 -->
                 <ul id="subMenu1" class="menuBar">
                   <li>도서관 비전</li>
-                  <li>사업 구조</li>
+                  <li></li>
                   <li></li>
                   <li></li>
                   <li></li>

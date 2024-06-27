@@ -76,9 +76,9 @@
                 <td class="input">
                 <input type="hidden" id="fullEmail" name="email" value="">
                 <input type="text" id="email" class="short"> @ 
-                <input type="text" id="email2" class="short">
+                <input type="text" id="email2" class="short" placeholder="이메일을 입력해주세요.">
                 <select id="emailSel">
-                    <option value="" selected></option>
+                    <option value="" selected>이메일 선택</option>
                     <option value="naver.com">naver.com</option>
                     <option value="gmail.com">gmail.com</option>
                     <option value="daum.net">daum.net</option>

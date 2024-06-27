@@ -15,7 +15,7 @@ public class EmailSender {
 
     public void sendEmail(String to, String token) {
         String subject = "그린 도서관 이메일 인증 서비스";
-        String emailBody = "링크를 클릭하여 비밀번호 초기화를 완료해주십시오. : http://localhost:8082/verify?token=" + token;
+        String emailBody = "링크를 클릭하여 비밀번호 초기화를 완료해주십시오 → http://localhost:8082/verify?token=" + token;
         
         String htmlEmailBody = convertUrlsToLinks(emailBody);
         

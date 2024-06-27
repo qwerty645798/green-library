@@ -4,6 +4,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 } 
 .hopeBookPage2{
     display: flex;
@@ -17,7 +18,7 @@ table{
 	border-collapse: collapse;
     width: 840px;
     height: 700px;
-    margin: 100px;
+    margin: 40px;
 }
 tr, td{
     border-bottom: 1px solid #a0cab0;
@@ -36,10 +37,10 @@ tr, td{
 table tr  td span{
     color: red;
 }
-.star{
+.star, .word{
 	position: relative;
-	left: 100px;
-	top: 100px;
+	left: 60px;
+	top: 40px;
 }
 input[type=text]{
     width: 500px;
@@ -61,15 +62,25 @@ td:nth-child(2){
 }
 input[type=submit],
 input[type=button]{
-    width: 200px;
-    height: 40px;
-    margin: 20px;
-    text-align: center;
-    cursor: pointer;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    background-color: #64b883;
+/*     width: 200px; */
+/*     height: 40px; */
+/*     margin: 20px; */
+/*     text-align: center; */
+/*     cursor: pointer; */
+/*     font-weight: bold; */
+/*     border: none; */
+/*     border-radius: 5px; */
+/*     background-color: #64b883; */
+    
+    margin-top:30px;
+	width:120px; 
+	height:35px; 
+	font-weight: bold;
+	color:white; 
+	background-color: #1d7647;
+	border: none;
+	border-radius: 5px;
+	cursor:pointer;
 }
 .hopeBtn{
     display: flex;
