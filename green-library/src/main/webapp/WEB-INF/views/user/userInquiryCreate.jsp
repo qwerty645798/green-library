@@ -39,7 +39,7 @@
 				표시 항목은 필수 입력 항목입니다.</td>
 			</tr>
 			<tr>
-				<th><p class="great_p">*&nbsp;</p> 아이디</th>
+				<th><p class="great_p">&nbsp;</p> 아이디</th>
 				<td>${userId}</td>
 			</tr>
 			<tr>
