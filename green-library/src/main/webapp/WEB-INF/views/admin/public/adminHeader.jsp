@@ -2,7 +2,7 @@
 <header>
     <div class="accountContainer">
         <h1 class="adminLogo">
-            <img src="admin/assets/imgs/adminImg.png" alt="">
+            <img src="/admin/assets/imgs/adminImg.png" alt="">
         </h1>
         <div>
             <p>관리자</p>

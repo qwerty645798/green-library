@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
+<%-- Fetching request parameters and user agent details --%>
 <%
     String ipAddress = request.getRemoteAddr();
     String userAgent = request.getHeader("User-Agent");
@@ -31,13 +32,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infomation</title>
+    <title>Information</title>
     <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
     <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
     <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
     <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
     <link rel="stylesheet" type="text/css" href="admin/css/adminInfo.css">
 </head>
+
 <body>
 <jsp:include page="../public/adminHeader.jsp"></jsp:include>
 <main>
@@ -49,25 +51,22 @@
         <div class="leftContainer">
             <div class="info baseInfo">
                 <h3>내 계정</h3>
-                <p>이름</p>
-                <p>ID : </p>
-                <p>PASS : </p>
-                <p>권한 등급 : </p>
+                <p>이름 : ${my.adminName}</p>
+                <p>ID : ${my.adminId}</p>
+                <p>PASS : ${my.adminPass}</p>
+                <p>권한 등급 : ${my.grantRank}</p>
             </div>
             <div class="info connectInfo">
                 <h3>접속 정보</h3>
-                <p>IP : <%= ipAddress %>
-                </p>
-                <p>OS : <%= os %>
-                </p>
-                <p>Browser : <%= browser %>
-                </p>
+                <p>IP : <%= ipAddress %></p>
+                <p>OS : <%= os %></p>
+                <p>Browser : <%= browser %></p>
             </div>
             <div class="info grantLevel">
                 <h3>권한 레벨</h3>
-                <p>1 : asdf</p>
-                <p>2 : asdf</p>
-                <p>3 : super</p>
+                <p>1 : book manage</p>
+                <p>2 : board manage</p>
+                <p>3 : sys 계정</p>
             </div>
         </div>
         <div class="rightContainer">
@@ -83,12 +82,16 @@
                             <th>권한</th>
                         </tr>
                         </thead>
-                        <tr>
-                            <td>이름1</td>
-                            <td>아이디1</td>
-                            <td>이메일1</td>
-                            <td>1</td>
-                        </tr>
+                        <tbody>
+                        <c:forEach var="admin" items="${admins}">
+                            <tr>
+                                <td>${admin.adminName}</td>
+                                <td>${admin.adminId}</td>
+                                <td>${admin.adminEmail}</td>
+                                <td>${admin.grantRank}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
                     </table>
                 </div>
             </div>

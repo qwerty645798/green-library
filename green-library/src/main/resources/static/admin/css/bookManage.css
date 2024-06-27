@@ -139,7 +139,7 @@ button:focus {
     border-bottom: 1px solid #c7c7c7;
 }
 
-.totalContainer .outputBoard .dashBoard table tr:first-child {
+.totalContainer .outputBoard .dashBoard table thead {
     background-color: #77a0c9;
 }
 

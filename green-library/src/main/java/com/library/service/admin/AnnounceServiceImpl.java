@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AnnounceServiceImpl implements AnnounceService {
@@ -20,6 +21,19 @@ public class AnnounceServiceImpl implements AnnounceService {
         return announcementRepository.allAnnounceManage();
     }
 
+    //    select 제한 두기
+//    @Override
+//    public int getTotalAnnouncementsCount() {
+//        return (int) announcementRepository.count();
+//    }
+//
+//    @Override
+//    public List<AnnouncementDTO> getAnnouncements(int limit) {
+//        return announcementRepository.findAll()
+//                .stream()
+//                .limit(limit)
+//                .collect(Collectors.toList());
+//    }
 
     // 제목으로 조회
     @Override

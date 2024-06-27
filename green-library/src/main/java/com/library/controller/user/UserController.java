@@ -179,6 +179,7 @@ public class UserController {
 	}
     
     @GetMapping("/modifyInquiry")
+
     public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
     	model.addAttribute("userId", userId);
     	return "user/userInquiryModify";

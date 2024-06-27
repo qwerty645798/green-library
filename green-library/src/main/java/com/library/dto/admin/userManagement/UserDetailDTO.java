@@ -1,5 +1,8 @@
 package com.library.dto.admin.userManagement;
 
+import com.library.dto.admin._normal.RentDTO;
+import com.library.dto.admin._normal.SuspensionDTO;
+import com.library.dto.admin._normal.UserDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,11 +14,8 @@ import java.util.List;
 @Setter
 @ToString
 public class UserDetailDTO {
-    private String userID;
-    private String username;
-    private String userEmail;
-    private String userPhone;
-    private List<LoanStatusDTO> loanStatuses;
-    private List<RestrictionDTO> restrictions;
+    private UserDTO user;
+    private List<RentDTO> loans;
+    private List<SuspensionDTO> suspensions;
 
 }

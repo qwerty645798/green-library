@@ -1,25 +1,36 @@
 package com.library.service.admin;
 
-import java.util.List;
-
+import com.library.dto.admin._normal.BookDTO;
+import com.library.repository.admin.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.library.dto.admin._normal.BookDTO;
-import com.library.repository.admin.BookRepository;
+import java.util.List;
 
-@Service
+@Transactional
+@Service("AdminBookService")
 public class BookServiceImpl implements BookService{
 
-    @Autowired
     @Qualifier("AdminBookRepository")
+    @Autowired
     private BookRepository bookRepository;
+
+    public BookServiceImpl(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     // 모든 책 조회
     public List<BookDTO> allHavingBookManage() {
         return bookRepository.allHavingBookManage();
     }
+
+    //제목 + 저자  + 출판사조회
+    public List<BookDTO> findBookByTotal(String total) {
+        return bookRepository.findBookByTotal(total);
+    }
+
     // 제목으로 조회
     public List<BookDTO> findBookByTitle(String title) {
         return bookRepository.findBookByTitle(title);
@@ -31,6 +42,16 @@ public class BookServiceImpl implements BookService{
     // 십진분류로 조회
     public List<BookDTO> findBookByGenre(String genre) {
         return bookRepository.findBookByGenre(genre);
+    }
+
+    //   책 반납
+    public BookDTO returnUpdateBook(int bookId) {
+        bookRepository.updateBookAvailability(bookId, true);
+        return bookRepository.getBookById(bookId); // 반납된 책의 정보 반환
+    }
+
+    public void returnMultiBooks(List<Long> bookIds) {
+        bookRepository.updateMultipleBooksAvailability(bookIds, true);
     }
     // 책 등록
     public void createBook(BookDTO book) {

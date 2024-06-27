@@ -14,4 +14,5 @@ public class UserDTO {
     private String userBirth;
     private Long overdueCount;
     private Character suspended;
+    private int totalCount;
 }
