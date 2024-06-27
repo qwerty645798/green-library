@@ -210,14 +210,9 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public void deleteUser(String userId) {
-        try {
             int rowsAffected = userRepository.deleteUser(userId);
             if (rowsAffected == 0) {
                 throw new DatabaseException("Failed to delete user with id: " + userId);
-            }
-        } catch (DataAccessException e) {
-            throw new DatabaseException("Database error occurred while deleting user with id: " + userId, e);
-        }
     }
-    
+    }
 }
