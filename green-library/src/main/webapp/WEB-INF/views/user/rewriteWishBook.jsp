@@ -38,7 +38,7 @@
                 <table>
     
                     <tr>
-                        <td class="hopeBook"><span>*</span> 신청자 이름</td>
+                        <td class="hopeBook"> 신청자 이름</td>
                         <td>${userId}</td>
                     </tr>
         

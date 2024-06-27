@@ -15,4 +15,11 @@ public class UserCreateInquiryService {
 		userInquiryCreateRepository.makeInquiry(userId, inquiryTitle, contents);
 	}
 	
+	public void modifyInquiry(String inquiryTitle, String contents, String userId, String id) {
+		userInquiryCreateRepository.modifyInquiry(inquiryTitle, contents, userId, id);
+	}
+	
+	public void deleteInquiry(String userId, String id) {
+		userInquiryCreateRepository.deleteInquiry(userId, id);
+	}
 }

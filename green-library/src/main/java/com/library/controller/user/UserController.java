@@ -28,8 +28,10 @@ import com.library.dto.user.inquiry.UserReserveDTO;
 import com.library.dto.user.profile.UserInfoDTO;
 import com.library.dto.user.profile.UserInfoModificationDTO;
 import com.library.service.user.InquiryService;
+import com.library.service.user.UserCreateInquiryService;
 import com.library.service.user.UserService;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller("UserController")
@@ -45,6 +47,9 @@ public class UserController {
 	@Autowired
 	@Qualifier("UserInquiryService")
 	private InquiryService inquiryService;
+	
+	@Autowired
+	private UserCreateInquiryService userCreateInquiryService;
 
 	@GetMapping("/userInfo")
 	public String userInfo(Model model, @RequestParam(name = "auth", defaultValue = "abc") String userId) {
@@ -84,8 +89,9 @@ public class UserController {
 
 	@PostMapping("/userDelete")
 	public String userDelete(@RequestParam(name = "auth", defaultValue = "abc") String userId,
-			RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes, HttpSession session) {
 		userService.deleteUser(userId);
+		session.invalidate();
 		redirectAttributes.addFlashAttribute("message", "userDelete");
 		return "redirect:/";
 	}
@@ -173,25 +179,29 @@ public class UserController {
 	}
     
     @GetMapping("/modifyInquiry")
-//    public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
-//    	return "redirect:/myWritten";
-//    }
+
+    public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
+    	model.addAttribute("userId", userId);
+    	return "user/userInquiryModify";
+    }
     
     @PostMapping("/modifyInquiry")
-    public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
+    public String modifyInquiryPerform(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, RedirectAttributes redirectAttributes, 
+    		@RequestParam("inquiry_title") String inquiryTitle,
+    		@RequestParam("contents") String contents) {
     	if(id.equals("error"))
     		return "redirect:/myWritten";
-//    	inquiryService.modifyInquiry(userId, id);
-    	model.addAttribute("message","문의내역이 수정되었습니다.");
+    	userCreateInquiryService.modifyInquiry(inquiryTitle, contents, userId, id);
+    	redirectAttributes.addFlashAttribute("message","문의내역이 수정되었습니다.");
     	return "redirect:/myWritten";
     }
     
     @GetMapping("/deleteInquiry")
-    public String deleteInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
+    public String deleteInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, RedirectAttributes redirectAttributes) {
     	if(id.equals("error"))
     		return "redirect:/myWritten";
-//    	inquiryService.deleteInquiry(userId, id);
-    	model.addAttribute("message","문의내역이 삭제되었습니다.");
+    	userCreateInquiryService.deleteInquiry(userId, id);
+    	redirectAttributes.addFlashAttribute("message","문의내역이 삭제되었습니다.");
     	return "redirect:/myWritten";
     }
 }

@@ -14,7 +14,11 @@
 <link rel="stylesheet" type="text/css" href="css/myWritten.css">
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
-
+<script>
+	let message = "${message}";
+	if(message)
+		alert(message);
+</script>
 </head>
 
 

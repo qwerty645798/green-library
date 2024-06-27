@@ -68,10 +68,14 @@ public class RentController {
 	
 	@GetMapping("/bookLoanExtension")
 	public String bookLoanExtension(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model) {
-		List<BookLoanExtensionDto> extensions = bookLoanExtensionService.getLoanList(userId);
 		
+		List<BookLoanExtensionDto> extensions = bookLoanExtensionService.getLoanList(userId);
 		model.addAttribute("extensions", extensions);
 		model.addAttribute("userId", userId);
+		
+		boolean loanExist = bookLoanExtensionService.allLoanList(userId);
+	    model.addAttribute("loanExist", loanExist);
+	    
 		return "user/bookLoanExtension";
 	}
 
@@ -79,6 +83,7 @@ public class RentController {
 	public String bookExtension(@RequestParam(name="bookId", required = false) int bookId) {
 		
 		bookLoanExtensionService.getExtension(bookId);
+		
 		return "redirect:/bookLoanExtension";
 	}
 	

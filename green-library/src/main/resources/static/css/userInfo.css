@@ -36,7 +36,8 @@
     padding-top: 30px;
     padding-bottom: 30px;
     border-radius: 5px;
-    background-color: lemonchiffon;
+/*     background-color: lemonchiffon; */
+	background: #f0f7f0;
 }
 .userInfoContent{
     display: flex;
@@ -45,7 +46,8 @@
     width: 550px;
     height: 200px;
     padding: 20px;
-    border: 2px solid #ecd9bc;
+/*     border: 2px solid #ecd9bc; */
+	border: 2px solid #1d7647;
     border-radius: 10px;
 }
 /* .userImage{ */
@@ -53,8 +55,8 @@
 /*     height: 200px; */
 /* } */
 .userImage img{
-	width: 200px;
-	height: 200px;
+	width: 240px;
+	height: 240px;
 }
 .infoBtn{
     display: flex;
@@ -62,7 +64,7 @@
     justify-content: center;
     align-items: center;
 }
-input[type=button],
+input[type=button]:not(.cancel),
 #logout{
     width: 200px;
     height: 50px;
@@ -72,7 +74,20 @@ input[type=button],
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #471C0A;
+/*     background-color: #471C0A; */
+	background: #1d7647;
+}
+.delete, .cancel{
+	 color:white; 
+/* 	 background:#0D2E8C;  */
+	 background-color: #471C0A;
+	 width:120px; 
+	 height:35px; 
+	 margin: 30px 10px 10px 10px;
+	 border: none;
+	 border-radius: 5px;
+	 font-weight: bold;
+	 cursor:pointer; 
 }
 .infoQuicks{
     display: flex;

@@ -169,3 +169,12 @@ header{
     position: absolute;
     left: 1008px;
 }
+a#myPage{
+	color:green;
+	cursor:pointer;
+	text-decoration:none;
+}
+a#myPage:hover{
+	text-decoration:underline;
+	color:dodgerblue;
+}

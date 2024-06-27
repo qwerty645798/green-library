@@ -15,4 +15,13 @@ public class UserInquiryCreateRepository {
 		jdbcTemplate.update(sql, userId, inquiryTitle, contents);
 	}
 	
+	public void modifyInquiry(String inquiryTitle, String contents, String userId, String id) {
+		String sql = "UPDATE inquiries SET inquiry_title = ?, contents = ? where user_id = ? and inquiry_id = ?";
+		jdbcTemplate.update(sql, inquiryTitle, contents, userId, id);
+	}
+	
+	public void deleteInquiry(String userId, String id) {
+        String sql = "DELETE FROM inquiries WHERE user_id = ? and inquiry_id = ?";
+        jdbcTemplate.update(sql, userId, id);
+    }
 }

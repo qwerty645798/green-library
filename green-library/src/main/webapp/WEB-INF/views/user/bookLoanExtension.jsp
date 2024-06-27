@@ -30,16 +30,27 @@
 
 <main>
 
+
+
 <div class="sel_All">
-    <label for="selectAllBook">
-        <input type="checkbox" id="selectAllBook" onclick="toggleAllChxbox(this)">
-    </label>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <form id="extendForm" action="bookExtensionBatch" method="post" onsubmit="return extendAllCheckedbox()">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        <input type="hidden" name="userId" value="${userId}">
-        <input type="submit" value="일괄 대출 연장">
-    </form>
+	<c:choose>
+		<c:when test="${!loanExist}">
+			<div class="noRents">
+				<span>현재 대출 중인 책이 없습니다</span>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<label for="selectAllBook">
+		        <input type="checkbox" id="selectAllBook" onclick="toggleAllChxbox(this)">
+		    </label>
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+		    <form id="extendForm" action="bookExtensionBatch" method="post" onsubmit="return extendAllCheckedbox()">
+		        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		        <input type="hidden" name="userId" value="${userId}">
+		        <input type="submit" value="일괄 대출 연장">
+		    </form>
+		</c:otherwise>
+	</c:choose>
 </div>
 
 <div class="bigbigDiv">
