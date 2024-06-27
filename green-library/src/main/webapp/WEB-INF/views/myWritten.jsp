@@ -51,12 +51,12 @@
 							</tr>
 						</c:if>
 						<c:forEach items="${wishLists}" var="wishList"> 
-							<tr>
+							<tr onclick="goWishBook(event)">
 								<td class="wishlistId">${wishList.wishlistId}</td>
 								<td>${wishList.userId}</td>
 								<td>${wishList.wishDate}</td>
 								<td>${wishList.wishTitle}</td>
-								<td>${wishList.complete}</td>
+								<td class="complete">${wishList.complete}</td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -68,6 +68,8 @@
 			</tr>
 		</table>
 	</div>
+	
+	
 	
 	<div class="container">
 		<table class="container_table">

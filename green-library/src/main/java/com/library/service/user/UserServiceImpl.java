@@ -2,6 +2,7 @@ package com.library.service.user;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,12 +23,16 @@ import com.library.dto.user.account.UserFindingIdDTO;
 import com.library.dto.user.account.UserFindingPwDTO;
 import com.library.dto.user.account.UserJoinDTO;
 import com.library.dto.user.account.UserLoginDTO;
+import com.library.dto.user.account.initializePasswordDTO;
 import com.library.dto.user.profile.UserInfoDTO;
 import com.library.dto.user.profile.UserInfoModificationDTO;
 import com.library.entity.Users;
 import com.library.exception.DatabaseException;
+import com.library.exception.UserNotFoundException;
 import com.library.mapper.user.UserMapper;
 import com.library.repository.user.UserRepository;
+import com.library.service.RedisService;
+import com.library.service.email.EmailSender;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
@@ -41,6 +46,12 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	@Qualifier("UserMapper")
 	private UserMapper userMapper;
+	
+	@Autowired
+    private EmailSender emailSender;
+	
+	@Autowired
+    private RedisService redisService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -65,9 +76,21 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	//아이디 중복체크
+	@Override
 	public boolean checkUserId(String userId) {
         try{
         	userRepository.getUsersEntity(userId);
+        	return true;
+        } catch (EmptyResultDataAccessException e) {
+        	return false;
+        }
+    }
+	
+	//가입된 사용자인지 체크
+	@Override
+	public boolean checkUserAccount(UserJoinDTO userDTO) {
+        try{
+        	userRepository.getUsersEntity(userDTO.getBirth(), userDTO.getName());
         	return true;
         } catch (EmptyResultDataAccessException e) {
         	return false;
@@ -87,15 +110,52 @@ public class UserServiceImpl implements UserService {
         }
 	}
 	
+	// 유저 비밀번호 초기화를 위한 검증
 	@Override
-	public boolean checkUserInfo(UserFindingPwDTO userDTO) {
+	public void checkUserInfo(UserFindingPwDTO userDTO) {
 		try{
 			userRepository.getUsersEntity(userDTO.getUser_id(), userDTO.getName(), userDTO.getBirth(), userDTO.getEmail());
-			return true;
+			sendVerificationEmail(userDTO.getEmail());
 		} catch (EmptyResultDataAccessException e) {
-            return false;
+			logger.warn("User information checking failed - User not found with userId: {}", userDTO.getUser_id(), e);
+            throw new DatabaseException("User information checking failed - User not found with userId: " + userDTO.getUser_id(), e);
         }
 	}
+	
+	// 비밀번호 초기화
+	@Override
+	public void initializePassword(initializePasswordDTO userDTO) {
+		String hashedPassword = passwordEncoder.encode(userDTO.getUser_pass());
+		try {
+			int rowsAffected = userRepository.updateUserPass(userDTO.getEmail(), hashedPassword);
+			if (rowsAffected == 0) {
+				throw new DatabaseException("Failed to update user password for user with email: " + userDTO.getEmail());
+			}
+		} catch (DataAccessException e) {
+			throw new DatabaseException("Database error occurred while updating password for member with email: " + userDTO.getEmail(), e);
+		}
+	}
+	
+	// 이메일 발송, 토큰 캐싱
+	@Override
+	public void sendVerificationEmail(String email) {
+        String token = UUID.randomUUID().toString();
+        redisService.saveToken(token, email);
+        emailSender.sendEmail(email, token);
+    }
+
+	// 이메일인증
+	@Override
+    public String verifyUser(String token) {
+        String email = redisService.getEmailByToken(token);
+        if (email != null) {
+            redisService.deleteToken(token);
+            return email;
+        }
+		else {
+            throw new UserNotFoundException("User authentication failed - User not found with email: " + email);
+        }
+    }
 	
 	// 유저 세부정보 불러오기
 	@Override

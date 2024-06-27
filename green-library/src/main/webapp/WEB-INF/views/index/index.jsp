@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Library Main</title>
-<!--     <link href="/reset/reset.css" type="text/css" rel="stylesheet"> -->
     <link href="/css/index.css" type="text/css" rel="stylesheet">
     <script>
    	let message = "${message}";
@@ -17,8 +16,6 @@
     </script>
 </head>
 <body>
-
-
 
   <jsp:include page="../index/header.jsp" />
 
@@ -47,15 +44,15 @@
 
     <div id="quickBundle" class="quickBundle">
     <a href=""></a>
-       	<div id="quick1" class="quickPage"><img src="/images/useTime.png">
+       	<div id="quick1" class="quickPage"><img src="/images/useTimeGreen.png">
             이용 시간</div>
-        <div id="quick2" class="quickPage"><img src="/images/bookExtension.png">
+        <div id="quick2" class="quickPage"><img src="/images/bookExtensionGreen.png">
             대출 연장</div><!-- 유효성 검사 필요 -->
-        <div id="quick3" class="quickPage"><img src="/images/hopeBook.png">
+        <div id="quick3" class="quickPage"><img src="/images/hopeBookGreen.png">
             희망도서</div><!-- 유효성 검사 필요 -->
-        <div id="quick4" class="quickPage"><img src="/images/help.png">
+        <div id="quick4" class="quickPage"><img src="/images/helpGreen.png">
             문의사항</div>
-        <div id="quick5" class="quickPage"><img src="/images/calendar.png">
+        <div id="quick5" class="quickPage"><img src="/images/calendarGreen.png">
             캘린더</div>
     </div>
 
@@ -74,7 +71,6 @@
     </div>
 	
 	<c:set var="itemsPerPage" value="8"/>
-<%-- 	<c:set var="totalItems" value="${fn:length(items)}" /> --%>
 	<c:set var="totalPages" value="${(totalItems + itemsPerPage - 1) / itemsPerPage}" />
     
     <div class="bookSwipe">
@@ -165,6 +161,7 @@
  <script src="/js/header.js"></script>
  <script src="/js/index.js"></script>
  <script src="/js/dataSearchBar.js"></script>
+ <script src="/js/commonWindowOnload.js"></script>
     
 </body>
 </html>

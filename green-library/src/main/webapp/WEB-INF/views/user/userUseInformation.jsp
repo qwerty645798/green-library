@@ -24,12 +24,10 @@
                 <div class="center btnbox">
                     <table class="btn">
                         <tr>
-
                             <th>예약</th>
                         </tr>
                         <tr>
                             <td>${count.reserve_count} / 5</td>
-
                         </tr>
                     </table>
                 </div>
@@ -41,7 +39,6 @@
                         </tr>
                         <tr>
                             <td>${count.rent_count} / 5</td>
-
                         </tr>
                     </table>
                 </div>
@@ -62,7 +59,6 @@
 							        </c:otherwise>
 							    </c:choose>
                             </td>
-
                         </tr>
                     </table>
                 </div>
@@ -82,7 +78,7 @@
                 </div>
             </div>
             <div class="container" style="margin-top: 60px;">
-                <iframe src="useInformationBoard" width="1300" height="600" id="iframe" onload="initialLoadIframe()"></iframe>
+                <iframe src="useInformationBoard" width="1300" id="iframe" onload="initialLoadIframe()"></iframe>
             </div>
         </main>
     </div>
@@ -103,12 +99,22 @@
             fetchDataAndSendToIframe('rentHistory');
         }
 
+        function iframeHeight(condition, data) {
+            let iframe = document.getElementById('iframe');
+            if (data.length < 10) {
+                iframe.style.height = 720 - (10 - data.length) * 34 + "px";
+            } else {
+                iframe.style.height = "720px";
+            }
+        }
+
         function fetchDataAndSendToIframe(condition) {
             fetch(`/getUserData`)
                 .then(response => response.json())
                 .then(data => {
                     let iframe = document.getElementById('iframe');
                     iframe.contentWindow.postMessage({ condition: condition, data: data[condition] }, '*');
+                    iframeHeight(condition, data[condition]);
                 })
                 .catch(error => console.error('Error fetching data:', error));
         }

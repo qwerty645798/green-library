@@ -53,6 +53,10 @@
                    			<li>발행년도 <span class="border">|</span> ${items[index].publicationDate}</li>
                    			<li>대출상태 <span class="border">|</span> ${items[index].availability}</li>
                    		</ul>
+                   		
+                   		<input type="button" class="takeAlook"
+                   		onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" 
+						value="자세히 보기">
                    	
                     </div>
                     

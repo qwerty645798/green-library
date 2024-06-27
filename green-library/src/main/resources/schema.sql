@@ -184,6 +184,14 @@ CREATE TABLE interested_books (
     book_id NUMBER(10) REFERENCES books(book_id)
 );
 
+-- 테이블 추가
+-- 이메일 인증 테이블
+CREATE TABLE email_token (
+    token VARCHAR2(255) NOT NULL,
+    email VARCHAR2(255) NOT NULL,
+    PRIMARY KEY (token)
+);
+
 -- 시퀀스 생성
 CREATE SEQUENCE author_idx START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE publisher_idx START WITH 1 INCREMENT BY 1;

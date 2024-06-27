@@ -12,10 +12,7 @@ h1{
 	font-size: 20pt;
 	font-weight: bold;
 }
-.hr1{
-	width: 1260px;
-	border: 2px solid #a0cab0;
-}
+
 .hr2{
 	width: 700px;
 	border: 1px solid gray;
@@ -29,7 +26,7 @@ h1{
 	background-color: #d8e9d9;
 }
 
-.title_vision{
+.title_container{
 	display: flex;
 	width: 1260px;
 	align-items: center;

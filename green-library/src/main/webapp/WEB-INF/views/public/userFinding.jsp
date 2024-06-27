@@ -7,7 +7,6 @@
 <title>userFinding</title>
 <link href="css/userFinding.css" type="text/css" rel="stylesheet">
 <link href="css/public/nav.css" type="text/css" rel="stylesheet">
-<script src="js/userFinding.js"></script>
 <script>
 	let message = "${message}";
 	if(message)
@@ -68,11 +67,11 @@
 					</tr>
 					<tr>
 						<td class="text"><div>성명</div></td>
-						<td class="input"><input type="text" name="name"></td>
+						<td class="input"><input type="text" name="name" id="username"></td>
 					</tr>
 					<tr>
 						<td class="text"><div>생년월일</div></td>
-						<td class="input"><input type="text" name="birth"><br>
+						<td class="input"><input type="text" name="birth" id="birthDate"><br>
 							<span>* 입력 예 : 2000-10-10</span>
 						</td>
 					</tr>
@@ -85,6 +84,7 @@
 		</div>
 	</div>
 	<script src="js/userFindingModal.js"></script>
+	<script src="js/userFinding.js"></script>
 	<jsp:include page="../index/footer.jsp" />
 </body>
 </html>

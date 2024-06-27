@@ -16,11 +16,11 @@ function scrollPer(){
 function scrollUp(){
 	if(scrollPer()>=50){
 		scrollBtn.style.display = "block";
-		scrollBtn.style.transition = "300ms ease-in-out";
+		scrollBtn.style.transition = "all 300ms ease-in-out";
 		
 	}else{
 		scrollBtn.style.display = "none";
-		scrollBtn.style.transition = "300ms ease-in-out";
+		scrollBtn.style.transition = "all 300ms ease-in-out";
 	}
 	
 };

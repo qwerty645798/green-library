@@ -17,14 +17,16 @@
 			<div class="pageTitle">오시는 길</div>
 			<div class="pageRoute">홈 > 오시는 길</div>
 		</div>
-	</nav><Br><br>
-		
+	</nav>
+	
+	<div class="title_container">
+		<h1>그린도서관 오시는 길</h1>
+	</div>
+	<hr class="hr1">
+
 			<div class="outContainer">
 				<main>
-					<div class="container">
-						<div class="mapTitle">그린도서관 오시는 길</div>
-					</div>
-					<hr>
+					
 					<br>
 					<div class="container"><div id="map" class="map"></div></div>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91923fd361ed583dba90f7d5171f8349&libraries=services"></script>

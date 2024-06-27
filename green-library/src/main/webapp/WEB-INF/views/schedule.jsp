@@ -29,10 +29,11 @@
 
 <main>
 
-<div class="zero_container">
+<div class="title_container">
 	<h1>도서관 일정</h1>
-	<hr>
+	
 </div>
+<hr class="hr1">
 
 <div class="calCon2">
     <div class="calCon">

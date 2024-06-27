@@ -20,12 +20,17 @@
             <div class="pageTitle">이용시간</div> <div class="pageRoute">홈 > 이용시간</div>
         </div>
     </div>
+    
+    <div class="title_container">
+		<h1>그린도서관 이용 시간 안내</h1>
+	</div>
+	<hr class="hr1">
 
     <div class="usetimePage1">
         <div class="usetimePage2">
             <table>
                 <tr>
-                    <td class="itemBold">장소/계절</td>
+                    <td class="itemBold"></td>
                     <td class="itemBold">평일</td>
                     <td class="itemBold">주말</td>
                 </tr>
@@ -73,6 +78,7 @@
                 </tr>
             </table>
         </div>
+        
     </div>
 
     

@@ -1,8 +1,13 @@
 
-
+.htwo{
+	display:flex;
+	justify-content: center;
+	margin-top: 70px;
+}
 h2{
-	margin: 50px 0 30px 0;
-	text-align: center;
+	width: 1260px;
+	margin: 30px 0 30px 0;
+	text-align: left;
 }
 hr{
 	width: 1260px;
@@ -57,10 +62,13 @@ input[type=button]{
 	width:120px; 
 	height:35px; 
 	margin: 20px 0 0 10px;
-	background-color: #155734;
+	background-color: #1d7647;
 	color: white;
 	font-weight: bold;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+}
+caption{
+	text-align:right;
 }

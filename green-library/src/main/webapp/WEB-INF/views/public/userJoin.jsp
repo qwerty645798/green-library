@@ -53,7 +53,7 @@
                 <td class="text"><div>비밀번호</div></td>
                 <td class="input"><input type="password" id="pswd" name="user_pass" class="middle">
                     <br>
-                    <div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합)
+                    <div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자를 모두 사용한 조합)
                     <br>
                     <span style="font-size:1.1em; font-weight:600;">입력가능한 특수문자는 [ 사용가능 특수문자 : <span style="color:red;">!@#^*_</span>]입니다.
                     <br>
@@ -77,14 +77,16 @@
                 <input type="hidden" id="fullEmail" name="email" value="">
                 <input type="text" id="email" class="short"> @ 
                 <input type="text" id="email2" class="short">
-                <select id="emailSel" onchange="mailText()">
+                <select id="emailSel">
                     <option value="" selected></option>
                     <option value="naver.com">naver.com</option>
                     <option value="gmail.com">gmail.com</option>
                     <option value="daum.net">daum.net</option>
                     <option value="hanmail.net">hanmail.net</option>
                     <option value="nate.com">nate.com</option>
-                </select></td>
+                </select>
+                <div class="comment">이메일은 회원정보 찾기에 이용됩니다. [<span style="color:red;">정확한 주소를 입력해주세요.</span>]</div>
+                </td>
             </tr>
             <tr>
                 <td colspan="2" style="border:none;text-align:center;">
@@ -95,8 +97,6 @@
     </form>
     </main>
     <jsp:include page="../index/footer.jsp" />
-    
     <script src="js/userJoin.js" type="text/javascript"></script>
-    
 </body>
 </html>

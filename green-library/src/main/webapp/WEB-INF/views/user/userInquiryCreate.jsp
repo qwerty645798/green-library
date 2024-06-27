@@ -34,21 +34,20 @@
 	<div class="table_container">
 		<table>
 			<tr>
-				<th class="con_table_top"></th>
-				<td class="con_table_top">
+				<td colspan="2" class="con_table_top">
 				<p class="great_p">&nbsp;*&nbsp;</p>
 				표시 항목은 필수 입력 항목입니다.</td>
 			</tr>
 			<tr>
-				<th><p class="great_p">&nbsp;*&nbsp;</p> 아이디</th>
+				<th><p class="great_p">*&nbsp;</p> 아이디</th>
 				<td><input type="text" size="10" style="height:20px;" name="user_id" value="${userId}"></td>
 			</tr>
 			<tr>
-				<th><p class="great_p">&nbsp;*&nbsp;</p> 제목</th>
+				<th><p class="great_p">*&nbsp;</p> 제목</th>
 				<td><input type="text" style="height:20px;width:95%;" name="inquiry_title"></td>
 			</tr>
 			<tr>
-				<th><p class="great_p">&nbsp;*&nbsp;</p> 내용</th>
+				<th><p class="great_p">*&nbsp;</p> 내용</th>
 				<td><textarea rows="20" style="width:95%; resize:none;" name="contents"></textarea></td> 
 			</tr>
 		</table>

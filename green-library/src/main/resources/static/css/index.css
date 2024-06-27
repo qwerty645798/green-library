@@ -5,13 +5,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
-    padding-bottom: 300px;
+    padding: 50px 0 300px 0;
     background-image:url("/images/woodLeaf.jpg");
     background-size: cover;
 }
 .customSearchform{
-    z-index: 5;
+    z-index: 2;
     display: flex;
     flex-direction: row;
     width: 768px;
@@ -21,7 +20,7 @@
     cursor: pointer;
 }
 .searchSel{
-    z-index: 5;
+    z-index: 2;
     float: left;
     width: 100px;
     height: 58px;
@@ -32,14 +31,20 @@
     background-color: white;
 }
 input[type=text]{
-    z-index: 5;
+    z-index: 2;
     display: flex;
     width: 768px;
     height: 48px;
     padding-left: 10px;
     cursor: text;
     border: 4px solid #ecd9bc;
+    border-left: none;
+    border-right: none;
     background-color: #eeeae2;
+}
+input[type=text],
+select:focus{
+	outline: 0;
 }
 .customSearchform img{
 	width:50px;
@@ -65,9 +70,7 @@ input[type=text]{
     align-items: center;
     width: 100px;
     height: 100px;
-    margin: 40px;
-    margin-left: 66px;
-    margin-right: 66px;
+    margin: 40px 66px 40px 66px;
     border-radius: 20px;
     border: 10px solid #ecd9bC;
     font-weight: bold;
@@ -80,15 +83,13 @@ input[type=text]{
 	height: 64px;
 }
 .quickPage:hover{
-    background-color: #d1ebdc;
-    transition: 300ms;
-    color: white;
+    background-color: rgb(234, 247, 239);
+    transition: 300ms ease-in-out;
+    color: #1d7647;
 }
 .bookslide{
-	margin-top: 50px;
-	margin-bottom: 50px;
-	  padding-top: 50px;
-    padding-bottom: 50px;
+	margin: 50px 0 50px 0;
+	padding: 50px 0 50px 0;
 	background-color: #d8e9d9;
 }
 .tabCon1{
@@ -120,15 +121,16 @@ input[type=text]{
     list-style-type: none;
 	min-width: 200px;
     min-height: 40px;
-	background-color: aliceblue;
+/* 	background-color: aliceblue; */
 	border-radius: 5px;
 }
 .bookTab li:hover{
     cursor: pointer;
 }
 .here{/*tab classlist 함수용*/
-	color: #64b883;
+	color: white;
 	border: 3px solid #64b883;
+	background-color: #a0cab0;
 	border-radius: 5px;
 }
 .tabCon2 img{

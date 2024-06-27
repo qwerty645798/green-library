@@ -46,12 +46,17 @@ p{
 /*scrollBtn css*/
 .scrollBtn{
 	position: fixed;
-	bottom: 300px;
+	bottom: 200px;
 	display: none;
-	right: 70px;
+	right: 100px;
 	width: 50px;
 	height: 50px;
-	background: green;
+	background: #64b883;
 	cursor: pointer;
-	opacity: 0.5;
+	border-radius: 50px;
+	border: 2px solid #a0cab0;
+}
+.scrollBtn img{
+	width: 50px;
+	height: 50px;
 }

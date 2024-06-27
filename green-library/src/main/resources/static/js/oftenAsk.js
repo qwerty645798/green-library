@@ -15,12 +15,12 @@ function QnAaccordian(){
                 answer[i].style.display = "flex";
                 answer[i].style.height =  answer[i].scrollHeight + "px";
                 answer[i].style.transition = "height 300ms ease-in-out";
-                arrow[i].src="/images/QnAarrowup.jpg";
+                arrow[i+1].src="/images/QnAarrowup.jpg";
             }else if(answer[i].scrollHeight!=0){
                 answer[i].style.display = "none";
                 answer[i].style.height =  answer[i].scrollHeight + "px";
                 answer[i].style.transition = "height 300ms ease-in-out";
-                arrow[i].src="/images/QnAarrowdown.jpg";
+                arrow[i+1].src="/images/QnAarrowdown.jpg";
             }
         }
     }

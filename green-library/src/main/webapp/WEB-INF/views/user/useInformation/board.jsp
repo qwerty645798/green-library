@@ -8,6 +8,7 @@
 
 </head>
 <body>
+	<div class="center">
     <form method="post" id="form">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <table id="board">
@@ -20,7 +21,11 @@
         </tbody>
     </table>
     </form>
-    
+    </div>
+    <div class="center" id="button-box">
+    <button class="btn" id="prev-button" onclick="prevPage()">이전</button>
+	<button class="btn" id="next-button" onclick="nextPage()">다음</button>
+	</div>
     <script src="js/board.js" type=""></script>
     
     <script>
