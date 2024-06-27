@@ -46,38 +46,58 @@ addLoadEvent(accordian);
 	let logo = document.querySelector('.logo');
 
 	//NULL 체크
-	if (logo) {
-        logo.onclick = () => {
-            window.location.href = '/';
-        }
-    }
+		if (logo) {
+	        logo.onclick = () => {
+	            window.location.href = '/';
+	        }
+	    }
 
-    if (login) {
-        login.onclick = () => {
-            window.location.href = 'userLogin';
-        }
-    }
+	    if (login) {
+	        login.onclick = () => {
+	            window.location.href = 'userLogin';
+	        }
+	    }
 
-    if (join) {
-        join.onclick = () => {
-            window.location.href = 'userAgreement';
-        }
-    }
-    
-    /*logo.onclick = () => {
-		window.location.href = '/';
-	}
-	login.onclick = () => {
-		window.location.href = 'userLogin';
-	}
-	join.onclick = () => {
-		window.location.href = 'userAgreement';
+	    if (join) {
+	        join.onclick = () => {
+	            window.location.href = 'userAgreement';
+	        }
+	    }
+	    
 
-	}*/
+//header 아코디언 리스트 링크
+
+let library = document.getElementById('subMenu1').children;
+let libraryUse = document.getElementById('subMenu2').children;
+let bookSearch = document.getElementById('subMenu3').children;
+let question = document.getElementById('subMenu4').children;
+let userPage = document.getElementById('subMenu5').children;
+
+if(library){
+	library[0].onclick = () => window.location.href="vision";
+}	
+if(libraryUse){
+	libraryUse[0].onclick = () => window.location.href='wayToCome';
+	libraryUse[1].onclick = () => window.location.href='placeUsetime';
+	libraryUse[2].onclick = () => window.location.href='dataRule';
+	libraryUse[3].onclick = () => window.location.href='facilityInfo';
+}
+if(bookSearch){
+	bookSearch[0].onclick = () => window.location.href='dataSearch';
+	bookSearch[1].onclick = () => window.location.href='popularBook';
+	bookSearch[2].onclick = () => window.location.href='initiativeBook';
+}
+if(question){
+	question[0].onclick = () => window.location.href='notification';
+	question[2].onclick = () => window.location.href='oftenAsk';
+	question[3].onclick = () => window.location.href='schedule';
 }
 
+    
 
-window.onload = welcome();
+
+
+
 
 
     
@@ -91,10 +111,7 @@ window.onload = welcome();
 
 
 
-// let a = document.getElementById('userjoin');
-// a.onclick = () => {
-//     a.style.color = "red";
-// }
+
 
    
 

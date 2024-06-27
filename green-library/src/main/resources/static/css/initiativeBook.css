@@ -94,7 +94,7 @@ hr{
 	box-sizing: border-box;
 }
 
-.button_box input[type="button"]{
+.orderBtn{
 	/* background-color: #64B883; */
 	border-radius : 2px;
 	border: 1px solid gray;
@@ -105,7 +105,7 @@ hr{
 	background-color: white;
 }
 input[type=button]:hover{
-	background-color: lightgray;
+	background-color: #d8e9d9;
 	opacity: 0.8;
 }
 .arrCon{
@@ -116,7 +116,7 @@ input[type=button]:hover{
 
 /*js용*/
 .curPage{
-	border: 2px solid green;
+	border: 2px solid #64B883;
 	background-color: #d8e9d9;
 }
 

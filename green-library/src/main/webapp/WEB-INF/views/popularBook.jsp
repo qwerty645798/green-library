@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/public/nav.css">
 
 <script src="js/popInitiBook.js"></script>
+<!-- <script src="js/bottomButtonBox.js"></script> -->
 
 </head>
 <body>
@@ -207,7 +208,7 @@
 <div class="arrCon">
 	<div class="button_box">
 		<c:forEach var="pageIndex" begin="1" end="${totalPages}">
-			<input type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
+			<input class="orderBtn" type="button" value="${pageIndex}" onclick="showPage(${pageIndex})">
 	    </c:forEach>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 package com.library.controller.user;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.library.dto.user.BookLoanExtensionDto;
 import com.library.dto.user.My_InquiryDto;
 import com.library.dto.user.My_WishListDto;
+import com.library.dto.user.WishBookDto;
 import com.library.service.assets.BookDetailService;
 import com.library.service.user.BookLoanExtensionService;
+import com.library.service.user.HopeBookApplyService;
 import com.library.service.user.My_WrittenService;
 import com.library.service.user.UserCreateInquiryService;
+import com.library.service.user.WishBookService;
 
 @Controller("UserRentController")
 public class RentController {
@@ -24,8 +28,7 @@ public class RentController {
 	private My_WrittenService my_WrittenService;
 	
 	@GetMapping("/myWritten")
-	public String myWritten(Model model, 
-    		@RequestParam(name = "auth", defaultValue = "abc") String userId ) {
+	public String myWritten(@RequestParam(name = "auth", defaultValue = "abc") String userId , Model model) {
 		
 	    
 		List<My_InquiryDto> inquiryList = my_WrittenService.getMyInquiryList(userId);
@@ -96,7 +99,41 @@ public class RentController {
     	bookDetailService.makeReservation(bookId, userId);
     	bookDetailService.changeAvailability(bookId);
     	
-    	return "redirect:/bookDetail?bookId=" + bookId + "&auth=" + userId;
+    	return "redirect:/bookDetail?bookId=" + bookId;
+    }
+	
+	@Autowired
+	private WishBookService wishBookService;
+	
+	@GetMapping("/wishBook")
+	public String wishBook(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model,
+			 @RequestParam(name="wishId", required = false) int wishId) {
+		
+		WishBookDto wishbook = wishBookService.getWishBookDetail(wishId);
+		model.addAttribute("wishs", wishbook);
+		
+		return "user/wishBook";
+	}
+	
+	@GetMapping("/hopeBookApply")
+	public String hopeBookApply(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model) {
+		
+		model.addAttribute("userId", userId);
+		return "hopeBookApply";
+	}
+	
+	@Autowired
+	private HopeBookApplyService hopeBookApplyService; 
+	
+	@PostMapping("/wishCreate")
+	public String inquiryCreate(@RequestParam(name = "auth", defaultValue = "abc") String userId,
+    		@RequestParam("wishTitle") String wishTitle, @RequestParam("wishAuthor") String wishAuthor,
+    		@RequestParam("wishPublisher") String wishPublisher, @RequestParam("wishPublication") Date wishPublication,
+    		@RequestParam("wishPrice") int wishPrice, @RequestParam("wishIsbn") String wishIsbn) {
+    	
+		hopeBookApplyService.createWish(userId, wishTitle, wishAuthor, wishPublisher, wishPublication, wishPrice, wishIsbn);
+    	
+    	return "redirect:/myWritten";
     }
 	
 }

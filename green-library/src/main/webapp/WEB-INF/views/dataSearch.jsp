@@ -70,9 +70,9 @@
 	<div class="class_box"><img src="images/400.png" width="50px"><br>자연과학</div>
 	<div class="class_box"><img src="images/500.png" width="50px"><br>기술과학</div>
 	<div class="class_box"><img src="images/600.png" width="50px"><br>예술</div>
-	<div class="class_box"><img src="images/700.png" width="50px"><br>언어</div>
-	<div class="class_box"><img src="images/800.png" width="50px"><br>문학</div>
-	<div class="class_box"><img src="images/900.png" width="50px"><br>역사</div>
+	<div class="class_box"><img src="images/language.png" width="50px"><br>언어</div>
+	<div class="class_box"><img src="images/dictionary.png" width="50px"><br>문학</div>
+	<div class="class_box"><img src="images/history.png" width="50px"><br>역사</div>
 </div>
 
 
