@@ -38,7 +38,7 @@
                 <table>
     
                     <tr>
-                        <td class="hopeBook"><span class="star">*</span> 신청자 이름</td>
+                        <td class="hopeBook">신청자 이름</td>
                         <td>${userId}</td>
                     </tr>
                     <!-- 접속했을 때 입력할 필요 없이 이미 입력한 상태였으면 좋겠음 -->
