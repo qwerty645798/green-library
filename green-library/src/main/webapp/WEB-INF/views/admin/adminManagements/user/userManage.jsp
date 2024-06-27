@@ -34,14 +34,13 @@
                                     <div class="inputBox">
                                         <input type="text" id="inputText" class="inputText" name="searchKeyword"
                                             maxlength="20" placeholder="검색어를 입력하세요" value="" />
-                                        <button type="button" id="searchBtn" class="searchBtn" onclick="searchBtnEvt()">
-                                            검색 </button>
+                                        <button type="button" id="searchBtn" class="searchBtn" onclick="searchBtnEvt()">검색 </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="resultContainer">
                                 <div class="results">
-                                    <p id="total">검색 결과 : </p>
+                                    <p id="total">result : </p>
                                     <select name="pageSize" id="resultSelect">
                                         <option value="10" selected>10개씩</option>
                                         <option value="15">15개씩</option>
@@ -185,7 +184,7 @@
                                     let endPrint = currentPage * selectValue;
                                     for (let i = startPrint; i < endPrint; i++) {
                                         if (endPrint > len)
-                                            endPrint = startPrint + (endPrint - len);
+                                            endPrint = len;
                                         responseText += "<tr>";
                                         responseText += "<td><input type='checkbox' name='userCheckbox'id='userCheckbox'/></td>";
                                         responseText += "<td>" + response[i].userId + "</td>";

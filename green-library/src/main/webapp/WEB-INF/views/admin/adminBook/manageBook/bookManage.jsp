@@ -24,7 +24,7 @@
                             <p>home > book > manage</p>
                         </section>
                         <section class="totalContainer">
-                            <form class="searchContainer" action="">
+                            <div class="searchContainer">
                                 <div>
                                     <select id="searchSelectType">
                                         <option value="title">제목</option>
@@ -38,11 +38,11 @@
                                         <button type="button" id="searchBtn" class="searchBtn">검색</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                             <!-- board -->
                             <div class="outputBoard">
                                 <div class="results">
-                                    <p>검색 결과 :</p>
+                                    <p id="total">result : </p>
                                     <select id="resultSelect">
                                         <option value="5">5개씩</option>
                                         <option value="10">10개씩</option>

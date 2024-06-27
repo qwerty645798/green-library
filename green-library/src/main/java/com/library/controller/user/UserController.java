@@ -173,15 +173,15 @@ public class UserController {
 	}
     
     @GetMapping("/modifyInquiry")
-    public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
-    	return "redirect:/myWritten";
-    }
+//    public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
+//    	return "redirect:/myWritten";
+//    }
     
     @PostMapping("/modifyInquiry")
     public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
     	if(id.equals("error"))
     		return "redirect:/myWritten";
-    	inquiryService.modifyInquiry(userId, id);
+//    	inquiryService.modifyInquiry(userId, id);
     	model.addAttribute("message","문의내역이 수정되었습니다.");
     	return "redirect:/myWritten";
     }
@@ -190,7 +190,7 @@ public class UserController {
     public String deleteInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
     	if(id.equals("error"))
     		return "redirect:/myWritten";
-    	inquiryService.deleteInquiry(userId, id);
+//    	inquiryService.deleteInquiry(userId, id);
     	model.addAttribute("message","문의내역이 삭제되었습니다.");
     	return "redirect:/myWritten";
     }
