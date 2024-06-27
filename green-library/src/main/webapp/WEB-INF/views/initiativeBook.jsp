@@ -89,6 +89,9 @@
                    			<li>대출상태 <span class="border">|</span> ${items[index].availability}</li>
                    		</ul>
                    	
+                   		<input type="button" class="takeAlook"
+                   		onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" 
+						value="자세히 보기">
                     </div>
                 </c:if>
             </c:forEach>
@@ -119,6 +122,10 @@
                    			<li>대출상태 <span class="border">|</span> ${items[index].availability}</li>
                    		</ul>
                    	
+                   		<input type="button" class="takeAlook"
+                   		onclick="window.location.href='bookDetail?bookId=${items[index].book_id}'" 
+						value="자세히 보기">
+						
                     </div>
                     
                     
