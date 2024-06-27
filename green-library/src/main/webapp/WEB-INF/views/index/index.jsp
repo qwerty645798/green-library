@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Library Main</title>
-<!--     <link href="/reset/reset.css" type="text/css" rel="stylesheet"> -->
     <link href="/css/index.css" type="text/css" rel="stylesheet">
     <script>
    	let message = "${message}";
@@ -17,8 +16,6 @@
     </script>
 </head>
 <body>
-
-
 
   <jsp:include page="../index/header.jsp" />
 
@@ -164,6 +161,7 @@
  <script src="/js/header.js"></script>
  <script src="/js/index.js"></script>
  <script src="/js/dataSearchBar.js"></script>
+ <script src="/js/commonWindowOnload.js"></script>
     
 </body>
 </html>

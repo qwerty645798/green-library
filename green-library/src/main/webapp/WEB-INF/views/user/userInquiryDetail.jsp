@@ -32,16 +32,16 @@
 		<div class="main">
 			
 			<table>
-				<caption>
-					작성일 : ${inquiryDetail.inquiryDate }
-				</caption>
+<%-- 				<caption> --%>
+<%-- 					작성일 : ${inquiryDetail.inquiryDate } --%>
+<%-- 				</caption> --%>
 				<tr>
 					<td class="td1">제목</td>
 					<td class="td2">${inquiryDetail.inquiryTitle}</td>
 				</tr>
 				<tr>
 					<td class="td1">작성일</td>
-					<td class="td2">${inquiryDetail.inquiryTitle}</td>
+					<td class="td2">${inquiryDetail.inquiryDate }</td>
 				</tr>
 				<tr>
 					<td class="td1">내용</td>

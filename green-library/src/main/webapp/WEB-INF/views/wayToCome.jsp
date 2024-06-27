@@ -20,10 +20,10 @@
 	</nav>
 	
 	<div class="title_container">
-						<h1>그린도서관 오시는 길</h1>
-					</div>
-					<hr class="hr1">
-		
+		<h1>그린도서관 오시는 길</h1>
+	</div>
+	<hr class="hr1">
+
 			<div class="outContainer">
 				<main>
 					

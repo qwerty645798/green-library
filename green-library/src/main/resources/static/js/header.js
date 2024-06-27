@@ -70,7 +70,7 @@ addLoadEvent(accordian);
 let library = document.getElementById('subMenu1').children;
 let libraryUse = document.getElementById('subMenu2').children;
 let bookSearch = document.getElementById('subMenu3').children;
-let question = document.getElementById('subMenu4').children;
+let help = document.getElementById('subMenu4').children;
 let userPage = document.getElementById('subMenu5').children;
 
 if(library){
@@ -87,10 +87,10 @@ if(bookSearch){
 	bookSearch[1].onclick = () => window.location.href='popularBook';
 	bookSearch[2].onclick = () => window.location.href='initiativeBook';
 }
-if(question){
-	question[0].onclick = () => window.location.href='notification';
-	question[2].onclick = () => window.location.href='oftenAsk';
-	question[3].onclick = () => window.location.href='schedule';
+if(help){
+	help[0].onclick = () => window.location.href='notification';
+	help[2].onclick = () => window.location.href='oftenAsk';
+	help[3].onclick = () => window.location.href='schedule';
 }
 
     

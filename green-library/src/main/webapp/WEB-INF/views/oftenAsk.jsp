@@ -20,7 +20,12 @@
                 <div class="pageRoute">홈 > 자주 묻는 질문</div>
             </div>
         </div>
-    
+        
+        <div class="title_container">
+			<h1>자주 묻는 질문</h1>
+		</div>
+		<hr class="hr1">
+	    
         <div class="QnApage1">
             <div class="QnApage2">
     
