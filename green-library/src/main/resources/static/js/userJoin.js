@@ -55,7 +55,7 @@ function joinCheck() {
         return false;
     }
     if (pswdRegexp.test(pswd.value) == false) {
-        alert("비밀번호는 숫자, 영문 대소문자, 특수문자 !, @, #, ^, *, _ 중 3가지 이상 조합이어야 합니다.");
+        alert("비밀번호는 숫자, 영문 대소문자, 특수문자 !, @, #, ^, *, _ 을 모두 사용한 조합어야 합니다.");
         pswd.focus();
         return false;
     }
@@ -67,10 +67,6 @@ function joinCheck() {
     if (!email.value) {
         alert("이메일을 입력해주세요.");
         email.focus();
-        return false;
-    }
-    if (eselect.value == "") {
-        alert("이메일 주소를 선택해주세요.");
         return false;
     }
     alert("가입이 완료되었습니다.");

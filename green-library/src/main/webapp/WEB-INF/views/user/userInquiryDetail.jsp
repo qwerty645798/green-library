@@ -33,6 +33,7 @@
 			
 			<table>
 				<caption>
+					작성일 : ${inquiryDetail.inquiryDate }
 				</caption>
 				<tr>
 					<td class="td1">제목</td>
