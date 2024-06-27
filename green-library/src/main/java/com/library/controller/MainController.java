@@ -155,10 +155,7 @@ public class MainController {
 		return "dataRule";
 	}
 
-	@GetMapping("/hopeBookApply")
-	public String hopeBookApply() {
-		return "hopeBookApply";
-	}
+	
 
 	@GetMapping("/placeUsetime")
 	public String placeUsetime() {

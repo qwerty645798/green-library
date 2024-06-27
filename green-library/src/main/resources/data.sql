@@ -97,6 +97,10 @@ VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 6, 'gigi1234', 0);
 INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 
 VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 7, 'gigi1234', 1); 
 
+
+INSERT INTO wishlists(wishlist_id, wish_title, wish_author, wish_publisher, wish_publication, wish_price, wish_isbn, wish_date, complete, user_id) 
+VALUES (wishlist_idx.NEXTVAL, '버터111호', '대뾰', '트릭컬', TO_DATE('2020-01-01', 'YYYY-MM-DD'), 20000, '12312412', SYSDATE, 'W', 'gigi1234');
+
 commit;
 
 

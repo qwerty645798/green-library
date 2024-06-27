@@ -18,7 +18,7 @@
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">나의 문의</div>
-			<div class="pageRoute">홈 > 나의 문의</div>
+			<div class="pageRoute">홈 > 마이 페이지 > 나의 문의</div>
 		</div>
 	</nav>
 	
