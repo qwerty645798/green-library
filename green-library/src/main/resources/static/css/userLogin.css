@@ -63,6 +63,7 @@ a:hover {
 .floor > input.text{
 	width:400px;
 	height:50px;
+	padding-left: 10px;
 	font-size:1.5em;
 	border-radius:5px;
 	border:1px #dad5c9 solid;
