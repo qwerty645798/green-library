@@ -65,9 +65,13 @@
 .innerContainer tr:hover{
 	cursor: pointer;
 }
-.innerContainer td:not(:nth-child(4)){
+
+.innerContainer td{
 	text-align:center;
 }
+/* .innerContainer td:not(:nth-child(4)){
+	text-align:center;
+} */
 
 .go_button{
 	text-align:right;
