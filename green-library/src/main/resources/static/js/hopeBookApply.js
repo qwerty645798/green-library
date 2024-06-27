@@ -27,7 +27,6 @@ window.onload = requestDate();*/
 function hopeApplyCheck(){
 	
 	/*let form = document.getElementById('form');*/
-	let userName = document.getElementById('userName');
     let title = document.getElementById('title');
     let author = document.getElementById('author');
     let publisher = document.getElementById('publisher');
@@ -35,18 +34,6 @@ function hopeApplyCheck(){
     let price = document.getElementById('price');
     let isbn = document.getElementById('isbn');
     
-    var hiddenUserId = document.querySelector('input[name="userId"]').value;
-    
-    if(!userName.value){
-        alert("아이디를 입력해 주세요.");
-        userName.focus();
-		/*form.addEventListener("submit", (e) => {e.preventDefault()});*/
-        return false;
-    }else if(userName.value !== hiddenUserId.trim()){
-		alert('아이디가 일치하지 않습니다.');
-        userName.focus();
-        return false;
-	}
     
     if(!title.value){
         alert("도서명을 입력해 주세요.");

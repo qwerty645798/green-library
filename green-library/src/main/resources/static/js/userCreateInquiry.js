@@ -1,14 +1,8 @@
 function validateForm() {
-    var userIdInput = document.querySelector('input[name="user_id"]');
     var inquiryTitle = document.querySelector('input[name="inquiry_title"]');
     var contents = document.querySelector('textarea[name="contents"]');
-    var hiddenUserId = document.querySelector('input[name="userId"]').value;
 
-    if (userIdInput.value.trim() === '') {
-        alert('아이디를 입력해주세요.');
-        userIdInput.focus();
-        return false;
-    }
+   
     if (inquiryTitle.value.trim() === '') {
         alert('제목을 입력해주세요.');
         inquiryTitle.focus();
@@ -17,11 +11,6 @@ function validateForm() {
     if (contents.value.trim() === '') {
         alert('내용을 입력해주세요.');
         contents.focus();
-        return false;
-    }
-    if (userIdInput.value.trim() !== hiddenUserId.trim()) {
-        alert('아이디가 일치하지 않습니다.');
-        userIdInput.focus();
         return false;
     }
     return true;

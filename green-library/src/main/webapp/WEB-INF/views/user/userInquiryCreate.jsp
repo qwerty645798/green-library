@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 				<th><p class="great_p">*&nbsp;</p> 아이디</th>
-				<td><input type="text" size="10" style="height:20px;" name="user_id" value="${userId}"></td>
+				<td>${userId}</td>
 			</tr>
 			<tr>
 				<th><p class="great_p">*&nbsp;</p> 제목</th>
