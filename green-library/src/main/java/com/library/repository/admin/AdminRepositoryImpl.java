@@ -35,13 +35,10 @@ public class AdminRepositoryImpl implements AdminRepository {
 
     @Override
     public AdminDTO getMyInfo(String adminId) {
-        String sql = "SELECT ADMIN_ID, ADMIN_PASS, ADMIN_EMAIL, GRANT_RANK FROM ADMINS WHERE ADMIN_ID = ?";
-        return jdbcTemplate.query(con -> {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, adminId);
-            return ps;
-        }, rs -> {
+        String sql = "SELECT ADMIN_NAME, ADMIN_ID, ADMIN_PASS, ADMIN_EMAIL, GRANT_RANK FROM ADMINS WHERE ADMIN_ID = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{adminId}, (rs, rowNum) -> {
             AdminDTO admin = new AdminDTO();
+            admin.setAdminName(rs.getString("ADMIN_NAME"));
             admin.setAdminId(rs.getString("ADMIN_ID"));
             admin.setAdminPass(rs.getString("ADMIN_PASS"));
             admin.setAdminEmail(rs.getString("ADMIN_EMAIL"));
@@ -49,6 +46,7 @@ public class AdminRepositoryImpl implements AdminRepository {
             return admin;
         });
     }
+
 
     @Override
     public AdminDTO loginAdmin(String adminId, String adminPass) {

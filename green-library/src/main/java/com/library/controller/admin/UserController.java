@@ -39,17 +39,11 @@ public class UserController {
         if (searchKeyword == null || searchKeyword.trim().isEmpty()) {
             users = userService.getAllUsers();
         } else {
-            switch (searchType) {
-                case "name":
-                    users = userService.findUserByName(searchKeyword);
-                    break;
-                case "userId":
-                    users = userService.findUserById(searchKeyword);
-                    break;
-                default:
-                    users = userService.findUserByTotal(searchKeyword);
-                    break;
-            }
+            users = switch (searchType) {
+                case "name" -> userService.findUserByName(searchKeyword);
+                case "userId" -> userService.findUserById(searchKeyword);
+                default -> userService.findUserByTotal(searchKeyword);
+            };
         }
 
         return ResponseEntity.ok(users);
@@ -59,5 +53,11 @@ public class UserController {
     public ResponseEntity<UserDetailDTO> getUserDetails(@RequestParam("userId") String userId) {
         UserDetailDTO userDetails = userService.getUserDetail(userId);
         return ResponseEntity.ok(userDetails);
+    }
+
+    @GetMapping("/deleteUser")
+    public String deleteUser(@RequestParam("userId") String userId) {
+        userService.deleteUser(userId);
+        return "redirect:/User";
     }
 }

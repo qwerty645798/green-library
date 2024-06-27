@@ -51,14 +51,10 @@
         <div class="leftContainer">
             <div class="info baseInfo">
                 <h3>내 계정</h3>
-                <p>이름 : </p>
-                <p>ID : </p>
-                <p>PASS : </p>
-                <p>권한 등급 : </p>
-<%--                <p>이름 : <%= admin.getAdminName() %></p>--%>
-<%--                <p>ID : <%= admin.getAdminId() %></p>--%>
-<%--                <p>PASS : <%= admin.getAdminPass() %></p>--%>
-<%--                <p>권한 등급 : <%= admin.getGrantRank() %></p>--%>
+                <p>이름 : ${my.adminName}</p>
+                <p>ID : ${my.adminId}</p>
+                <p>PASS : ${my.adminPass}</p>
+                <p>권한 등급 : ${my.grantRank}</p>
             </div>
             <div class="info connectInfo">
                 <h3>접속 정보</h3>
@@ -68,9 +64,9 @@
             </div>
             <div class="info grantLevel">
                 <h3>권한 레벨</h3>
-                <p>1 : asdf</p>
-                <p>2 : asdf</p>
-                <p>3 : super</p>
+                <p>1 : book manage</p>
+                <p>2 : board manage</p>
+                <p>3 : sys 계정</p>
             </div>
         </div>
         <div class="rightContainer">

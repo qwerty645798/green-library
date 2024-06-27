@@ -42,16 +42,16 @@
                             </div>
                             <div class="resultContainer">
                                 <div class="results">
-                                    <p>검색 결과 : ${users.size()}명</p>
-                                    <select name="pageSize">
+                                    <p id="total">검색 결과 : </p>
+                                    <select name="pageSize" id="resultSelect">
                                         <option value="10">10개씩</option>
                                         <option value="15">15개씩</option>
                                         <option value="20">20개씩</option>
                                     </select>
                                     <div class="paging">
-                                        <input class="back" type="button" value="이전">
-                                        <p>페이지 of ${users.size()}</p>
-                                        <input class="next" type="button" value="다음">
+                                        <input class="back" type="button">
+                                        <p id="totalpage"> of </p>
+                                        <input class="next" type="button">
                                     </div>
                                 </div>
                                 <div class="outBoard">
@@ -66,9 +66,6 @@
                                             </tr>
                                         </thead>
                                         <tbody id="userListTBody">
-                                        <%--                                                <tr>--%>
-                                        <%--                                                    <td colspan="5">검색 결과가 없습니다.</td>--%>
-                                        <%--                                                </tr>--%>
                                         </tbody>
                                     </table>
                                 </div>
@@ -144,6 +141,9 @@
                         const inputText = document.getElementById('inputText');
                         const searchType = document.getElementById('searchSelectType');
                         const userListTBody = document.getElementById('userListTBody');
+                        const total = document.getElementById('total');
+                        const pages = document.getElementById('totalpage');
+                        const selectValue = document.getElementById('resultSelect').value;
                         $.ajax({
                             url: '/User/search',
                             type: 'GET',
@@ -151,7 +151,9 @@
                             success: function (response) {
                                 if (response) {
                                     let responseText = '';
-                                    for (let i = 0; i < response.length; i++){
+                                    let len = response.length;
+                                    let totalPage = Math.ceil(len / selectValue);
+                                    for (let i = 0; i < len; i++) {
                                         responseText += "<tr>";
                                         responseText += "<td><input type='checkbox' name='userCheckbox'id='userCheckbox'/></td>";
                                         responseText += "<td>" + response[i].userId + "</td>";
@@ -161,6 +163,8 @@
                                     }
 
                                     userListTBody.innerHTML = responseText;
+                                    total.innerHTML = "result : " + len + "명";
+                                    pages.innerHTML = totalPage + " of " + totalPage;
                                 }
                             }
                         });
@@ -216,16 +220,6 @@
                             }
                         });
                     }
-                    // 유저 목록 태그 생성
-
-                    // <tr>
-                    //     <td><input type="checkbox" name="userCheckbox"
-                    //                id="userCheckbox"/></td>
-                    //     <td></td>
-                    //     <td></td>
-                    //     <td></td>
-                    //     <td><input type="button" className="modifyBtn" value="수정"/></td>
-                    // </tr>
                 </script>
             </body>
 

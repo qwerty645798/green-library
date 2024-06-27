@@ -32,21 +32,23 @@ public class AdminController {
 
 
 //    내 계정 정보
-//    @GetMapping("/adminInfo")
-//    public String adminInfo(Model model){
-//        AdminDTO admin = adminService.findAdminById("system");
-//        model.addAttribute("admin", admin);
-//        return "admin/adminInfo/adminInfo";
-//    }
+    @GetMapping("/myInfo")
+    public String adminInfo(Model model){
+        AdminDTO my = adminService.findAdminById("admin0");
+        model.addAttribute("admin", my);
+        return "admin/adminInfo/adminInfo";
+    }
 
 
     //    관리자 정보 모음
     @GetMapping("/adminInfo")
     public String adminList(Model model) {
+        AdminDTO my = adminService.findAdminById("admin0");
+        model.addAttribute("my", my);
+
         List<AdminDTO> admins = adminService.allAdminManage();
         model.addAttribute("admins", admins);
         return "admin/adminInfo/adminInfo";
     }
-
 
 }
