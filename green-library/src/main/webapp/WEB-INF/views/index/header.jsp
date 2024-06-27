@@ -21,7 +21,7 @@
 	      <div class="center">
 	        <div class="headerTop">
 	          <div class="logo">
-	          <a href="/">로고</a>
+	          <a href="/"><img src="images/로고.png"></a>
 	          </div>
 		          	<sec:authorize access="isAuthenticated()">
 				        <div>환영합니다, <b><sec:authentication property="name"/>님!</b> &nbsp;</div>
