@@ -14,12 +14,14 @@ import com.library.dto.user.BookLoanExtensionDto;
 import com.library.dto.user.My_InquiryDto;
 import com.library.dto.user.My_WishListDto;
 import com.library.dto.user.WishBookDto;
+import com.library.dto.user.rewriteWishBookDto;
 import com.library.service.assets.BookDetailService;
 import com.library.service.user.BookLoanExtensionService;
 import com.library.service.user.HopeBookApplyService;
 import com.library.service.user.My_WrittenService;
 import com.library.service.user.UserCreateInquiryService;
 import com.library.service.user.WishBookService;
+import com.library.service.user.rewriteWishBookService;
 
 @Controller("UserRentController")
 public class RentController {
@@ -111,9 +113,20 @@ public class RentController {
 		
 		WishBookDto wishbook = wishBookService.getWishBookDetail(wishId);
 		model.addAttribute("wishs", wishbook);
+		model.addAttribute("userId", userId);
 		
 		return "user/wishBook";
 	}
+	
+	@PostMapping("/deleteWish")
+	public String deleteWish(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "wishlistId") int wishlistId) {
+		
+		wishBookService.deleteWishBook(wishlistId, userId);		
+		
+		return "redirect:/myWritten";
+	}
+	
+	
 	
 	@GetMapping("/hopeBookApply")
 	public String hopeBookApply(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model) {
@@ -121,6 +134,32 @@ public class RentController {
 		model.addAttribute("userId", userId);
 		return "hopeBookApply";
 	}
+	
+	@Autowired
+	private rewriteWishBookService RewriteWishBookService;
+	
+	@GetMapping("/rewriteWishBook")
+	public String rewriteWishBook(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model,
+			 @RequestParam(name="wishId", required = false) int wishId) {
+		
+		rewriteWishBookDto wishBook = RewriteWishBookService.getWishDetail(wishId);
+		model.addAttribute("wishBook", wishBook);
+		model.addAttribute("userId", userId);
+		
+		return "user/rewriteWishBook";
+	}
+	
+	@PostMapping("/rewriteWishBooks")
+	public String rewriteWishBooks(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name="wishId", required = false) int wishlistId, 
+    		@RequestParam("wishTitle") String wishTitle, @RequestParam("wishAuthor") String wishAuthor,
+    		@RequestParam("wishPublisher") String wishPublisher, @RequestParam("wishPublication") Date wishPublication,
+    		@RequestParam("wishPrice") int wishPrice, @RequestParam("wishIsbn") String wishIsbn) {
+    	
+		RewriteWishBookService.updateWishs(wishTitle, wishAuthor, wishPublisher, wishPublication, wishPrice, wishIsbn, wishlistId, userId);
+    	
+    	return "redirect:/myWritten";
+    }
+	
 	
 	@Autowired
 	private HopeBookApplyService hopeBookApplyService; 
