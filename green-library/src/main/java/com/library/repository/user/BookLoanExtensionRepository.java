@@ -42,6 +42,14 @@ public class BookLoanExtensionRepository {
 		
 	}
 	
+	public int rentCountByUserId(String userId) {
+		String sql = "SELECT count(*) "
+				+ "FROM rents "
+				+ "where user_id = ? AND returned = 0";
+		return jdbcTemplate.queryForObject(sql, Integer.class, userId);
+	}
+	
+	
 	public void makeExtension(int bookId) {
 		String sql = "UPDATE rents "
 				+ "set return_date = return_date + INTERVAL '14' DAY "

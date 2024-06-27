@@ -21,4 +21,15 @@ public class BookLoanExtensionService {
 	public void getExtension(int bookId) {
 		bookLoanExtensionRepository.makeExtension(bookId);
 	}
+	
+	public boolean allLoanList(String userId) {
+        int rentCount = bookLoanExtensionRepository.rentCountByUserId(userId);
+        
+        if (rentCount < 1) {
+            return false; // 사용자가 대출하고 있는 책이 없는 경우
+        }
+        
+        return true; // 대출하고 있는 책이 있는 경우
+    }
+	
 }

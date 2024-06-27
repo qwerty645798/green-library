@@ -57,7 +57,9 @@
 			</table>
 			
 			<div class="writeBtn">
-<input type="button" value="수정하기" onclick="location.href='modifyInquiry?inquiryId=${param.inquiryId}'">
+				<c:if test="${param.responserTF == 'F'}">
+				<input type="button" value="수정하기" onclick="location.href='modifyInquiry?inquiryId=${param.inquiryId}'">
+				</c:if>
 				<input type="button" value="삭제하기" onclick="location.href='deleteInquiry?inquiryId=${param.inquiryId}'">
 				<a href="myWritten"><input type="button" value="목록으로"></a>
 			</div>
