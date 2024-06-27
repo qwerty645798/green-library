@@ -54,7 +54,8 @@ h1{
 </head>
 <body>
 <h1>비밀번호 초기화</h1>
-<form action="InitializePassword" method="post" id="form">
+<form action="initializePassword" method="post" id="form">
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 <input type="hidden" name="email" value="${email }">
 <h3>새로운 비밀번호를 입력해주십시오.</h3>
 	<input type="password" name="user_pass" id="pw">
@@ -65,37 +66,54 @@ h1{
 </form>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-	let form = document.getElementById("form");
-	form.addEventListener('submit', function(e) {
-	    if (!Check()) {
-	        e.preventDefault();
-	    }
-	    else
-	    	window.close();
-	});
-	const pswd = document.getElementById('pw');
-	const passCheck = document.getElementById('pwcheck');
-	const pswdRegexp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#^*_])[A-Za-z\d!@#^*_]{8,20}$/;
-	function Check(){
-		if (pswd.value.length < 8 || pswd.value.length > 20) {
-	        alert("비밀번호는 8자에서 20자 사이여야 합니다.");
-	        pswd.focus();
-	        return false;
-	    }
-		if (pswdRegexp.test(pswd.value) == false) {
-	        alert("비밀번호는 숫자, 영문 대소문자, 특수문자 !, @, #, ^, *, _ 을 섞은 4가지 조합이어야 합니다.");
-	        pswd.focus();
-	        return false;
-	    }
-	    if (pswd.value !== passCheck.value || !passCheck.value) {
-	        alert("비밀번호가 틀렸습니다.");
-	        passCheck.focus();
-	        return false;
-	    }
-	    alert("비밀번호가 변경되었습니다.");
-	    return true;
-	}
-}
+    let form = document.getElementById("form");
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!Check()) {
+            return;
+        }
+        const csrfToken = document.querySelector('input[name="_csrf"]').value;
+        const formData = new FormData(form);
+        formData.append("_csrf", csrfToken);
+        fetch('/initializePassword', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.success) {
+                window.close();
+            }
+        })
+        .catch(error => {
+            alert("에러가 발생했습니다. 다시 시도해주세요.");
+        });
+    });
+
+    const pswd = document.getElementById('pw');
+    const passCheck = document.getElementById('pwcheck');
+    const pswdRegexp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#^*_])[A-Za-z\d!@#^*_]{8,20}$/;
+
+    function Check() {
+        if (pswd.value.length < 8 || pswd.value.length > 20) {
+            alert("비밀번호는 8자에서 20자 사이여야 합니다.");
+            pswd.focus();
+            return false;
+        }
+        if (!pswdRegexp.test(pswd.value)) {
+            alert("비밀번호는 숫자, 영문 대소문자, 특수문자 !, @, #, ^, *, _ 을 섞은 4가지 조합이어야 합니다.");
+            pswd.focus();
+            return false;
+        }
+        if (pswd.value !== passCheck.value || !passCheck.value) {
+            alert("비밀번호가 틀렸습니다.");
+            passCheck.focus();
+            return false;
+        }
+        return true;
+    }
+});
 </script>
 </body>
 </html>

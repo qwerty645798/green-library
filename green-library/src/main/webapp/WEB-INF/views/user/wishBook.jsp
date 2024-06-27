@@ -68,9 +68,18 @@
 				<tr>
 					<td colspan="4" align="right" style="border:none;">
 						<c:if test="${wishs.complete == '심사대기'}">
-							<input type = "button" value="수정하기">
+						<form action="rewriteWishBook" method="get" class="wishform">
+							<input type="hidden" name="userId" value="${userId}">
+							<input type="hidden" name="wishId" value="${wishs.wishId}">
+							<input type = "submit" value="수정하기">
+						</form>	
 						</c:if>
-						<input type = "button" value="삭제하기">
+						<form action="deleteWish" method="post" class="wishform">
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+							<input type="hidden" name="userId" value="${userId}">
+							<input type="hidden" name="wishlistId" value="${wishs.wishId}">
+							<input type = "submit" value="삭제하기">
+						</form>
 						<a href="myWritten"><input type="button" value="목록으로"></a>
 					</td>
 				</tr>		

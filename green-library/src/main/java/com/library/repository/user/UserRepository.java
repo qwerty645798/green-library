@@ -17,4 +17,5 @@ public interface UserRepository {
 
 	int updateUserPass(String email, String hashedPassword);
 
+	Users getUsersEntity(String birth, String name);
 }
