@@ -55,7 +55,7 @@
               <div id="subMenu" class="subMenu"><!-- 테스트용 -->
                 <ul id="subMenu1" class="menuBar">
                   <li>도서관 비전</li>
-                  <li>사업 구조</li>
+                  <li></li>
                   <li></li>
                   <li></li>
                   <li></li>

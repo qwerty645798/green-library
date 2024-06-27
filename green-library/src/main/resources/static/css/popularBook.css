@@ -18,13 +18,18 @@
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
-/* 	border:5px solid #ECD9BC; */
 	border: 5px solid #a0cab0;
 	border-radius: 5px;
-/* 	background-color: lemonchiffon; */
 	background: aliceblue;
 }
 
+.image_box{
+	width: 300px;
+	display:flex;
+	justify-content: center;
+	border-right: 5px solid #a0cab0;
+	
+}
 .book_image {
 /* 	margin-left:50px; */
     width: 200px;
@@ -67,7 +72,7 @@
 }
 
 .book_table {
-    width: 1000px;
+    width: 900px;
 }
 .book_table table {
     border-collapse: collapse;
@@ -172,6 +177,9 @@ input[type=button]:hover{
 	background-color: #d8e9d9;
 	opacity: 0.8;
 }
+
+
+
 
 .arrow{
 	position: relative;
