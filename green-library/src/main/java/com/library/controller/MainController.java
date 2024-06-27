@@ -25,6 +25,7 @@ import com.library.dto.assets.PopularBookDto;
 import com.library.dto.user.account.UserFindingIdDTO;
 import com.library.dto.user.account.UserFindingPwDTO;
 import com.library.dto.user.account.UserJoinDTO;
+import com.library.dto.user.account.initializePasswordDTO;
 import com.library.service.assets.InitiativeBookService;
 import com.library.service.assets.NotificationDetailService;
 import com.library.service.assets.NotificationService;
@@ -121,13 +122,26 @@ public class MainController {
 			model.addAttribute("message", "유효하지 않은 입력입니다.");
 			return "public/userFinding";
 		}
-		boolean check = userService.checkUserInfo(userDTO);
-		if(check) {
-		model.addAttribute("userInfo", userDTO);
-		return "public/userFinding";
+		userService.checkUserInfo(userDTO);
+		model.addAttribute("message", "이메일 발송이 완료되었습니다.");
+		return "public/userLogin";
+	}
+
+    @GetMapping("/verify")
+    public String verifyEmail(@RequestParam(name = "token", required=false) String token, Model model) {
+		String email = userService.verifyUser(token);
+		model.addAttribute("email", email);
+        return "public/initializePassword";
+    }
+    
+    @PostMapping("/initializePassword")
+	public void initializePassword(@ModelAttribute("user") @Valid initializePasswordDTO userDTO, BindingResult result, Model model) {
+    	userService.initializePassword(userDTO);
+    	if (result.hasErrors()) {
+			for (ObjectError error : result.getAllErrors()) {
+				logger.error("Validation error: {}", error.getDefaultMessage());
+			}
 		}
-		model.addAttribute("message", "사용자 정보가 유효하지 않습니다.");
-		return "public/userFinding";
 	}
 
 	@GetMapping("/userLogin")

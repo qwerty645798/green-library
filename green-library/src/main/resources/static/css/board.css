@@ -1,13 +1,17 @@
 body{
     display:flex;
-    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+}
+div.center{
+	display:flex;
+	justify-content:center;
 }
 table#board {
-
     width: 1240px;
-
     border-collapse: collapse;
     border-top: 2px #697DA0 solid;
+    border-bottom: 2px #697DA0 solid;
 }
 
 table#board th {
@@ -15,9 +19,9 @@ table#board th {
 }
 
 table#board th, table#board td {
-    height: 50px;
+    height: 35px;
     text-align: center;
-    padding-top:20px;
+    padding-top:10px;
 }
 table#board th:nth-child(1), table#board td:nth-child(1){
 	flex:2;
@@ -61,4 +65,37 @@ table#board tr {
     margin-top: 20px;
     font-size: 1.2em;
     color: red;
+}
+button.btn{
+	border-radius : 2px;
+	border: 1px solid gray;
+	width: 60px;
+	height: 30px;
+	margin:30px;
+	cursor: pointer;
+	background-color: white;
+	font-weight:bold;
+}
+button.btn:hover{
+	background: #dfeedf;
+}
+input.btn{
+	border-radius : 2px;
+	border: 1px solid gray;
+	width: 55px;
+	height: 30px;
+	cursor: pointer;
+	background-color: white;
+	font-weight:bold;
+}
+input.btn:hover{
+	background: #dfeedf;
+}
+input.btn:disabled:hover {
+    background-color: white;
+    cursor: not-allowed;
+}
+button.btn:disabled:hover {
+    background-color: white;
+    cursor: not-allowed;
 }

@@ -53,7 +53,7 @@
                 <td class="text"><div>비밀번호</div></td>
                 <td class="input"><input type="password" id="pswd" name="user_pass" class="middle">
                     <br>
-                    <div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자 중 3가지 이상 조합)
+                    <div class="comment">비밀번호를 입력하세요(8~20자로 숫자, 영문소, 영문대, 특수문자를 모두 사용한 조합)
                     <br>
                     <span style="font-size:1.1em; font-weight:600;">입력가능한 특수문자는 [ 사용가능 특수문자 : <span style="color:red;">!@#^*_</span>]입니다.
                     <br>
