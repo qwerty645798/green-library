@@ -12,6 +12,7 @@ table{
     width: 1000px;
     height: 500px;
     margin: 100px;
+    border-collapse: collapse;
 }
 tr, td{
     border-bottom: 1px solid #a0cab0;
@@ -23,6 +24,7 @@ tr td:not(:first-of-type){
 }
 td{
     vertical-align: middle;
+    padding: 10px;
 }
 td:not(.useTableItem){
     font-size: 11pt;
@@ -36,8 +38,9 @@ td:not(.useTableItem){
     background-color: #d8e9d9;
 }
 ul>li{
-    margin-top:10px;
-    margin-bottom: 10px;
+	margin: 10px 0 10px 0;
+/*     margin-top:10px; */
+/*     margin-bottom: 10px; */
     list-style-type: square;
     line-height: normal;
 }

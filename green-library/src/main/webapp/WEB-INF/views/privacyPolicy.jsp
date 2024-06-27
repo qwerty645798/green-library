@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link href="/reset/reset.css" rel="stylesheet" type="text/css">
+<!--         <link href="/reset/reset.css" rel="stylesheet" type="text/css"> -->
         <link href="/CSS/privacyPolicy.css" rel="stylesheet" type="text/css">
         <link href="/CSS/public/nav.css" rel="stylesheet" type="text/css">
     </head>
@@ -15,18 +15,24 @@
     
     <jsp:include page="index/header.jsp" />
     
+    <nav>
     <div class="bannerBgr">
         <div class="Banner">
-            <div class="pageTitle">개인정보처리방침</div> <div class="pageRoute">홈 > 개인정보처리방침</div>
+            <div class="pageTitle">개인정보처리방침</div> 
+            <div class="pageRoute">홈 > 개인정보처리방침</div>
         </div>
     </div>
+    </nav>
+    
+    
+    <div class="title_container">
+    	<h1>개인정보 처리방침</h1>
+    </div>
+    
+    <hr class="hr1">
     
     <div class="policyList1">
         <div class="policyList2">
-    
-            <h3>개인정보 처리방침</h3><br>
-            
-            <hr>
     
         <div class="policyContent">
             <ol class="listNumber">

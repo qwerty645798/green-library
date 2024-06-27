@@ -9,7 +9,7 @@
 }
 .bookInfo li span a:hover{
 	text-decoration: underline;
-	color: #155734;
+	color: #1d7647;
 }
 .image_container {
     display: flex;
@@ -18,10 +18,10 @@
 }
 .image_box{
 	display: flex;
-	width: 630px;
-	height: 500px;
 	align-items: center;
     justify-content: left;
+	width: 630px;
+	height: 500px;
 	margin-top:10px;
 	padding-left: 40px;
 	background-color: #d8e9d9;
@@ -33,19 +33,18 @@
 	overflow: hidden;
 }
 .image_box img{
-	position: relative;/*test*/
-	top: -304px;
+	position: relative;
+	top: -300px;
 	width: 250px;
 	height: 300px;
 	object-fit: cover; /*fill?*/
 }
 .blackbox{
-	
 	position: relative;
 	z-index: 15;
-	width: 254px;
-	height: 304px;
-	background-color: #155734;
+	width: 250px;
+	height: 300px;
+	background-color: #1d7647;
 	opacity:0;
 }
 .image_box .icon{
@@ -97,16 +96,34 @@ hr{
 .orderBtn{
 	/* background-color: #64B883; */
 	border-radius : 2px;
-	border: 1px solid gray;
+	border: 2px solid gray;
 	width: 30px;
 	height: 30px;
 	margin: 10px 10px 0 10px;
 	cursor: pointer;
 	background-color: white;
 }
-input[type=button]:hover{
+input[type=button]:not(.takeAlook):hover{
 	background-color: #d8e9d9;
 	opacity: 0.8;
+}
+.takeAlook{
+	position: relative;
+	top: 100px;
+	left: -184px;
+	margin-top:30px;
+	width:120px; 
+	height:35px; 
+	font-weight: bold;
+	color:white; 
+	background-color: #1d7647;
+	border: none;
+	border-radius: 5px;
+	cursor:pointer;
+}
+.takeAlook:hover{
+	background-color: #64B883;
+	color: white;
 }
 .arrCon{
 	display: flex;

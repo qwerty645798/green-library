@@ -5,12 +5,9 @@
 	flex-direction: column;
 	width:1260px;
 	margin: auto;
-	border-top: 2px solid #ECD9BC;
-	border-bottom: 2px solid #ECD9BC;
-	
-	margin-top: 50px;
-	margin-bottom: 50px;
-	padding-bottom: 20px;
+	border-top: 2px solid #a0cab0;
+/* 	border-bottom: 2px solid #ECD9BC; */
+	margin-top: 100px;
 	box-sizing:border-box;
 }
 .table_box>table{
@@ -68,16 +65,13 @@
 }
 
 .second_container .go_notification{
+	margin-top:30px;
 	width:120px; 
-	height:35px;
-	background-color: #155734;
-	color: white;
-	border-radius : 5px;
+	height:35px; 
+	font-weight: bold;
+	color:white; 
+	background-color: #1d7647;
 	border: none;
-/* 	height: 30px; */
-/* 	width: 150px; */
-}
-.second_container .go_notification:hover{
-	background-color: #64b883;
-	cursor: pointer;
+	border-radius: 5px;
+	cursor:pointer;
 }

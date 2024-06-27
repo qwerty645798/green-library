@@ -32,7 +32,7 @@
 		<table class="notice_table">
 			<tr>
 				<th>작성자</th>
-				<td>익명</td>
+				<td>${announce.writerId}</td>
 				<th>작성일</th>
 				<td>${announce.writeDate}</td>
 				<th>조회수</th>

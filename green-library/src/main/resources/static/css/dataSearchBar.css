@@ -4,18 +4,16 @@
 
 .zero_container{
 	display: flex; 
-/*	width:1260px;*/
 	justify-content: center;
-	margin-top: 75px;
-	margin-bottom: 150px;
-/*	margin: 0 auto;*/
+	margin: 100px 0 50px 0;
 	padding:10px;
 /*	box-sizing: border-box;패딩 마진이 요소의 너비,길이에 포함되게*/
 }
 
 .sel_box{
 	display: flex;
-	border: 4px solid #DAD5C9;
+/* 	border: 4px solid #DAD5C9; */
+	border: 4px solid #ecd9bc;
 	background-color:#EEEAE2;
 	height: 48px;
 	width: 700px;

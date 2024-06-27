@@ -8,7 +8,7 @@
 	padding:10px;
 	padding-bottom: 0px;
 	box-sizing: border-box;
-	margin-top: 150px;
+	margin-top: 100px;
 }
 
 .text_box{
@@ -115,7 +115,7 @@
 }
 
 .notice_table tr:not(:first-child):hover{
-	background-color: rgb(241, 248, 241);
+/* 	background-color: rgb(241, 248, 241); */
 	cursor: pointer;
 }
 
@@ -164,7 +164,7 @@
 .goEnd_button{
 	/* background-color: #64B883; */
 	border-radius : 2px;
-	border: 1px solid gray;
+	border: 2px solid gray;
 	width: 30px;
 	height: 30px;
 	margin-right: 10px;
@@ -172,10 +172,10 @@
 	cursor: pointer;
 	background-color: white;
 }
-/* input[type=button]:hover{ */
-/* 	background-color: #d8e9d9; */
-/* 	opacity: 0.8; */
-/* } */
+input[type=button]:hover{
+	background-color: #d8e9d9;
+	opacity: 0.8;
+}
 .hidden {
     display: none;
 }

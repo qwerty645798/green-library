@@ -38,7 +38,13 @@ input[type=text]{
     padding-left: 10px;
     cursor: text;
     border: 4px solid #ecd9bc;
+    border-left: none;
+    border-right: none;
     background-color: #eeeae2;
+}
+input[type=text],
+select:focus{
+	outline: 0;
 }
 .customSearchform img{
 	width:50px;
@@ -79,7 +85,7 @@ input[type=text]{
 .quickPage:hover{
     background-color: rgb(234, 247, 239);
     transition: 300ms ease-in-out;
-    color: #64b883;
+    color: #1d7647;
 }
 .bookslide{
 	margin: 50px 0 50px 0;
