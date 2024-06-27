@@ -188,8 +188,9 @@
                         <br>
                         <form action="userDelete" method="post" id="form">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                            <div style="display:flex; justify-content:center;"><input type="submit" value="계정삭제"
-                                    style="color:white; background:#0D2E8C; width:120px; height:35px; margin-top:30px; cursor:pointer;">
+                            <div style="display:flex; justify-content:center;">
+                            <input type="submit" class="delete" value="계정삭제">
+                            <input type="button" id="cancel" class="cancel" value="취소">
                             </div>
                         </form>
                         <button id="modalCloseButton"><img src="images/x-icon.png"
