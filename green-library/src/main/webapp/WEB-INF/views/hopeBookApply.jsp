@@ -38,7 +38,7 @@
     
                     <tr>
                         <td class="hopeBook"><span>*</span> 신청자 이름</td>
-                        <td><input type="text" id="userName" name="userId" value="${userId}"></td>
+                        <td>${userId}</td>
                     </tr>
                     <!-- 접속했을 때 입력할 필요 없이 이미 입력한 상태였으면 좋겠음 -->
     
