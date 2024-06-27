@@ -63,9 +63,13 @@
 	border-right: none;
 }
 
-.book_table .reserve_button{
-	width: 700px;
-	height: 40px;
+.wishform{
+	display:inline-block;
+}
+
+.book_table input{
+	width: 100px;
+	height: 30px;
 	border: none;
 	border-radius: 5px;	
 	background-color: #a0cab0;
@@ -77,7 +81,7 @@
 .hidden{
 	display: none;
 }
-.book_table .reserve_button:hover{
+.book_table input:hover{
 	background-color: #64B883;
 }
 

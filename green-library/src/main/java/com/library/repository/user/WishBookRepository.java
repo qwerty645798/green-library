@@ -51,4 +51,12 @@ public class WishBookRepository {
 			}
 		}, wishId);
 	}
+	
+	public void deleteWish(int wishId, String userId) {
+		String sql ="DELETE wishlists "
+				+ "WHERE wishlist_id = ? AND user_id = ?";
+		jdbcTemplate.update(sql, wishId, userId);
+	}
+	
+	
 }

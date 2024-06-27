@@ -15,4 +15,8 @@ public class WishBookService {
 	public WishBookDto getWishBookDetail(int wishId) {
 		return wishBookRepository.findByWishId(wishId);
 	}
+	
+	public void deleteWishBook(int wishlisdId, String userId) {
+		wishBookRepository.deleteWish(wishlisdId, userId);
+	}
 }
