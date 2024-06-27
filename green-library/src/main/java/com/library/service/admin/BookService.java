@@ -17,7 +17,9 @@ public interface BookService {
     public List<BookDTO> findBookByAuthor(String author);
     // 십진분류로 조회
     public List<BookDTO> findBookByGenre(String genre);
-
+//책 반납
+    BookDTO returnUpdateBook(int bookId);
+    void returnMultiBooks(List<Long> bookIds);
     // 책 등록
     public void createBook(BookDTO book);
      // 책 수정

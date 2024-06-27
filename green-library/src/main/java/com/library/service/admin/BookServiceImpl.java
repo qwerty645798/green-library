@@ -43,6 +43,16 @@ public class BookServiceImpl implements BookService{
     public List<BookDTO> findBookByGenre(String genre) {
         return bookRepository.findBookByGenre(genre);
     }
+
+    //   책 반납
+    public BookDTO returnUpdateBook(int bookId) {
+        bookRepository.updateBookAvailability(bookId, true);
+        return bookRepository.getBookById(bookId); // 반납된 책의 정보 반환
+    }
+
+    public void returnMultiBooks(List<Long> bookIds) {
+        bookRepository.updateMultipleBooksAvailability(bookIds, true);
+    }
     // 책 등록
     public void createBook(BookDTO book) {
         bookRepository.createBook(book);

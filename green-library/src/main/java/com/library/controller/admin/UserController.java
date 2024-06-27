@@ -60,7 +60,7 @@ public class UserController {
     @PostMapping("/deleteUsers")
     public ResponseEntity<String> deleteUsers(@RequestBody List<String> userIds) {
             userService.deleteUsers(userIds);
-            return ResponseEntity.ok("사용자 삭제가 성공적으로 수행되었습니다.");
+            return ResponseEntity.ok("이용자가 삭제되었습니다.");
     }
 
     // Endpoint to release ban for a user
@@ -68,6 +68,6 @@ public class UserController {
     @PostMapping("/releaseBan")
     public ResponseEntity<String> releaseBan(@RequestParam("userId") String userId) {
             userService.releaseSuspension(userId);
-            return ResponseEntity.ok("사용자의 제한이 성공적으로 해제되었습니다.");
+            return ResponseEntity.ok("제한이 해제되었습니다.");
     }
 }

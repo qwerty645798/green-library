@@ -1,7 +1,7 @@
 package com.library.controller.admin;
 
 import com.library.dto.admin._normal.BookDTO;
-import com.library.dto.admin._normal.UserDTO;
+import com.library.dto.admin.userManagement.UserDetailDTO;
 import com.library.service.admin.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -52,14 +52,37 @@ public class BookController {
     }
 
 
-
+    //책 작성
     @GetMapping("/WriteBook")
     public String writeBook(Model model) {
         return "admin/adminBook/manageBook/bookWrite";
     }
 
-    @GetMapping("/DetailBook")
-    public String detailBook(Model model) {
+    //    책 수정
+    @GetMapping("/modify")
+    public String modify(@RequestParam(value = "bookId") int bookId) {
+//        List<BookDTO> bookDTOS = bookService.updateBook(bookId);
+        return "admin/adminBook/manageBook/bookWrite";
+    }
+
+    //책 상세보기
+    @GetMapping("/DetailBook/")
+    public String detailBook(@RequestParam(value = "bookId", required = false) int bookId) {
         return "admin/adminBook/manageBook/bookDetail";
     }
+
+    //    책 반납
+    @GetMapping("/return")
+    public ResponseEntity<String> returnBook(@RequestParam("bookId") int bookId) {
+        BookDTO bookDTO = bookService.returnUpdateBook(bookId);
+        return ResponseEntity.ok(bookId + "가 성공적으로 반납되었습니다.");
+    }
+
+    // 다수 책 반납
+    @GetMapping("/returnMultiple")
+    public ResponseEntity<String> returnMultipleBooks(@RequestBody List<Long> bookIds) {
+        bookService.returnMultiBooks(bookIds);
+        return ResponseEntity.ok("성공적으로 반납되었습니다.");
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.library.repository.admin;
 
 import com.library.dto.admin._normal.BookDTO;
+
 import java.util.List;
 
 public interface BookRepository {
@@ -10,7 +11,7 @@ public interface BookRepository {
 
 //    제목 + 저자 + 출판사 검색
     List<BookDTO> findBookByTotal(String total);
-    
+
     // 제목으로 책 검색
     List<BookDTO> findBookByTitle(String title);
 
@@ -19,6 +20,11 @@ public interface BookRepository {
 
     // 십진분류로 책 검색
     List<BookDTO> findBookByGenre(String genreFullName);
+
+    // 책 반납
+    int updateBookAvailability(int bookId, boolean isAvailable);
+
+    int updateMultipleBooksAvailability(List<Long> bookIds, boolean isAvailable);
 
     // 책 등록
     int createBook(BookDTO book);

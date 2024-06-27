@@ -49,7 +49,8 @@
                                         <option value="15" selected>15개씩</option>
                                     </select>
                                     <div class="btnWrap">
-                                        <input class="writeBtn" type="button" value="등록" id="createBook">
+                                        <input class="deleteBtn" type="button" value="일괄 반납" id="returnBooks" onclick="returnBooks()">
+                                        <input class="writeBtn" type="button" value="등록" id="createBook" onclick="location.href='/Book/WriteBook'">
                                         <input class="deleteBtn" type="button" value="삭제" id="deleteBook">
                                     </div>
                                 </div>
@@ -69,7 +70,6 @@
                                             </tr>
                                         </thead>
                                         <tbody id="bookListTBody">
-                                            <!-- 검색 결과가 여기에 동적으로 추가될 예정 -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -81,11 +81,14 @@
                             </div>
                         </section>
                     </main>
+
                     <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
                     <script>
                         let currentPage = 1;
 
                         $(document).ready(function () {
+                            searchBtnEvt();
+
                             // 검색 버튼 클릭 시
                             $('#searchBtn').click(function () {
                                 currentPage = 1;
@@ -116,9 +119,6 @@
                                     searchBtnEvt();
                                 }
                             });
-
-                            // 초기 로딩
-                            loadBook();
                         });
 
                         function searchBtnEvt() {
@@ -153,9 +153,9 @@
                                             responseText += "<td>" + response[i].publicationDate + "</td>";
                                             responseText += "<td>" + response[i].genreFullname + "</td>";
                                             responseText += "<td><input type='checkbox' class='borrowTF' disabled " + (response[i].availability == 1 ? "checked" : "") + "></td>";
-                                            responseText += "<td><input type='button' class='see' value=''>";
-                                            responseText += "<input type='button' class='correction' value=''>";
-                                            responseText += "<input type='button' class='return' value=''></td></tr>";
+                                            responseText += "<td><input type='button' class='see' onclick='showBook(" + response[i].bookId + ")'>";
+                                            responseText += "<input type='button' class='correction' onclick='modifyBook(" + response[i].bookId + ")'>";
+                                            responseText += "<input type='button' class='return' onclick='returnBook(" + response[i].bookId + ")'></td></tr>";
                                         }
                                         userListTBody.html(responseText);
                                         total.innerHTML = "result : " + len + "개";
@@ -165,10 +165,66 @@
                             });
                         }
 
-                        function loadBook() {
-                            // 초기 로딩에 필요한 로직을 여기에 구현
-                            searchBtnEvt(); // 초기 로딩 시 검색 실행
+
+                        function showBook(bookId) {
+                            $.ajax({
+                                url: '/Book/details',
+                                type: 'GET',
+                                data: { "bookId": bookId },
+                                success: function (response) {
+                                    // 서버로부터 받은 데이터를 이용해 책의 상세 정보를 표시합니다.
+                                    alert("책 상세 정보: " + JSON.stringify(response));
+                                }
+                            });
                         }
+
+                        function modifyBook(bookId) {
+                            // Book 수정 로직을 구현합니다.
+                            $.ajax({
+                                url: '/Book/modify',
+                                type: 'POST',
+                                data: { "bookId": bookId },
+                                success: function (response) {
+                                    // 수정이 완료된 후의 동작을 구현합니다.
+                                    alert("책 수정 완료: " + JSON.stringify(response));
+                                    searchBtnEvt(); // 수정 후 목록 갱신
+                                }
+                            });
+                        }
+
+                        // Book 반납 로직을 구현합니다.
+                        function returnBook(bookId) {
+                            $.ajax({
+                                url: '/Book/return',
+                                type: 'POST',
+                                data: { "bookId": bookId },
+                                success: function (response) {
+                                    alert("책 반납 완료: " + response);
+                                    searchBtnEvt();
+                                },
+                                error: function (xhr, status, error) {
+                                    alert("책 반납 실패: " + error);
+                                }
+                            });
+                        }
+
+
+                        function returnBooks(bookIds) {
+                            $.ajax({
+                                url: '/Book/returnMultiple',
+                                type: 'POST',
+                                data: JSON.stringify(bookIds),
+                                contentType: 'application/json; charset=UTF-8',
+                                success: function (response) {
+                                    alert("선택한 책들 반납 완료: " + response);
+                                    searchBtnEvt();
+                                },
+                                error: function (xhr, status, error) {
+                                    alert("책들 반납 실패: " + error);
+                                }
+                            });
+                        }
+
                     </script>
                 </body>
 
