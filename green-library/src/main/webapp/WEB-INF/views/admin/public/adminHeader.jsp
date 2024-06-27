@@ -18,7 +18,7 @@
                 </div>
                 <ul>
                     <li><a href="${pageContext.request.contextPath}/Inquiry">문의사항</a></li>
-                    <li><a href="${pageContext.request.contextPath}/announcement">공지사항</a></li>
+                    <li><a href="${pageContext.request.contextPath}/Announcement">공지사항</a></li>
                 </ul>
             </li>
             <li class="navSection">

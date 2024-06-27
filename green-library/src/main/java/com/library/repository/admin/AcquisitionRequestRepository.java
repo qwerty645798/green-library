@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface AcquisitionRequestRepository {
     List<WishlistDTO> allAcquisitionManage();
+    List<WishlistDTO> findAcquisitionByTotal(String total);
     List<WishlistDTO> findAcquisitionByTitle(String title);
     List<WishlistDTO> findAcquisitionByAuthor(String author);
     List<WishlistDTO> findAcquisitionByGenre(String genre);

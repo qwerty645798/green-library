@@ -1,3 +1,4 @@
+<%--
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,4 +26,4 @@ jsp파일에 input태그의 name속성와 controller.java에서 요청한 값이
 또는 controller.java에서 파라미터 요청문법이 정확한지 체크할것
 </h3>
 </body>
-</html>
+</html>--%>

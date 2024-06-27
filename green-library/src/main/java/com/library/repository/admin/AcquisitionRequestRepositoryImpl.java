@@ -34,6 +34,24 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
         });
     }
 
+//    전체 검색
+    @Override
+    public List<WishlistDTO> findAcquisitionByTotal(String total) {
+        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count\n" +
+                "FROM WISHLISTS\n" +
+                "WHERE WISH_TITLE LIKE '%" + total + "%'";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            WishlistDTO request = new WishlistDTO();
+            request.setWishlistId(rs.getInt("WISHLIST_ID"));
+            request.setWishTitle(rs.getString("WISH_TITLE"));
+            request.setWishAuthor(rs.getString("WISH_AUTHOR"));
+            request.setWishPublisher(rs.getString("WISH_PUBLISHER"));
+            request.setWishPublication(rs.getDate("WISH_PUBLICATION"));
+            request.setWishPrice(rs.getInt("WISH_PRICE"));
+            return request;
+        });
+    }
+
     @Override
     public List<WishlistDTO> findAcquisitionByTitle(String title) {
         String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count\n" +

@@ -11,6 +11,8 @@ public interface AcquisitionRequestService {
 
     //    전체 확인
     public List<WishlistDTO> allAcquisitionManage();
+// 검색
+    List<WishlistDTO>findAcquisitionByTotal(String total);
 
     //    제목으로 확인
     public List<WishlistDTO> findAcquisitionByTitle(String title);

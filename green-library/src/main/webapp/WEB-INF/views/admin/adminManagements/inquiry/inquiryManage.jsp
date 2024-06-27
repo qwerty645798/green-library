@@ -51,14 +51,14 @@
                 <div class="btnWrap">
                     <input type="button" value="답변한 것도 보기">
                     <input type="button" value="답변한 것만 보기">
-                    <input class="deleteBtn" type="button" value="삭제">
+                    <input class="deleteBtn" type="button" value="삭제" onclick="deleteInquiry()">
                 </div>
             </div>
             <div class="dashBoard">
                 <table>
                     <thead>
                     <tr>
-                        <th><input type="checkbox" name="" id="selectAllCheckbox"></th>
+                        <th><input type="checkbox" id="selectAllCheckbox"></th>
                         <th>문의번호</th>
                         <th>제목</th>
                         <th>내용</th>
@@ -89,12 +89,6 @@
     $(document).ready(function () {
         searchBtnEvt();
 
-        // 검색 버튼 클릭 시
-        $('#searchBtn').click(function () {
-            currentPage = 1;
-            searchBtnEvt();
-        });
-
         // 전체 선택 & 해제
         $('#selectAllCheckbox').on('change', function () {
             $('input[name="selectedBooks"]').prop('checked', this.checked);
@@ -103,12 +97,14 @@
         // select 값 변경 시
         $('#resultSelect').on('change', function () {
             currentPage = 1;
+            clearCheckboxes();
             searchBtnEvt();
         });
 
         // 다음 버튼 클릭 시
         $('.next').click(function () {
             currentPage++;
+            clearCheckboxes();
             searchBtnEvt();
         });
 
@@ -130,7 +126,7 @@
         const total = document.getElementById('total');
 
         $.ajax({
-            url: '/searchInquiries',
+            url: '/Inquiry/searchInquiries',
             type: 'GET',
             data: {"searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue},
             success: function (response) {
@@ -145,13 +141,13 @@
                     }
                     for (let i = startPrint; i < endPrint; i++) {
                         responseText += "<tr>";
-                        responseText += "<td><input type='checkbox' name='' id=''></td>";
+                        responseText += "<td><input type='checkbox' name='selectedBooks' id=''></td>";
                         responseText += "<td>" + response[i].inquiryId + "</td>";
                         responseText += "<td>" + response[i].inquiryTitle + "</td>";
                         responseText += "<td>" + response[i].contents + "</td>";
                         responseText += "<td>" + response[i].userId + "</td>";
                         responseText += "<td>" + response[i].inquiryDate + "</td>";
-                        responseText += "<td><input type='checkbox' name='' id='' disabled " + response[i].responseTF == 1 ? 'checked' : '' + "></td>";
+                        responseText += "<td><input type='checkbox' name='' id='' disabled " + (response[i].responseTF == 1 ? "checked" : "") + "></td>";
                         responseText += "<td><input type='button' class='correction'>";
                     }
                     userListTBody.html(responseText);
@@ -160,6 +156,11 @@
                 }
             }
         });
+    }
+
+    function clearCheckboxes() {
+        $('input[name="selectedBooks"]').prop('checked', false);
+        $('#selectAllCheckbox').prop('checked', false);
     }
 </script>
 </body>

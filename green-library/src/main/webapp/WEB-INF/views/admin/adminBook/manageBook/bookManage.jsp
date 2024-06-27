@@ -33,7 +33,7 @@
                                         <option value="all" selected>제목 + 저자</option>
                                     </select>
                                     <div class="inputBox">
-                                        <input type="text" id="inputText" class="inputText" name="ss" maxlength="20"
+                                        <input type="text" id="inputText" class="inputText" name="searchKeyword" maxlength="20"
                                             placeholder="검색어를 입력하세요" value="" />
                                         <button type="button" id="searchBtn" class="searchBtn">검색</button>
                                     </div>
