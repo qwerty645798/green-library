@@ -39,7 +39,7 @@
     
                     <tr>
                         <td class="hopeBook"><span>*</span> 신청자 이름</td>
-                        <td><input type="text" id="userName" name="userId" value="${userId}"></td>
+                        <td>${userId}</td>
                     </tr>
         
                     <tr>

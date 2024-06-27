@@ -72,7 +72,7 @@ public class RentController {
 		
 		model.addAttribute("extensions", extensions);
 		model.addAttribute("userId", userId);
-		return "bookLoanExtension";
+		return "user/bookLoanExtension";
 	}
 
 	@PostMapping("/bookExtension")

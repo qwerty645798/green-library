@@ -170,11 +170,14 @@
 			<h3 style="text-align:center;"><b>정말로 계정을 삭제하시겠습니까?</b></h3>
 			<br>
 			<form action="userDelete" method="post" id="form">
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				<div style="display:flex; justify-content:center;">
 				<input class="delete" type="submit" value="계정삭제">
 				<input id="cancel" class="cancel" type="button" value="취소">
 				</div>
 				
+
 			</form>
 			<button id="modalCloseButton">
 			<img src="images/x-icon.png" style="width:100%; height:auto;"></button>
