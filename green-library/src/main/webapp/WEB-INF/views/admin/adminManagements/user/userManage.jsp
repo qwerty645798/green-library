@@ -35,8 +35,7 @@
                                         <input type="text" id="inputText" class="inputText" name="searchKeyword"
                                             maxlength="20" placeholder="검색어를 입력하세요" value="" />
                                         <button type="button" id="searchBtn" class="searchBtn" onclick="searchBtnEvt()">
-                                            검색
-                                        </button>
+                                            검색 </button>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +43,7 @@
                                 <div class="results">
                                     <p id="total">검색 결과 : </p>
                                     <select name="pageSize" id="resultSelect">
-                                        <option value="10">10개씩</option>
+                                        <option value="10" selected>10개씩</option>
                                         <option value="15">15개씩</option>
                                         <option value="20">20개씩</option>
                                     </select>
@@ -115,18 +114,24 @@
                                 </div>
                             </div>
                             <div class="btnContainer">
-                                <input type="button" value="서비스 제한">
-                                <input type="button" value="제한 해제">
-                                <input type="button" value="영구 삭제">
+                                <!-- <input type="button" value="서비스 제한" onclick="createSuspen()"> -->
+                                <!-- <input type="button" value="제한 해제" onclick="deleteSuspen()"> -->
+                                <input type="button" value="영구 삭제" onclick="deleteUsers()">
                             </div>
                         </div>
                     </section>
                 </main>
                 <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
                 <script>
-                    <%--                    window.onload()--%>
+                    let currentPage = 1;
+
                     $(document).ready(function () {
                         searchBtnEvt();
+
+                        // 전체 선택 & 해제
+                        $('#selectAllCheckbox').on('change', function () {
+                            $('input[name="userCheckbox"]').prop('checked', this.checked);
+                        });
 
                         // 수정 버튼 클릭 시 사용자 정보 로드
                         $('table').on('click', '.modifyBtn', function () {
@@ -134,6 +139,28 @@
                             loadUserInfo(userId);
                         });
 
+                        // select 값 변경 시 검색 실행
+                        $('#resultSelect').on('change', function () {
+                            searchBtnEvt();
+                        });
+
+                        // 다음 버튼 클릭 시 페이징 처리
+                        $('.next').click(function () {
+                            currentPage++;
+                            clearCheckboxes();
+                            searchBtnEvt();
+                        });
+
+                        // 이전 버튼 클릭 시 페이징 처리
+                        $('.back').click(function () {
+                            if (currentPage > 1) {
+                                currentPage--;
+                                clearCheckboxes();
+                                searchBtnEvt();
+                            }
+                        });
+
+                        //초기 로딩
                         loadUserInfo(userId);
                     });
 
@@ -144,16 +171,21 @@
                         const total = document.getElementById('total');
                         const pages = document.getElementById('totalpage');
                         const selectValue = document.getElementById('resultSelect').value;
+
                         $.ajax({
                             url: '/User/search',
                             type: 'GET',
-                            data: {"searchType": searchType.value, "searchKeyword": inputText.value},
+                            data: { "searchType": searchType.value, "searchKeyword": inputText.value, "pageSize": selectValue },
                             success: function (response) {
                                 if (response) {
                                     let responseText = '';
                                     let len = response.length;
                                     let totalPage = Math.ceil(len / selectValue);
-                                    for (let i = 0; i < len; i++) {
+                                    let startPrint = currentPage * selectValue - selectValue;
+                                    let endPrint = currentPage * selectValue;
+                                    for (let i = startPrint; i < endPrint; i++) {
+                                        if (endPrint > len)
+                                            endPrint = startPrint + (endPrint - len);
                                         responseText += "<tr>";
                                         responseText += "<td><input type='checkbox' name='userCheckbox'id='userCheckbox'/></td>";
                                         responseText += "<td>" + response[i].userId + "</td>";
@@ -161,10 +193,9 @@
                                         responseText += "<td>" + response[i].userEmail + "</td>";
                                         responseText += "<td><input type='button' className='modifyBtn' onclick=loadUserInfo('" + response[i].userId + "') /> </td></tr>";
                                     }
-
                                     userListTBody.innerHTML = responseText;
                                     total.innerHTML = "result : " + len + "명";
-                                    pages.innerHTML = totalPage + " of " + totalPage;
+                                    pages.innerHTML = currentPage + " of " + totalPage;
                                 }
                             }
                         });
@@ -174,7 +205,7 @@
                         $.ajax({
                             url: '/User/details',
                             type: 'GET',
-                            data: {userId: userId},
+                            data: { userId: userId },
                             success: function (response) {
                                 if (response) {
                                     $('#userName').text(response.user.userName);
@@ -182,44 +213,115 @@
                                     $('#userEmail').text(response.user.userEmail);
                                     $('#userPhone').text(response.user.userPhone);
 
+                                    // 대출 현황 업데이트
+                                    updateLoanInfo(response.loanInfo);
 
-                                    var loanInfoBody = $('#loanInfoBody');
-                                    loanInfoBody.empty();
-                                    if (response.loanInfo && response.loanInfo.length > 0) {
-                                        response.loanInfo.forEach(function (loan) {
-                                            var row = '<tr>' +
-                                                '<td>' + loan.title + '</td>' +
-                                                '<td>' + loan.author + '</td>' +
-                                                '<td>' + loan.publisher + '</td>' +
-                                                '<td>' + loan.classificationNumber + '</td>' +
-                                                '<td>' + loan.borrowDate + '</td>' +
-                                                '</tr>';
-                                            loanInfoBody.append(row);
-                                        });
-                                    } else {
-                                        loanInfoBody.append('<tr><td colspan="5">대출 이력이 없습니다.</td></tr>');
-                                    }
-
-                                    // 이용 제한 정보 업데이트
-                                    var banInfoBody = $('#banInfoBody');
-                                    banInfoBody.empty(); // 이전 데이터 초기화
-                                    if (response.suspensions && response.suspensions.length > 0) {
-                                        response.suspensions.forEach(function (ban) {
-                                            var row = '<tr>' +
-                                                '<td>' + ban.reason + '</td>' +
-                                                '<td>' + ban.startDate + '</td>' +
-                                                '<td>' + ban.duration + '</td>' +
-                                                '<td><input type="button" value="해제"></td>' +
-                                                '</tr>';
-                                            banInfoBody.append(row);
-                                        });
-                                    } else {
-                                        banInfoBody.append('<tr><td colspan="4">이용 제한 기록이 없습니다.</td></tr>');
-                                    }
+                                    // 이용 제한 리스트 업데이트
+                                    updateBanInfo(response.suspensions);
                                 }
+                            },
+                            error: function () {
+                                alert('사용자 정보를 불러오는 데 실패하였습니다.');
                             }
                         });
                     }
+
+                    function updateLoanInfo(loanInfo) {
+                        var loanInfoBody = $('#loanInfoBody');
+                        loanInfoBody.empty(); // 이전 데이터 초기화
+                        if (loanInfo && loanInfo.length > 0) {
+                            loanInfo.forEach(function (loan) {
+                                var row = '<tr>' +
+                                    '<td>' + loan.title + '</td>' +
+                                    '<td>' + loan.author + '</td>' +
+                                    '<td>' + loan.publisher + '</td>' +
+                                    '<td>' + loan.classificationNumber + '</td>' +
+                                    '<td>' + loan.borrowDate + '</td>' +
+                                    '</tr>';
+                                loanInfoBody.append(row);
+                            });
+                        } else {
+                            loanInfoBody.append('<tr><td colspan="5">대출 이력이 없습니다.</td></tr>');
+                        }
+                    }
+
+                    function updateBanInfo(suspensions) {
+                        var banInfoBody = $('#banInfoBody');
+                        banInfoBody.empty(); // 이전 데이터 초기화
+                        if (suspensions && suspensions.length > 0) {
+                            suspensions.forEach(function (ban) {
+                                var row = '<tr>' +
+                                    '<td>' + ban.reason + '</td>' +
+                                    '<td>' + ban.startDate + '</td>' +
+                                    '<td>' + ban.duration + '</td>' +
+                                    '<td><input type="button" value="해제" onclick="releaseBan(' + ban.banId + ')"></td>' +
+                                    '</tr>';
+                                banInfoBody.append(row);
+                            });
+                        } else {
+                            banInfoBody.append('<tr><td colspan="4">이용 제한 기록이 없습니다.</td></tr>');
+                        }
+                    }
+
+                    function clearCheckboxes() {
+                        $('input[name="userCheckbox"]').prop('checked', false);
+                        $('#selectAllCheckbox').prop('checked', false);
+                    }
+
+                    // 유저 영구 삭제 함수
+                    function deleteUsers() {
+                        var userIds = [];
+
+                        // 체크된 체크박스에서 userId 값을 배열에 저장
+                        $('input[name="userCheckbox"]:checked').each(function () {
+                            var userId = $(this).closest('tr').find('td:eq(1)').text().trim(); // 각 체크박스가 속한 행의 userId 가져오기
+                            userIds.push(userId);
+                        });
+
+                        console.log(userId);
+
+                        if (userIds.length === 0) {
+                            alert('삭제할 사용자를 선택해주세요.');
+                            return;
+                        }
+
+                        if (confirm('선택한 사용자를 영구 삭제하시겠습니까?')) {
+                            $.ajax({
+                                url: '/User/deleteUsers',
+                                type: 'POST',
+                                data: { userIds: userIds },
+                                traditional: true, // 배열 데이터 전송을 위한 설정
+                                success: function (response) {
+                                    alert('선택한 사용자가 성공적으로 삭제되었습니다.');
+                                    // 삭제 후에는 다시 검색을 실행하여 목록을 업데이트합니다.
+                                    searchBtnEvt();
+                                },
+                                error: function () {
+                                    alert('사용자 삭제를 실패하였습니다.');
+                                }
+                            });
+                        }
+                    }
+
+
+                    // 제한 해제 함수
+                    function releaseBan(banId) {
+                        if (confirm('정말로 이 이용 제한을 해제하시겠습니까?')) {
+                            $.ajax({
+                                url: '/User/releaseBan',
+                                type: 'POST',
+                                data: { banId: banId },
+                                success: function (response) {
+                                    alert('이용 제한이 성공적으로 해제되었습니다.');
+
+                                },
+                                error: function () {
+                                    alert('이용 제한 해제를 실패하였습니다.');
+                                }
+                            });
+                        }
+                    }
+
                 </script>
             </body>
 

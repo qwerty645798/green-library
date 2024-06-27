@@ -25,6 +25,12 @@ public class BookServiceImpl implements BookService{
     public List<BookDTO> allHavingBookManage() {
         return bookRepository.allHavingBookManage();
     }
+
+    //제목 + 저자  + 출판사조회
+    public List<BookDTO> findBookByTotal(String total) {
+        return bookRepository.findBookByTotal(total);
+    }
+
     // 제목으로 조회
     public List<BookDTO> findBookByTitle(String title) {
         return bookRepository.findBookByTitle(title);

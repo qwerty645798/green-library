@@ -3,8 +3,8 @@ package com.library.repository.admin;
 import com.library.dto.admin._normal.RentDTO;
 import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
-import com.library.dto.admin.userManagement.UserDetailDTO;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -164,18 +164,25 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     // 유저 영구 삭제
+//    void deleteUsers(List<String> userIds);
+
+    //    void releaseSuspension(String userId);
     @Override
-    public void deleteUsers(String userId) {
-        String sql = "DELETE FROM USERS WHERE USER_ID = ?";
-        jdbcTemplate.update(sql, userId);
+    @Transactional
+    public void deleteUsers(List<String> userIds) {
+        String sql = "DELETE FROM USERS WHERE USER_ID IN (:userIds)";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("userIds", userIds);
+        jdbcTemplate.update(sql, params);
     }
 
     // 이용 제한 해제
-//    @Override
-//    public void releaseSuspension(String userId) {
-//        String sql1 = "UPDATE USERS SET SUSPENDED = 0 WHERE USER_ID = ?";
-//        String sql2 = "UPDATE SUSPENSIONS SET END_DATE = SYSDATE WHERE USER_ID = ?";
-//        jdbcTemplate.update(sql1, userId);
-//        jdbcTemplate.update(sql2, userId);
-//    }
+    @Override
+    @Transactional
+    public void releaseSuspension(String userId) {
+        String sql1 = "UPDATE USERS SET SUSPENDED = 0 WHERE USER_ID = ?";
+        jdbcTemplate.update(sql1, userId);
+        String sql2 = "UPDATE SUSPENSIONS SET END_DATE = SYSDATE WHERE USER_ID = ?";
+        jdbcTemplate.update(sql2, userId);
+    }
 }

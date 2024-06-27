@@ -27,7 +27,7 @@ public interface UserService {
 
     int createSuspension(SuspensionDTO suspension);
 
-    void deleteUser(String userId);
+    void deleteUsers(List<String> userIds);
 
-//    void releaseUserSuspension(String userId);
+    void releaseSuspension(String userId);
 }

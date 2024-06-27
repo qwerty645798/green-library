@@ -8,13 +8,17 @@ public interface BookService {
 
     // 모든 책 조회
     public List<BookDTO> allHavingBookManage();
+
+    //    제목 + 저자 + 출판사
+    List<BookDTO> findBookByTotal(String searchKeyword);
     // 제목으로 조회
     public List<BookDTO> findBookByTitle(String title);
     // 저자로 조회
     public List<BookDTO> findBookByAuthor(String author);
     // 십진분류로 조회
     public List<BookDTO> findBookByGenre(String genre);
-     // 책 등록
+
+    // 책 등록
     public void createBook(BookDTO book);
      // 책 수정
     public void updateBook(BookDTO book);

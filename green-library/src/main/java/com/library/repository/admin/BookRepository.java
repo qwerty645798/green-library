@@ -8,6 +8,9 @@ public interface BookRepository {
     // 모든 책 목록 조회
     List<BookDTO> allHavingBookManage();
 
+//    제목 + 저자 + 출판사 검색
+    List<BookDTO> findBookByTotal(String total);
+    
     // 제목으로 책 검색
     List<BookDTO> findBookByTitle(String title);
 

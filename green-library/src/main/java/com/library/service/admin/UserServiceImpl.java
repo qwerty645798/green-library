@@ -71,7 +71,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(String userId) {
-        userRepository.deleteUsers(userId);
+    public void deleteUsers(List<String> userIds) {
+        userRepository.deleteUsers(userIds);
     }
+
+    @Override
+    public void releaseSuspension(String userId) {
+        userRepository.releaseSuspension(userId);
+    }
+
 }

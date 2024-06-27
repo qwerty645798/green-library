@@ -108,6 +108,33 @@ public class BookRepositoryImpl implements BookRepository {
         });
     }
 
+    @Override
+    public List<BookDTO> findBookByTotal(String total) {
+        String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, " +
+                "(SELECT COUNT(*) FROM BOOKS) AS total_count FROM BOOKS " +
+                "JOIN AUTHORS ON BOOKS.AUTHOR_ID = AUTHORS.AUTHOR_ID " +
+                "JOIN PUBLISHERS ON BOOKS.PUBLISHER_ID = PUBLISHERS.PUBLISHER_ID " +
+                "WHERE BOOKS.TITLE LIKE ? OR AUTHORS.AUTHOR_NAME LIKE ? OR PUBLISHER_NAME LIKE ?";
+        String queryParam = "%" + total + "%";
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, queryParam);
+            ps.setString(2, queryParam);
+            ps.setString(3, queryParam);
+            return ps;
+        }, (rs, rowNum) -> {
+            BookDTO book = new BookDTO();
+            book.setBookId(rs.getInt("book_id"));
+            book.setTitle(rs.getString("title"));
+            book.setAuthorName(rs.getString("author_name"));
+            book.setPublisherName(rs.getString("publisher_name"));
+            book.setPublicationDate(rs.getDate("publication_date"));
+            book.setGenreFullname(rs.getString("genre_fullname"));
+            setAvailability(rs, book);
+            return book;
+        });
+    }
+
     // 제목으로 책 검색
     public List<BookDTO> findBookByTitle(String title) {
         String sql = "SELECT BOOK_ID, TITLE, AUTHOR_NAME, PUBLISHER_NAME, PUBLICATION_DATE, GENRE_FULLNAME, AVAILABILITY, " +

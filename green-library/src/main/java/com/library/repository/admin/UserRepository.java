@@ -37,8 +37,9 @@ public interface UserRepository {
     int createSuspension(SuspensionDTO suspension);
 
     // 유저 영구 삭제
-    void deleteUsers(String userId);
+    void deleteUsers(List<String> userIds);
 
     // 이용 제한 해제
-//    void releaseSuspension(String userId);
+    void releaseSuspension(String userId);
+
 }
