@@ -14,6 +14,20 @@ main{
     margin: 0 auto;
 }
 
+/* 추가된 부분 */
+.noRents{
+	width: 1260px;
+	height: 800px;
+	display: flex;
+	align-items: center;
+	justify-content : center;
+}
+
+.noRents span{
+	font-size: 25pt;
+}
+/* 추가된 부분 */
+
 .sel_All input[type="submit"]{
 	font-weight: bold;
 	color:white; 
