@@ -32,9 +32,6 @@
 		<div class="main">
 			
 			<table>
-<%-- 				<caption> --%>
-<%-- 					작성일 : ${inquiryDetail.inquiryDate } --%>
-<%-- 				</caption> --%>
 				<tr>
 					<td class="td1">제목</td>
 					<td class="td2">${inquiryDetail.inquiryTitle}</td>
@@ -60,8 +57,8 @@
 			</table>
 			
 			<div class="writeBtn">
-				<input type="button" value="수정하기">
-				<input type="button" value="삭제하기">
+<input type="button" value="수정하기" onclick="location.href='modifyInquiry?inquiryId=${param.inquiryId}'">
+				<input type="button" value="삭제하기" onclick="location.href='deleteInquiry?inquiryId=${param.inquiryId}'">
 				<a href="myWritten"><input type="button" value="목록으로"></a>
 			</div>
 			
