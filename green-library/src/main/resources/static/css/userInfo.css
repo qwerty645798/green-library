@@ -2,6 +2,7 @@
 
 .outContainer{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
@@ -224,4 +225,5 @@ iframe{
 /* 여기서부터 추가분 */
 .container{
 	margin: 50px auto;
+	
 }
