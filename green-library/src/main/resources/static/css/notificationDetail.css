@@ -5,12 +5,9 @@
 	flex-direction: column;
 	width:1260px;
 	margin: auto;
-	border-top: 2px solid #ECD9BC;
-	border-bottom: 2px solid #ECD9BC;
-	
-	margin-top: 50px;
-	margin-bottom: 50px;
-	padding-bottom: 20px;
+	border-top: 2px solid #a0cab0;
+/* 	border-bottom: 2px solid #ECD9BC; */
+	margin-top: 100px;
 	box-sizing:border-box;
 }
 .table_box>table{
