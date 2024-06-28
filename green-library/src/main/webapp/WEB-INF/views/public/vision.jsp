@@ -6,8 +6,8 @@
 <meta charset="utf-8">
 <title>사업 구조</title>
 
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/vision.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/vision.css">
 
 </head>
 

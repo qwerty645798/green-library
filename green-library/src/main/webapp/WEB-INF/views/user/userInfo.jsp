@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link href="/css/userInfo.css" type="text/css" rel="stylesheet">
-<link href="/reset/reset.css" type="text/css" rel="stylesheet">
+
 <link rel="stylesheet" type="text/css" href="/css/public/nav.css">
 <link href="/css/userUseInformation.css" type="text/css" rel="stylesheet">
 <Script>
