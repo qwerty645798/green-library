@@ -33,7 +33,7 @@
 
 <div class="first_container">
 	<div class="img_box">
-		<img src="images/vision.png">
+		<img src="images/비전.png">
 	</div>
 </div>
 <!-- vision photo -->
