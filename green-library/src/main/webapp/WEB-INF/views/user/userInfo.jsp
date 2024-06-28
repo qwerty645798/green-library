@@ -14,10 +14,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d433430829221200e23e982e14507e9074448c40
 <jsp:include page="../index/header.jsp" />
 
 <div class="outBanner">
@@ -75,14 +71,11 @@
                     <table class="btn">
                         <tr>
 
-<<<<<<< HEAD
                             <th>예약</th>
                         </tr>
                         <tr>
                             <td>${count.reserve_count} / 5</td>
 
-=======
->>>>>>> d433430829221200e23e982e14507e9074448c40
                         </tr>
                     </table>
                 </div>
@@ -137,7 +130,8 @@
                     <span>대출중인 도서</span>
                 </div>
                 </div>
-                      
+            
+            
             <div class="userInfoQuick">
             <div class="center Dheader" data-condition="reserve">
                     <span>신청한 예약도서</span>
@@ -155,10 +149,6 @@
         
     </div>
     
-<<<<<<< HEAD
-=======
-
->>>>>>> d433430829221200e23e982e14507e9074448c40
     
     <div class="container">
                 <iframe src="useInformationBoard" 
