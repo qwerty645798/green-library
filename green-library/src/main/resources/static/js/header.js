@@ -51,13 +51,13 @@ addLoadEvent(accordian);
 
 	    if (login) {
 	        login.onclick = () => {
-	            window.location.href = 'userLogin';
+	            window.location.href = '/userLogin';
 	        }
 	    }
 
 	    if (join) {
 	        join.onclick = () => {
-	            window.location.href = 'userAgreement';
+	            window.location.href = '/userAgreement';
 	        }
 	    }
 	    
