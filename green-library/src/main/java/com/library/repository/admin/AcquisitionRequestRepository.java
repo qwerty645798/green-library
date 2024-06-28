@@ -5,9 +5,10 @@ import java.util.List;
 
 public interface AcquisitionRequestRepository {
     List<WishlistDTO> allAcquisitionManage();
+    List<WishlistDTO> findAcquisitionByTotal(String total);
     List<WishlistDTO> findAcquisitionByTitle(String title);
     List<WishlistDTO> findAcquisitionByAuthor(String author);
-    List<WishlistDTO> findAcquisitionByGenre(String genre);
+    List<WishlistDTO> findAcquisitionByPublish(String publish);
     void acceptsAcquisition(Integer requestId);
     void deleteAcquisition(Integer requestId);
 }

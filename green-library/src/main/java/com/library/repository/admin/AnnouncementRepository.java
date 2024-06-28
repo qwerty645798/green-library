@@ -9,6 +9,9 @@ public interface AnnouncementRepository {
     // 모든 공지사항 목록 조회
     List<AnnouncementDTO> allAnnounceManage();
 
+    //전체에서 공지사항 검색
+    List<AnnouncementDTO> findAnnounceByTotal(String total);
+
     // 제목으로 공지사항 검색
     List<AnnouncementDTO> findAnnounceByTitle(String title);
 

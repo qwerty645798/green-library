@@ -4,7 +4,6 @@ package com.library.repository.admin;
 import com.library.dto.admin._normal.RentDTO;
 import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
-import com.library.dto.admin.userManagement.UserDetailDTO;
 
 import java.util.List;
 
@@ -40,6 +39,6 @@ public interface UserRepository {
     void deleteUsers(List<String> userIds);
 
     // 이용 제한 해제
-    void releaseSuspension(String userId);
+    void releaseSuspension(String userId, String suspenId);
 
 }

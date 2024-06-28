@@ -8,11 +8,12 @@ import java.util.Date;
 @Getter
 @Setter
 public class SuspensionDTO {
-    private Long suspensionId;
+    private int suspensionId;
     private Date startDate;
     private Date endDate;
     private int duration;
     private String reason;
     private String userId;
+
 }
 

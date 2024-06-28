@@ -1,7 +1,6 @@
 package com.library.controller.admin;
 
 import com.library.dto.admin._normal.BookDTO;
-import com.library.dto.admin.userManagement.UserDetailDTO;
 import com.library.service.admin.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -19,6 +19,11 @@ public class AcquisitionRequestServiceImpl implements AcquisitionRequestService 
         return acquisitionRequestRepository.allAcquisitionManage();
     }
 
+    @Override
+    public List<WishlistDTO> findAcquisitionByTotal(String total) {
+        return acquisitionRequestRepository.findAcquisitionByTotal(total);
+    }
+
     //    제목으로 확인
     @Override
     public List<WishlistDTO> findAcquisitionByTitle(String title) {
@@ -33,8 +38,8 @@ public class AcquisitionRequestServiceImpl implements AcquisitionRequestService 
 
     //     십진분류로 확인
     @Override
-    public List<WishlistDTO> findAcquisitionByGenre(String author) {
-        return acquisitionRequestRepository.findAcquisitionByGenre(author);
+    public List<WishlistDTO> findAcquisitionByPublish(String publish) {
+        return acquisitionRequestRepository.findAcquisitionByPublish(publish);
     }
 
     //    구매승인

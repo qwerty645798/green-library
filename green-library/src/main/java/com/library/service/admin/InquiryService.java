@@ -8,6 +8,8 @@ public interface InquiryService{
 
      // 모든 문의 조회
     List<InquiryDTO> allInquiryManage();
+    // 전체에서 조회
+    List<InquiryDTO> findInquiryByTotal(String searchKeyword);
     // 제목으로 조회
     List<InquiryDTO> findInquiryByTitle(String title);
     // 내용으로 조회
@@ -24,5 +26,4 @@ public interface InquiryService{
     String previousInquiry(int id);
     // 다음 문의사항 제목 조회
     String nextInquiry(int id);
-
 }

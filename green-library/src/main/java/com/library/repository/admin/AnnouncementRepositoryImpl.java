@@ -20,9 +20,36 @@ public class AnnouncementRepositoryImpl implements AnnouncementRepository {
 
     // 모든 공지사항 목록 조회
     public List<AnnouncementDTO> allAnnounceManage() {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME as FILE_NAME, "
-                + "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count FROM ANNOUNCEMENTS";
+        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME as FILE_NAME, " +
+                "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count FROM ANNOUNCEMENTS " + "ORDER BY ANNOUNCEMENT_ID";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            AnnouncementDTO announce = new AnnouncementDTO();
+            announce.setAnnouncementId(rs.getInt("announcement_id"));
+            announce.setAnnounceTitle(rs.getString("announce_title"));
+            announce.setContents(rs.getString("contents"));
+            announce.setWriterId(rs.getString("writer_id"));
+            announce.setWriteDate(rs.getDate("write_date"));
+            announce.setFileName(rs.getString("file_name"));
+            return announce;
+        });
+    }
+
+    @Override
+    public List<AnnouncementDTO> findAnnounceByTotal(String total) {
+        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME, " +
+                "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count " +
+                "FROM ANNOUNCEMENTS " +
+                "WHERE ANNOUNCE_TITLE LIKE ? OR CONTENTS LIKE ? " +
+                "ORDER BY ANNOUNCEMENT_ID";
+        System.out.println(total);
+        System.out.println("하이하이");
+        String queryParam = "%" + total + "%";
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, queryParam);
+            ps.setString(2, queryParam);
+            return ps;
+        }, (rs, rowNum) -> {
             AnnouncementDTO announce = new AnnouncementDTO();
             announce.setAnnouncementId(rs.getInt("announcement_id"));
             announce.setAnnounceTitle(rs.getString("announce_title"));
@@ -36,7 +63,7 @@ public class AnnouncementRepositoryImpl implements AnnouncementRepository {
 
     // 제목으로 공지사항 검색
     public List<AnnouncementDTO> findAnnounceByTitle(String title) {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME, " + "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count FROM ANNOUNCEMENTS WHERE ANNOUNCE_TITLE LIKE ?";
+        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME, " + "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count " + "FROM ANNOUNCEMENTS WHERE ANNOUNCE_TITLE LIKE ? " + "ORDER BY ANNOUNCEMENT_ID";
         String queryParam = "%" + title + "%";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -56,7 +83,7 @@ public class AnnouncementRepositoryImpl implements AnnouncementRepository {
 
     // 내용으로 공지사항 검색
     public List<AnnouncementDTO> findAnnounceByContents(String contents) {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME, " + "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count FROM ANNOUNCEMENTS WHERE CONTENTS LIKE ?";
+        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, CONTENTS, WRITER_ID, WRITE_DATE, FILENAME, " + "(SELECT COUNT(*) FROM ANNOUNCEMENTS) AS total_count FROM ANNOUNCEMENTS WHERE CONTENTS LIKE ? " + "ORDER BY ANNOUNCEMENT_ID";
         String queryParam = "%" + contents + "%";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -94,10 +121,7 @@ public class AnnouncementRepositoryImpl implements AnnouncementRepository {
 
     // 특정 공지사항 조회
     public AnnouncementDTO getAnnounceById(int announceId) {
-        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, ADMIN_ID, WRITE_DATE, VIEW_COUNT, CONTENTS, FILENAME " +
-                "FROM ANNOUNCEMENTS " +
-                "JOIN ADMINS ON ANNOUNCEMENTS.WRITER_ID = ADMINS.ADMIN_ID " +
-                "WHERE ANNOUNCEMENT_ID = ?";
+        String sql = "SELECT ANNOUNCEMENT_ID, ANNOUNCE_TITLE, ADMIN_ID, WRITE_DATE, VIEW_COUNT, CONTENTS, FILENAME " + "FROM ANNOUNCEMENTS " + "JOIN ADMINS ON ANNOUNCEMENTS.WRITER_ID = ADMINS.ADMIN_ID " + "WHERE ANNOUNCEMENT_ID = ?";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, announceId);

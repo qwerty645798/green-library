@@ -5,8 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link href="/css/reset/reset.css" type="text/css" rel="stylesheet">
+        <title>hopeBookApply</title>
         <link href="/css/public/header.css" type="text/css" rel="stylesheet">
 		<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
         <link href="/css/hopeBookApply.css" type="text/css" rel="stylesheet">

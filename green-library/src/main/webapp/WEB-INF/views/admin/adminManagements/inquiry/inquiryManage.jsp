@@ -7,13 +7,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inquiry</title>
-
-    <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/inquiryManage.css">
+    <title>문의 게시판</title>
+    <meta name="csrf-token" content="${_csrf.token}">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/style.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/adminFooter.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/inquiryManage.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -51,14 +51,14 @@
                 <div class="btnWrap">
                     <input type="button" value="답변한 것도 보기">
                     <input type="button" value="답변한 것만 보기">
-                    <input class="deleteBtn" type="button" value="삭제">
+                    <input class="deleteBtn" type="button" value="삭제" onclick="deleteInquiry()">
                 </div>
             </div>
             <div class="dashBoard">
                 <table>
                     <thead>
                     <tr>
-                        <th><input type="checkbox" name="" id="selectAllCheckbox"></th>
+                        <th><input type="checkbox" id="selectAllCheckbox"></th>
                         <th>문의번호</th>
                         <th>제목</th>
                         <th>내용</th>
@@ -75,7 +75,7 @@
         </div>
         <div class="paging">
             <input class="back" type="button">
-            <p id="totalPage">페이지</p>
+            <p id="totalPage"> of </p>
             <input class="next" type="button">
         </div>
     </section>
@@ -85,6 +85,7 @@
 
 <script>
     let currentPage = 1;
+    let totalPage = currentPage;
 
     $(document).ready(function () {
         searchBtnEvt();
@@ -108,8 +109,10 @@
 
         // 다음 버튼 클릭 시
         $('.next').click(function () {
-            currentPage++;
-            searchBtnEvt();
+            if(currentPage < totalPage){
+                currentPage++;
+                searchBtnEvt();
+            }
         });
 
         // 이전 버튼 클릭 시
@@ -121,45 +124,96 @@
         });
     });
 
-    function searchBtnEvt() {
-        const inputText = $('#inputText').val();
-        const searchType = $('#searchSelectType').val();
-        const userListTBody = $('#inquiryListTBody');
-        const totalPageElem = $('#totalPage');
-        const selectValue = $('#resultSelect').val();
+    function searchBtnEvt(e) {
+        const inputText = document.getElementById('inputText').value;
+        const searchType = document.getElementById('searchSelectType').value;
+        const inquiryListTBody = document.getElementById('inquiryListTBody');
         const total = document.getElementById('total');
+        const pagesParam = document.getElementById('totalpage');
+        const selectValue = document.getElementById('resultSelect').value;
 
         $.ajax({
-            url: '/searchInquiries',
+            url: '/Inquiry/search',
             type: 'GET',
             data: {"searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue},
             success: function (response) {
                 if (response) {
                     let responseText = '';
                     let len = response.length;
-                    let totalPage = Math.ceil(len / selectValue);
-                    let startPrint = (currentPage - 1) * selectValue;
-                    let endPrint = currentPage * selectValue;
-                    if (endPrint > len) {
-                        endPrint = len;
+                    if (len > 0) {
+                        let startPrint = currentPage * selectValue - selectValue;
+                        let endPrint = currentPage * selectValue;
+                        totalPage = Math.ceil(len / selectValue);
+                        if (endPrint > len) endPrint = len;
+                        for (let i = startPrint; i < endPrint; i++) {
+                            responseText += "<tr>";
+                            responseText += "<td><input type='checkbox' name='userCheckbox' id=''></td>";
+                            responseText += "<td>" + response[i].inquiryId + "</td>";
+                            responseText += "<td>" + response[i].inquiryTitle + "</td>";
+                            responseText += "<td>" + response[i].contents + "</td>";
+                            responseText += "<td>" + response[i].userId + "</td>";
+                            responseText += "<td>" + response[i].inquiryDate + "</td>";
+                            responseText += "<td><input type='checkbox' name='' id='' disabled " + (response[i].responseTF == 1 ? "checked" : "") + "></td>";
+                            responseText += "<td><input type='button' class='correction'>";
+                        }
+                    } else {
+                        totalPage = currentPage;
                     }
-                    for (let i = startPrint; i < endPrint; i++) {
-                        responseText += "<tr>";
-                        responseText += "<td><input type='checkbox' name='' id=''></td>";
-                        responseText += "<td>" + response[i].inquiryId + "</td>";
-                        responseText += "<td>" + response[i].inquiryTitle + "</td>";
-                        responseText += "<td>" + response[i].contents + "</td>";
-                        responseText += "<td>" + response[i].userId + "</td>";
-                        responseText += "<td>" + response[i].inquiryDate + "</td>";
-                        responseText += "<td><input type='checkbox' name='' id='' disabled " + response[i].responseTF == 1 ? 'checked' : '' + "></td>";
-                        responseText += "<td><input type='button' class='correction'>";
-                    }
-                    userListTBody.html(responseText);
+                    inquiryListTBody.innerHTML = responseText;
                     total.innerHTML = "result : " + len + "개";
-                    totalPageElem.html(currentPage + " of " + totalPage);
+                    pagesParam.html(currentPage + " of " + totalPage);
                 }
             }
         });
+    }
+
+    function clearCheckboxes() {
+        $('input[name="userCheckbox"]').prop('checked', false);
+        $('#selectAllCheckbox').prop('checked', false);
+    }
+
+    // CSRF 토큰을 메타 태그에서 가져옴
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+
+    // 영구 삭제 함수
+    function deleteInquiry() {
+        let inquiryIds = [];
+
+
+        $('input[name="userCheckbox"]:checked').each(function () {
+            let inquiryId = $(this).closest('tr').find('td:eq(1)').text().trim();
+            inquiryIds.push(inquiryId);
+        });
+
+        console.log('Collected inquiryIds:', inquiryIds);
+
+        if (inquiryIds.length === 0) {
+            alert('삭제할 목록을 선택해주세요.');
+            return;
+        }
+
+        if (confirm('선택한 사항을 영구 삭제하시겠습니까?')) {
+            $.ajax({
+                url: '/Inquiry/deleteInquiry',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(inquiryIds),
+                beforeSend: function (xhr) {
+                    // 요청 헤더에 CSRF 토큰을 포함
+                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                },
+                success: function (response) {
+                    console.log('Response:', response);
+                    alert('선택한 사항들이 성공적으로 삭제되었습니다.');
+                    searchBtnEvt();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error('AJAX Error:', textStatus, errorThrown);
+                    alert('사용자 삭제를 실패하였습니다.');
+                }
+            });
+        }
     }
 </script>
 </body>

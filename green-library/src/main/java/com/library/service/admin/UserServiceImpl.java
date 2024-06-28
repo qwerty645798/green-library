@@ -50,20 +50,20 @@ public class UserServiceImpl implements UserService {
         return userDetails;
     }
 
-    @Override
-    public UserDTO getUserById(String id) {
-        return userRepository.getUserById(id);
-    }
-
-    @Override
-    public List<RentDTO> loanUserById(String userId) {
-        return userRepository.loanUserById(userId);
-    }
-
-    @Override
-    public List<SuspensionDTO> suspensionUserById(String userId) {
-        return userRepository.suspensionUserById(userId);
-    }
+//    @Override
+//    public UserDTO getUserById(String id) {
+//        return userRepository.getUserById(id);
+//    }
+//
+//    @Override
+//    public List<RentDTO> loanUserById(String userId) {
+//        return userRepository.loanUserById(userId);
+//    }
+//
+//    @Override
+//    public List<SuspensionDTO> suspensionUserById(String userId) {
+//        return userRepository.suspensionUserById(userId);
+//    }
 
     @Override
     public int createSuspension(SuspensionDTO suspension) {
@@ -76,8 +76,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void releaseSuspension(String userId) {
-        userRepository.releaseSuspension(userId);
+    public void releaseSuspension(String userId, String suspenId) {
+        userRepository.releaseSuspension(userId, suspenId);
     }
 
 }
