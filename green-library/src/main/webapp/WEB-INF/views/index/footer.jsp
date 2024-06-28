@@ -10,7 +10,7 @@
     </head>
     <body>
     
-    <div id="scrollBtn">
+    <div id="scrollBtn" class="scrollBtn">
     <img src="/images/doubleArrowUp.png">
     </div>
     

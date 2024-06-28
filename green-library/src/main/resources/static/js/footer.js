@@ -11,25 +11,16 @@ function scrollPer(){
 	return scrollPercentage;
 }
 
-let btnH = 50;
-let btnW = 50;
 
 
 //스크롤 버튼이 스크롤 위치에 따라 생겼다가 사라지게 한다.
 function scrollUp(){
-	if(scrollPer()>=50&&!scrollBtn.classList.contains("btnOn")){
-//		scrollBtn.style.display = "block";
-		scrollBtn.style.height = btnH + "px";
-		scrollBtn.style.width = btnW + "px";
-		scrollBtn.classList.add("btnOn");
-//		scrollBtn.style.transition = "all 300ms ease-in-out";
-		
+	if(scrollPer()>=50){
+		scrollBtn.style.bottom = 200 + "px";
+		scrollBtn.style.transition = "bottom 300ms ease-in-out";
 	}else{
-//		scrollBtn.style.display = "none";
-		scrollBtn.style.height = 0 + "px";
-		scrollBtn.style.width = 0 + "px";
-		scrollBtn.classList.remove("btnOn");
-//		scrollBtn.style.transition = "all 300ms ease-in-out";
+		scrollBtn.style.bottom = -100 + "px";
+		scrollBtn.style.transition = "bottom 300ms ease-in-out";
 	}
 	
 };
@@ -50,12 +41,12 @@ scrollBtn.onclick = () => {
 
 //footer 페이지 이동
 footerPage[0].onclick = () =>{
-	window.location.href = 'privacyPolicy';
+	window.location.href = '/privacyPolicy';
 }
 footerPage[1].onclick = () =>{
-	window.location.href = 'wayToCome';	
+	window.location.href = '/wayToCome';	
 }
 footerPage[2].onclick = () =>{
-	window.location.href = 'oftenAsk';	
+	window.location.href = '/oftenAsk';	
 }
 
