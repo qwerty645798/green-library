@@ -60,5 +60,25 @@ addLoadEvent(accordian);
 	            window.location.href = 'userAgreement';
 	        }
 	    }
+		
+//헤더 상단 고정
+
+//let headerBar = document.querySelector('.headerBottom');
+//let whereScroll = document.documentElement.scrollTop;
+//
+//function headerHang(){
+//	if(whereScroll>=200){
+//			headerBar.style.position = "fixed";
+//			subMenu.style.position = "fixed"
+//			headerBar.style.top = 0 + "px";
+//			subMenu.style.top = 56 + "px";
+//		}else{
+//			headerBar.style.position = "static";
+//			subMenu.style.position = "static";
+//		}
+//}
+//
+//addLoadEvent(headerHang);
+	
 	    
 
