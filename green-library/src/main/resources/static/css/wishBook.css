@@ -5,8 +5,9 @@
     width: 1260px;
     height: 340px;
     margin: 0 auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 100px;
+/* 	margin-bottom: 20px; */
+	padding: 20px 0 20px 0;
 	border:2px solid #ECD9BC;
 	border-radius: 5px;
 }
@@ -33,12 +34,15 @@
 
 .book_table {
     width: 1000px;
+    display: flex;
+    align-items: center;
 }
 
 .book_table table {
     border-collapse: collapse;
     width: 800px;
-	height: 300px;
+/* 	height: 300px; */
+	height: 200px;
     margin: 0 auto;
 }
 
@@ -65,24 +69,47 @@
 
 .wishform{
 	display:inline-block;
+	float: right;
 }
 
-.book_table input{
-	width: 100px;
-	height: 30px;
+/* .book_table input */
+input{
+/* 	width: 100px; */
+/* 	height: 30px; */
+/* 	border: none; */
+/* 	border-radius: 5px;	 */
+/* 	background-color: #a0cab0; */
+/* 	cursor: pointer; */
+/* 	text-align: center; */
+/* 	font-size: 14pt; */
+	
+	float: right;
+	width:120px; 
+	height:35px; 
+/* 	margin: 20px 0 0 10px; */
+	margin: 20px 10px 0 10px;
+	background-color: #1d7647;
+	color: white;
+	font-weight: bold;
 	border: none;
-	border-radius: 5px;	
-	background-color: #a0cab0;
+	border-radius: 5px;
 	cursor: pointer;
-	text-align: center;
-	font-size: 14pt;
 }
 
 .hidden{
 	display: none;
 }
-.book_table input:hover{
-	background-color: #64B883;
+/* .book_table input:hover{ */
+/* 	background-color: #64B883; */
+/* } */
+
+.butns{
+	display:flex;
+	justify-content: center;
+}
+.butns2{
+	width: 1260px;
+	
 }
 
 
