@@ -191,9 +191,12 @@
 					</c:when>
 				</c:choose>
 	        
-	    </div>
+<!-- 	    </div> -->
 	</div>
+<!--     <div class="infoBoard3"> -->
     
+<!--     </div> -->
+	<iframe src="/schedule" width="600" height="300"></iframe>
     
 </div>
 
