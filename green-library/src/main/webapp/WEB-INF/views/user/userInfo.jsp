@@ -79,7 +79,7 @@
 								<th>예약</th>
 							</tr>
 							<tr>
-								<td>${count.reserve_count}/ 5</td>
+								<td>${count.reserve_count} / 5</td>
 
 							</tr>
 						</table>
@@ -91,7 +91,7 @@
 								<th>대출</th>
 							</tr>
 							<tr>
-								<td>${count.rent_count}/ 5</td>
+								<td>${count.rent_count} / 5</td>
 
 							</tr>
 						</table>

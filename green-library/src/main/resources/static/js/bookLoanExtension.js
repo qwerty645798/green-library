@@ -48,7 +48,7 @@ function extendAllCheckedbox() {
         const returnDate = bookContainer.getAttribute('data-return-date');
 
         if (!extendEachBook(bookId, rentHistory, returnDate, true)) {
-            alert("대출 불가능한 책이 선택되어 있습니다.");
+            alert("연장 불가능한 책이 선택되어 있습니다.");//경고창 두 번 뜨는게 거슬리면 이거 삭제
             return false;
         }
     }

@@ -6,7 +6,8 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>이용자 관리</title>
+                <meta name="csrf-token" content="${_csrf.token}">
+                <title>사용자 관리</title>
                 <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
                 <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
                 <link rel="stylesheet" type="text/css" href="/admin/css/public/adminFooter.css">
@@ -151,7 +152,7 @@
 
                         // 다음 버튼 클릭 시 페이징 처리
                         $('.next').click(function () {
-                            if(currentPage < totalPage) {
+                            if (currentPage < totalPage) {
                                 currentPage++;
                                 clearCheckboxes();
                                 searchBtnEvt();
@@ -187,20 +188,21 @@
                                 if (response) {
                                     let responseText = '';
                                     let len = response.length;
-                                    if(len > 0){
+                                    if (len > 0) {
                                         let startPrint = currentPage * selectValue - selectValue;
                                         let endPrint = currentPage * selectValue;
                                         totalPage = Math.ceil(len / selectValue);
-                                        if (endPrint > len)  endPrint = len;
+                                        if (endPrint > len) endPrint = len;
                                         for (let i = startPrint; i < endPrint; i++) {
-                                        responseText += "<tr>";
-                                        responseText += "<td><input type='checkbox' name='userCheckbox'id='userCheckbox'/></td>";
-                                        responseText += "<td>" + response[i].userId + "</td>";
-                                        responseText += "<td>" + response[i].userName + "</td>";
-                                        responseText += "<td>" + response[i].userEmail + "</td>";
-                                        responseText += "<td><input type='button' className='modifyBtn' onclick=loadUserInfo('" + response[i].userId + "') /> </td></tr>";
-                                    }}
-                                    else{
+                                            responseText += "<tr>";
+                                            responseText += "<td><input type='checkbox' name='userCheckbox'id='userCheckbox'/></td>";
+                                            responseText += "<td>" + response[i].userId + "</td>";
+                                            responseText += "<td>" + response[i].userName + "</td>";
+                                            responseText += "<td>" + response[i].userEmail + "</td>";
+                                            responseText += "<td><input type='button' className='modifyBtn' onclick=loadUserInfo('" + response[i].userId + "') /> </td></tr>";
+                                        }
+                                    }
+                                    else {
                                         totalPage = currentPage;
                                     }
                                     userListTBody.innerHTML = responseText;
@@ -278,6 +280,10 @@
                         $('#selectAllCheckbox').prop('checked', false);
                     }
 
+                    // CSRF 토큰을 메타 태그에서 가져옴
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+
                     // 유저 영구 삭제 함수
                     function deleteUsers() {
                         let userIds = [];
@@ -299,8 +305,12 @@
                             $.ajax({
                                 url: '/User/deleteUsers',
                                 type: 'POST',
-                                contentType: 'application/json',
-                                data: JSON.stringify({ userIds: userIds }),
+                                data: { userIds: userIds },
+                                traditional: true, // 배열 데이터 전송을 위한 설정
+                                beforeSend: function (xhr) {
+                                    // 요청 헤더에 CSRF 토큰을 포함
+                                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                                },
                                 success: function (response) {
                                     alert('선택한 사용자가 성공적으로 삭제되었습니다.');
                                     // 삭제 후에는 다시 검색을 실행하여 목록을 업데이트합니다.
@@ -313,7 +323,6 @@
                         }
                     }
 
-
                     // 제한 해제 함수
                     function releaseBan(banId) {
                         if (confirm('정말로 이 이용 제한을 해제하시겠습니까?')) {
@@ -321,6 +330,10 @@
                                 url: '/User/releaseBan',
                                 type: 'POST',
                                 data: { banId: banId },
+                                beforeSend: function (xhr) {
+                                    // 요청 헤더에 CSRF 토큰을 포함
+                                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                                },
                                 success: function (response) {
                                     alert('이용 제한이 성공적으로 해제되었습니다.');
 
