@@ -1,5 +1,10 @@
 
-
+.test{
+	display: flex;
+	justify-content: space-evenly;
+	width: 1260px;
+	margin-bottom: 50px;
+}
 .outContainer{
     display: flex;
     flex-direction: column;
