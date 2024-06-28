@@ -95,7 +95,6 @@ header{
     
     top: 203px;
     width: 1260px;
-/*     height: 250px; */
 	height: 0px;
 	overflow: hidden;
     
@@ -131,7 +130,7 @@ header{
 	display:flex;
 	margin: 0px;
 	width: 252px;
-	height: 57px;
+	height: 60px;
 	align-items: center;
 	text-align: center;
     font-size: 11pt;
@@ -142,13 +141,11 @@ header{
 .menuBar>li:hover{
    /*  text-decoration: underline; */
 /*     color: #e7f3e8; */
-    background-color:#64b883;
-    opacity: 0.5;
-    cursor: pointer;
-    transition: 300ms ease-in-out;
+    background-color:rgb(185, 223, 200);
+    cursor: pointer;    transition: 300ms ease-in-out;
 }
 .menuBar>li:hover a{
-	color: white;
+	color: brown;
 }
 .subMenuTop, .menuBar{
     font-size: 0pt;
@@ -158,29 +155,11 @@ header{
 .menuopen{
 	transition: height 300ms ease-in-out;
 }
+.fixUp{
+	position: fixed;
+	top: 0px;
+}
 
-
-/*test*/
-/* #subMenu1{ */
-/*     position: absolute; */
-/*     left: 0px; */
-/* } */
-/* #subMenu2{ */
-/*     position: absolute; */
-/*     left: 252px; */
-/* } */
-/* #subMenu3{ */
-/*     position: absolute; */
-/*     left: 504px; */
-/* } */
-/* #subMenu4{ */
-/*     position: absolute; */
-/*     left: 756px; */
-/* } */
-/* #subMenu5{ */
-/*     position: absolute; */
-/*     left: 1008px; */
-/* } */
 a#myPage{
 	color:#1d7647;
 	cursor:pointer;

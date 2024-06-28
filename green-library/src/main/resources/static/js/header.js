@@ -63,9 +63,18 @@ addLoadEvent(accordian);
 		
 //헤더 상단 고정
 
-//let headerBar = document.querySelector('.headerBottom');
-//let whereScroll = document.documentElement.scrollTop;
-//
+let pageHead = document.querySelector('header');
+let headerBar = document.querySelector('.headerBottom');
+let whereScroll = document.documentElement.scrollTop;
+
+
+function headerHang(){
+	if(whereScroll>=200){
+		headerBar.classList.add("fixUp");
+	}else if(whereScroll<200){
+		headerBar.classList.remove("fixUp");
+	}
+}
 //function headerHang(){
 //	if(whereScroll>=200){
 //			headerBar.style.position = "fixed";
@@ -78,7 +87,7 @@ addLoadEvent(accordian);
 //		}
 //}
 //
-//addLoadEvent(headerHang);
+addLoadEvent(headerHang);
 	
 	    
 

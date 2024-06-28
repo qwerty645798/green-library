@@ -7,11 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inquiryDetail</title>
-    <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/inquiryDetail.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/adminFooter.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/style.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/inquiryDetail.css">
 </head>
 
 <body>

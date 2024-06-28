@@ -8,11 +8,11 @@
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>장서관리</title>
-                    <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
-                    <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
-                    <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
-                    <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
-                    <link rel="stylesheet" type="text/css" href="admin/css/bookManage.css">
+                    <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
+                    <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
+                    <link rel="stylesheet" type="text/css" href="/admin/css/public/adminFooter.css">
+                    <link rel="stylesheet" type="text/css" href="/admin/css/public/style.css">
+                    <link rel="stylesheet" type="text/css" href="/admin/css/bookManage.css">
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 </head>
 
@@ -33,7 +33,7 @@
                                         <option value="all" selected>제목 + 저자</option>
                                     </select>
                                     <div class="inputBox">
-                                        <input type="text" id="inputText" class="inputText" name="ss" maxlength="20"
+                                        <input type="text" id="inputText" class="inputText" name="searchKeyword" maxlength="20"
                                             placeholder="검색어를 입력하세요" value="" />
                                         <button type="button" id="searchBtn" class="searchBtn">검색</button>
                                     </div>
@@ -85,6 +85,7 @@
                     <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
                     <script>
                         let currentPage = 1;
+                        let totalPage = currentPage;
 
                         $(document).ready(function () {
                             searchBtnEvt();
@@ -108,8 +109,10 @@
 
                             // 다음 버튼 클릭 시
                             $('.next').click(function () {
-                                currentPage++;
-                                searchBtnEvt();
+                                if(currentPage < totalPage){
+                                    currentPage++;
+                                    searchBtnEvt();
+                                }
                             });
 
                             // 이전 버튼 클릭 시
@@ -124,7 +127,7 @@
                         function searchBtnEvt() {
                             const inputText = $('#inputText').val();
                             const searchType = $('#searchSelectType').val();
-                            const userListTBody = $('#bookListTBody');
+                            const bookListTBody = $('#bookListTBody');
                             const totalPageElem = $('#totalPage');
                             const selectValue = $('#resultSelect').val();
                             const total = document.getElementById('total');
@@ -137,7 +140,7 @@
                                     if (response) {
                                         let responseText = '';
                                         let len = response.length;
-                                        let totalPage = Math.ceil(len / selectValue);
+                                        totalPage = Math.ceil(len / selectValue);
                                         let startPrint = (currentPage - 1) * selectValue;
                                         let endPrint = currentPage * selectValue;
                                         if (endPrint > len) {
@@ -157,7 +160,7 @@
                                             responseText += "<input type='button' class='correction' onclick='modifyBook(" + response[i].bookId + ")'>";
                                             responseText += "<input type='button' class='return' onclick='returnBook(" + response[i].bookId + ")'></td></tr>";
                                         }
-                                        userListTBody.html(responseText);
+                                        bookListTBody.html(responseText);
                                         total.innerHTML = "result : " + len + "개";
                                         totalPageElem.html(currentPage + " of " + totalPage);
                                     }

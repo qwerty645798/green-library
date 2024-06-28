@@ -3,14 +3,15 @@ package com.library.controller.admin;
 import com.library.dto.admin._normal.WishlistDTO;
 import com.library.service.admin.AcquisitionRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
+@RequestMapping("/BuyBook")
 public class AcquisitionRequestController {
 
     private final AcquisitionRequestService acquisitionRequestService;
@@ -20,48 +21,31 @@ public class AcquisitionRequestController {
         this.acquisitionRequestService = acquisitionRequestService;
     }
 
-    @GetMapping("/BuyBook")
+    @GetMapping()
     public String buy(Model model) {
         List<WishlistDTO> wishList = acquisitionRequestService.allAcquisitionManage();
         model.addAttribute("wishList", wishList);
         return "admin/adminBook/buyBook/bookBuy";
     }
 
-    @GetMapping("/searchWishlist")
-    public String searchWishlist(@RequestParam(value = "searchType", required = false) String searchType,
-                                 @RequestParam(value = "searchKeyword", required = false) String searchKeyword,
-                                 @RequestParam(value = "perPage", required = false) Optional<Integer> perPage,
-                                 Model model) {
-        int itemsPerPage = perPage.orElse(10); // Default to 10 if not specified
+//    검색
+    @GetMapping("/search")
+    public ResponseEntity<List<WishlistDTO>> searchBooks(
+            @RequestParam(value = "searchType", required = false) String searchType,
+            @RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
 
-        List<WishlistDTO> wishList;
+        List<WishlistDTO> wishBooks;
+
         if (searchKeyword == null || searchKeyword.trim().isEmpty()) {
-            wishList = acquisitionRequestService.allAcquisitionManage();
+            wishBooks = acquisitionRequestService.allAcquisitionManage();
         } else {
-            switch (searchType) {
-                case "title":
-                    wishList = acquisitionRequestService.findAcquisitionByTitle(searchKeyword);
-                    break;
-                case "author":
-                    wishList = acquisitionRequestService.findAcquisitionByAuthor(searchKeyword);
-                    break;
-                case "genre":
-                    wishList = acquisitionRequestService.findAcquisitionByGenre(searchKeyword);
-                    break;
-                default:
-                    wishList = acquisitionRequestService.allAcquisitionManage();
-                    break;
-            }
+            wishBooks = switch (searchType) {
+                case "title" -> acquisitionRequestService.findAcquisitionByTitle(searchKeyword);
+                case "author" -> acquisitionRequestService.findAcquisitionByAuthor(searchKeyword);
+                case "publish" -> acquisitionRequestService.findAcquisitionByPublish(searchKeyword);
+                default -> acquisitionRequestService.findAcquisitionByTotal(searchKeyword);
+            };
         }
-
-//        int totalWishlistCount = acquisitionRequestService.getTotalWishlistCount();
-
-        model.addAttribute("wishList", wishList);
-//        model.addAttribute("totalWishlistCount", totalWishlistCount);
-        model.addAttribute("perPage", itemsPerPage);
-        model.addAttribute("searchType", searchType);
-        model.addAttribute("searchKeyword", searchKeyword);
-
-        return "admin/adminBook/buyBook/bookBuy";
+        return ResponseEntity.ok(wishBooks);
     }
 }

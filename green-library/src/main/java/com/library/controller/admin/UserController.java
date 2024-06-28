@@ -1,6 +1,5 @@
 package com.library.controller.admin;
 
-import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
 import com.library.dto.admin.userManagement.UserDetailDTO;
 import com.library.service.admin.UserService;
@@ -12,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+
 @Controller("AdminUserController")
 @RequestMapping("/User")
 public class UserController {
@@ -47,7 +48,6 @@ public class UserController {
                 default -> userService.findUserByTotal(searchKeyword); //제목 + 저자 + 출판
             };
         }
-
         return ResponseEntity.ok(users);
     }
 
@@ -59,15 +59,21 @@ public class UserController {
 
     @PostMapping("/deleteUsers")
     public ResponseEntity<String> deleteUsers(@RequestBody List<String> userIds) {
+        System.out.println("Received userIds: " + userIds);
+        for(String userId : userIds) {
+            System.out.println("Deleting user: " + userId);
+        }
             userService.deleteUsers(userIds);
-            return ResponseEntity.ok("이용자가 삭제되었습니다.");
+            return ResponseEntity.ok("삭제 성공");
+
     }
 
-    // Endpoint to release ban for a user
-    @GetMapping("/releaseBan")
+
+
+
     @PostMapping("/releaseBan")
-    public ResponseEntity<String> releaseBan(@RequestParam("userId") String userId) {
-            userService.releaseSuspension(userId);
-            return ResponseEntity.ok("제한이 해제되었습니다.");
+    public ResponseEntity<String> releaseBan(@RequestParam("userId") String userId, @RequestParam("suspenId") String suspenId) {
+            userService.releaseSuspension(userId, suspenId);
+            return ResponseEntity.ok("success");
     }
 }

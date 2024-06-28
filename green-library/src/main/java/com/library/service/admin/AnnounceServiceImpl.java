@@ -21,19 +21,11 @@ public class AnnounceServiceImpl implements AnnounceService {
         return announcementRepository.allAnnounceManage();
     }
 
-    //    select 제한 두기
-//    @Override
-//    public int getTotalAnnouncementsCount() {
-//        return (int) announcementRepository.count();
-//    }
-//
-//    @Override
-//    public List<AnnouncementDTO> getAnnouncements(int limit) {
-//        return announcementRepository.findAll()
-//                .stream()
-//                .limit(limit)
-//                .collect(Collectors.toList());
-//    }
+//    전체에서 조회
+    @Override
+    public List<AnnouncementDTO> findAnnounceByTotal(String total) {
+        return announcementRepository.findAnnounceByTotal(total);
+    }
 
     // 제목으로 조회
     @Override

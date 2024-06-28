@@ -36,7 +36,8 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     @Override
     public List<InquiryDTO> allInquiryManage() {
         String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE, RESPONSETF " +
-                "FROM INQUIRIES";
+                "FROM INQUIRIES " +
+                "ORDER BY INQUIRY_ID";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             InquiryDTO inquiry = new InquiryDTO();
             inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
@@ -44,8 +45,32 @@ public class InquiryRepositoryImpl implements InquiryRepository {
             inquiry.setContents(rs.getString("CONTENTS"));
             inquiry.setUserId(rs.getString("USER_ID"));
             inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
-            inquiry.setResponseTF((char) rs.getInt("ResponseTF"));
-//            setResponse(rs, inquiry);
+            setResponse(rs, inquiry);
+            return inquiry;
+        });
+    }
+
+//    전체에서 조회
+    @Override
+    public List<InquiryDTO> findInquiryByTotal(String total) {
+        String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE, RESPONSETF " +
+                "FROM INQUIRIES WHERE INQUIRY_TITLE LIKE ? OR CONTENTS LIKE ? " +
+                "ORDER BY INQUIRY_ID";
+        String queryParam = "%" + total + "%";
+
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, queryParam);
+            ps.setString(2, queryParam);
+            return ps;
+        }, (rs, rowNum) -> {
+            InquiryDTO inquiry = new InquiryDTO();
+            inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
+            inquiry.setInquiryTitle(rs.getString("INQUIRY_TITLE"));
+            inquiry.setContents(rs.getString("CONTENTS"));
+            inquiry.setUserId(rs.getString("USER_ID"));
+            inquiry.setInquiryDate(rs.getDate("INQUIRY_DATE"));
+            setResponse(rs, inquiry);
             return inquiry;
         });
     }
@@ -54,7 +79,8 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     @Override
     public List<InquiryDTO> findInquiryByTitle(String keyword) {
         String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE, RESPONSETF " +
-                "FROM INQUIRIES WHERE INQUIRY_TITLE LIKE ?";
+                "FROM INQUIRIES WHERE INQUIRY_TITLE LIKE ? " +
+                "ORDER BY INQUIRY_ID";
         String queryParam = "%" + keyword + "%";
 
         return jdbcTemplate.query(con -> {
@@ -77,7 +103,8 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     @Override
     public List<InquiryDTO> findInquiryByContents(String keyword) {
         String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE, RESPONSETF " +
-                "FROM INQUIRIES WHERE CONTENTS LIKE ?";
+                "FROM INQUIRIES WHERE CONTENTS LIKE ? " +
+                "ORDER BY INQUIRY_ID";
         String queryParam = "%" + keyword + "%";
 
         return jdbcTemplate.query(con -> {
@@ -100,7 +127,8 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     @Override
     public List<InquiryDTO> findAnsweredInquiry() {
         String sql = "SELECT I.INQUIRY_ID, I.INQUIRY_TITLE, I.CONTENTS, I.USER_ID, I.INQUIRY_DATE, I.RESPONSETF " +
-                "FROM INQUIRIES I JOIN INQUIRY_RESPONSES IR ON I.INQUIRY_ID = IR.INQUIRY_ID";
+                "FROM INQUIRIES I JOIN INQUIRY_RESPONSES IR ON I.INQUIRY_ID = IR.INQUIRY_ID " +
+                "ORDER BY INQUIRY_ID";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             InquiryDTO inquiry = new InquiryDTO();
             inquiry.setInquiryId(rs.getInt("INQUIRY_ID"));
@@ -117,7 +145,8 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     @Override
     public InquiryDTO getInquiryById(Integer inquiryId) {
         String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE " +
-                "FROM INQUIRIES WHERE INQUIRY_ID = ?";
+                "FROM INQUIRIES WHERE INQUIRY_ID = ? " +
+                "ORDER BY INQUIRY_ID";
         return jdbcTemplate.query(con -> {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setInt(1, inquiryId);

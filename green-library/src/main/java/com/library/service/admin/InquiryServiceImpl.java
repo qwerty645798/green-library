@@ -19,6 +19,11 @@ public class InquiryServiceImpl implements InquiryService{
         return inquiryRepository.allInquiryManage();
     }
 
+    @Override
+    public List<InquiryDTO> findInquiryByTotal(String searchKeyword) {
+        return inquiryRepository.findInquiryByTotal(searchKeyword);
+    }
+
     // 제목으로 조회
     @Override
     public List<InquiryDTO> findInquiryByTitle(String title){

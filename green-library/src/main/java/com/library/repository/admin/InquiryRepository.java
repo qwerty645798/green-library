@@ -9,6 +9,9 @@ public interface InquiryRepository {
     // 모든 문의 목록 조회
     List<InquiryDTO> allInquiryManage();
 
+    // 전체에서 문의 조회
+    List<InquiryDTO> findInquiryByTotal(String total);
+
     // 제목으로 문의 검색
     List<InquiryDTO> findInquiryByTitle(String keyword);
 
