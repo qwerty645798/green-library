@@ -20,7 +20,7 @@
 
 <body>
 
-<jsp:include page="index/header.jsp" />
+<jsp:include page="../index/header.jsp" />
 <c:set var="itemsPerPage" value="${itemsPerPage}"/>
 <c:set var="totalItems" value="${fn:length(announces)}" />
 <%
@@ -146,7 +146,7 @@ addLoadEvent(function(){
 });
 </script>
 
-<jsp:include page="index/footer.jsp" />
+<jsp:include page="../index/footer.jsp" />
 <footer id="footer" class="footer"></footer>
 
 

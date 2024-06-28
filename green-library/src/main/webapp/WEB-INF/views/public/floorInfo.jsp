@@ -10,6 +10,7 @@
         <link href="/CSS/floorInfo.css" type="text/css" rel="stylesheet">
     </head>
     <body>
+    	<jsp:include page="../index/header.jsp" />
         <div class="floorPage">
     
             <div img src="" class="floor">1층 지도</div>
@@ -42,6 +43,6 @@
         </div>
     
         
-        
+        <jsp:include page="../index/footer.jsp" />
     </body>
     </html>
