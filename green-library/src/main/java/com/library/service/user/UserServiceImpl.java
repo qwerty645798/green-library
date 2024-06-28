@@ -75,6 +75,17 @@ public class UserServiceImpl implements UserService {
 	    }
 	}
 	
+	// 회원정보수정을 위한 인증
+	@Override
+	public boolean checkUserPass(String userPass) {
+        try{
+        	userRepository.getUsersEntity(userPass);
+        	return true;
+        } catch (EmptyResultDataAccessException e) {
+        	return false;
+        }
+    }
+	
 	//아이디 중복체크
 	@Override
 	public boolean checkUserId(String userId) {
