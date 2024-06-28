@@ -6,8 +6,8 @@
 <meta charset="utf-8">
 <title>사업 구조</title>
 
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/vision.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/vision.css">
 
 </head>
 
@@ -33,7 +33,7 @@
 
 <div class="first_container">
 	<div class="img_box">
-		<img src="images/vision.png">
+		<img src="images/비전.png">
 	</div>
 </div>
 <!-- vision photo -->

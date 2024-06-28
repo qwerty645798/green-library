@@ -6,16 +6,16 @@ footer{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* height: 176px; */
+    height: 200px;
     background-color:#6c5a3f;
    
 }
 .footBox2{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 1260px;
-    /* height: 176px; */
+    height: 200px;
     font-size: 12pt;
     color: white;
     background-color: #6c5a3f;
@@ -25,7 +25,13 @@ footer{
     font-size: 12pt;
     font-weight: bold;
 }
-p{
+.lpf{
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 50px;
+}
+.libin{
     width: 500px;
     font-size: 10pt;
 }
@@ -45,9 +51,10 @@ p{
 
 /*scrollBtn css*/
 .scrollBtn{
+	display: block;
 	position: fixed;
-	bottom: 200px;
-	display: none;
+/* 	bottom: 200px; */
+	bottom: -100px;
 	right: 100px;
 	width: 50px;
 	height: 50px;
@@ -60,3 +67,4 @@ p{
 	width: 50px;
 	height: 50px;
 }
+

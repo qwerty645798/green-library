@@ -32,7 +32,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<input type="hidden" name="userId" value="${userId}">
 			
-                <span class="star">*</span>
+                <span class="starTop">*</span>
                 <span class="word">&nbsp;는 필수 입력 항목입니다.</span><br><br>
     
                 <table>

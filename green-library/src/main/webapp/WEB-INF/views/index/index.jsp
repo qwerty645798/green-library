@@ -45,45 +45,36 @@
     <div id="quickBundle" class="quickBundle">
     
        	<div id="quick1" class="quickPage">
-       	<a href="placeUsetime">
+       	<a href="/placeUsetime">
        	<img src="/images/useTimeGreen.png">
             이용 시간
         </a>
         </div>
         <div id="quick1" class="quickPage">
-       	<a href="bookLoanExtension">
+       	<a href="/user/bookLoanExtension">
        	<img src="/images/bookExtensionGreen.png">
             대출 연장
         </a>
         </div>
         <div id="quick1" class="quickPage">
-       	<a href="hopeBookApply">
+       	<a href="/user/hopeBookApply">
        	<img src="/images/hopeBookGreen.png">
             희망도서
         </a>
         </div>
         <div id="quick1" class="quickPage">
-       	<a href="oftenAsk">
+       	<a href="/oftenAsk">
        	<img src="/images/helpGreen.png">
             문의사항
         </a>
         </div>
         <div id="quick1" class="quickPage">
-       	<a href="schedule">
+       	<a href="/schedule">
        	<img src="/images/calendarGreen.png">
             캘린더
         </a>
         </div>
        	
-       	
-<!--         <div id="quick2" class="quickPage"><img src="/images/bookExtensionGreen.png"> -->
-<!--             대출 연장</div>유효성 검사 필요 -->
-<!--         <div id="quick3" class="quickPage"><img src="/images/hopeBookGreen.png"> -->
-<!--             희망도서</div>유효성 검사 필요 -->
-<!--         <div id="quick4" class="quickPage"><img src="/images/helpGreen.png"> -->
-<!--             문의사항</div> -->
-<!--         <div id="quick5" class="quickPage"><img src="/images/calendarGreen.png"> -->
-<!--             캘린더</div> -->
     </div>
 
     <br><br>
@@ -113,8 +104,8 @@
 					
 		        	<li>
 						<c:set var="index" value="${num}"/>
-						<a href="bookDetail?bookId=${items[index].book_id}">
-						<img src="images/${items[index].img}">
+						<a href="/bookDetail?bookId=${items[index].book_id}">
+						<img src="/images/${items[index].img}">
 			        	<span class="bookt">
 							${items[index].title}
 						</span></a>
@@ -140,15 +131,13 @@
 								
 	        	<li>
 					<c:set var="index" value="${num}"/>
-					<a href="bookDetail?bookId=${pops[index].book_id}">
-					<img src="images/${pops[index].img}">
+					<a href="/bookDetail?bookId=${pops[index].book_id}">
+					<img src="/images/${pops[index].img}">
 		        	<span class="bookt">
 							${items[index].title}
 					</span></a>
 				</li>
-
 			</c:forEach>
-
         </ul>
         </div>
         <div class="goBtn2">
@@ -163,23 +152,43 @@
 		<div class="infoBoard2">
 		<div class="titleQuick">
 			<span>공지사항</span>
+			<a href="/notification">
 			<img class="gotoNotify" src="/images/gotoPage.png">
+			</a>
+			
 		</div>
 		
 <!-- 		제일 최근 공지 6개만 뜨게 -->
-	        <table>
-				<c:forEach var="num" begin="0" end="5">
-					<tr>
-			        	<td>${announce[num].writerId}</td>
-			        	<td>${announce[num].announcementTitle}</td>
-			        	<td>${announce[num].writeDate}</td>
-		        	<tr>
-				</c:forEach>
 	        	
-	        	
+<!-- 게시글이 5개 이상일 때 6개씩 뜨게 하려고 조건문 넣었어요. -->
 
-	        	
-	        </table>
+				<c:set var="annoList" value="${fn:length(announce)}"/>
+
+				<c:choose>
+					<c:when test="annoList>=6}">
+						<c:forEach var="num" begin="${annoList}" end="${annoList-5}">
+						<table>
+							<tr>
+					        	<td>${announce[num].writerId}</td>
+					        	<td>${announce[num].announcementTitle}</td>
+					        	<td>${announce[num].writeDate}</td>
+				        	</tr>
+				        	</table>
+						</c:forEach>
+					</c:when>
+					<c:when test="${annoList<6}">
+						<c:forEach var="num" begin="0" end="5">
+						<table>
+							<tr>
+					        	<td>${announce[num].writerId}</td>
+					        	<td>${announce[num].announcementTitle}</td>
+					        	<td>${announce[num].writeDate}</td>
+				        	</tr>
+				        	</table>
+						</c:forEach>
+					</c:when>
+				</c:choose>
+	        
 	    </div>
 	</div>
     

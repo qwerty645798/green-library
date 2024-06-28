@@ -97,7 +97,7 @@ function booktab(){
 
 	if(tab[0].classList.contains("here")){
 				bookQuick.onclick = () => {
-					window.location.href='initiativeBook';
+					window.location.href='/initiativeBook';
 				}
 			}
 	tab[0].onclick = () => {
@@ -107,7 +107,7 @@ function booktab(){
 		swipe2.style.display = "none";
 		if(tab[0].classList.contains("here")){
 				bookQuick.onclick = () => {
-					window.location.href='initiativeBook';
+					window.location.href='/initiativeBook';
 				}
 			}
 	}
@@ -118,7 +118,7 @@ function booktab(){
 		swipe2.style.display = "flex";
 		if(tab[1].classList.contains("here")){
 				bookQuick.onclick = () => {
-									window.location.href='popularBook';
+									window.location.href='/popularBook';
 								}
 			}
 	}

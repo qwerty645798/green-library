@@ -32,4 +32,6 @@ public interface UserService extends UserDetailsService {
 	void initializePassword(initializePasswordDTO userDTO);
 
 	boolean checkUserAccount(UserJoinDTO userDTO);
+
+	boolean checkUserPass(String userId, String userPass);
 }
