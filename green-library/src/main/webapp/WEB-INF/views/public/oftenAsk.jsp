@@ -12,7 +12,7 @@
     </head>
     <body>
     
-         <jsp:include page="index/header.jsp" />
+         <jsp:include page="../index/header.jsp" />
     
         <div class="bannerBgr">
             <div class="Banner">
@@ -175,7 +175,7 @@
     
         
        
-        <jsp:include page="index/footer.jsp" />
+        <jsp:include page="../index/footer.jsp" />
     
         <script src="/js/oftenAsk.js"></script>
         

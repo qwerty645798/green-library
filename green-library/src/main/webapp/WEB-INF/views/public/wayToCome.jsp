@@ -11,7 +11,7 @@
 <link href="/css/wayToCome.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="index/header.jsp" />
+	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">오시는 길</div>
@@ -93,6 +93,6 @@
 		</div>
 		
 	
-	<jsp:include page="index/footer.jsp" />
+	<jsp:include page="../index/footer.jsp" />
 </body>
 </html>
