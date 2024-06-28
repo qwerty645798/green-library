@@ -28,16 +28,16 @@ const bookQuick = document.querySelector('.tabCon2 img');
 
 
 //바로가기 이동 함수
-function quickPage(){
-	usetime.onclick = () => {window.location.href='placeUsetime';}
-	booklong.onclick = () => {window.location.href='bookLoanExtension';}
-	hopebook.onclick = () => {window.location.href='hopeBookApply';}
-	help.onclick = () => {window.location.href='oftenAsk';}
-	schedule.onclick = () => {window.location.href='schedule';}
-	notiQuick.onclick = () => {window.location.href='notification';}
-}
+//function quickPage(){
+//	usetime.onclick = () => {window.location.href='placeUsetime';}
+//	booklong.onclick = () => {window.location.href='bookLoanExtension';}
+//	hopebook.onclick = () => {window.location.href='hopeBookApply';}
+//	help.onclick = () => {window.location.href='oftenAsk';}
+//	schedule.onclick = () => {window.location.href='schedule';}
+//	notiQuick.onclick = () => {window.location.href='notification';}
+//}
 
-addLoadEvent(quickPage);
+//addLoadEvent(quickPage);
 /*window.onload=quickPage();*/
 
 //슬라이드 함수

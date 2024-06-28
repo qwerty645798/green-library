@@ -76,11 +76,10 @@
                         <tr>
                             <td>${count.reserve_count} / 5</td>
 
-                        </tr>
-                    </table>
                 </div>
-                <div style="width: 30px;"></div>
-                <div class="center btnbox">
+
+				<div class="test">
+				<div class="center btnbox">
                     <table class="btn">
                         <tr>
                             <th>대출</th>
@@ -91,7 +90,6 @@
                         </tr>
                     </table>
                 </div>
-                <div style="width: 30px;"></div>
                 <div class="center btnbox">
                     <table class="btn">
                         <tr>
@@ -112,6 +110,8 @@
                         </tr>
                     </table>
                 </div>
+				</div>
+                
             </div>
         
         
