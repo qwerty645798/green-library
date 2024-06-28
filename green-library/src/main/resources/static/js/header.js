@@ -6,7 +6,7 @@
     let subMenu = document.querySelector('.subMenu');
     let input = document.getElementsByTagName("input");
 
-	let menuHeight = 250;
+	let menuHeight = 300;
 	
 	function accordian(){
     for(let i=0;i<5;i++){

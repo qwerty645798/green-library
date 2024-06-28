@@ -4,6 +4,7 @@
     align-items: center;
     height: 90px;
     background-color: #ecd9bc;
+    padding-top: 200px;
 }
 .Banner{
     display: flex;
@@ -13,6 +14,7 @@
     height: 90px;
     vertical-align: middle;
     background-color: #ecd9bc;
+/*     padding-top: 200px; */
 }
 .pageTitle{
     display: flex;

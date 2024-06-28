@@ -56,10 +56,6 @@
                 <ul id="subMenu1" class="menuBar">
                   <li><a href="/vision">
                   도서관 비전</a></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
                 </ul>
               
                 <ul id="subMenu2" class="menuBar">
@@ -82,8 +78,6 @@
                   인기 도서</a></li>
                   <li><a href="/initiativeBook">
                   신착 도서</a></li>
-                  <li></li>
-                  <li></li>
                 </ul>
               
                 <ul id="subMenu4" class="menuBar">
@@ -93,7 +87,6 @@
                   자주 묻는 질문</a></li>
                   <li><a href="/schedule">
                   도서관 일정</a></li>
-                  <li></li>
                 </ul>
               
                 <ul id="subMenu5" class="menuBar">
@@ -103,7 +96,7 @@
                   회원정보수정</a></li>
                   <li><a href="/user/bookLoanExtension">
                   대출 연장</a></li>
-                  <li><a href="/public/userAgreement">
+                  <li><a href="/userAgreement">
                   약관 재동의</a></li>
                   <li><a href="/user/myWritten">
                   내가 쓴 글</a></li>

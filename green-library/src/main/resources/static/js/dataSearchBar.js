@@ -28,16 +28,16 @@
 		var inputCategory = document.querySelector(' select').value;
 		
 		if(inputCategory=="인기도서"){
-			window.location.href='popularBook';
+			window.location.href='/popularBook';
 		}else if(inputCategory=="신착도서"){
-			window.location.href='initiativeBook';
+			window.location.href='/initiativeBook';
 		}else if(inputText==="" || inputText==="검색어를 입력하세요"){
 			alert("검색어를 입력하세요");
 		}else{
 			
 			var encodedInputText = encodeURIComponent(inputText);
 			
-			var url = "dataSearchResult?inputCategory="; 
+			var url = "/dataSearchResult?inputCategory="; 
 			url+=inputCategory;
 			url+="&inputText="+encodedInputText;
 			

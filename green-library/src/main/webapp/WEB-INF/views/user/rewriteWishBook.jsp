@@ -20,7 +20,7 @@
           <!-- 배너 시작 -->
           <div class="bannerBgr">
             <div class="Banner">
-                <div class="pageTitle">희망도서 신청</div> <div class="pageRoute">홈 > 희망도서 신청</div>
+                <div class="pageTitle">희망도서 수정</div> <div class="pageRoute">홈 > 마이페이지 > 희망도서 수정</div>
             </div>
         </div>
          <!-- 배너 끝 -->
