@@ -161,17 +161,44 @@
 		</div>
 		
 <!-- 		제일 최근 공지 6개만 뜨게 -->
-	        <table>
-<%-- 				<c:forEach var="num" begin="0" end="5"> --%>
-				<c:forEach var="num" begin="${announce.size()}" end="${announce.size()-5}">
-					<tr>
-			        	<td>${announce[num].writerId}</td>
-			        	<td>${announce[num].announcementTitle}</td>
-			        	<td>${announce[num].writeDate}</td>
-		        	</tr>
-				</c:forEach>
 	        	
-	        </table>
+<%-- 				<c:forEach var="num" begin="0" end="5"> --%>
+<!-- 				<table> -->
+<!-- 					<tr> -->
+<%-- 			        	<td>${announce[num].writerId}</td> --%>
+<%-- 			        	<td>${announce[num].announcementTitle}</td> --%>
+<%-- 			        	<td>${announce[num].writeDate}</td> --%>
+<!-- 		        	</tr> -->
+<!-- 		        	</table> -->
+<%-- 				</c:forEach> --%>
+
+				<c:set var="annoList" value="${fn:length(announce)}"/>
+
+				<c:choose>
+					<c:when test="annoList>=6}">
+						<c:forEach var="num" begin="${annoList}" end="${annoList-5}">
+						<table>
+							<tr>
+					        	<td>${announce[num].writerId}</td>
+					        	<td>${announce[num].announcementTitle}</td>
+					        	<td>${announce[num].writeDate}</td>
+				        	</tr>
+				        	</table>
+						</c:forEach>
+					</c:when>
+					<c:when test="${annoList<6}">
+						<c:forEach var="num" begin="0" end="5">
+						<table>
+							<tr>
+					        	<td>${announce[num].writerId}</td>
+					        	<td>${announce[num].announcementTitle}</td>
+					        	<td>${announce[num].writeDate}</td>
+				        	</tr>
+				        	</table>
+						</c:forEach>
+					</c:when>
+				</c:choose>
+	        
 	    </div>
 	</div>
     
