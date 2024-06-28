@@ -1,5 +1,7 @@
 package com.library.security;
 
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
+
 //import java.time.Duration;
 
 import org.springframework.context.annotation.Bean;
@@ -11,6 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 import jakarta.servlet.DispatcherType;
 
@@ -23,8 +26,8 @@ public class SecurityConfig {
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-            	.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                .requestMatchers("/**","/resources/**","/static/**", "/css/**", "/js/**", "/image/**").permitAll()
+            	.dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE).permitAll()
+                .requestMatchers("/**","/resources/**","/static/**","/css/**","/js/**","/images/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/user/**").authenticated()
                 .anyRequest().authenticated()
@@ -35,7 +38,7 @@ public class SecurityConfig {
                 .failureUrl("/userLogin?error=true")
                 .usernameParameter("user_id")
                 .passwordParameter("user_pass")
-                .defaultSuccessUrl("/", false)
+                .defaultSuccessUrl("/", true)
                 .permitAll()
             )
             .logout(logout -> logout
@@ -47,7 +50,7 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .sessionFixation().migrateSession()
                 .maximumSessions(1)
-                .maxSessionsPreventsLogin(false)
+                .maxSessionsPreventsLogin(true)
             )
             .headers(headers -> headers
             	.frameOptions(frameOptions -> frameOptions
@@ -72,6 +75,11 @@ public class SecurityConfig {
     @Bean
     protected PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+    
+    @Bean
+    protected ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher() {
+    	return new ServletListenerRegistrationBean<HttpSessionEventPublisher>(new HttpSessionEventPublisher());
     }
     
 	/*
