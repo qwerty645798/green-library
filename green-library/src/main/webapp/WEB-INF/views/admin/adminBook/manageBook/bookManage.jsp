@@ -127,7 +127,7 @@
                         function searchBtnEvt() {
                             const inputText = $('#inputText').val();
                             const searchType = $('#searchSelectType').val();
-                            const userListTBody = $('#bookListTBody');
+                            const bookListTBody = $('#bookListTBody');
                             const totalPageElem = $('#totalPage');
                             const selectValue = $('#resultSelect').val();
                             const total = document.getElementById('total');
@@ -160,7 +160,7 @@
                                             responseText += "<input type='button' class='correction' onclick='modifyBook(" + response[i].bookId + ")'>";
                                             responseText += "<input type='button' class='return' onclick='returnBook(" + response[i].bookId + ")'></td></tr>";
                                         }
-                                        userListTBody.html(responseText);
+                                        bookListTBody.html(responseText);
                                         total.innerHTML = "result : " + len + "개";
                                         totalPageElem.html(currentPage + " of " + totalPage);
                                     }

@@ -21,8 +21,9 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
 
     @Override
     public List<WishlistDTO> allAcquisitionManage() {
-        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count" +
-                " FROM WISHLISTS";
+        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count " +
+                "FROM WISHLISTS " +
+                "ORDER BY WISHLIST_ID ASC";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             WishlistDTO request = new WishlistDTO();
             request.setWishlistId(rs.getInt("WISHLIST_ID"));
@@ -38,9 +39,10 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
 //    전체 검색
     @Override
     public List<WishlistDTO> findAcquisitionByTotal(String total) {
-        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count\n" +
+        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count " +
                 "FROM WISHLISTS " +
-                "WHERE WISH_TITLE LIKE ? OR WISH_AUTHOR LIKE ?";
+                "WHERE WISH_TITLE LIKE ? OR WISH_AUTHOR LIKE ? " +
+                "ORDER BY WISHLIST_ID ASC";
         String queryParam = "%" + total + "%";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -61,9 +63,10 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
 
     @Override
     public List<WishlistDTO> findAcquisitionByTitle(String title) {
-        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count\n" +
-                "FROM WISHLISTS\n" +
-                "WHERE WISH_TITLE LIKE '%" + title + "%'";
+        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count" +
+                "FROM WISHLISTS" +
+                "WHERE WISH_TITLE LIKE '%" + title + "%' " +
+                "ORDER BY WISHLIST_ID ASC";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             WishlistDTO request = new WishlistDTO();
             request.setWishlistId(rs.getInt("WISHLIST_ID"));
@@ -78,9 +81,10 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
 
     @Override
     public List<WishlistDTO> findAcquisitionByAuthor(String author) {
-        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count\n" +
-                "FROM WISHLISTS\n" +
-                "WHERE WISH_AUTHOR LIKE '%" + author + "%'";
+        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count" +
+                "FROM WISHLISTS" +
+                "WHERE WISH_AUTHOR LIKE '%" + author + "%' " +
+                "ORDER BY WISHLIST_ID ASC";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             WishlistDTO request = new WishlistDTO();
             request.setWishlistId(rs.getInt("WISHLIST_ID"));
@@ -94,10 +98,11 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
     }
 
     @Override
-    public List<WishlistDTO> findAcquisitionByGenre(String genre) {
-        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count\n" +
-                "FROM WISHLISTS\n" +
-                "WHERE genreFullname LIKE '%" + genre + "%'";
+    public List<WishlistDTO> findAcquisitionByPublish(String publish) {
+        String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count" +
+                "FROM WISHLISTS" +
+                "WHERE WISH_PUBLISHER LIKE '%" + publish + "%' " +
+                "ORDER BY WISHLIST_ID ASC";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             WishlistDTO request = new WishlistDTO();
             request.setWishlistId(rs.getInt("WISHLIST_ID"));

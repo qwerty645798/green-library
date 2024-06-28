@@ -6,7 +6,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>사용자 관리</title>
+                <title>이용자 관리</title>
                 <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
                 <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
                 <link rel="stylesheet" type="text/css" href="/admin/css/public/adminFooter.css">
@@ -34,7 +34,7 @@
                                     <div class="inputBox">
                                         <input type="text" id="inputText" class="inputText" name="searchKeyword"
                                             maxlength="20" placeholder="검색어를 입력하세요" value="" />
-                                        <button type="button" id="searchBtn" class="searchBtn" onclick="searchBtnEvt()">검색 </button>
+                                        <button type="button" id="searchBtn" class="searchBtn">검색 </button>
                                     </div>
                                 </div>
                             </div>
@@ -126,6 +126,12 @@
                     let totalPage = currentPage;
                     $(document).ready(function () {
                         searchBtnEvt();
+
+                        $('#searchBtn').click(function () {
+                            currentPage = 1;
+                            searchBtnEvt();
+                        });
+
                         // 전체 선택 & 해제
                         $('#selectAllCheckbox').on('change', function () {
                             $('input[name="userCheckbox"]').prop('checked', this.checked);
@@ -162,12 +168,12 @@
                         });
 
                         //초기 로딩
-                        loadUserInfo(userId);
+                        // loadUserInfo(userId);
                     });
 
                     function searchBtnEvt(e) {
-                        const inputText = document.getElementById('inputText');
-                        const searchType = document.getElementById('searchSelectType');
+                        const inputText = document.getElementById('inputText').value;
+                        const searchType = document.getElementById('searchSelectType').value;
                         const userListTBody = document.getElementById('userListTBody');
                         const total = document.getElementById('total');
                         const pages = document.getElementById('totalpage');
@@ -176,23 +182,26 @@
                         $.ajax({
                             url: '/User/search',
                             type: 'GET',
-                            data: { "searchType": searchType.value, "searchKeyword": inputText.value, "pageSize": selectValue },
+                            data: { "searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue },
                             success: function (response) {
                                 if (response) {
                                     let responseText = '';
                                     let len = response.length;
-                                    totalPage = Math.ceil(len / selectValue);
-                                    let startPrint = currentPage * selectValue - selectValue;
-                                    let endPrint = currentPage * selectValue;
-                                    for (let i = startPrint; i < endPrint; i++) {
-                                        if (endPrint > len)
-                                            endPrint = len;
+                                    if(len > 0){
+                                        let startPrint = currentPage * selectValue - selectValue;
+                                        let endPrint = currentPage * selectValue;
+                                        totalPage = Math.ceil(len / selectValue);
+                                        if (endPrint > len)  endPrint = len;
+                                        for (let i = startPrint; i < endPrint; i++) {
                                         responseText += "<tr>";
                                         responseText += "<td><input type='checkbox' name='userCheckbox'id='userCheckbox'/></td>";
                                         responseText += "<td>" + response[i].userId + "</td>";
                                         responseText += "<td>" + response[i].userName + "</td>";
                                         responseText += "<td>" + response[i].userEmail + "</td>";
                                         responseText += "<td><input type='button' className='modifyBtn' onclick=loadUserInfo('" + response[i].userId + "') /> </td></tr>";
+                                    }}
+                                    else{
+                                        totalPage = currentPage;
                                     }
                                     userListTBody.innerHTML = responseText;
                                     total.innerHTML = "result : " + len + "명";

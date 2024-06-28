@@ -24,9 +24,9 @@
         <p>home > management > announcement</p>
     </section>
     <section class="totalContainer">
-        <div class="searchContainer" action="">
+        <div class="searchContainer">
             <div>
-                <select name="" id="searchSelectType">
+                <select name="searchType" id="searchSelectType">
                     <option value="all" selected>전체</option>
                     <option value="title">제목</option>
                     <option value="contents">내용</option>
@@ -81,6 +81,7 @@
 
 <script>
     let currentPage = 1;
+    let totalPage = currentPage;
 
     $(document).ready(function () {
         searchBtnEvt();
@@ -89,6 +90,7 @@
             currentPage = 1;
             searchBtnEvt();
         })
+
         // 전체 선택 & 해제
         $('#selectAllCheckbox').on('change', function () {
             $('input[name="selectedBooks"]').prop('checked', this.checked);
@@ -102,9 +104,11 @@
 
         // 다음 버튼 클릭 시
         $('.next').click(function () {
-            currentPage++;
-            clearCheckboxes();
-            searchBtnEvt();
+            if (currentPage < totalPage) {
+                currentPage++;
+                clearCheckboxes();
+                searchBtnEvt();
+            }
         });
 
         // 이전 버튼 클릭 시
@@ -117,53 +121,58 @@
         });
     });
 
-    function searchBtnEvt() {
-        const inputText = $('#inputText').val();
-        const searchType = $('#searchSelectType').val();
-        const announceListTBody = $('#announceListTBody');
-        const totalPageElem = $('#totalPage');
-        const selectValue = $('#resultSelect').val();
+    function searchBtnEvt(e) {
+        const inputText = document.getElementById('inputText').value;
+        const searchType = document.getElementById('searchSelectType').value;
+        const announceListTBody = document.getElementById('announceListTBody');
         const total = document.getElementById('total');
+        const pages = document.getElementById('totalPage');
+        const selectValue = document.getElementById('resultSelect').value;
 
         $.ajax({
             url: '/Announcement/search',
             type: 'GET',
-            data: {"searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue},
+            data: { "searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue },
+            contentType: 'application/json; charset=utf-8',
             success: function (response) {
+                console.log(typeof searchType + ", " + typeof inputText + ", " + typeof + selectValue);
+                let responseText = '';
                 if (response) {
-                    let responseText = '';
                     let len = response.length;
-                    let totalPage = Math.ceil(len / selectValue);
-                    let startPrint = (currentPage - 1) * selectValue;
-                    let endPrint = currentPage * selectValue;
-                    if (endPrint > len) {
-                        endPrint = len;
+                    totalPage = Math.ceil(len / selectValue);
+                    if (len > 0) {
+                        let startPrint = (currentPage - 1) * selectValue;
+                        let endPrint = currentPage * selectValue;
+                        if (endPrint > len) endPrint = len;
+                        for (let i = startPrint; i < endPrint; i++) {
+                            responseText += "<tr>";
+                            responseText += "<td><input type='checkbox' name='selectedBooks' id='selectedBooks'></td>";
+                            responseText += "<td>" + response[i].announcementId + "</td>";
+                            responseText += "<td>" + response[i].announceTitle + "</td>";
+                            responseText += "<td>" + response[i].contents + "</td>";
+                            responseText += "<td>" + response[i].writerId + "</td>";
+                            responseText += "<td>" + response[i].writeDate + "</td>";
+                            responseText += "<td>" + response[i].fileName + "</td>";
+                            responseText += "<td><input type='button' class='correction'></td></tr>";
+                        }
+                    } else {
+                        totalPage = currentPage;
                     }
-                    for (let i = startPrint; i < endPrint; i++) {
-                        responseText += "<tr>";
-                        responseText += "<td><input type='checkbox' name='selectedBooks' id='selectedBooks'></td>";
-                        responseText += "<td>" + response[i].announcementId + "</td>";
-                        responseText += "<td>" + response[i].announceTitle + "</td>";
-                        responseText += "<td>" + response[i].contents + "</td>";
-                        responseText += "<td>" + response[i].writerId + "</td>";
-                        responseText += "<td>" + response[i].writeDate + "</td>";
-                        responseText += "<td>" + response[i].fileName + "</td>";
-                        responseText += "<td> <input type='button' class='correction'> </td> </tr>";
-                    }
-                    announceListTBody.html(responseText);
+                    announceListTBody.innerHTML = responseText;
                     total.innerHTML = "result : " + len + "개";
-                    totalPageElem.html(currentPage + " of " + totalPage);
+                    pages.innerHTML = currentPage + " of " + totalPage;
                 }
             }
         });
     }
+
 
     function clearCheckboxes() {
         $('input[name="selectedBooks"]').prop('checked', false);
         $('#selectAllCheckbox').prop('checked', false);
     }
 
-    function deleteAnnounce(){
+    function deleteAnnounce() {
         let announceId = [];
 
         $('input[name="selectedBooks"]:checked').each(function () {
@@ -180,7 +189,7 @@
             $.ajax({
                 url: '/Announcement/deleteAnnounce',
                 type: 'POST',
-                data: { announceIds: announceIds },
+                data: {announceIds: announceIds},
                 traditional: true, // 배열 데이터 전송을 위한 설정
                 success: function (response) {
                     alert('선택한 공지가 성공적으로 삭제되었습니다.');

@@ -26,15 +26,15 @@
     <section class="totalContainer">
         <div class="searchContainer">
             <div>
-                <select name="searchType" id="searchType">
+                <select id="searchSelectType">
                     <option value="title">제목</option>
                     <option value="author">저자</option>
-                    <option value="genre">십진분류</option>
+                    <option value="publish">출판사</option>
                     <option value="total" selected>제목 + 저자</option>
                 </select>
                 <div class="inputBox">
                     <input type="text" id="inputText" class="inputText" name="searchKeyword" maxlength="20"
-                           placeholder="검색어를 입력하세요" value=""/>
+                           placeholder="검색어를 입력하세요"/>
                     <button type="button" id="searchBtn" class="searchBtn"> 검색</button>
                 </div>
             </div>
@@ -43,11 +43,11 @@
         <div class="outputBoard">
             <div class="results">
                 <p id="total">result : </p>
-                    <select id="resultSelect">
-                        <option value="5">5개씩</option>
-                        <option value="10">10개씩</option>
-                        <option value="15" selected>15개씩</option>
-                    </select>
+                <select id="resultSelect">
+                    <option value="5">5개씩</option>
+                    <option value="10">10개씩</option>
+                    <option value="15" selected>15개씩</option>
+                </select>
                 <div class="btnWrap">
                     <input class="acceptBtn" type="button" value="승인" id="acceptBook" onclick="accptBooks()">
                     <input class="deleteBtn" type="button" value="거부" id="refuseBook" onclick="refuseBooks()">
@@ -57,7 +57,7 @@
                 <table>
                     <thead>
                     <tr>
-                        <th><input type="checkbox" name="" id=""></th>
+                        <th><input type="checkbox" name="selectAllCheckbox" id="selectAllCheckbox"></th>
                         <th>관리번호</th>
                         <th>제목</th>
                         <th>저자</th>
@@ -107,7 +107,7 @@
 
         // 다음 버튼 클릭 시
         $('.next').click(function () {
-            if(currentPage < totalPage){
+            if (currentPage < totalPage) {
                 currentPage++;
                 searchBtnEvt();
             }
@@ -133,7 +133,7 @@
         $.ajax({
             url: '/BuyBook/search',
             type: 'GET',
-            data: { "searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue },
+            data: {"searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue},
             success: function (response) {
                 if (response) {
                     let responseText = '';
@@ -154,13 +154,17 @@
                         responseText += "<td>" + response[i].wishPublication + "</td>";
                         responseText += "<td>" + response[i].wishPrice + "</td>";
                         responseText += "<td><input type='checkbox' disabled " + (response[i].complete == 1 ? "checked" : "") + "></td>";
-                        responseText += "<input type='button' class='correction' onclick='modifyBook(" + response[i].bookId + ")'>";
+                        responseText += "<td><input type='button' class='correction' onclick='modifyBook(" + response[i].bookId + ")'>";
                         responseText += "<input type='button' class='delete' onclick='returnBook(" + response[i].bookId + ")'></td></tr>";
                     }
                     buyListTBody.html(responseText);
                     total.innerHTML = "result : " + len + "개";
                     totalPageElem.html(currentPage + " of " + totalPage);
                 }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error occurred during book search:", error);
+                alert("서버 오류가 발생했습니다. 다시 시도해주세요.");
             }
         });
     }

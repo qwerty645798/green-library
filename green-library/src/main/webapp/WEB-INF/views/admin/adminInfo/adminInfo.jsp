@@ -32,7 +32,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Information</title>
+    <title>내 정보</title>
     <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
     <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
     <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">

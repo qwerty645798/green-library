@@ -28,23 +28,24 @@ public class AcquisitionRequestController {
         return "admin/adminBook/buyBook/bookBuy";
     }
 
+//    검색
     @GetMapping("/search")
     public ResponseEntity<List<WishlistDTO>> searchBooks(
             @RequestParam(value = "searchType", required = false) String searchType,
             @RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
 
-        List<WishlistDTO> books;
+        List<WishlistDTO> wishBooks;
 
         if (searchKeyword == null || searchKeyword.trim().isEmpty()) {
-            books = acquisitionRequestService.allAcquisitionManage();
+            wishBooks = acquisitionRequestService.allAcquisitionManage();
         } else {
-            books = switch (searchType) {
+            wishBooks = switch (searchType) {
                 case "title" -> acquisitionRequestService.findAcquisitionByTitle(searchKeyword);
                 case "author" -> acquisitionRequestService.findAcquisitionByAuthor(searchKeyword);
-                case "genre" -> acquisitionRequestService.findAcquisitionByGenre(searchKeyword);
+                case "publish" -> acquisitionRequestService.findAcquisitionByPublish(searchKeyword);
                 default -> acquisitionRequestService.findAcquisitionByTotal(searchKeyword);
             };
         }
-        return ResponseEntity.ok(books);
+        return ResponseEntity.ok(wishBooks);
     }
 }

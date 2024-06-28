@@ -38,8 +38,8 @@ public class AcquisitionRequestServiceImpl implements AcquisitionRequestService 
 
     //     십진분류로 확인
     @Override
-    public List<WishlistDTO> findAcquisitionByGenre(String author) {
-        return acquisitionRequestRepository.findAcquisitionByGenre(author);
+    public List<WishlistDTO> findAcquisitionByPublish(String publish) {
+        return acquisitionRequestRepository.findAcquisitionByPublish(publish);
     }
 
     //    구매승인
