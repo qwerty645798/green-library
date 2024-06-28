@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <title>도서관 일정</title>
 
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/schedule.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/schedule.css">
 
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
 <script src="/fullcalendar-6.1.14/fullcalendar-6.1.14/dist/index.global.js"></script>

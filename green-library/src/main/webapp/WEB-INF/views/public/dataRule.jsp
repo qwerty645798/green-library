@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="/reset/reset.css" type="text/css" rel="stylesheet">
-    <link href="css/public/header.css" type="text/css" rel="stylesheet">
-	<link href="css/public/footer.css" type="text/css" rel="stylesheet">
-    <link href="css/dataRule.css" type="text/css" rel="stylesheet">
-    <link href="css/public/nav.css" type="text/css" rel="stylesheet">
+    
+    <link href="/css/public/header.css" type="text/css" rel="stylesheet">
+	<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
+    <link href="/css/dataRule.css" type="text/css" rel="stylesheet">
+    <link href="/css/public/nav.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 

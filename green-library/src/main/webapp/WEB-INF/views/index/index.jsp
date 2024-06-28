@@ -142,9 +142,7 @@
 							${items[index].title}
 					</span></a>
 				</li>
-
 			</c:forEach>
-
         </ul>
         </div>
         <div class="goBtn2">

@@ -92,8 +92,6 @@
                 <ul id="subMenu5" class="menuBar">
                   <li><a href="/user/userInfo">
                   내 프로필</a></li>
-                  <li><a href="/user/userInfoModification">
-                  회원정보수정</a></li>
                   <li><a href="/user/bookLoanExtension">
                   대출 연장</a></li>
                   <li><a href="/userAgreement">
