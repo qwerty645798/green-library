@@ -9,9 +9,9 @@
 <title>대출 연장</title>
 
 
-<script src="js/bookLoanExtension.js"></script>
-<link rel="stylesheet" type="text/css" href="css/bookLoanExtension.css">
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
+<script src="/js/bookLoanExtension.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/bookLoanExtension.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
 
 
 </head>
@@ -61,7 +61,7 @@
                     <label><input type="checkbox" class="book_chxbox" name="bookIds" value="${extension.bookId}"></label>
                 </div>
                 <div class="book_image">
-                    <img src="images/${extension.img}">
+                    <img src="/images/${extension.img}">
                 </div>
                 <div class="book_table">
                     <table>

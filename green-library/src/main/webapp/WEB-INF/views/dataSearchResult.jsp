@@ -10,13 +10,13 @@
 <title>자료 검색 결과</title>
 
 
-<script src="js/dataSearchBar.js"></script>
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/dataSearchBar.css">
-<link rel="stylesheet" type="text/css" href="css/dataSearchResult.css">
+<script src="/js/dataSearchBar.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/dataSearchBar.css">
+<link rel="stylesheet" type="text/css" href="/css/dataSearchResult.css">
 
 
-<script src = "js/bottomButtonBox.js"></script>
+<script src = "/js/bottomButtonBox.js"></script>
 
 </head>
 
@@ -96,16 +96,16 @@
                     <div class="book_image">
                         <a href="bookDetail?bookId=${item.bookId}">
 							<div class="blackbox">
-		                    <img class="icon" src="images/whiteeye.png">
+		                    <img class="icon" src="/images/whiteeye.png">
 		                    </div>
-                            <img src="images/${item.img}">
+                            <img src="/images/${item.img}">
                         </a>
                     </div>
 					
                     <div class="book_table">
                         <table>
                             <tr>
-                                <th>&nbsp;도서명<img src="images/searchBtn.png"></th>
+                                <th>&nbsp;도서명<img src="/images/searchBtn.png"></th>
                                 <td>${item.title}</td>
                                 <th>재고현황</th>
                                 <td>${item.availability}</td>
