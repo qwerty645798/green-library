@@ -209,7 +209,7 @@
         } else {
             iframe.style.height = "720px";
         }
-    }
+    } 
 
     function fetchDataAndSendToIframe(condition) {
         fetch(`/getUserData`)
