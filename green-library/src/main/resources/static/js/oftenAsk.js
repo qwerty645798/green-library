@@ -33,4 +33,5 @@ function QnAaccordian(){
     }
 }
 
-window.onload = QnAaccordian();
+//window.onload = QnAaccordian();
+addLoadEvent(QnAaccordian);
