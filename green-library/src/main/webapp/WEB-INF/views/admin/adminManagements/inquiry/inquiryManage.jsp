@@ -85,6 +85,7 @@
 
 <script>
     let currentPage = 1;
+    let totalPage = currentPage;
 
     $(document).ready(function () {
         searchBtnEvt();
@@ -103,9 +104,11 @@
 
         // 다음 버튼 클릭 시
         $('.next').click(function () {
-            currentPage++;
-            clearCheckboxes();
-            searchBtnEvt();
+            if(currentPage < totalPage) {
+                currentPage++;
+                clearCheckboxes();
+                searchBtnEvt();
+            }
         });
 
         // 이전 버튼 클릭 시
@@ -133,7 +136,7 @@
                 if (response) {
                     let responseText = '';
                     let len = response.length;
-                    let totalPage = Math.ceil(len / selectValue);
+                    totalPage = Math.ceil(len / selectValue);
                     let startPrint = (currentPage - 1) * selectValue;
                     let endPrint = currentPage * selectValue;
                     if (endPrint > len) {

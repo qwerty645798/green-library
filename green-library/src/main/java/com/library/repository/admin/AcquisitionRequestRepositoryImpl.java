@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 @Transactional
@@ -38,9 +39,15 @@ public class AcquisitionRequestRepositoryImpl implements AcquisitionRequestRepos
     @Override
     public List<WishlistDTO> findAcquisitionByTotal(String total) {
         String sql = "SELECT WISHLIST_ID, WISH_TITLE, WISH_AUTHOR, WISH_PUBLISHER, WISH_PUBLICATION, WISH_PRICE, (SELECT COUNT(*) FROM WISHLISTS) AS total_count\n" +
-                "FROM WISHLISTS\n" +
-                "WHERE WISH_TITLE LIKE '%" + total + "%'";
-        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+                "FROM WISHLISTS " +
+                "WHERE WISH_TITLE LIKE ? OR WISH_AUTHOR LIKE ?";
+        String queryParam = "%" + total + "%";
+        return jdbcTemplate.query(con -> {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, queryParam);
+            ps.setString(2, queryParam);
+            return ps;
+        }, (rs, rowNum) -> {
             WishlistDTO request = new WishlistDTO();
             request.setWishlistId(rs.getInt("WISHLIST_ID"));
             request.setWishTitle(rs.getString("WISH_TITLE"));

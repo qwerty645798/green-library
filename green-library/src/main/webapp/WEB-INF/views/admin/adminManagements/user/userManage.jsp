@@ -139,12 +139,13 @@
 
                         // select 값 변경 시 검색 실행
                         $('#resultSelect').on('change', function () {
+                            currentPage = 1;
                             searchBtnEvt();
                         });
 
                         // 다음 버튼 클릭 시 페이징 처리
                         $('.next').click(function () {
-                            if(totalPage > currentPage) {
+                            if(currentPage < totalPage) {
                                 currentPage++;
                                 clearCheckboxes();
                                 searchBtnEvt();
