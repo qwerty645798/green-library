@@ -6,10 +6,10 @@
 <meta charset="utf-8">
 <title>문의글 작성</title>
 
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/userInquiryCreate.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/userInquiryCreate.css">
 
-<script src="js/userCreateInquiry.js"></script>
+<script src="/js/userCreateInquiry.js"></script>
 
 </head>
 

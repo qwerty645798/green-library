@@ -9,15 +9,15 @@
 <meta charset="UTF-8">
 <title>신착 도서</title>
 
-<link rel="stylesheet" type="text/css" href="css/initiativeBook.css">
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/initiativeBook.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
 
-<script src="js/popInitiBook.js"></script>
+<script src="/js/popInitiBook.js"></script>
     
 </head>
 <body>
 
-<jsp:include page="index/header.jsp" />
+<jsp:include page="../index/header.jsp" />
 
 <div class="bannerBgr">
     <div class="Banner">
@@ -40,9 +40,9 @@
                     <div class="image_box">
 	                    <a href="bookDetail?bookId=${items[index].book_id}">
 	                    <div class="blackbox">
-	                    <img class="icon" src="images/whiteeye.png">
+	                    <img class="icon" src="/images/whiteeye.png">
 	                    </div>
-                            <img src="images/${items[index].img}">
+                            <img src="/images/${items[index].img}">
                         </a>
 	                    
                    		<ul class="bookInfo">
@@ -150,7 +150,7 @@
 
 </main>
 
- <jsp:include page="index/footer.jsp" />
+ <jsp:include page="../index/footer.jsp" />
  
 </body>
 </html>

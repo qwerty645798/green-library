@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>wayToCome</title>
-<link href="css/public/header.css" type="text/css" rel="stylesheet">
-<link href="css/public/footer.css" type="text/css" rel="stylesheet">
-<link href="css/public/nav.css" type="text/css" rel="stylesheet">
-<link href="css/wayToCome.css" type="text/css" rel="stylesheet">
+<link href="/css/public/header.css" type="text/css" rel="stylesheet">
+<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
+<link href="/css/public/nav.css" type="text/css" rel="stylesheet">
+<link href="/css/wayToCome.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="index/header.jsp" />
+	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">오시는 길</div>
@@ -30,16 +30,16 @@
 					<br>
 					<div class="container"><div id="map" class="map"></div></div>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=91923fd361ed583dba90f7d5171f8349&libraries=services"></script>
-					<script src="js/wayToCome.js"></script>
+					<script src="/js/wayToCome.js"></script>
 				</main>
 				
 				<br><br>
 				
 				<div class="container">
 					<div class="address">
-						<img src="images/location.png">
+						<img src="/images/location.png">
 						주소: 서울 강남구 테헤란로5길 24 장연빌딩<br>
-						<img src="images/call.png">
+						<img src="/images/call.png">
 						전화: 010-0000-0000
 					</div>
 
@@ -51,7 +51,7 @@
 					
 					<span class="transport">그린도서관 교통편</span> 
 				<table>
-				<caption><img src="images/subway.png">지하철정보</caption>
+				<caption><img src="/images/subway.png">지하철정보</caption>
 					<tr>
 						<th class="text">노선</th>
 						<th class="input">출구</th>
@@ -63,7 +63,7 @@
 				</table></div><br>
 				<div class="container">
 				<table>
-				<caption><img src="images/bus.png">버스정보</caption>
+				<caption><img src="/images/bus.png">버스정보</caption>
 					<tr>
 						<th class="text">정류장명</th>
 						<th class="input">버스번호</th>
@@ -93,6 +93,6 @@
 		</div>
 		
 	
-	<jsp:include page="index/footer.jsp" />
+	<jsp:include page="../index/footer.jsp" />
 </body>
 </html>

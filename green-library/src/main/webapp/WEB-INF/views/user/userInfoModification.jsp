@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>userInfoModification</title>
-<link href="css/public/header.css" type="text/css" rel="stylesheet">
-<link href="css/public/footer.css" type="text/css" rel="stylesheet">
-<link href="css/public/nav.css" type="text/css" rel="stylesheet">
-<link href="css/userJoin.css" type="text/css" rel="stylesheet">
+<link href="/css/public/header.css" type="text/css" rel="stylesheet">
+<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
+<link href="/css/public/nav.css" type="text/css" rel="stylesheet">
+<link href="/css/userJoin.css" type="text/css" rel="stylesheet">
 <script>
 	let message = "${message}";
 	if(message)
@@ -93,7 +93,7 @@
 	</main>
 	<jsp:include page="../index/footer.jsp" />
 
-	<script src="js/userInfoModification.js" type="text/javascript"></script>
+	<script src="/js/userInfoModification.js" type="text/javascript"></script>
 
 </body>
 </html>

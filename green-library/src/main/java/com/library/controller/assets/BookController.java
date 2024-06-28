@@ -46,7 +46,7 @@ public class BookController {
 		  boolean canReserve = bookDetailService.canReserveBook(bookId, authentication.getName());
 	      model.addAttribute("canReserve", canReserve);
 	        
-		  return "bookDetail"; 
+		  return "public/bookDetail"; 
 	}
 	 
     
@@ -60,7 +60,7 @@ public class BookController {
     	
     	List<InitiativeBookDto> initiative = initiativeBookService.getBookId();
     	model.addAttribute("items", initiative);
-		return "initiativeBook";
+		return "public/initiativeBook";
 	}
     
     @Autowired
@@ -71,7 +71,7 @@ public class BookController {
     	
     	List<PopularBookDto> popular = popularBookService.getBookId();
     	model.addAttribute("items", popular);
-		return "popularBook";
+		return "public/popularBook";
 	}
     
     
@@ -81,7 +81,7 @@ public class BookController {
     
     @GetMapping("/dataSearch")
 	public String dataSearch () {
-		return "dataSearch";
+		return "public/dataSearch";
 	}
 	
 	@GetMapping("/dataSearchResult")
@@ -100,7 +100,7 @@ public class BookController {
     	model.addAttribute("inputText", inputText);
     	model.addAttribute("itemsPerPage", itemsPerPage);
     	
-		return "dataSearchResult";
+		return "public/dataSearchResult";
 	}
     
 }

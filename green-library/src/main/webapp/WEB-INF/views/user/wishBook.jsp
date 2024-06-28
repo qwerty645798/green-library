@@ -11,8 +11,8 @@
 <meta charset="utf-8">
 <title>신청도서</title>
 
-<link rel="stylesheet" type="text/css" href="css/wishbook.css">
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/wishbook.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
 
 </head>
 
@@ -34,7 +34,7 @@
 <div class="bigDiv">
 	<div class="book_container">
 		<div class="book_image">
-			<img src="images/exex2.png">
+			<img src="/images/exex2.png">
 		</div>
 		<div class="book_table">
 			<table>

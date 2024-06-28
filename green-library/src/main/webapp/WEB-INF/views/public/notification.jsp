@@ -9,18 +9,18 @@
 <meta charset="utf-8">
 <title>공지사항</title>
 
-<script src="js/notification.js"></script>
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/notification.css">
+<script src="/js/notification.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/notification.css">
 
-<script src = "js/bottomButtonBox.js"></script>
+<script src = "/js/bottomButtonBox.js"></script>
 
 </head>
 
 
 <body>
 
-<jsp:include page="index/header.jsp" />
+<jsp:include page="../index/header.jsp" />
 <c:set var="itemsPerPage" value="${itemsPerPage}"/>
 <c:set var="totalItems" value="${fn:length(announces)}" />
 <%
@@ -146,7 +146,7 @@ addLoadEvent(function(){
 });
 </script>
 
-<jsp:include page="index/footer.jsp" />
+<jsp:include page="../index/footer.jsp" />
 <footer id="footer" class="footer"></footer>
 
 

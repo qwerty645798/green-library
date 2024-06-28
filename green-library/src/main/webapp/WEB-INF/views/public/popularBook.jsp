@@ -10,16 +10,16 @@
 <title>인기 도서</title>
 
 
-<link rel="stylesheet" type="text/css" href="css/popularBook.css">
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/popularBook.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
 
-<script src="js/popInitiBook.js"></script>
+<script src="/js/popInitiBook.js"></script>
 <!-- <script src="js/bottomButtonBox.js"></script> -->
 
 </head>
 <body>
 
-<jsp:include page="index/header.jsp" />
+<jsp:include page="../index/header.jsp" />
 
 
 <div class="bannerBgr">
@@ -42,15 +42,15 @@
 			<div class="bigDiv">
 		        <div class="book_container">
                    <%--  <div class="book_image">
-						<img src="images/${items[index].img}">
+						<img src="/images/${items[index].img}">
 					</div> --%>
 					<div class="image_box">
 						<a href="bookDetail?bookId=${items[index].book_id}">
 		                    <div class="blackbox">
-		                    <img class="icon" src="images/whiteeye.png">
+		                    <img class="icon" src="/images/whiteeye.png">
 		                    </div>
 		                    <div class="book_image">
-		                    <img class="img" src="images/${items[index].img}">
+		                    <img class="img" src="/images/${items[index].img}">
 		                    </div>
 	                    </a>
                     </div>
@@ -221,9 +221,8 @@
 
 </main>
 
- <jsp:include page="index/footer.jsp" />
+ <jsp:include page="../index/footer.jsp" />
  
- <script src="/js/header.js"></script>
 
 </body>
 </html>

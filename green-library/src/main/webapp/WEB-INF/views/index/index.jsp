@@ -43,17 +43,47 @@
     <br><br>
 
     <div id="quickBundle" class="quickBundle">
-    <a href=""></a>
-       	<div id="quick1" class="quickPage"><img src="/images/useTimeGreen.png">
-            이용 시간</div>
-        <div id="quick2" class="quickPage"><img src="/images/bookExtensionGreen.png">
-            대출 연장</div><!-- 유효성 검사 필요 -->
-        <div id="quick3" class="quickPage"><img src="/images/hopeBookGreen.png">
-            희망도서</div><!-- 유효성 검사 필요 -->
-        <div id="quick4" class="quickPage"><img src="/images/helpGreen.png">
-            문의사항</div>
-        <div id="quick5" class="quickPage"><img src="/images/calendarGreen.png">
-            캘린더</div>
+    
+       	<div id="quick1" class="quickPage">
+       	<a href="placeUsetime">
+       	<img src="/images/useTimeGreen.png">
+            이용 시간
+        </a>
+        </div>
+        <div id="quick1" class="quickPage">
+       	<a href="bookLoanExtension">
+       	<img src="/images/bookExtensionGreen.png">
+            대출 연장
+        </a>
+        </div>
+        <div id="quick1" class="quickPage">
+       	<a href="hopeBookApply">
+       	<img src="/images/hopeBookGreen.png">
+            희망도서
+        </a>
+        </div>
+        <div id="quick1" class="quickPage">
+       	<a href="oftenAsk">
+       	<img src="/images/helpGreen.png">
+            문의사항
+        </a>
+        </div>
+        <div id="quick1" class="quickPage">
+       	<a href="schedule">
+       	<img src="/images/calendarGreen.png">
+            캘린더
+        </a>
+        </div>
+       	
+       	
+<!--         <div id="quick2" class="quickPage"><img src="/images/bookExtensionGreen.png"> -->
+<!--             대출 연장</div>유효성 검사 필요 -->
+<!--         <div id="quick3" class="quickPage"><img src="/images/hopeBookGreen.png"> -->
+<!--             희망도서</div>유효성 검사 필요 -->
+<!--         <div id="quick4" class="quickPage"><img src="/images/helpGreen.png"> -->
+<!--             문의사항</div> -->
+<!--         <div id="quick5" class="quickPage"><img src="/images/calendarGreen.png"> -->
+<!--             캘린더</div> -->
     </div>
 
     <br><br>

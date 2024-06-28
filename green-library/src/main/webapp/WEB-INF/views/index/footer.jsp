@@ -11,7 +11,7 @@
     <body>
     
     <div class="scrollBtn">
-    <img src="images/doubleArrowUp.png">
+    <img src="/images/doubleArrowUp.png">
     </div>
     
     

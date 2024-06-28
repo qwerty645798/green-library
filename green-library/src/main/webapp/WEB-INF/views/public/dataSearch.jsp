@@ -7,17 +7,17 @@
 <meta charset="utf-8">
 <title>자료 검색</title>
 
-<script src="js/dataSearchBar.js"></script>
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/dataSearchBar.css">
-<link rel="stylesheet" type="text/css" href="css/dataSearch.css">
+<script src="/js/dataSearchBar.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/dataSearchBar.css">
+<link rel="stylesheet" type="text/css" href="/css/dataSearch.css">
 
 
 </head>
 
 <body>
 
-<jsp:include page="index/header.jsp" />
+<jsp:include page="../index/header.jsp" />
 
 <div class="bannerBgr">
     <div class="Banner">
@@ -63,16 +63,16 @@
 
 <div class="first_container">
 	<!-- 사진들도 넣을지 -->
-	<div class="class_box"><img src="images/000.png" width="50px"><br>총류</div>
-	<div class="class_box"><img src="images/100.png" width="50px"><br>철학</div>
-	<div class="class_box"><img src="images/200.png" width="50px"><br>종교</div>
-	<div class="class_box"><img src="images/300.png" width="50px"><br>사회과학</div>
-	<div class="class_box"><img src="images/400.png" width="50px"><br>자연과학</div>
-	<div class="class_box"><img src="images/500.png" width="50px"><br>기술과학</div>
-	<div class="class_box"><img src="images/600.png" width="50px"><br>예술</div>
-	<div class="class_box"><img src="images/language.png" width="50px"><br>언어</div>
-	<div class="class_box"><img src="images/dictionary.png" width="50px"><br>문학</div>
-	<div class="class_box"><img src="images/history.png" width="50px"><br>역사</div>
+	<div class="class_box"><img src="/images/000.png" width="50px"><br>총류</div>
+	<div class="class_box"><img src="/images/100.png" width="50px"><br>철학</div>
+	<div class="class_box"><img src="/images/200.png" width="50px"><br>종교</div>
+	<div class="class_box"><img src="/images/300.png" width="50px"><br>사회과학</div>
+	<div class="class_box"><img src="/images/400.png" width="50px"><br>자연과학</div>
+	<div class="class_box"><img src="/images/500.png" width="50px"><br>기술과학</div>
+	<div class="class_box"><img src="/images/600.png" width="50px"><br>예술</div>
+	<div class="class_box"><img src="/images/language.png" width="50px"><br>언어</div>
+	<div class="class_box"><img src="/images/dictionary.png" width="50px"><br>문학</div>
+	<div class="class_box"><img src="/images/history.png" width="50px"><br>역사</div>
 </div>
 
 
@@ -83,13 +83,13 @@
 </div>
 <div class="second_container">
 	<div class="img_box">
-		<img src="images/bookCategory.jpg">
+		<img src="/images/bookCategory.jpg">
 	</div>
 </div>
 
 </main>
 
-<jsp:include page="index/footer.jsp" />
+<jsp:include page="../index/footer.jsp" />
 
 </body>
 </html>

@@ -167,34 +167,34 @@ public class MainController {
 
 	@GetMapping("/facilityInfo")
 	public String facilityInfo() {
-		return "facilityInfo";
+		return "public/facilityInfo";
 	}
 
 	@GetMapping("/privacyPolicy")
 	public String privacyPolicy() {
-		return "privacyPolicy";
+		return "public/privacyPolicy";
 	}
 
 	@GetMapping("/floorInfo")
 	public String floorInfo() {
-		return "floorInfo";
+		return "public/floorInfo";
 	}
 
 	@GetMapping("/dataRule")
 	public String dataRule() {
-		return "dataRule";
+		return "public/dataRule";
 	}
 
 	
 
 	@GetMapping("/placeUsetime")
 	public String placeUsetime() {
-		return "placeUsetime";
+		return "public/placeUsetime";
 	}
 
 	@GetMapping("/wayToCome")
 	public String wayToCome() {
-		return "wayToCome";
+		return "public/wayToCome";
 	}
 
 	// david
@@ -212,7 +212,7 @@ public class MainController {
 		model.addAttribute("inputText", inputText);
 		model.addAttribute("itemsPerPage", itemsPerPage);
 
-		return "notification";
+		return "public/notification";
 	}
 	
 	@PostMapping("/incrementViewCount")
@@ -235,32 +235,27 @@ public class MainController {
 
 		NotificationDetailDto announceDetail = notificationDetailService.getAnnounceDetail(announcementId);
 		model.addAttribute("announce", announceDetail);
-		return "notificationDetail";
+		return "public/notificationDetail";
 	}
 
 	@GetMapping("/vision")
 	public String vision() {
-		return "vision";
+		return "public/vision";
 	}
 
 	@GetMapping("/schedule")
 	public String schedule() {
-		return "schedule";
+		return "public/schedule";
 	}
 
 	// test
 	@GetMapping("/inquiryTest")
 	public String inquiryTest() {
-		return "inquiryTest";
-	}
-
-	@GetMapping("/missingServletRequestParam")
-	public String missingServletRequestParam() {
-		return "public/missingServletRequestParam";
+		return "public/inquiryTest";
 	}
 	
 	@GetMapping("/oftenAsk")
 	public String oftenAsk() {
-		return "oftenAsk";
+		return "public/oftenAsk";
 	}
 }

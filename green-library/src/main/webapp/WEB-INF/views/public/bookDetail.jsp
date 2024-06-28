@@ -10,15 +10,15 @@
 <meta charset="UTF-8">
 <title>도서 상세 정보</title>
 
-<link rel="stylesheet" type="text/css" href="css/bookDetail.css">
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/bookDetail.css">
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
 
-<script src="js/bookDetail.js"></script>
+<script src="/js/bookDetail.js"></script>
 					                
 </head>
 <body>
 
-<jsp:include page="index/header.jsp" />
+<jsp:include page="../index/header.jsp" />
 
 <div class="bannerBgr">
     <div class="Banner">
@@ -32,7 +32,7 @@
 <div class="bigDiv">
 	<div class="book_container"><!-- 좌 이미지 우 테이블 -->
 		<div class="book_image">
-			<img src="images/${book.img}">
+			<img src="/images/${book.img}">
 		</div>
 		<div class="book_table">
 			<table>
@@ -99,7 +99,7 @@
 
 </main>
 
- <jsp:include page="index/footer.jsp" />
+ <jsp:include page="../index/footer.jsp" />
 
 
 </body>
