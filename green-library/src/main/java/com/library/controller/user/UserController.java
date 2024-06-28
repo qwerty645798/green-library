@@ -58,6 +58,20 @@ public class UserController {
 		model.addAttribute("count", userDTO2);
 		return "user/userInfo";
 	}
+	
+	@PostMapping("/userPassCheck")
+	public String userPassCheckPerform(RedirectAttributes redirectAttributes, @RequestParam(name = "auth", defaultValue = "abc") String userId,
+			@RequestParam(name = "user_pass", defaultValue = "error") String password) {
+		if(password.equals("error")) 
+			return "redirect:/user/userInfo";
+		boolean check = userService.checkUserPass(userId, password);
+		if(!check) {
+			redirectAttributes.addFlashAttribute("message","정보가 일치하지 않습니다.");
+			return "redirect:/user/userInfo";
+		}
+			
+		return "redirect:/user/userInfoModification";
+	}
 
 	@GetMapping("/userInfoModification")
 	public String userInfoModification(Model model, @RequestParam(name = "auth", defaultValue = "abc") String userId) {
