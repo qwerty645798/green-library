@@ -233,22 +233,31 @@ select:focus{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-    width: 1260px;
+/*     width: 1260px; */
+	width: 600px;
     height: 300px;
+    margin-right: 30px;
     left: 0;
+    
+/*     border: 2px solid red; */
 }
 .infoBoard2 img{
 	width: 50px;
 	height: 50px;
 }
 .infoBoard2 table{
-	width: 1260px;
+/* 	width: 1260px; */
+	width: 600px;
 	height: 250px;
 }
 .titleQuick{
 	display: flex;
 	justify-content: space-between;
-	width: 1260px;
+/* 	width: 1260px; */
+	width: 600px;
+	background: aliceblue;
+	border-radius: 5px 5px 0 0;
+	
 }
 .titleQuick img:hover{
 	cursor: pointer;
@@ -270,9 +279,21 @@ select:focus{
 	border-bottom: 1px solid #a0cab0;
 }
 .infoBoard2 table td:nth-child(2){
-	width: 700px;
+	width: 400px;
 }
-
+.infoBoard2 table td:not(:nth-child(2)){
+	text-align: center;
+}
+.infoBoard3{
+	width: 600px;
+	height: 300px;
+	margin-left: 30px;
+	border: 2px solid skyblue;
+}
+iframe{
+	margin-left: 30px;
+	border: 2px solid skyblue;
+}
 
 /*탭*/
 .bookSwipe2{
