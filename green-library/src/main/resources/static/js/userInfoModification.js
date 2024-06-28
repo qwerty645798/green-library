@@ -44,7 +44,7 @@ function modifyCheck() {
 		alert("이메일 주소를 선택해주세요.");
 		return false;
 	}
-	alert("가입이 완료되었습니다.");
+	alert("회원정보가 수정되었습니다.");
 	return true;
 }
 

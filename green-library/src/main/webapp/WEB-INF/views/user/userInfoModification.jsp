@@ -73,19 +73,20 @@
 						
 						<td class="input"><input type="hidden" id="fullEmail" name="email" value=""><input type="text" id="email" 
 							class="short"> @ <input type="text" id="email2"
-							class="short" readonly> <select id="emailSel"
+							class="short" placeholder="이메일을 입력해주세요."> <select id="emailSel"
 							onchange="mailText()">
-								<option value="" selected></option>
+								<option value="" selected>이메일 선택</option>
 								<option value="naver.com">naver.com</option>
 								<option value="gmail.com">gmail.com</option>
 								<option value="daum.net">daum.net</option>
 								<option value="hanmail.net">hanmail.net</option>
 								<option value="nate.com">nate.com</option>
-						</select></td>
+						</select>
+						<div class="comment">이메일은 회원정보 찾기에 이용됩니다. [<span style="color:red;">정확한 주소를 입력해주세요.</span>]</div></td>
 					</tr>
 					<tr>
 						<td colspan="2" style="border: none; text-align: center;"><input
-							type="submit" value="확인" onclick="concatInput(), modifyCheck()"></td>
+							type="submit" value="확인"></td>
 					</tr>
 				</table>
 			</div>

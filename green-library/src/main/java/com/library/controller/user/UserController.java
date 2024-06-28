@@ -70,8 +70,7 @@ public class UserController {
 	@PostMapping("/userInfoModification")
 	public String userInfoModificationPerform(
 			@ModelAttribute("userInfo") @Valid UserInfoModificationDTO userInfoModificationDTO,
-			@RequestParam(name = "auth", defaultValue = "abc") String userId, BindingResult result, Model model,
-			RedirectAttributes redirectAttributes) {
+			@RequestParam(name = "auth", defaultValue = "abc") String userId, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			for (ObjectError error : result.getAllErrors()) {
 				logger.error("Validation error: {}", error.getDefaultMessage());
@@ -81,7 +80,6 @@ public class UserController {
 		}
 
 		userService.update(userInfoModificationDTO, userId);
-		redirectAttributes.addFlashAttribute("message", "회원정보가 수정되었습니다.");
 		return "redirect:/user/userInfo";
 	}
 
