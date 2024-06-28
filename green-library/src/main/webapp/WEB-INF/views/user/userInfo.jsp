@@ -14,6 +14,7 @@
 </head>
 <body>
 
+
 <jsp:include page="../index/header.jsp" />
 
 <div class="outBanner">
@@ -65,16 +66,7 @@
         </div>
         
         
-        
-        <div class="container">
-                <div class="center btnbox">
-                    <table class="btn">
-                        <tr>
-
-                            <th>예약</th>
-                        </tr>
-                        <tr>
-                            <td>${count.reserve_count} / 5</td>
+<!--         위치 -->
 
                         </tr>
                     </table>
@@ -130,8 +122,7 @@
                     <span>대출중인 도서</span>
                 </div>
                 </div>
-            
-            
+                      
             <div class="userInfoQuick">
             <div class="center Dheader" data-condition="reserve">
                     <span>신청한 예약도서</span>
@@ -149,21 +140,15 @@
         
     </div>
     
+
     
     <div class="container">
                 <iframe src="useInformationBoard" 
-                width="1260" height="600" 
+                width="1260" height="200" 
                 id="iframe" onload="initialLoadIframe()">
                 </iframe>
             </div>
     
-    
-</div>
-	</div>
-    
-    
-   
-
     
 <div id="modalContainer" class="hidden">
 		<div id="modalContent">
@@ -183,44 +168,11 @@
 			<img src="images/x-icon.png" style="width:100%; height:auto;"></button>
 		</div>
 	</div>
+	
 	<script src="js/userInfo.js"></script>
 	
 	<jsp:include page="../index/footer.jsp" />
-	<script>
-	document.addEventListener('DOMContentLoaded', function() {
-        fetchDataAndSendToIframe('rentHistory');
-    });
-    
-    document.querySelectorAll('.Dheader').forEach(header => {
-        header.addEventListener('click', function() {
-            let condition = this.getAttribute('data-condition');
-            fetchDataAndSendToIframe(condition);
-        });
-    });
-
-    function initialLoadIframe() {
-        fetchDataAndSendToIframe('rentHistory');
-    }
-
-    function iframeHeight(condition, data) {
-        let iframe = document.getElementById('iframe');
-        if (data.length < 10) {
-            iframe.style.height = 720 - (10 - data.length) * 34 + "px";
-        } else {
-            iframe.style.height = "720px";
-        }
-    }
-
-    function fetchDataAndSendToIframe(condition) {
-        fetch(`/getUserData`)
-            .then(response => response.json())
-            .then(data => {
-                let iframe = document.getElementById('iframe');
-                iframe.contentWindow.postMessage({ condition: condition, data: data[condition] }, '*');
-                iframeHeight(condition, data[condition]);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }
-	</script>
+	
+	
 </body>
 </html>
