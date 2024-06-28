@@ -45,31 +45,31 @@
     <div id="quickBundle" class="quickBundle">
     
        	<div id="quick1" class="quickPage">
-       	<a href="placeUsetime">
+       	<a href="/placeUsetime">
        	<img src="/images/useTimeGreen.png">
             이용 시간
         </a>
         </div>
         <div id="quick1" class="quickPage">
-       	<a href="bookLoanExtension">
+       	<a href="/user/bookLoanExtension">
        	<img src="/images/bookExtensionGreen.png">
             대출 연장
         </a>
         </div>
         <div id="quick1" class="quickPage">
-       	<a href="hopeBookApply">
+       	<a href="/user/hopeBookApply">
        	<img src="/images/hopeBookGreen.png">
             희망도서
         </a>
         </div>
         <div id="quick1" class="quickPage">
-       	<a href="oftenAsk">
+       	<a href="/oftenAsk">
        	<img src="/images/helpGreen.png">
             문의사항
         </a>
         </div>
         <div id="quick1" class="quickPage">
-       	<a href="schedule">
+       	<a href="/schedule">
        	<img src="/images/calendarGreen.png">
             캘린더
         </a>
