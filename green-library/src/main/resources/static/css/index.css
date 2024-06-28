@@ -64,10 +64,7 @@ select:focus{
 	text-decoration: none;
 }
 .quickPage{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    
     width: 100px;
     height: 100px;
     margin: 40px 66px 40px 66px;
@@ -76,6 +73,14 @@ select:focus{
     font-weight: bold;
     cursor: pointer;
     background-color: white;
+}
+.quickPage a{
+	display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100px;
+    height: 100px;
 }
 .quickPage img{
 	position: relative;

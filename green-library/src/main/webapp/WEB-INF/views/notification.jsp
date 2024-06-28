@@ -9,11 +9,11 @@
 <meta charset="utf-8">
 <title>공지사항</title>
 
-<script src="js/notification.js"></script>
-<link rel="stylesheet" type="text/css" href="css/public/nav.css">
-<link rel="stylesheet" type="text/css" href="css/notification.css">
+<script src="/js/notification.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/public/nav.css">
+<link rel="stylesheet" type="text/css" href="/css/notification.css">
 
-<script src = "js/bottomButtonBox.js"></script>
+<script src = "/js/bottomButtonBox.js"></script>
 
 </head>
 

@@ -16,6 +16,7 @@
 
 	<jsp:include page="../index/header.jsp" />
 
+
 	<div class="outBanner">
 		<div class="bannerBgr">
 			<div class="Banner">
@@ -104,11 +105,12 @@
 							<tr>
 								<td><c:choose>
 										<c:when test="${count.rent_count <= 5}">
-							            대출 가능
+						            대출 가능
 							        </c:when>
 										<c:otherwise>
 							            대출 불가능
 							        </c:otherwise>
+
 									</c:choose></td>
 							</tr>
 						</table>
@@ -142,6 +144,7 @@
 					id="iframe" onload="initialLoadIframe()"> </iframe>
 			</div>
 		</div>
+
 	</div>
 	<div id="modalContainer" class="hidden">
 		<div id="modalContent">

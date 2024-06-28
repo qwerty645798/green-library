@@ -54,7 +54,8 @@
             <div class="menuBarBackground">
               <div id="subMenu" class="subMenu"><!-- 테스트용 -->
                 <ul id="subMenu1" class="menuBar">
-                  <li>도서관 비전</li>
+                  <li><a href="vision">
+                  도서관 비전</a></li>
                   <li></li>
                   <li></li>
                   <li></li>
@@ -62,35 +63,50 @@
                 </ul>
               
                 <ul id="subMenu2" class="menuBar">
-                  <li>오시는 길</li>
-                  <li>이용시간 안내</li>
-                  <li>자료이용 안내</li>
-                  <li>부대시설 소개</li>
-                  <li>희망도서 신청</li>
+                  <li><a href="wayToCome">
+                  오시는 길</a></li>
+                  <li><a href="placeUsetime">
+                  이용시간 안내</a></li>
+                  <li><a href="dataRule">
+                  자료이용 안내</a></li>
+                  <li><a href="facilityInfo">
+                  부대시설 소개</a></li>
+                  <li><a href="hopeBookApply">
+                  희망도서 신청</a></li>
                 </ul>
               
                 <ul id="subMenu3" class="menuBar">
-                  <li>통합자료검색</li>
-                  <li>인기 도서</li>
-                  <li>신착 도서</li>
+                  <li><a href="dataSearch">
+                  통합자료검색</a></li>
+                  <li><a href="popularBook">
+                  인기 도서</a></li>
+                  <li><a href="initiativeBook">
+                  신착 도서</a></li>
                   <li></li>
                   <li></li>
                 </ul>
               
                 <ul id="subMenu4" class="menuBar">
-                  <li>공지사항</li>
-                  <li>문의사항</li>
-                  <li>자주 묻는 질문</li>
-                  <li>도서관 일정</li>
+                  <li><a href="notification">
+                  공지사항</a></li>
+                  <li><a href="oftenAsk">
+                  자주 묻는 질문</a></li>
+                  <li><a href="schedule">
+                  도서관 일정</a></li>
                   <li></li>
                 </ul>
               
                 <ul id="subMenu5" class="menuBar">
-                  <li>회원정보수정</li>
-                  <li>대출 연장</li>
-                  <li>약관 재동의</li>
-                  <li>내가 쓴 글</li>
-                  <li>문의하기</li>
+                  <li><a href="userInfoModification">
+                  회원정보수정</a></li>
+                  <li><a href="bookLoanExtension">
+                  대출 연장</a></li>
+                  <li><a href="userAgreement">
+                  약관 재동의</a></li>
+                  <li><a href="myWritten">
+                  내가 쓴 글</a></li>
+                  <li><a href="userInquiryCreate">
+                  문의하기</a></li>
                 </ul>
               </div><!-- testcon -->
               

@@ -120,6 +120,12 @@ header{
     color: black;
     background-color: lemonchiffon;
 }
+.menuBar a{
+	color: black;
+	text-decoration: none;
+	width: 252px;
+	height: 45px;
+}
 .menuBar:nth-child(2n-1){
     background-color:white;
 }
@@ -134,11 +140,14 @@ header{
 }
 .menuBar>li:hover{
    /*  text-decoration: underline; */
-    color: #e7f3e8;
-    background-color:#1d7647;
+/*     color: #e7f3e8; */
+    background-color:#64b883;
     opacity: 0.5;
     cursor: pointer;
     transition: 300ms ease-in-out;
+}
+.menuBar>li:hover a{
+	color: white;
 }
 .subMenuTop, .menuBar{
     font-size: 0pt;
