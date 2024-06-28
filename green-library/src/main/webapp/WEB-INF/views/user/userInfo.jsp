@@ -11,6 +11,11 @@
 <link href="/reset/reset.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/public/nav.css">
 <link href="/css/userUseInformation.css" type="text/css" rel="stylesheet">
+<Script>
+	let message = "${message}";
+	if(message)
+		alert(message);
+</Script>
 </head>
 <body>
 
@@ -59,7 +64,7 @@
 
 					<div class="infoBtn">
 						<input type="button" value="회원정보 수정"
-							onclick="location='userInfoModification'"> <input
+							id="modalOpenButton1"> <input
 							type="button" value="회원 탈퇴" id="modalOpenButton">
 						<form action="/logout" method="post">
 							<input type="hidden" name="${_csrf.parameterName}"
@@ -164,6 +169,28 @@
 
 			</form>
 			<button id="modalCloseButton">
+				<img src="/images/x-icon.png" style="width: 100%; height: auto;">
+			</button>
+		</div>
+	</div>
+	<div id="modalContainer1" class="hidden">
+		<div id="modalContent1">
+			<h4 style="text-align: center; margin-top:30px;">
+				<b>회원정보 확인을 위해 비밀번호를 입력해주세요.</b>
+			</h4>
+			<form action="userPassCheck" method="post" id="form">
+
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
+					
+				<div style="display: flex; justify-contents:center; align-items:center; flex-direction:column">
+					<input type="password" name="user_pass" style="width:200px; height:30px; font-size:2em; ">
+					<input type="submit" value="확인" id="userCheckPass">
+				</div>
+
+
+			</form>
+			<button id="modalCloseButton1">
 				<img src="/images/x-icon.png" style="width: 100%; height: auto;">
 			</button>
 		</div>

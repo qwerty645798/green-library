@@ -11,6 +11,18 @@ modalOpenButton.addEventListener('click', () => {
 modalCloseButton.addEventListener('click', () => {
   modal.classList.add('hidden');
 });
+let modalOpenButton1 = document.getElementById('modalOpenButton1');
+let modalCloseButton1 = document.getElementById('modalCloseButton1');
+let modal1 = document.getElementById('modalContainer1');
+
+
+modalOpenButton1.addEventListener('click', () => {
+  modal1.classList.remove('hidden');
+});
+
+modalCloseButton1.addEventListener('click', () => {
+  modal1.classList.add('hidden');
+});
 //이혜민 추가, 취소 버튼 누르면 모달창이 닫힌다.
 cancel.addEventListener('click', () => {
 	modal.classList.add('hidden');

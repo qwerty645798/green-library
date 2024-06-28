@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="css/errorPage.css" type="text/css" rel="stylesheet">
+<link href="/css/errorPage.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,7 +29,7 @@
 </ul>
 
 <a href="../">
-<img src="images/home.png">
+<img src="/images/home.png">
 홈페이지로 돌아가기</a>
 
 </div>
