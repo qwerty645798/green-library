@@ -2,12 +2,10 @@ body{
 	margin:0;
 }
 header{
-	position: fixed;
+	
 	display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    z-index: 50;
 }
 .logout{
 	width: 30px;
@@ -22,7 +20,6 @@ header{
 	justify-content:center;
 }
 .header1{
-	background: white;
     width:100%;
 }
 .headerTop{
@@ -49,7 +46,7 @@ header{
     cursor: pointer;
 }
 .headerBottom{
-	position: fixed;
+	
     display: flex;
     justify-content: center;
 /*     background-color:#155734; */
@@ -63,10 +60,10 @@ header{
     text-align: center;
     padding:0;
 }
-/* .subMenuTop:hover ~.menuBar{ */
-/*     height: 250px; */
-/*     transition: 2s ease-in-out; */
-/* } */
+.subMenuTop:hover ~.menuBar{
+    height: 250px;
+    transition: 2s ease-in-out;
+}
 .subMenuTop>li{
 	
     display: inline-block;
@@ -83,7 +80,16 @@ header{
 /*     background-color:#155734; */
 	background-color: #1d7647;
 }
-
+/* .subMenuTop>li:not(:last-child)::after{
+	content: "";
+	display: inline-block;
+	width: 2px;
+	height: 25px;
+	position: relative;
+	left: 73px;
+	top: 5px;
+	background-color: #47a168;
+} */
 .subMenuTop>li:hover{
     background-color: #e7f3e8;
     transition: 0.5s ease-in-out;
@@ -91,14 +97,11 @@ header{
     cursor: pointer;
 }
 .subMenu{/*테스트용*/
-    display: flex;
+    display: none;
     flex-direction: row;
-    position: fixed;
-    top: 203px;
+    position: absolute;
     width: 1260px;
-/*     height: 250px; */
-	height: 0px;
-	overflow: hidden;
+    height: 250px;
     
 }
 
@@ -144,35 +147,30 @@ header{
     font-size: 0pt;
 }
 
-/*js*/
-.menuopen{
-	transition: height 300ms ease-in-out;
-}
-
 
 /*test*/
-/* #subMenu1{ */
-/*     position: absolute; */
-/*     left: 0px; */
-/* } */
-/* #subMenu2{ */
-/*     position: absolute; */
-/*     left: 252px; */
-/* } */
-/* #subMenu3{ */
-/*     position: absolute; */
-/*     left: 504px; */
-/* } */
-/* #subMenu4{ */
-/*     position: absolute; */
-/*     left: 756px; */
-/* } */
-/* #subMenu5{ */
-/*     position: absolute; */
-/*     left: 1008px; */
-/* } */
+#subMenu1{
+    position: absolute;
+    left: 0px;
+}
+#subMenu2{
+    position: absolute;
+    left: 252px;
+}
+#subMenu3{
+    position: absolute;
+    left: 504px;
+}
+#subMenu4{
+    position: absolute;
+    left: 756px;
+}
+#subMenu5{
+    position: absolute;
+    left: 1008px;
+}
 a#myPage{
-	color:#1d7647;
+	color:green;
 	cursor:pointer;
 	text-decoration:none;
 }

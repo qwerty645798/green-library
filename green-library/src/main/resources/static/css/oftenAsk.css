@@ -21,6 +21,7 @@ h1{
     display: flex;
     justify-content: center;
     margin-top: 50px;
+/*     margin-bottom: 300px; */
 }
 .QnApage2{
     display: flex;
@@ -34,7 +35,7 @@ dt, dd{
     line-height: 2em;
 }
 dt{
-    width: 1240px;
+    width: 1260px;
     height: 60px;
     padding: 10px;
     cursor: pointer;
@@ -47,17 +48,11 @@ dt::first-letter{
     color: #6c5a3f;
     font-weight: bold;
 }
-dt img{
-    float: right;
-    width: 40px;
-    height: 40px;
-}
 dd{
-/*     box-sizing: border-box; */
-    width: 1240px;
-	height: 0px;
-	padding: 0;
-	margin: 0;
+    /* box-sizing: border-box; */
+    width: 1260px;
+    height: 400px;
+    padding: 10px;
     overflow: hidden;
     background-color:#e7f3e8;
 }
@@ -78,10 +73,27 @@ p{
 }
 
 
+/*테스트 중*/
 
-.transition{
-	transition: height 300ms ease-in-out, padding 300ms ease-in-out;
+.dt{/*test*/
+    width: 1260px;
+    height: 60px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    border: 2px solid #ecd9bc;
+    background-color: white;
 }
-
-
-
+.dd{/*test*/
+    display: none;
+    width: 1260px;
+    height: 400px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #e7f3e8;
+}
+img{
+    float: right;
+    width: 40px;
+    height: 40px;
+}
