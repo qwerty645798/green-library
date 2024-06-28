@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>문의 게시판</title>
     <meta name="csrf-token" content="${_csrf.token}">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/reset.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/style.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/adminHeader.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/public/adminFooter.css">
-    <link rel="stylesheet" type="text/css" href="admin/css/inquiryManage.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/style.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/public/adminFooter.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/inquiryManage.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
