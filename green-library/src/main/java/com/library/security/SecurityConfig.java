@@ -25,7 +25,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
             	.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                 .requestMatchers("/**","/resources/**","/static/**", "/css/**", "/js/**", "/image/**").permitAll()
-                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/admin/**").hasRole("ADMIN").requestMatchers("/admin/**").authenticated()
                 .requestMatchers("/user/**").authenticated()
                 .anyRequest().authenticated()
             )
@@ -73,7 +73,7 @@ public class SecurityConfig {
     protected PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    
+
 	/*
 	 * @Bean WebSecurityCustomizer ignoringCustomizer() { return (web) ->
 	 * web.ignoring().requestMatchers("/resources/**", "/static/**"); }

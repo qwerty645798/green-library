@@ -39,6 +39,6 @@ public interface UserRepository {
     void deleteUsers(List<String> userIds);
 
     // 이용 제한 해제
-    void releaseSuspension(String userId);
+    void releaseSuspension(String userId, String suspenId);
 
 }

@@ -19,15 +19,15 @@ public interface UserService {
 
     UserDetailDTO getUserDetail(String id);
 
-    UserDTO getUserById(String id);
-
-    List<RentDTO> loanUserById(String userId);
-
-    List<SuspensionDTO> suspensionUserById(String userId);
+//    UserDTO getUserById(String id);
+//
+//    List<RentDTO> loanUserById(String userId);
+//
+//    List<SuspensionDTO> suspensionUserById(String userId);
 
     int createSuspension(SuspensionDTO suspension);
 
     void deleteUsers(List<String> userIds);
 
-    void releaseSuspension(String userId);
+    void releaseSuspension(String userId, String suspenId);
 }

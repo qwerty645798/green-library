@@ -42,6 +42,7 @@ public class AnnouncementRepositoryImpl implements AnnouncementRepository {
                 "WHERE ANNOUNCE_TITLE LIKE ? OR CONTENTS LIKE ? " +
                 "ORDER BY ANNOUNCEMENT_ID";
         System.out.println(total);
+        System.out.println("하이하이");
         String queryParam = "%" + total + "%";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);

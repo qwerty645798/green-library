@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,7 +31,7 @@ public class InquiryController {
         return "admin/adminManagements/inquiry/inquiryManage";
     }
 
-    @GetMapping("/searchInquiries")
+    @GetMapping("/search")
     public ResponseEntity<List<InquiryDTO>> searchInquiries(
             @RequestParam(value = "searchType", required = false) String searchType,
             @RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
@@ -47,6 +48,12 @@ public class InquiryController {
         }
         return ResponseEntity.ok(inquiries);
     }
+
+    @PostMapping("/deleteInquiry")
+    public String deleteInquiry(@RequestParam("id") long id) {
+        return null;
+    }
+
 
 
     @GetMapping("/WritingInquiry")

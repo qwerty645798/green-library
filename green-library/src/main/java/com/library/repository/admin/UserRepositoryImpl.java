@@ -120,7 +120,13 @@ public class UserRepositoryImpl implements UserRepository {
     // 해당 유저의 대출 현황 조회
     @Override
     public List<RentDTO> loanUserById(String userId) {
-        String sql = "SELECT TITLE, AUTHOR_NAME, PUBLISHER_NAME, GENRE_FULLNAME, RENT_HISTORY " + "FROM RENTS " + "JOIN BOOKS ON BOOKS.BOOK_ID = RENTS.BOOK_ID " + "JOIN AUTHORS ON AUTHORS.AUTHOR_ID = BOOKS.AUTHOR_ID " + "JOIN PUBLISHERS ON PUBLISHERS.PUBLISHER_ID = BOOKS.PUBLISHER_ID " + "WHERE USER_ID = ?";
+        String sql = "SELECT " +
+                "B.TITLE AS BOOK_TITLE, A.AUTHOR_NAME, P.PUBLISHER_NAME, B.GENRE_FULLNAME, R.RENT_HISTORY " +
+                "FROM RENTS R " +
+                "JOIN BOOKS B ON R.BOOK_ID = B.BOOK_ID " +
+                "JOIN AUTHORS A ON B.AUTHOR_ID = A.AUTHOR_ID " +
+                "JOIN PUBLISHERS P ON B.PUBLISHER_ID = P.PUBLISHER_ID " +
+                "WHERE R.USER_ID = ?";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, userId);
@@ -132,6 +138,7 @@ public class UserRepositoryImpl implements UserRepository {
             loan.setPublisherName(rs.getString("PUBLISHER_NAME"));
             loan.setGenreFullName(rs.getString("GENRE_FULLNAME"));
             loan.setRentHistory(rs.getDate("RENT_HISTORY"));
+            loan.setUserId(userId);
             return loan;
         });
     }
@@ -140,7 +147,7 @@ public class UserRepositoryImpl implements UserRepository {
     // 해당 유저의 이용 제한 내역 조회
     @Override
     public List<SuspensionDTO> suspensionUserById(String userId) {
-        String sql = "SELECT REASON, START_DATE, END_DATE, (END_DATE - START_DATE) AS DURATION " + "FROM SUSPENSIONS " + "WHERE USER_ID = ?";
+        String sql = "SELECT REASON, START_DATE, END_DATE, (END_DATE - START_DATE) AS DURATION, SUSPENSION_ID " + "FROM SUSPENSIONS " + "WHERE USER_ID = ?";
         return jdbcTemplate.query(con -> {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, userId);
@@ -151,6 +158,8 @@ public class UserRepositoryImpl implements UserRepository {
             suspension.setStartDate(rs.getDate("START_DATE"));
             suspension.setEndDate(rs.getDate("END_DATE"));
             suspension.setDuration(rs.getInt("DURATION"));
+            suspension.setSuspensionId(rs.getInt("SUSPENSION_ID"));
+            suspension.setUserId(userId);
             return suspension;
         });
     }
@@ -164,25 +173,33 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     // 유저 영구 삭제
-//    void deleteUsers(List<String> userIds);
-
-    //    void releaseSuspension(String userId);
     @Override
-    @Transactional
     public void deleteUsers(List<String> userIds) {
-        String sql = "DELETE FROM USERS WHERE USER_ID IN (:userIds)";
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("userIds", userIds);
-        jdbcTemplate.update(sql, params);
+        String sql = "DELETE FROM USERS WHERE USER_ID IN (";
+
+        for (int i = 0; i < userIds.size(); i++) {
+            sql += "'" + userIds.get(i) + "'";
+            if (i < userIds.size() - 1) {
+                sql += ",";
+            }
+        }
+
+        sql += ")";
+
+        jdbcTemplate.update(sql);
     }
+
+
 
     // 이용 제한 해제
     @Override
     @Transactional
-    public void releaseSuspension(String userId) {
-        String sql1 = "UPDATE USERS SET SUSPENDED = 0 WHERE USER_ID = ?";
+    public void releaseSuspension(String userId, String suspenId) {
+        String sql1 = "UPDATE USERS SET SUSPENDED = '0' WHERE USER_ID = ?";
         jdbcTemplate.update(sql1, userId);
-        String sql2 = "UPDATE SUSPENSIONS SET END_DATE = SYSDATE WHERE USER_ID = ?";
-        jdbcTemplate.update(sql2, userId);
+//        String sql2 = "UPDATE SUSPENSIONS SET END_DATE = SYSDATE WHERE USER_ID = ?";
+        String sql2 = "DELETE FROM SUSPENSIONS WHERE USER_ID = ? AND SUSPENSION_ID = ?";
+        jdbcTemplate.update(sql2, userId, suspenId);
+        System.out.println("complete");
     }
 }

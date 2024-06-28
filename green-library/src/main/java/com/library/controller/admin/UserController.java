@@ -1,6 +1,5 @@
 package com.library.controller.admin;
 
-import com.library.dto.admin._normal.SuspensionDTO;
 import com.library.dto.admin._normal.UserDTO;
 import com.library.dto.admin.userManagement.UserDetailDTO;
 import com.library.service.admin.UserService;
@@ -58,22 +57,23 @@ public class UserController {
         return ResponseEntity.ok(userDetails);
     }
 
-//    @PostMapping("/deleteUsers")
-//    public ResponseEntity<String> deleteUsers(@RequestBody List<UserDTO> userIds) {
-//            userService.deleteUsers(userIds);
-//            return ResponseEntity.ok("이용자가 삭제되었습니다.");
-//    }
     @PostMapping("/deleteUsers")
-    public ResponseEntity<String> deleteUsers(@RequestBody Map<String, List<String>> userIds) {
-        List<String> ids = userIds.get("userIds");
-        userService.deleteUsers(ids);
-        return ResponseEntity.ok("이용자가 삭제되었습니다.");
+    public ResponseEntity<String> deleteUsers(@RequestBody List<String> userIds) {
+        System.out.println("Received userIds: " + userIds);
+        for(String userId : userIds) {
+            System.out.println("Deleting user: " + userId);
+        }
+            userService.deleteUsers(userIds);
+            return ResponseEntity.ok("삭제 성공");
+
     }
 
-    // Endpoint to release ban for a user
+
+
+
     @PostMapping("/releaseBan")
-    public ResponseEntity<String> releaseBan(@RequestParam("userId") String userId) {
-            userService.releaseSuspension(userId);
-            return ResponseEntity.ok("제한이 해제되었습니다.");
+    public ResponseEntity<String> releaseBan(@RequestParam("userId") String userId, @RequestParam("suspenId") String suspenId) {
+            userService.releaseSuspension(userId, suspenId);
+            return ResponseEntity.ok("success");
     }
 }
