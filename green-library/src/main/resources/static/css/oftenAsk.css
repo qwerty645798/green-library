@@ -80,7 +80,7 @@ p{
 
 
 .transition{
-	transition: height 300ms ease-in-out, padding 300ms ease-in-out;
+	transition: height 200ms ease-in-out;/* , padding 300ms ease-in-out; */
 }
 
 
