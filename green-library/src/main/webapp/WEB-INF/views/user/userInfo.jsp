@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="css/public/nav.css">
     <link href="css/userUseInformation.css" type="text/css" rel="stylesheet">
 </head>
+<body>
+
 
 <jsp:include page="../index/header.jsp" />
 
@@ -66,79 +68,79 @@
         
 <!--         위치 -->
 
-                            <div class="container">
-                                <div class="center btnbox">
-                                    <table class="btn">
-                                        <tr>
-                                            <th>예약</th>
-                                        </tr>
-                                        <tr>
-                                            <td>${count.reserve_count} / 5</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div style="width: 30px;"></div>
-                                <div class="center btnbox">
-                                    <table class="btn">
-                                        <tr>
-                                            <th>대출</th>
-                                        </tr>
-                                        <tr>
-                                            <td>${count.rent_count} / 5</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div style="width: 30px;"></div>
-                                <div class="center btnbox">
-                                    <table class="btn">
-                                        <tr>
-                                            <th>나의 상태</th>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <c:choose>
-                                                    <c:when test="${count.rent_count <= 5}"> 대출 가능 </c:when>
-                                                    <c:otherwise> 대출 불가능 </c:otherwise>
-                                                </c:choose>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="infoQuicks">
-                                <div class="userInfoQuick">
-                                    <div class="center Dheader" data-condition="rentHistory">
-                                        <span>전체 대출이력</span>
-                                    </div>
-                                </div>
-                                <div class="userInfoQuick">
-                                    <div class="center Dheader" data-condition="borrow">
-                                        <span>대출중인 도서</span>
-                                    </div>
-                                </div>
-                                <div class="userInfoQuick">
-                                    <div class="center Dheader" data-condition="reserve">
-                                        <span>신청한 예약도서</span>
-                                    </div>
-                                </div>
-                                <div class="userInfoQuick">
-                                    <div class="center Dheader" data-condition="interest">
-                                        <span>관심도서 조회</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--         여기까지가 infoQuicks -->
-                        <div class="container">
-                            <iframe src="useInformationBoard" width="1260" height="600" id="iframe"
-                                onload="initialLoadIframe()">
-                            </iframe>
-                        </div>
-                    </div>
+                        </tr>
+                    </table>
                 </div>
+                <div style="width: 30px;"></div>
+                <div class="center btnbox">
+                    <table class="btn">
+                        <tr>
+                            <th>대출</th>
+                        </tr>
+                        <tr>
+                            <td>${count.rent_count} / 5</td>
 
+                        </tr>
+                    </table>
+                </div>
+                <div style="width: 30px;"></div>
+                <div class="center btnbox">
+                    <table class="btn">
+                        <tr>
+                            <th>나의 상태</th>
+                        </tr>
+                        <tr>
+                            <td>
+                            	<c:choose>
+							        <c:when test="${count.rent_count <= 5}">
+							            대출 가능
+							        </c:when>
+							        <c:otherwise>
+							            대출 불가능
+							        </c:otherwise>
+							    </c:choose>
+                            </td>
 
-<!--     위치 -->
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        
+        
+        
+
+        <div class="infoQuicks">
+            <div class="userInfoQuick">
+            <div class="center Dheader" data-condition="rentHistory">
+                    <span>전체 대출이력</span>
+                </div>
+                </div>
+            
+            
+            <div class="userInfoQuick">
+            <div class="center Dheader" data-condition="borrow">
+                    <span>대출중인 도서</span>
+                </div>
+                </div>
+                      
+            <div class="userInfoQuick">
+            <div class="center Dheader" data-condition="reserve">
+                    <span>신청한 예약도서</span>
+                </div>
+                </div>
+            
+            
+            <div class="userInfoQuick">
+            <div class="center Dheader" data-condition="interest">
+                    <span>관심도서 조회</span>
+                </div>
+                </div>
+        </div>
+<!--         여기까지가 infoQuicks -->
+        
+    </div>
+    
+
     
     <div class="container">
                 <iframe src="useInformationBoard" 
