@@ -11,7 +11,7 @@
 <link href="/css/public/nav.css" type="text/css" rel="stylesheet">
 </head>
 <body>
- 	<jsp:include page="index/header.jsp" />
+ 	<jsp:include page="../index/header.jsp" />
 		<nav class="bannerBgr">
 		<div class="Banner">
 			<div class="pageTitle">부대시설 안내</div>
@@ -121,6 +121,6 @@
 				</div>
 			</div>
 		</main>
-		<jsp:include page="index/footer.jsp" />
+		<jsp:include page="../index/footer.jsp" />
 </body>
 </html>
