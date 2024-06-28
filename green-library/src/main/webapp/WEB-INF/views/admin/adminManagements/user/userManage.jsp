@@ -6,6 +6,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="csrf-token" content="${_csrf.token}">
                 <title>사용자 관리</title>
                 <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
                 <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
@@ -266,6 +267,10 @@
                         $('input[name="userCheckbox"]').prop('checked', false);
                         $('#selectAllCheckbox').prop('checked', false);
                     }
+                    
+                 	// CSRF 토큰을 메타 태그에서 가져옴
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
 
                     // 유저 영구 삭제 함수
                     function deleteUsers() {
@@ -290,6 +295,10 @@
                                 type: 'POST',
                                 data: { userIds: userIds },
                                 traditional: true, // 배열 데이터 전송을 위한 설정
+                                beforeSend: function (xhr) {
+                                    // 요청 헤더에 CSRF 토큰을 포함
+                                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                                },
                                 success: function (response) {
                                     alert('선택한 사용자가 성공적으로 삭제되었습니다.');
                                     // 삭제 후에는 다시 검색을 실행하여 목록을 업데이트합니다.
@@ -302,7 +311,6 @@
                         }
                     }
 
-
                     // 제한 해제 함수
                     function releaseBan(banId) {
                         if (confirm('정말로 이 이용 제한을 해제하시겠습니까?')) {
@@ -310,6 +318,10 @@
                                 url: '/User/releaseBan',
                                 type: 'POST',
                                 data: { banId: banId },
+                                beforeSend: function (xhr) {
+                                    // 요청 헤더에 CSRF 토큰을 포함
+                                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                                },
                                 success: function (response) {
                                     alert('이용 제한이 성공적으로 해제되었습니다.');
 
