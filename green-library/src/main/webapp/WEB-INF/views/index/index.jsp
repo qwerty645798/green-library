@@ -14,6 +14,11 @@
    	if(message == "userDelete")
    		alert("회원탈퇴가 완료되었습니다.");
     </script>
+    
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
+	<script src="/fullcalendar-6.1.14/fullcalendar-6.1.14/dist/index.global.js"></script>
+	<script src="js/fullcalendar.js"></script>
+    
 </head>
 <body>
 
@@ -189,9 +194,11 @@
 					</c:when>
 				</c:choose>
 	        
-	    </div>
+<!-- 	    </div> -->
 	</div>
+    <div id="calendar" class="infoBoard3">
     
+    </div>
     
 </div>
 
