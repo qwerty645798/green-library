@@ -78,11 +78,13 @@ public class UserServiceImpl implements UserService {
 	// 회원정보수정을 위한 인증
 	@Override
 	public boolean checkUserPass(String userPass) {
-        try{
-        	userRepository.getUsersEntity(userPass);
-        	return true;
+		try {
+            int rowsAffected = userRepository.deleteUser(userId);
+            if (rowsAffected == 0) {
+                throw new DatabaseException("Failed to delete user with id: " + userId);
+            }
         } catch (EmptyResultDataAccessException e) {
-        	return false;
+            throw new DatabaseException("Database error occurred while deleting user with id: " + userId, e);
         }
     }
 	
