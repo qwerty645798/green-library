@@ -55,11 +55,12 @@ header{
 /*     background-color:#155734; */
 	background-color: #1d7647;
     width:100%;
+    min-height: 57px;
 }
 .subMenuTop{
     margin-left: 0px;
     min-width: 1260px;
-    min-height: 56px;
+    min-height: 57px;
     text-align: center;
     padding:0;
 }
@@ -72,9 +73,8 @@ header{
     display: inline-block;
     box-sizing: border-box;
     min-width: 252px;
-    min-height: 56px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    min-height: 57px;
+    padding: 15px 0 15px 0;
     margin: 0px;
     list-style-type: none;
     color: white;
@@ -113,7 +113,7 @@ header{
     flex-direction: column;
     align-items: center;
     width: 100px;
-    height: 250px; 
+    height: 300px; 
     margin-left: 0px;
     padding-left: 76px;
     padding-right: 76px;
@@ -130,8 +130,11 @@ header{
     background-color:white;
 }
 .menuBar>li{
+	display:flex;
 	margin: 0px;
 	width: 252px;
+	height: 57px;
+	align-items: center;
 	text-align: center;
     font-size: 11pt;
     font-weight: bold;
