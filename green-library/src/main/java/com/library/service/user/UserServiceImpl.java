@@ -63,7 +63,6 @@ public class UserServiceImpl implements UserService {
 			Users user = userRepository.getUsersEntity(userId);
 			UserLoginDTO userDTO = userMapper.toUserLoginDTO(user);
 			List<GrantedAuthority> authorities = new ArrayList<>();
-	
 			return User
 					.withUsername(userDTO.getUser_id())
 					.password(userDTO.getUser_pass())
@@ -77,15 +76,14 @@ public class UserServiceImpl implements UserService {
 	
 	// 회원정보수정을 위한 인증
 	@Override
-	public boolean checkUserPass(String userPass) {
+	public boolean checkUserPass(String userId, String rawPass) {
 		try {
-            int rowsAffected = userRepository.deleteUser(userId);
-            if (rowsAffected == 0) {
-                throw new DatabaseException("Failed to delete user with id: " + userId);
-            }
-        } catch (EmptyResultDataAccessException e) {
-            throw new DatabaseException("Database error occurred while deleting user with id: " + userId, e);
-        }
+            String hashedPassword = userRepository.getUserPass(userId);
+            boolean check = passwordEncoder.matches(rawPass, hashedPassword);
+            return check;
+		} catch (EmptyResultDataAccessException e) {
+	    	return false;
+	    }
     }
 	
 	//아이디 중복체크

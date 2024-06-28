@@ -100,5 +100,12 @@ public class UserRepositoryImpl implements UserRepository {
         String sql = "DELETE FROM users WHERE user_id = ?";
         return jdbcTemplate.update(sql, userId);
     }
+	
+	// 비밀번호 검증
+	@Override
+	public String getUserPass(String userId) {
+		String sql = "SELECT user_pass FROM users where user_id = ?";
+		return jdbcTemplate.queryForObject(sql, String.class, userId);
+	}
 
 }
