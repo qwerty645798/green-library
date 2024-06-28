@@ -9,7 +9,7 @@
         <title>Green Library</title>
         <link href="/css/public/header.css" type="text/css" rel="stylesheet">
         
-        <script src = "js/commonWindowOnload.js"></script>
+        <script src = "/js/commonWindowOnload.js"></script>
         
         
     </head>
@@ -21,14 +21,14 @@
 	      <div class="center">
 	        <div class="headerTop">
 	          <div class="logo">
-	          <a href="/"><img src="images/로고.png"></a>
+	          <a href="/"><img src="/images/로고.png"></a>
 	          </div>
 		          	<sec:authorize access="isAuthenticated()">
 				        <div>환영합니다, <a id="myPage" href="userInfo"><b><sec:authentication property="name"/>님!</b></a> &nbsp;</div>
 				        <form action="logout" method="post"> 
 				        <label>
 				        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-		                <img class="logout" src="images/logout.png">
+		                <img class="logout" src="/images/logout.png">
 		                <input class="bye" type="submit" value="로그아웃" >
 				        </label>
 		                </form>

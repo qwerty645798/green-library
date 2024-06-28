@@ -15,6 +15,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -28,14 +29,13 @@ import com.library.dto.user.inquiry.UserReserveDTO;
 import com.library.dto.user.profile.UserInfoDTO;
 import com.library.dto.user.profile.UserInfoModificationDTO;
 import com.library.service.user.InquiryService;
-import com.library.service.user.UserCreateInquiryService;
 import com.library.service.user.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller("UserController")
-//@RequestMapping("/user")
+@RequestMapping("/user")
 public class UserController {
 
 	private final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -48,8 +48,6 @@ public class UserController {
 	@Qualifier("UserInquiryService")
 	private InquiryService inquiryService;
 	
-	@Autowired
-	private UserCreateInquiryService userCreateInquiryService;
 
 	@GetMapping("/userInfo")
 	public String userInfo(Model model, @RequestParam(name = "auth", defaultValue = "abc") String userId) {
@@ -79,12 +77,12 @@ public class UserController {
 				logger.error("Validation error: {}", error.getDefaultMessage());
 			}
 			model.addAttribute("message", "유효하지 않은 입력입니다.");
-			return "userInfoModification";
+			return "user/userInfoModification";
 		}
 
 		userService.update(userInfoModificationDTO, userId);
 		redirectAttributes.addFlashAttribute("message", "회원정보가 수정되었습니다.");
-		return "redirect:/userInfo";
+		return "redirect:/user/userInfo";
 	}
 
 	@PostMapping("/userDelete")
@@ -172,36 +170,9 @@ public class UserController {
     @GetMapping("/userInquiryDetail")
 	public String userInquiryDetail(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
     	if(id.equals("error"))
-    		return "redirect:/myWritten";
+    		return "redirect:/user/myWritten";
     	UserInquiryDetailDTO userDTO = inquiryService.getInquiryDetail(userId, id);
     	model.addAttribute("inquiryDetail", userDTO);
     	return "user/userInquiryDetail";
 	}
-    
-    @GetMapping("/modifyInquiry")
-
-    public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
-    	model.addAttribute("userId", userId);
-    	return "user/userInquiryModify";
-    }
-    
-    @PostMapping("/modifyInquiry")
-    public String modifyInquiryPerform(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, RedirectAttributes redirectAttributes, 
-    		@RequestParam("inquiry_title") String inquiryTitle,
-    		@RequestParam("contents") String contents) {
-    	if(id.equals("error"))
-    		return "redirect:/myWritten";
-    	userCreateInquiryService.modifyInquiry(inquiryTitle, contents, userId, id);
-    	redirectAttributes.addFlashAttribute("message","문의내역이 수정되었습니다.");
-    	return "redirect:/myWritten";
-    }
-    
-    @GetMapping("/deleteInquiry")
-    public String deleteInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, RedirectAttributes redirectAttributes) {
-    	if(id.equals("error"))
-    		return "redirect:/myWritten";
-    	userCreateInquiryService.deleteInquiry(userId, id);
-    	redirectAttributes.addFlashAttribute("message","문의내역이 삭제되었습니다.");
-    	return "redirect:/myWritten";
-    }
 }

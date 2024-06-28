@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>useInformationBoard</title>
-<link href="css/board.css" type="text/css" rel="stylesheet">
+<link href="/css/board.css" type="text/css" rel="stylesheet">
 
 </head>
 <body>
@@ -26,7 +26,7 @@
     <button class="btn" id="prev-button" onclick="prevPage()">이전</button>
 	<button class="btn" id="next-button" onclick="nextPage()">다음</button>
 	</div>
-    <script src="js/board.js" type=""></script>
+    <script src="/js/board.js" type=""></script>
     
     <script>
 //     function updateTable(condition, data) {
