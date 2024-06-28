@@ -61,7 +61,7 @@
 						<input type="button" value="회원정보 수정"
 							onclick="location='userInfoModification'"> <input
 							type="button" value="회원 탈퇴" id="modalOpenButton">
-						<form action="logout" method="post">
+						<form action="/logout" method="post">
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" /> <input type="submit" value="로그아웃"
 								id="logout">

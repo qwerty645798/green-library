@@ -35,19 +35,19 @@ public class SecurityConfig {
                 .failureUrl("/userLogin?error=true")
                 .usernameParameter("user_id")
                 .passwordParameter("user_pass")
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/", false)
                 .permitAll()
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/userLogin?condition=success")
+                .logoutSuccessUrl("/")
                 .permitAll()
             )
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .sessionFixation().migrateSession()
                 .maximumSessions(1)
-                .maxSessionsPreventsLogin(true)
+                .maxSessionsPreventsLogin(false)
             )
             .headers(headers -> headers
             	.frameOptions(frameOptions -> frameOptions
