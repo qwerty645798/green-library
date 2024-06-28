@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>userFinding</title>
-<link href="css/userFinding.css" type="text/css" rel="stylesheet">
-<link href="css/public/nav.css" type="text/css" rel="stylesheet">
+<link href="/css/userFinding.css" type="text/css" rel="stylesheet">
+<link href="/css/public/nav.css" type="text/css" rel="stylesheet">
 <script>
 	let message = "${message}";
 	if(message)
@@ -33,7 +33,7 @@
 		<br> <br> <br>
 		<div class="container">
 			<div class="chkBtn">
-				<img class="chkBtnImg" src="images/check-button.jpg">
+				<img class="chkBtnImg" src="/images/check-button.jpg">
 			</div>
 			<span class="chkSpan" id="choose">아이디
 				찾기 본인인증</span>
@@ -42,7 +42,7 @@
 		<div class="container">
 			<div class="modOpBtnBox">
 				<a id="modalOpenButton">
-				<img class="birthChk" src="images/calendar_month.png" ">
+				<img class="birthChk" src="/images/calendar_month.png" ">
 				</a>
 			</div>
 		</div>
@@ -80,11 +80,11 @@
 				<input type="submit" value="확인" onclick="concatInput()">
 				</div>
 			</form>
-			<button id="modalCloseButton"><img class="closeBtn" src="images/x-icon.png" ></button>
+			<button id="modalCloseButton"><img class="closeBtn" src="/images/x-icon.png" ></button>
 		</div>
 	</div>
-	<script src="js/userFindingModal.js"></script>
-	<script src="js/userFinding.js"></script>
+	<script src="/js/userFindingModal.js"></script>
+	<script src="/js/userFinding.js"></script>
 	<jsp:include page="../index/footer.jsp" />
 </body>
 </html>

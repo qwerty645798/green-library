@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>agreement</title>
-<link href="css/public/header.css" type="text/css" rel="stylesheet">
-<link href="css/public/footer.css" type="text/css" rel="stylesheet">
-<link href="css/public/nav.css" type="text/css" rel="stylesheet">
-<link href="css/userAgreement.css" type="text/css" rel="stylesheet">
+<link href="/css/public/header.css" type="text/css" rel="stylesheet">
+<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
+<link href="/css/public/nav.css" type="text/css" rel="stylesheet">
+<link href="/css/userAgreement.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="../index/header.jsp" />
@@ -56,6 +56,6 @@
 		</main>
 	</div>
 	<jsp:include page="../index/footer.jsp" />
-	<script src="js/userAgreement.js"></script>
+	<script src="/js/userAgreement.js"></script>
 </body>
 </html>

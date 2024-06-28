@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>userLogin</title>
-<link href="css/public/header.css" type="text/css" rel="stylesheet">
-<link href="css/public/footer.css" type="text/css" rel="stylesheet">
-<link href="css/public/nav.css" type="text/css" rel="stylesheet">
-<link href="css/userLogin.css" type="text/css" rel="stylesheet">
+<link href="/css/public/header.css" type="text/css" rel="stylesheet">
+<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
+<link href="/css/public/nav.css" type="text/css" rel="stylesheet">
+<link href="/css/userLogin.css" type="text/css" rel="stylesheet">
 <script>
 	let error = "${param.error}";
 	if(error == "true")
@@ -78,6 +78,6 @@
 	
 	
 	<jsp:include page="../index/footer.jsp" />
-	<script src="js/userLogin.js"></script>
+	<script src="/js/userLogin.js"></script>
 </body>
 </html>

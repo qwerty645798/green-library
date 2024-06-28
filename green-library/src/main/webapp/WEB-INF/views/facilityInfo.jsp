@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>facilityInfo</title>
-<link href="css/public/header.css" type="text/css" rel="stylesheet">
-<link href="css/public/footer.css" type="text/css" rel="stylesheet">
-<link href="css/facilityInfo.css" type="text/css" rel="stylesheet">
-<link href="css/public/nav.css" type="text/css" rel="stylesheet">
+<link href="/css/public/header.css" type="text/css" rel="stylesheet">
+<link href="/css/public/footer.css" type="text/css" rel="stylesheet">
+<link href="/css/facilityInfo.css" type="text/css" rel="stylesheet">
+<link href="/css/public/nav.css" type="text/css" rel="stylesheet">
 </head>
 <body>
  	<jsp:include page="index/header.jsp" />
@@ -21,7 +21,7 @@
 		<main>
 			<div class="explain borderbox">1F</div>
 			<div class="map borderbox">
-				<img src="images/floor1F.jpg" class="image">
+				<img src="/images/floor1F.jpg" class="image">
 				<div class="borderbox column">
 					<div class="flex"><b class="btitle">1. 안내 데스크</b>
 						<span class="span-explain pb">도서관 위치, 휴관일, 자료이용 등에 관한 궁금한 내용을 물어볼 수 있는 곳입니다.</span>
@@ -45,7 +45,7 @@
 			</div>
 			<div class="explain borderbox">2F</div>
 			<div class="map borderbox">
-				<img src="images/floor2F.jpg" class="image">
+				<img src="/images/floor2F.jpg" class="image">
 				<div class="borderbox column">
 					<div class="flex">
 						<b class="btitle">1. 희망창작실</b><br><br>
@@ -63,7 +63,7 @@
 			</div>
 			<div class="explain borderbox">3F</div>
 			<div class="map borderbox">
-				<img src="images/floor3F.jpg" class="image">
+				<img src="/images/floor3F.jpg" class="image">
 				<div class="borderbox column">
 					<div class="flex">
 						<b class="btitle">1. 연구자료실</b><br><br>
@@ -85,7 +85,7 @@
 			</div>
 			<div class="explain borderbox">4F</div>
 			<div class="map borderbox">
-				<img src="images/floor4F.png" class="image">
+				<img src="/images/floor4F.png" class="image">
 				<div class="borderbox column">
 					<div class="flex">
 						<b class="btitle">1. 증강현실 그림책방</b><br><br>
@@ -107,7 +107,7 @@
 			</div>
 			<div class="explain borderbox">B1</div>
 			<div class="map borderbox">
-				<img src="images/BasementB1.png" class="image">
+				<img src="/images/BasementB1.png" class="image">
 				<div class="borderbox column">
 					<div class="flex">
 						<b class="btitle">1. 어린이독도체험관</b><br><br><br><br>

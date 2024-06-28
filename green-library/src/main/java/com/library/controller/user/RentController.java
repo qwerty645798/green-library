@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.library.dto.user.BookLoanExtensionDto;
 import com.library.dto.user.My_InquiryDto;
@@ -24,6 +26,7 @@ import com.library.service.user.WishBookService;
 import com.library.service.user.rewriteWishBookService;
 
 @Controller("UserRentController")
+@RequestMapping("/user")
 public class RentController {
 
 	@Autowired
@@ -39,7 +42,7 @@ public class RentController {
 		model.addAttribute("inquiries", inquiryList);
 		model.addAttribute("wishLists", wishList);
 		
-		return "myWritten";
+		return "user/myWritten";
 	}
 	
 	
@@ -60,7 +63,7 @@ public class RentController {
     	
     	userCreateInquiryService.createInquiry(userId, inquiryTitle, contents);
     	
-    	return "redirect:/myWritten";
+    	return "redirect:/user/myWritten";
     }
 	
 	@Autowired
@@ -84,7 +87,7 @@ public class RentController {
 		
 		bookLoanExtensionService.getExtension(bookId);
 		
-		return "redirect:/bookLoanExtension";
+		return "redirect:/user/bookLoanExtension";
 	}
 	
 	@PostMapping("/bookExtensionBatch")
@@ -92,7 +95,7 @@ public class RentController {
 	    for (int bookId : bookIds) {
 	        bookLoanExtensionService.getExtension(bookId);
 	    }
-	    return "redirect:/bookLoanExtension";
+	    return "redirect:/user/bookLoanExtension";
 	}
 	
 	
@@ -128,7 +131,7 @@ public class RentController {
 		
 		wishBookService.deleteWishBook(wishlistId, userId);		
 		
-		return "redirect:/myWritten";
+		return "redirect:/user/myWritten";
 	}
 	
 	
@@ -137,7 +140,7 @@ public class RentController {
 	public String hopeBookApply(@RequestParam(name = "auth", defaultValue = "abc") String userId, Model model) {
 		
 		model.addAttribute("userId", userId);
-		return "hopeBookApply";
+		return "user/hopeBookApply";
 	}
 	
 	@Autowired
@@ -162,7 +165,7 @@ public class RentController {
     	
 		RewriteWishBookService.updateWishs(wishTitle, wishAuthor, wishPublisher, wishPublication, wishPrice, wishIsbn, wishlistId, userId);
     	
-    	return "redirect:/myWritten";
+    	return "redirect:/user/myWritten";
     }
 	
 	
@@ -177,7 +180,34 @@ public class RentController {
     	
 		hopeBookApplyService.createWish(userId, wishTitle, wishAuthor, wishPublisher, wishPublication, wishPrice, wishIsbn);
     	
-    	return "redirect:/myWritten";
+    	return "redirect:/user/myWritten";
+    }
+	
+	@GetMapping("/modifyInquiry")
+
+    public String modifyInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, Model model) {
+    	model.addAttribute("userId", userId);
+    	return "user/userInquiryModify";
+    }
+    
+    @PostMapping("/modifyInquiry")
+    public String modifyInquiryPerform(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, RedirectAttributes redirectAttributes, 
+    		@RequestParam("inquiry_title") String inquiryTitle,
+    		@RequestParam("contents") String contents) {
+    	if(id.equals("error"))
+    		return "redirect:/user/myWritten";
+    	userCreateInquiryService.modifyInquiry(inquiryTitle, contents, userId, id);
+    	redirectAttributes.addFlashAttribute("message","문의내역이 수정되었습니다.");
+    	return "redirect:/user/myWritten";
+    }
+    
+    @GetMapping("/deleteInquiry")
+    public String deleteInquiry(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam(name = "inquiryId", defaultValue = "error") String id, RedirectAttributes redirectAttributes) {
+    	if(id.equals("error"))
+    		return "redirect:/user/myWritten";
+    	userCreateInquiryService.deleteInquiry(userId, id);
+    	redirectAttributes.addFlashAttribute("message","문의내역이 삭제되었습니다.");
+    	return "redirect:/user/myWritten";
     }
 	
 }
