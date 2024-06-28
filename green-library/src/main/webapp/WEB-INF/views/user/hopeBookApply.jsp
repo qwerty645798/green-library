@@ -15,7 +15,7 @@
     </head>
     <body>
     
-        <jsp:include page="index/header.jsp" />
+        <jsp:include page="../index/header.jsp" />
     
           <!-- 배너 시작 -->
           <div class="bannerBgr">
@@ -99,7 +99,7 @@
             </div>
         </div>
         
-    <jsp:include page="index/footer.jsp" />
+    <jsp:include page="../index/footer.jsp" />
   
     <script src="/js/hopeBookApply.js" type="text/javascript"></script>
     </body>
