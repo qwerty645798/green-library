@@ -119,5 +119,6 @@
 }
 
 .viewContainer .board-btn a {
-    color: #2c3e50;
+    width: 100%;
+    text-align: center;
 }

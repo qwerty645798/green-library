@@ -64,13 +64,15 @@ CREATE TABLE admin_grants
 CREATE TABLE admins
 (
     admin_id    VARCHAR2(20) PRIMARY KEY,
-    admin_name  VARCHAR2(10), -- Changed from VARCHAR2(5) to VARCHAR2(10) as per your ALTER TABLE statement
-    admin_pass  VARCHAR2(20),
+    admin_name  VARCHAR2(20),
+    admin_pass  VARCHAR2(80),
     admin_email VARCHAR2(40),
     grant_rank  NUMBER(1),
     CONSTRAINT fk_admins_grant_rank FOREIGN KEY (grant_rank) REFERENCES admin_grants (grant_rank)
 );
 
+ALTER TABLE admins MODIFY admin_name VARCHAR2(20);
+COMMIT ;
 -- 공지사항
 CREATE TABLE announcements
 (

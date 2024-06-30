@@ -8,39 +8,72 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class InquiryServiceImpl implements InquiryService{
+public class InquiryServiceImpl implements InquiryService {
 
     @Autowired
     private InquiryRepository inquiryRepository;
 
-    // 모든 문의 조회
     @Override
-    public List<InquiryDTO> allInquiryManage(){
-        return inquiryRepository.allInquiryManage();
+    public List<InquiryDTO> allInquiryManage(boolean showAnswered, boolean showOnlyAnswered) {
+        if (showOnlyAnswered) {
+            return inquiryRepository.findInquiriesByResponseTF(true);
+        } else if (showAnswered) {
+            return inquiryRepository.findAllInquiries();
+        } else {
+            return inquiryRepository.findInquiriesByResponseTF(false);
+        }
     }
 
     @Override
-    public List<InquiryDTO> findInquiryByTotal(String searchKeyword) {
-        return inquiryRepository.findInquiryByTotal(searchKeyword);
+    public List<InquiryDTO> searchInquiries(String searchType, String searchKeyword, boolean showAnswered, boolean showOnlyAnswered) {
+        switch (searchType) {
+            case "title":
+                return findInquiryByTitle(searchKeyword, showAnswered, showOnlyAnswered);
+            case "contents":
+                return findInquiryByContents(searchKeyword, showAnswered, showOnlyAnswered);
+            default:
+                return findInquiryByTotal(searchKeyword, showAnswered, showOnlyAnswered);
+        }
     }
 
-    // 제목으로 조회
     @Override
-    public List<InquiryDTO> findInquiryByTitle(String title){
-        return inquiryRepository.findInquiryByTitle(title);
+    public List<InquiryDTO> findInquiryByTotal(String searchKeyword, boolean showAnswered, boolean showOnlyAnswered) {
+        if (showOnlyAnswered) {
+            return inquiryRepository.findInquiriesByTotalAndResponseTF(searchKeyword, true);
+        } else if (showAnswered) {
+            return inquiryRepository.findInquiriesByTotal(searchKeyword);
+        } else {
+            return inquiryRepository.findInquiriesByTotalAndResponseTF(searchKeyword, false);
+        }
     }
 
-    // 내용으로 조회
     @Override
-    public List<InquiryDTO> findInquiryByContents(String contents){
-        return inquiryRepository.findInquiryByContents(contents);
+    public List<InquiryDTO> findInquiryByTitle(String title, boolean showAnswered, boolean showOnlyAnswered) {
+        if (showOnlyAnswered) {
+            return inquiryRepository.findInquiriesByTitleAndResponseTF(title, true);
+        } else if (showAnswered) {
+            return inquiryRepository.findInquiriesByTitle(title);
+        } else {
+            return inquiryRepository.findInquiriesByTitleAndResponseTF(title, false);
+        }
+    }
+
+    @Override
+    public List<InquiryDTO> findInquiryByContents(String contents, boolean showAnswered, boolean showOnlyAnswered) {
+        if (showOnlyAnswered) {
+            return inquiryRepository.findInquiriesByContentsAndResponseTF(contents, true);
+        } else if (showAnswered) {
+            return inquiryRepository.findInquiriesByContents(contents);
+        } else {
+            return inquiryRepository.findInquiriesByContentsAndResponseTF(contents, false);
+        }
     }
 
     // 답변된 문의사항 조회
-    @Override
-    public List<InquiryDTO> findAnsweredInquiry(){
-        return inquiryRepository.findAnsweredInquiry();
-    }
+//    @Override
+//    public List<InquiryDTO> findAnsweredInquiry(){
+//        return inquiryRepository.findAnsweredInquiry();
+//    }
 
     // 답변 생성
     @Override
@@ -50,7 +83,7 @@ public class InquiryServiceImpl implements InquiryService{
 
     // 답변 삭제
     @Override
-    public void deleteInquiry(int id){
+    public void deleteInquiry(List<String> id){
         inquiryRepository.deleteInquiry(id);
     }
 
@@ -62,13 +95,13 @@ public class InquiryServiceImpl implements InquiryService{
 
     // 이전 문의사항 제목 조회
     @Override
-    public String previousInquiry(int id){
-        return inquiryRepository.previousInquiry(id);
+    public InquiryDTO previousInquiry(int id){
+        return inquiryRepository.getPreviousInquiry(id);
     }
 
     // 다음 문의사항 제목 조회
     @Override
-    public String nextInquiry(int id){
-        return inquiryRepository.nextInquiry(id);
+    public InquiryDTO nextInquiry(int id){
+        return inquiryRepository.getNextInquiry(id);
     }
 }

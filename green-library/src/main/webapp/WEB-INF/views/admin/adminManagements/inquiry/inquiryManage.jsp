@@ -49,8 +49,11 @@
                     <option value="15" selected>15개씩</option>
                 </select>
                 <div class="btnWrap">
-                    <input type="button" value="답변한 것도 보기">
-                    <input type="button" value="답변한 것만 보기">
+                    <label><input type="radio" name="responseFilter" id="showAll" value="all"/> 전체 보기</label>
+                    <label><input type="radio" name="responseFilter" id="showAnswered" value="answered"/> 답변한 것만
+                        보기</label>
+                    <label><input type="radio" name="responseFilter" id="showUnanswered" value="unanswered" checked/>
+                        답변하지 않은 것만 보기</label>
                     <input class="deleteBtn" type="button" value="삭제" onclick="deleteInquiry()">
                 </div>
             </div>
@@ -69,6 +72,20 @@
                     </tr>
                     </thead>
                     <tbody id="inquiryListTBody">
+                    <c:forEach var="item" items="${inquiry}">
+                        <tr>
+                            <td><input type='checkbox' name='selectedBooks' id=''></td>
+                            <td>${item.inquiryId}</td>
+                            <td>${item.inquiryTitle}</td>
+                            <td>${item.contents}</td>
+                            <td>${item.userId}</td>
+                            <td>${item.inquiryDate}</td>
+                            <td><input type='checkbox' name='' id='' disabled
+                                       <c:if test="${item.responseTF == 1}">checked</c:if>></td>
+                            <td><input type='button' class='correction' onclick='createResponse(${item.inquiryId})'>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -109,7 +126,7 @@
 
         // 다음 버튼 클릭 시
         $('.next').click(function () {
-            if(currentPage < totalPage){
+            if (currentPage < totalPage) {
                 currentPage++;
                 searchBtnEvt();
             }
@@ -122,20 +139,42 @@
                 searchBtnEvt();
             }
         });
+
+        // 라디오 버튼 값 변경 시
+        $('input[name="responseFilter"]').change(function () {
+            currentPage = 1;
+            searchBtnEvt();
+        });
     });
 
-    function searchBtnEvt(e) {
+    function searchBtnEvt() {
         const inputText = document.getElementById('inputText').value;
         const searchType = document.getElementById('searchSelectType').value;
         const inquiryListTBody = document.getElementById('inquiryListTBody');
         const total = document.getElementById('total');
-        const pagesParam = document.getElementById('totalpage');
+        const pagesParam = document.getElementById('totalPage');
         const selectValue = document.getElementById('resultSelect').value;
+        const responseFilter = $('input[name="responseFilter"]:checked').val();
+
+        let showAnswered = false;
+        let showOnlyAnswered = false;
+
+        if (responseFilter === 'answered') {
+            showOnlyAnswered = true;
+        } else if (responseFilter === 'all') {
+            showAnswered = true;
+        }
 
         $.ajax({
             url: '/Inquiry/search',
             type: 'GET',
-            data: {"searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue},
+            data: {
+                "searchType": searchType,
+                "searchKeyword": inputText,
+                "pageSize": selectValue,
+                "showAnswered": showAnswered,
+                "showOnlyAnswered": showOnlyAnswered
+            },
             success: function (response) {
                 if (response) {
                     let responseText = '';
@@ -147,21 +186,23 @@
                         if (endPrint > len) endPrint = len;
                         for (let i = startPrint; i < endPrint; i++) {
                             responseText += "<tr>";
-                            responseText += "<td><input type='checkbox' name='userCheckbox' id=''></td>";
+                            responseText += "<td><input type='checkbox' name='selectedBooks' id=''></td>";
                             responseText += "<td>" + response[i].inquiryId + "</td>";
                             responseText += "<td>" + response[i].inquiryTitle + "</td>";
                             responseText += "<td>" + response[i].contents + "</td>";
                             responseText += "<td>" + response[i].userId + "</td>";
                             responseText += "<td>" + response[i].inquiryDate + "</td>";
-                            responseText += "<td><input type='checkbox' name='' id='' disabled " + (response[i].responseTF == 1 ? "checked" : "") + "></td>";
-                            responseText += "<td><input type='button' class='correction'>";
+                            responseText += "<td><input type='checkbox' disabled " + (response[i].responseTF == 1 ? "checked" : "") + "></td>";
+                            if (response[i].responseTF != 1) responseText += "<td><input type='button' class='correction' onclick='createResponse(" + response[i].inquiryId + ")'/></td>";
+                            else responseText += "<td><input type='button' class='see' onclick='viewDetail(" + response[i].inquiryId + ")'/></td>";
+                            responseText += "</tr>"
                         }
                     } else {
                         totalPage = currentPage;
                     }
                     inquiryListTBody.innerHTML = responseText;
                     total.innerHTML = "result : " + len + "개";
-                    pagesParam.html(currentPage + " of " + totalPage);
+                    pagesParam.innerHTML = (currentPage + " of " + totalPage);
                 }
             }
         });
@@ -175,19 +216,16 @@
     // CSRF 토큰을 메타 태그에서 가져옴
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-
     // 영구 삭제 함수
     function deleteInquiry() {
         let inquiryIds = [];
 
-
-        $('input[name="userCheckbox"]:checked').each(function () {
+        $('input[name="selectedBooks"]:checked').each(function () {
             let inquiryId = $(this).closest('tr').find('td:eq(1)').text().trim();
             inquiryIds.push(inquiryId);
         });
 
-        console.log('Collected inquiryIds:', inquiryIds);
-
+        console.log(inquiryIds);
         if (inquiryIds.length === 0) {
             alert('삭제할 목록을 선택해주세요.');
             return;
@@ -200,20 +238,53 @@
                 contentType: 'application/json',
                 data: JSON.stringify(inquiryIds),
                 beforeSend: function (xhr) {
-                    // 요청 헤더에 CSRF 토큰을 포함
                     xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
                 },
                 success: function (response) {
-                    console.log('Response:', response);
                     alert('선택한 사항들이 성공적으로 삭제되었습니다.');
                     searchBtnEvt();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.error('AJAX Error:', textStatus, errorThrown);
                     alert('사용자 삭제를 실패하였습니다.');
                 }
             });
         }
+    }
+
+    // 생성 함수
+    function createResponse(inquiryId) {
+        $.ajax({
+            url: '/Inquiry/createBtnClick/' + inquiryId, // 요청할 URL 수정
+            type: 'POST',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+            },
+            success: function (response) {
+                // Ajax 요청 성공 시 다른 페이지로 이동
+                window.location.href = '/Inquiry/WriteInquiry?inquiryId=' + encodeURIComponent(inquiryId);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('접속에 실패했습니다. 다시 시도해주세요.');
+            }
+        });
+    }
+
+//     조회 함수
+    function viewDetail(inquiryId){
+        $.ajax({
+            url: '/Inquiry/viewBtnClick/' + inquiryId, // 요청할 URL 수정
+            type: 'POST',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+            },
+            success: function (response) {
+                // Ajax 요청 성공 시 다른 페이지로 이동
+                window.location.href = '/Inquiry/DetailInquiry?inquiryId=' + encodeURIComponent(inquiryId);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('접속에 실패했습니다. 다시 시도해주세요.');
+            }
+        });
     }
 </script>
 </body>

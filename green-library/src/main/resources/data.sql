@@ -1,15 +1,11 @@
 -- 작가
 INSERT INTO authors(author_id, author_name)
-VALUES(1, '작가1');
-INSERT INTO authors(author_id, author_name)
 VALUES(author_idx.NEXTVAL, '작가1');
 INSERT INTO authors(author_id, author_name)
 VALUES(author_idx.NEXTVAL, '작가2');
 INSERT INTO authors(author_id, author_name)
 VALUES(author_idx.NEXTVAL, '작가3');
 -- 출판사
-INSERT INTO publishers(publisher_id, publisher_name)
-VALUES(1, '출판사1');
 INSERT INTO publishers(publisher_id, publisher_name)
 VALUES(publisher_idx.NEXTVAL, '출판사1');
 INSERT INTO publishers(publisher_id, publisher_name)
@@ -113,6 +109,8 @@ VALUES(announce_idx.NEXTVAL, '21번 페이징용', 'admin1', SYSDATE, 'asdf.hwp'
 
 INSERT INTO inquiries(inquiry_id, inquiry_date ,inquiry_title, contents, responseTF, user_id)
 VALUES(inquiry_idx.NEXTVAL, sysdate, '문의 처음으로 드립니다', '사이트좀 제대로 만들어주라', 1, 'id1');
+INSERT INTO inquiries(inquiry_id, inquiry_date ,inquiry_title, contents, responseTF, user_id)
+VALUES(inquiry_idx.NEXTVAL, sysdate, '문의 처음으로 드립니다', '사이트좀 제대로 만들어주라', 1, 'id1');
 INSERT INTO inquiries(inquiry_id, inquiry_date, inquiry_title, contents, responseTF, user_id)
 VALUES(inquiry_idx.NEXTVAL, sysdate, '이게 20번째', '사이트좀 제대로 만들어주라', 0, 'id1');
 INSERT INTO inquiries(inquiry_id, inquiry_date, inquiry_title, contents, responseTF, user_id)
@@ -120,18 +118,20 @@ VALUES(inquiry_idx.NEXTVAL, sysdate, '21', '연습연습', 0, 'id1');
 INSERT INTO inquiries(inquiry_id, inquiry_date, inquiry_title, contents, responseTF, user_id)
 VALUES(inquiry_idx.NEXTVAL, sysdate, '22', '응답유무 확인용', 0, 'id2');
 
+commit;
+
 INSERT INTO inquiry_responses(response_id, inquiry_id, response_date, response_content, admin_id)
-VALUES(response_idx.NEXTVAL, 10, SYSDATE, '불편을 끼쳐 죄송합니다', 'admin1');
+VALUES(response_idx.NEXTVAL, 1, SYSDATE, '불편을 끼쳐 죄송합니다', 'admin1');
 INSERT INTO inquiry_responses(response_id, inquiry_id, response_date, response_content, admin_id)
-VALUES(response_idx.NEXTVAL, 20, SYSDATE, '20번이나 불편을 끼쳐 죄송합니다', 'admin1');
+VALUES(response_idx.NEXTVAL, 2, SYSDATE, '20번이나 불편을 끼쳐 죄송합니다', 'admin1');
 INSERT INTO inquiry_responses(response_id, inquiry_id, response_date, response_content, admin_id)
-VALUES(response_idx.NEXTVAL, 20, SYSDATE, '21페이징용', 'admin1');
+VALUES(response_idx.NEXTVAL, 3, SYSDATE, '21페이징용', 'admin1');
 
 INSERT INTO suspensions(suspension_id, start_date, end_date, reason, user_id)
 VALUES(suspend_idx.NEXTVAL, '2024-06-11', '2024-06-25', '그냥 테스트로', 'id1');
 
 INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 
-VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 2, 'gigi1234', 0); 
+VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 2, 'id1', 0);
 INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 
 VALUES(rents_idx.NEXTVAL, SYSDATE, SYSDATE+INTERVAL '14' DAY, 4, 'gigi1234', 0); 
 INSERT INTO rents(rent_num, rent_history, return_date, book_id, user_id, returned) 

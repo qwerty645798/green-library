@@ -195,7 +195,6 @@
                             });
                         }
 
-                        // Book 반납 로직을 구현합니다.
                         function returnBook(bookId) {
                             $.ajax({
                                 url: '/Book/return',
@@ -226,6 +225,46 @@
                                     alert("책들 반납 실패: " + error);
                                 }
                             });
+                        }
+
+                        // 유저 영구 삭제 함수
+                        function deleteBook() {
+                            let userIds = [];
+
+                            // Collect userIds from checked checkboxes
+                            $('input[name="userCheckbox"]:checked').each(function () {
+                                let userId = $(this).closest('tr').find('td:eq(1)').text().trim();
+                                userIds.push(userId);
+                            });
+
+                            console.log('Collected userIds:', userIds);
+
+                            if (userIds.length === 0) {
+                                alert('삭제할 사용자를 선택해주세요.');
+                                return;
+                            }
+
+                            if (confirm('선택한 책을 영구 삭제하시겠습니까?')) {
+                                $.ajax({
+                                    url: '/Book/deleteBook',
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(userIds),
+                                    beforeSend: function (xhr) {
+                                        // 요청 헤더에 CSRF 토큰을 포함
+                                        xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                                    },
+                                    success: function (response) {
+                                        console.log('Response:', response);
+                                        alert('선택한 사용자가 성공적으로 삭제되었습니다.');
+                                        searchBtnEvt();
+                                    },
+                                    error: function (jqXHR, textStatus, errorThrown) {
+                                        console.error('AJAX Error:', textStatus, errorThrown);
+                                        alert('사용자 삭제를 실패하였습니다.');
+                                    }
+                                });
+                            }
                         }
 
                     </script>

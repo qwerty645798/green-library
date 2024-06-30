@@ -59,17 +59,10 @@ public class UserController {
 
     @PostMapping("/deleteUsers")
     public ResponseEntity<String> deleteUsers(@RequestBody List<String> userIds) {
-        System.out.println("Received userIds: " + userIds);
-        for(String userId : userIds) {
-            System.out.println("Deleting user: " + userId);
-        }
             userService.deleteUsers(userIds);
             return ResponseEntity.ok("삭제 성공");
 
     }
-
-
-
 
     @PostMapping("/releaseBan")
     public ResponseEntity<String> releaseBan(@RequestParam("userId") String userId, @RequestParam("suspenId") String suspenId) {

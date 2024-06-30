@@ -7,32 +7,35 @@ import java.util.List;
 public interface InquiryRepository {
 
     // 모든 문의 목록 조회
-    List<InquiryDTO> allInquiryManage();
+    List<InquiryDTO> findAllInquiries();
+
+    // 응답 여부에 따른 문의 목록 조회
+    List<InquiryDTO> findInquiriesByResponseTF(boolean responseTF);
 
     // 전체에서 문의 조회
-    List<InquiryDTO> findInquiryByTotal(String total);
+    List<InquiryDTO> findInquiriesByTotal(String total);
+    List<InquiryDTO> findInquiriesByTotalAndResponseTF(String total, boolean responseTF);
 
     // 제목으로 문의 검색
-    List<InquiryDTO> findInquiryByTitle(String keyword);
+    List<InquiryDTO> findInquiriesByTitle(String keyword);
+    List<InquiryDTO> findInquiriesByTitleAndResponseTF(String keyword, boolean responseTF);
 
     // 내용으로 문의 검색
-    List<InquiryDTO> findInquiryByContents(String keyword);
+    List<InquiryDTO> findInquiriesByContents(String keyword);
+    List<InquiryDTO> findInquiriesByContentsAndResponseTF(String keyword, boolean responseTF);
 
-    // 답변이 등록된 문의 목록 조회
-    List<InquiryDTO> findAnsweredInquiry();
 
-    // 문의 상세 정보 조회
-    InquiryDTO getInquiryById(Integer inquiryId);
+    // 문의 상세 정보 조회 및 답변 번호 포함
+    InquiryDTO getInquiryById(int inquiryId);
 
     // 문의 답변 등록
     void createInquiry(Integer inquiryId, String responseContent, String adminId);
 
-    //    삭제
-    void deleteInquiry(int id);
+    // 삭제
+    void deleteInquiry(List<String> userIds);
 
     // 이전 제목 조회
-    String previousInquiry(int inquiryId);
+    InquiryDTO getPreviousInquiry(int inquiryId);
 
-    // 다음 제목 조회
-    String nextInquiry(int inquiryId);
+    InquiryDTO getNextInquiry(int inquiryId);
 }

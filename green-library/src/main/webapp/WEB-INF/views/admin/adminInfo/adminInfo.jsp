@@ -2,30 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<%-- Fetching request parameters and user agent details --%>
-<%
-    String ipAddress = request.getRemoteAddr();
-    String userAgent = request.getHeader("User-Agent");
-    String os = System.getProperty("os.name");
-    String browser = "Unknown Browser";
-
-    if (userAgent != null) {
-        if (userAgent.contains("Chrome")) {
-            browser = "Chrome";
-        } else if (userAgent.contains("Firefox")) {
-            browser = "Firefox";
-        } else if (userAgent.contains("Safari") && !userAgent.contains("Chrome")) {
-            browser = "Safari";
-        } else if (userAgent.contains("Opera") || userAgent.contains("OPR")) {
-            browser = "Opera";
-        } else if (userAgent.contains("Edge")) {
-            browser = "Edge";
-        } else if (userAgent.contains("MSIE") || userAgent.contains("Trident")) {
-            browser = "Internet Explorer";
-        }
-    }
-%>
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -58,9 +34,9 @@
             </div>
             <div class="info connectInfo">
                 <h3>접속 정보</h3>
-                <p>IP : <%= ipAddress %></p>
-                <p>OS : <%= os %></p>
-                <p>Browser : <%= browser %></p>
+                <p>IP : ${ipAddress}</p>
+                <p>OS : ${os}</p>
+                <p>Browser : ${browser}</p>
             </div>
             <div class="info grantLevel">
                 <h3>권한 레벨</h3>

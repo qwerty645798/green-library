@@ -86,33 +86,33 @@
     outline: none;
 }
 
-/* 첨부파일 */
+/*!* 첨부파일 *!*/
 
-.viewContainer .inquiryInfo tr:last-child th {
-    height: 70px;
-}
+/*.viewContainer .inquiryInfo tr:last-child th {*/
+/*    height: 70px;*/
+/*}*/
 
-.viewContainer .inquiryInfo tr:last-child td {
-    position: relative;
-    border-bottom: 1px solid #2c3e50;
-    padding: 0;
-}
+/*.viewContainer .inquiryInfo tr:last-child td {*/
+/*    position: relative;*/
+/*    border-bottom: 1px solid #2c3e50;*/
+/*    padding: 0;*/
+/*}*/
 
-.viewContainer .inquiryInfo tr:last-child td input {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    translate: 3px 20px;
-}
+/*.viewContainer .inquiryInfo tr:last-child td input {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    translate: 3px 20px;*/
+/*}*/
 
-.viewContainer .inquiryInfo tr:last-child td input::file-selector-button {
-    width: 100px;
-    height: 35px;
-    background: #fff;
-    border: 1px solid rgb(77, 77, 77);
-    border-radius: 10px;
-    cursor: pointer;
-}
+/*.viewContainer .inquiryInfo tr:last-child td input::file-selector-button {*/
+/*    width: 100px;*/
+/*    height: 35px;*/
+/*    background: #fff;*/
+/*    border: 1px solid rgb(77, 77, 77);*/
+/*    border-radius: 10px;*/
+/*    cursor: pointer;*/
+/*}*/
 
 /* btnWrap */
 .viewContainer .btnWrap {

@@ -10,13 +10,13 @@ import java.util.Date;
 @Setter
 public class InquiryResponseDTO {
     @NotNull
-    private Long responseId;
+    private int responseId;
     @NotNull
-    private Long inquiryId;
+    private int inquiryId;
     private Date responseDate;
     private String responseContent;
+    private String files;
     @NotNull
     private String adminId;
-
 }
 

@@ -4,7 +4,6 @@
 
 /* 검색 박스 */
 .totalContainer .searchContainer {
-    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -13,7 +12,7 @@
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 5px;
-    width: 782px;
+    width: 1082px;
 }
 
 .totalContainer .searchContainer div {
@@ -21,11 +20,11 @@
     border: 1px solid #2c3e50;
     background-color: #a7cbf0;
     border-radius: 5px;
+    width: 1056px;
 }
 
 .totalContainer .searchContainer select {
     margin-left: 20px;
-    padding-right: 10px;
     height: 36px;
     border: 0;
     background-color: #a7cbf0;
@@ -35,8 +34,8 @@
     border: 0;
     box-sizing: border-box;
     display: flex;
-    width: 650px;
     align-items: center;
+    width: 973px;
     background-color: #a7cbf0;
     padding-right: 3.2px;
 }
@@ -44,7 +43,7 @@
 .totalContainer .searchContainer .inputBox input {
     border: 0;
     width: 97%;
-    height: 27px;
+    height: 26px;
     background-color: #ffffff;
     color: #000000;
     padding-left: 10px;
@@ -52,11 +51,12 @@
 }
 
 .totalContainer .searchContainer .inputBox button {
-    width: 26px;
-    height: 29px;
+    width: 36px;
+    height: 28px;
+    background: url('../assets/imgs/ico-ipt-sh.png') no-repeat 50% 50%;
     font-size: 0;
     border: 0;
-    background: #ffffff url('../assets/imgs/ico-ipt-sh.png') no-repeat 50% 50%;
+    background-color: #ffffff;
     border-radius: 0 5px 5px 0;
 }
 

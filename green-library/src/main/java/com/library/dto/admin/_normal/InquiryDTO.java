@@ -15,6 +15,6 @@ public class InquiryDTO {
     private String userId;
     private Date inquiryDate;
     private Character ResponseTF;
-
+    private int responseCount;
 }
 

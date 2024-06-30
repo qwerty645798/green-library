@@ -293,8 +293,6 @@
             userIds.push(userId);
         });
 
-        console.log('Collected userIds:', userIds);
-
         if (userIds.length === 0) {
             alert('삭제할 사용자를 선택해주세요.');
             return;
