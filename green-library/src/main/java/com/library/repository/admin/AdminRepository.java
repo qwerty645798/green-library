@@ -1,7 +1,9 @@
 package com.library.repository.admin;
 
-import com.library.dto.admin._normal.AdminDTO;
 import java.util.List;
+
+import com.library.dto.admin._normal.AdminDTO;
+import com.library.dto.admin.adminLogin.AdminLoginDTO;
 
 public interface AdminRepository {
 
@@ -12,5 +14,5 @@ public interface AdminRepository {
     AdminDTO getMyInfo(String adminId);
 
     // 관리자 로그인 확인
-    AdminDTO loginAdmin(String adminId, String adminPass);
+    AdminLoginDTO loginAdmin(String adminId);
 }

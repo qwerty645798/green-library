@@ -18,7 +18,7 @@
     <div>
         <div class="adminLogo"><img src="admin/assets/imgs/security.png" alt="security"></div>
         <form class="loginContainer" id="loginForm" action="/adminIndex" method="post">
-<%--            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />--%>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <div>
                 <label for="adminID">ID</label>
                 <input type="text" name="adminID" id="adminID" required>
