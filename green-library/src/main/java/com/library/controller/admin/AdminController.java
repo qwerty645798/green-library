@@ -2,7 +2,6 @@ package com.library.controller.admin;
 
 import com.library.dto.admin._normal.AdminDTO;
 import com.library.service.admin.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,6 @@ public class AdminController {
 
     private final AdminService adminService;
 
-    @Autowired
     public AdminController(AdminService adminService) {
         this.adminService = adminService;
     }
@@ -25,7 +23,7 @@ public class AdminController {
     }
 
     //login -> main index
-    @PostMapping("/adminIndex")
+    @GetMapping("/adminIndex")
     public String adminIndex(Model model) {
         return "admin/adminIndex/adminIndex";
     }
