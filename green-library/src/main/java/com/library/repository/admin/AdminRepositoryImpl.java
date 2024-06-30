@@ -1,13 +1,14 @@
 package com.library.repository.admin;
 
-import com.library.dto.admin._normal.AdminDTO;
+import java.sql.ResultSet;
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.List;
+import com.library.dto.admin._normal.AdminDTO;
+import com.library.dto.admin.adminLogin.AdminLoginDTO;
 
 @Transactional
 @Repository
@@ -49,19 +50,14 @@ public class AdminRepositoryImpl implements AdminRepository {
 
 
     @Override
-    public AdminDTO loginAdmin(String adminId, String adminPass) {
-        String sql = "SELECT ADMIN_ID, ADMIN_PASS FROM ADMINS WHERE ADMIN_ID = ? AND ADMIN_PASS = ?";
+    public AdminLoginDTO loginAdmin(String adminId) {
+        String sql = "SELECT ADMIN_ID, ADMIN_PASS FROM ADMINS WHERE ADMIN_ID = ?";
 
-        try {
-            return jdbcTemplate.queryForObject(sql, (ResultSet rs, int rowNum) -> {
-                AdminDTO admin = new AdminDTO();
-                admin.setAdminId(rs.getString("ADMIN_ID"));
-                admin.setAdminPass(rs.getString("ADMIN_PASS"));
-                return admin;
-            }, adminId, adminPass);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        return jdbcTemplate.queryForObject(sql, (ResultSet rs, int rowNum) -> {
+            AdminLoginDTO admin = new AdminLoginDTO();
+            admin.setAdminID(rs.getString("ADMIN_ID"));
+            admin.setAdminPass(rs.getString("ADMIN_PASS"));
+            return admin;
+        }, adminId);
     }
 }

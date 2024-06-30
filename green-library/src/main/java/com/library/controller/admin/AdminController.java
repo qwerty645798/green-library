@@ -25,7 +25,7 @@ public class AdminController {
     }
 
     //login -> main index
-    @GetMapping("/adminIndex")
+    @PostMapping("/adminIndex")
     public String adminIndex(Model model) {
         return "admin/adminIndex/adminIndex";
     }
