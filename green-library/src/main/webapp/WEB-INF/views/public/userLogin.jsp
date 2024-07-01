@@ -17,6 +17,9 @@
 	let message = "${message}";
 	if(message)
 		alert(message);
+	let auth = "${param.auth}";
+	if(auth == "none")
+		alert("인증된 사용자가 존재하지 않습니다.")
 </script>
 </head>
 <body> 
@@ -38,11 +41,11 @@
 	
 	<main style="display:flex; justify-content:center;">
 		
-		<form action="${pageContext.request.contextPath}/userLogin" method="post" id="form">
+		<form action="${pageContext.request.contextPath}/login" method="post" id="form">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<div class="loginCon2">
-			<div class="floor"><input type="text" placeholder="아이디" name="user_id" class="text" id="id"><br></div>
-			<div class="floor"><input type="password" placeholder="비밀번호" name="user_pass" class="text" id="pw"><br></div>
+			<div class="floor"><input type="text" placeholder="아이디" name="id" class="text" id="id"><br></div>
+			<div class="floor"><input type="password" placeholder="비밀번호" name="pass" class="text" id="pw"><br></div>
 			<div class="floor"><input type="checkbox" id="remember-me" name="remember-me">
 			<label for="remember-me">아이디 저장</label> 
 			<div style="width:120px; display:inline-block"> </div> <a href="userFinding">아이디 찾기</a> 

@@ -2,6 +2,9 @@ package com.library.controller.admin;
 
 import com.library.dto.admin._normal.AdminDTO;
 import com.library.service.admin.AdminService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +14,9 @@ import java.util.List;
 @Controller("AdminController")
 public class AdminController {
 
-    private final AdminService adminService;
-
-    public AdminController(AdminService adminService) {
-        this.adminService = adminService;
-    }
+	@Autowired
+    @Qualifier("AdminService")
+    private AdminService adminService;
 
     @GetMapping("/admin")
     public String home() {

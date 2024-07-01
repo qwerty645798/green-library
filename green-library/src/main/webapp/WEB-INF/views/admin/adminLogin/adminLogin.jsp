@@ -17,15 +17,15 @@
     <h1>admin page login</h1>
     <div>
         <div class="adminLogo"><img src="admin/assets/imgs/security.png" alt="security"></div>
-        <form class="loginContainer" id="loginForm" action="/adminIndex" method="post">
+        <form class="loginContainer" id="loginForm" action="/login" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <div>
                 <label for="adminID">ID</label>
-                <input type="text" name="adminID" id="adminID" required>
+                <input type="text" name="id" id="adminID" required>
             </div>
             <div>
                 <label for="adminPASS">PASS</label>
-                <input type="password" name="adminPASS" id="adminPASS" autocomplete="current-password" required>
+                <input type="password" name="pass" id="adminPASS" autocomplete="current-password" required>
             </div>
             <div class="autoLoginBox">
                 <input type="checkbox" id="autoLogin" name="autoLogin">
