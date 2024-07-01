@@ -93,15 +93,15 @@ public class SecurityConfig {
 
                 if (referer != null && referer.contains("/admin")) {
                     if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
-                        redirectUrl = request.getContextPath() + "/adminIndex"; // 관리자 로그인 성공 후 리다이렉트 URL
+                        redirectUrl = request.getContextPath() + "/adminIndex";
                     } else {
-                        redirectUrl = request.getContextPath() + "/admin?error=true"; // 관리자 권한이 없는 경우
+                        redirectUrl = request.getContextPath() + "/admin?error=true";
                     }
                 } else {
                     if (authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_USER"))) {
-                        redirectUrl = request.getContextPath() + "/"; // 사용자 로그인 성공 후 리다이렉트 URL
+                        redirectUrl = request.getContextPath() + "/";
                     } else {
-                        redirectUrl = request.getContextPath() + "/userLogin?error=true"; // 사용자 권한이 없는 경우
+                        redirectUrl = request.getContextPath() + "/userLogin?error=true";
                     }
                 }
 
@@ -138,9 +138,9 @@ public class SecurityConfig {
                 String redirectUrl = request.getContextPath();
                 if (authentication != null && authentication.getAuthorities().stream()
                         .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
-                    redirectUrl = "/admin"; // 관리자 로그아웃 성공 후 리다이렉트 URL
+                    redirectUrl = "/admin";
                 } else {
-                    redirectUrl = "/"; // 사용자 로그아웃 성공 후 리다이렉트 URL
+                    redirectUrl = "/";
                 }
                 response.sendRedirect(redirectUrl);
             }
