@@ -1,7 +1,5 @@
 package com.library.service.user;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -10,10 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -22,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.library.dto.user.account.UserFindingIdDTO;
 import com.library.dto.user.account.UserFindingPwDTO;
 import com.library.dto.user.account.UserJoinDTO;
-import com.library.dto.user.account.UserLoginDTO;
 import com.library.dto.user.account.initializePasswordDTO;
 import com.library.dto.user.profile.UserInfoDTO;
 import com.library.dto.user.profile.UserInfoModificationDTO;
@@ -54,25 +47,7 @@ public class UserServiceImpl implements UserService {
     private RedisService redisService;
 
 	@Autowired
-	private PasswordEncoder passwordEncoder;
-
-	// 로그인(spring security가 자동처리)
-	@Override
-	public UserDetails loadUserByUsername(String userId) {
-		try{
-			Users user = userRepository.getUsersEntity(userId);
-			UserLoginDTO userDTO = userMapper.toUserLoginDTO(user);
-			List<GrantedAuthority> authorities = new ArrayList<>();
-			return User
-					.withUsername(userDTO.getUser_id())
-					.password(userDTO.getUser_pass())
-					.authorities(authorities)
-					.build();
-		} catch (EmptyResultDataAccessException e) {
-			logger.warn("Login failed - User not found with userId: {}", userId, e);
-            throw new UsernameNotFoundException("Login failed - User not found with userId: " + userId, e);
-	    }
-	}
+    private PasswordEncoder passwordEncoder;
 	
 	// 회원정보수정을 위한 인증
 	@Override
