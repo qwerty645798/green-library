@@ -54,13 +54,52 @@ td:not(.useTableItem){
     font-weight: bold;
     background-color: #d8e9d9;
 }
-ul>li{
+.useTable ul>li{
 	margin: 10px 0 10px 0;
 /*     margin-top:10px; */
 /*     margin-bottom: 10px; */
     list-style-type: square;
     line-height: normal;
 }
-ul>li::marker{
+.useTable ul>li::marker{
     color: tan;
 }
+
+
+.navBar{
+	position: fixed;
+	top: 300px;
+	left: 60px;
+	width: 240px;
+	height: 500px;
+	
+	border: 2px solid red;
+}
+.navTitle{
+	font-size: 15pt;
+	padding: 10px;
+}
+.navBar a{
+	color: black;
+	text-decoration: none;
+}
+.navBar ul{
+	width: 200px;
+	padding: 0px;
+	margin: 0px;
+	font-size: 15pt;
+	background: lemonchiffon;
+	list-style-type: none;
+}
+.navBar ul li{
+	padding: 20px;
+}
+.navBar ul li:hover{
+	background: orange;
+	cursor: pointer;
+}
+
+.curPlace{
+	background: green;
+}
+

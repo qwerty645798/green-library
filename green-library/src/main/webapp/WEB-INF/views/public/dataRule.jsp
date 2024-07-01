@@ -26,6 +26,11 @@
 	<h1>도서관 이용 규칙 안내</h1>
 </div>
 	<hr class="hr1">
+	
+	
+	
+	<jsp:include page="../public/navBar.jsp" />
+	
 
 <div class="useTable">
 

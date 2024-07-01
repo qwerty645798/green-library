@@ -23,6 +23,8 @@
             </div>
         </div>
          <!-- 배너 끝 -->
+         
+         <jsp:include page="../public/navBar.jsp" />
             
         <div class="hopeBookPage1">
             <div class="hopeBookPage2">

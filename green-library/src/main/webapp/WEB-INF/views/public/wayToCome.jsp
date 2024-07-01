@@ -19,6 +19,8 @@
 		</div>
 	</nav>
 	
+	<jsp:include page="../public/navBar.jsp" />
+	
 	<div class="title_container">
 		<h1>그린도서관 오시는 길</h1>
 	</div>
