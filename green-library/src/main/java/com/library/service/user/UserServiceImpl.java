@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
 	public void checkUserInfo(UserFindingPwDTO userDTO) {
 		try{
 			userRepository.getUsersEntity(userDTO.getUser_id(), userDTO.getName(), userDTO.getBirth(), userDTO.getEmail());
-			sendVerificationEmail(userDTO.getEmail());
+			/* sendVerificationEmail(userDTO.getEmail()); */
 		} catch (EmptyResultDataAccessException e) {
 			logger.warn("User information checking failed - User not found with userId: {}", userDTO.getUser_id(), e);
             throw new DatabaseException("User information checking failed - User not found with userId: " + userDTO.getUser_id(), e);

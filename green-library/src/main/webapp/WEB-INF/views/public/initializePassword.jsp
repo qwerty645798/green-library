@@ -51,6 +51,11 @@ h1{
 	
 }
 </style>
+<script>
+	let message = "${message}";
+	if(message)
+		alert(message);
+</script>
 </head>
 <body>
 <h1>비밀번호 초기화</h1>
@@ -68,11 +73,12 @@ h1{
 document.addEventListener('DOMContentLoaded', function() {
     let form = document.getElementById("form");
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
+        /* e.preventDefault(); */
         if (!Check()) {
+        	e.preventDefault();
             return;
         }
-        const csrfToken = document.querySelector('input[name="_csrf"]').value;
+        /* const csrfToken = document.querySelector('input[name="_csrf"]').value;
         const formData = new FormData(form);
         formData.append("_csrf", csrfToken);
         fetch('/initializePassword', {
@@ -89,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             alert("에러가 발생했습니다. 다시 시도해주세요.");
         });
-    });
+    }); */
 
     const pswd = document.getElementById('pw');
     const passCheck = document.getElementById('pwcheck');

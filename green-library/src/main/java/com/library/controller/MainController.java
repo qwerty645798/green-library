@@ -30,6 +30,7 @@ import com.library.dto.user.account.UserFindingIdDTO;
 import com.library.dto.user.account.UserFindingPwDTO;
 import com.library.dto.user.account.UserJoinDTO;
 import com.library.dto.user.account.initializePasswordDTO;
+import com.library.exception.DatabaseException;
 import com.library.service.assets.InitiativeBookService;
 import com.library.service.assets.NotificationDetailService;
 import com.library.service.assets.NotificationService;
@@ -123,41 +124,61 @@ public class MainController {
 	
 	@PostMapping("/userFindingPw")
 	public String userFindingPw(@ModelAttribute("user") @Valid UserFindingPwDTO userDTO, BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			for (ObjectError error : result.getAllErrors()) {
-				logger.error("Validation error: {}", error.getDefaultMessage());
+		try {
+			if (result.hasErrors()) {
+				for (ObjectError error : result.getAllErrors()) {
+					logger.error("Validation error: {}", error.getDefaultMessage());
+				}
+				model.addAttribute("message", "유효하지 않은 입력입니다.");
+				return "public/userFinding";
 			}
+			userService.checkUserInfo(userDTO);
+			/* model.addAttribute("message", "이메일 발송이 완료되었습니다."); */
+			model.addAttribute("message", "인증이 완료되었습니다.");
+			model.addAttribute("email", userDTO.getEmail()); 
+			return "public/initializePassword";
+		} catch (DatabaseException e) {
 			model.addAttribute("message", "유효하지 않은 입력입니다.");
 			return "public/userFinding";
 		}
-		userService.checkUserInfo(userDTO);
-		model.addAttribute("message", "이메일 발송이 완료되었습니다.");
-		return "public/userLogin";
 	}
 
-    @GetMapping("/verify")
-    public String verifyEmail(@RequestParam(name = "token", required=false) String token, Model model) {
-		String email = userService.verifyUser(token);
-		model.addAttribute("email", email);
-        return "public/initializePassword";
-    }
+	/*
+	 * @GetMapping("/verify") public String verifyEmail(@RequestParam(name =
+	 * "token", required=false) String token, Model model) { String email =
+	 * userService.verifyUser(token); model.addAttribute("email", email); return
+	 * "public/initializePassword"; }
+	 */
+    
+	/*
+	 * @PostMapping("/initializePassword")
+	 * 
+	 * @ResponseBody public ResponseEntity<Map<String, Object>>
+	 * initializePassword(@ModelAttribute("user") @Valid initializePasswordDTO
+	 * userDTO, BindingResult result, Model model) {
+	 * userService.initializePassword(userDTO); Map<String, Object> response = new
+	 * HashMap<>(); if (result.hasErrors()) { for (ObjectError error :
+	 * result.getAllErrors()) { logger.error("Validation error: {}",
+	 * error.getDefaultMessage()); response.put("message", "유효하지 않은 입력입니다.");
+	 * response.put("success", false); return new ResponseEntity<>(response,
+	 * HttpStatus.BAD_REQUEST); } } response.put("message", "비밀번호가 변경되었습니다.");
+	 * response.put("success", true); return new ResponseEntity<>(response,
+	 * HttpStatus.OK); }
+	 */
     
     @PostMapping("/initializePassword")
-    @ResponseBody
-	public ResponseEntity<Map<String, Object>> initializePassword(@ModelAttribute("user") @Valid initializePasswordDTO userDTO, BindingResult result, Model model) {
+	/* @ResponseBody */
+	public String initializePassword(@ModelAttribute("user") @Valid initializePasswordDTO userDTO, BindingResult result, Model model) {
     	userService.initializePassword(userDTO);
-    	Map<String, Object> response = new HashMap<>();
     	if (result.hasErrors()) {
 			for (ObjectError error : result.getAllErrors()) {
 				logger.error("Validation error: {}", error.getDefaultMessage());
-				response.put("message", "유효하지 않은 입력입니다.");
-	            response.put("success", false);
-	            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+				model.addAttribute("message", "유효하지 않은 입력입니다.");
+				return "public/initializePassword";
 			}
 		}
-		response.put("message", "비밀번호가 변경되었습니다.");
-		response.put("success", true);
-		return new ResponseEntity<>(response, HttpStatus.OK);
+    	model.addAttribute("message", "비밀번호가 변경되었습니다.");
+		return "public/userLogin";
 	}
 
 	@GetMapping("/userLogin")
