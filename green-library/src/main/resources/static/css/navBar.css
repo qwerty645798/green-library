@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.navBar{
+	position: fixed;
+	top: 300px;
+	left: 60px;
+	width: 240px;
+	height: 500px;
+	
+	border: 2px solid red;
+}
+.navTitle{
+	font-size: 15pt;
+	padding: 10px;
+}
+.navBar a{
+	color: black;
+	text-decoration: none;
+}
+.navBar ul{
+	width: 200px;
+	padding: 0px;
+	margin: 0px;
+	font-size: 15pt;
+	background: lemonchiffon;
+	list-style-type: none;
+}
+.navBar ul li{
+	padding: 20px;
+}
+.navBar ul li:hover{
+	background: orange;
+	cursor: pointer;
+}
+
+.curPlace{
+	background: green;
+}

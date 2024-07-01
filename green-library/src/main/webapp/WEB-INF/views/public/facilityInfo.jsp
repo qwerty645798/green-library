@@ -19,6 +19,8 @@
 		</div>
 		</nav>
 		
+		<jsp:include page="../public/navBar.jsp" />
+		
 	<div class="title_container">
 		<h1>층별 부대 시설 안내</h1>
 	</div>
