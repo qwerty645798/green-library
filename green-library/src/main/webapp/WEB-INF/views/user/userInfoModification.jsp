@@ -86,7 +86,9 @@
 					</tr>
 					<tr>
 						<td colspan="2" style="border: none; text-align: center;"><input
-							type="submit" value="확인"></td>
+							type="submit" value="확인">
+							<input type="button" value="뒤로" onclick="goBack()">
+						</td>
 					</tr>
 				</table>
 			</div>
