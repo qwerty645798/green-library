@@ -16,8 +16,8 @@
     </script>
     
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js' type="text/javascript"></script>
-	<script src="/fullcalendar-6.1.14/fullcalendar-6.1.14/dist/index.global.js" type="text/javascript"></script>
-	<script src="js/fullcalendar.js" type="text/javascript"></script>
+	<script src="/js/fullcalendar-6.1.14/fullcalendar-6.1.14/dist/index.global.js" type="text/javascript"></script>
+	<script src="/js/fullcalendar.js" type="text/javascript"></script>
     
 </head>
 <body>
@@ -39,8 +39,7 @@
 					<option>신착도서</option>
                 </select>
                 <input type="text" name="search" onkeypress="checkEnter(event)">
-                <img src="/images/searchBtn.png" onclick="lets_search()">
-<!--                 <input type="button" value="자료 찾기"> -->
+                <img src="/images/searchBtnGreen.png" onclick="lets_search()">
             </div>
         
     </div>
@@ -51,31 +50,36 @@
     
        	<div id="quick1" class="quickPage">
        	<a href="/placeUsetime">
-       	<img src="/images/useTimeGreen.png">
+       	<img class="visible1" src="/images/useTimeGreen.png">
+       	<img class="hidden1" src="/images/useTimeChg.png">
             이용 시간
         </a>
         </div>
-        <div id="quick1" class="quickPage">
+        <div id="quick2" class="quickPage">
        	<a href="/user/bookLoanExtension">
-       	<img src="/images/bookExtensionGreen.png">
+       	<img class="visible2" src="/images/bookExtensionGreen.png">
+       	<img class="hidden2" src="/images/bookExtensionChg.png">
             대출 연장
         </a>
         </div>
-        <div id="quick1" class="quickPage">
+        <div id="quick3" class="quickPage">
        	<a href="/user/hopeBookApply">
-       	<img src="/images/hopeBookGreen.png">
+       	<img class="visible3" src="/images/hopeBookGreen.png">
+       	<img class="hidden3" src="/images/hopeBookChg.png">
             희망도서
         </a>
         </div>
-        <div id="quick1" class="quickPage">
+        <div id="quick4" class="quickPage">
        	<a href="/oftenAsk">
-       	<img src="/images/helpGreen.png">
+       	<img class="visible4" src="/images/helpGreen.png">
+       	<img class="hidden4" src="/images/helpChg.png">
             문의사항
         </a>
         </div>
-        <div id="quick1" class="quickPage">
+        <div id="quick5" class="quickPage">
        	<a href="/schedule">
-       	<img src="/images/calendarGreen.png">
+       	<img class="visible5" src="/images/calendarGreen.png">
+       	<img class="hidden5" src="/images/calendarChg.png">
             캘린더
         </a>
         </div>
@@ -170,7 +174,7 @@
 				<c:set var="annoList" value="${fn:length(announce)}"/>
 
 				<c:choose>
-					<c:when test="annoList>=6}">
+					<c:when test="annoList>=9}">
 						<c:forEach var="num" begin="${annoList}" end="${annoList-5}">
 						<table>
 							<tr>
@@ -182,7 +186,7 @@
 						</c:forEach>
 					</c:when>
 					<c:when test="${annoList<6}">
-						<c:forEach var="num" begin="0" end="5">
+						<c:forEach var="num" begin="0" end="8">
 						<table>
 							<tr>
 					        	<td>${announce[num].writerId}</td>

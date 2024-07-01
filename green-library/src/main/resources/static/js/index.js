@@ -27,18 +27,7 @@ const bookQuick = document.querySelector('.tabCon2 img');
 
 
 
-//바로가기 이동 함수
-//function quickPage(){
-//	usetime.onclick = () => {window.location.href='placeUsetime';}
-//	booklong.onclick = () => {window.location.href='bookLoanExtension';}
-//	hopebook.onclick = () => {window.location.href='hopeBookApply';}
-//	help.onclick = () => {window.location.href='oftenAsk';}
-//	schedule.onclick = () => {window.location.href='schedule';}
-//	notiQuick.onclick = () => {window.location.href='notification';}
-//}
 
-//addLoadEvent(quickPage);
-/*window.onload=quickPage();*/
 
 //슬라이드 함수
 function slide(){
@@ -83,10 +72,6 @@ function slide2(){
 
 addLoadEvent(slide);
 addLoadEvent(slide2);
-/*window.onload = slide();
-window.onload = slide2();*/
-
-
 
 
 // 여기서부터는 탭 함수
@@ -126,8 +111,6 @@ function booktab(){
 
 
 addLoadEvent(booktab);
-
-/*window.onload = booktab();*/
 
 
 

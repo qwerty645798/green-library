@@ -18,6 +18,12 @@
 			<div class="pageRoute">홈 > 부대시설 안내</div>
 		</div>
 		</nav>
+		
+	<div class="title_container">
+		<h1>층별 부대 시설 안내</h1>
+	</div>
+		<hr class="hr1">
+		
 		<main>
 			<div class="explain borderbox">1F</div>
 			<div class="map borderbox">

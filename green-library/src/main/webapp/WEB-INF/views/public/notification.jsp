@@ -37,6 +37,11 @@
     </div>
 </div>
 
+<div class="title_container">
+	<h1>공지사항</h1>
+</div>
+	<hr class="hr1">
+
 <main>
 
 <div class="first_container">
