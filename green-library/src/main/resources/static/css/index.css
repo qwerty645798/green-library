@@ -25,7 +25,8 @@
     width: 100px;
     height: 58px;
     padding-left: 10px;
-    border: 4px solid #ecd9bc;
+/*     border: 4px solid #ecd9bc; */
+	border: 4px solid #a0cab0;
     border-right: none;
     cursor: pointer;
     background-color: white;
@@ -37,7 +38,8 @@ input[type=text]{
     height: 48px;
     padding-left: 10px;
     cursor: text;
-    border: 4px solid #ecd9bc;
+/*     border: 4px solid #ecd9bc; */
+	border: 4px solid #a0cab0;
     border-left: none;
     border-right: none;
     background-color: #eeeae2;
@@ -49,7 +51,8 @@ select:focus{
 .customSearchform img{
 	width:50px;
 	height: 50px;
-	border: 4px solid #ecd9bc;
+/* 	border: 4px solid #ecd9bc; */
+	border: 4px solid #a0cab0;
     border-left: none;
     cursor: pointer;
 }
@@ -88,9 +91,12 @@ select:focus{
 	height: 64px;
 }
 .quickPage:hover{
-    background-color: rgb(234, 247, 239);
+    background-color: #64b883;
     transition: 300ms ease-in-out;
-    color: #1d7647;
+    color: white;
+}
+.quickPage:hover a{
+	color: white;
 }
 .bookslide{
 	margin: 50px 0 50px 0;
@@ -250,6 +256,9 @@ select:focus{
 	width: 600px;
 	height: 250px;
 }
+.infoBoard2 table td:hover{
+	cursor: pointer;
+}
 .titleQuick{
 	display: flex;
 	justify-content: space-between;
@@ -297,3 +306,46 @@ select:focus{
 .bookSwipe2{
     display: none;
 }
+
+.hidden1,
+.hidden2,
+.hidden3,
+.hidden4,
+.hidden5{
+	display: none;
+}
+#quick1:hover .hidden1{
+	display: block;
+}
+#quick1:hover .visible1{
+	display: none;
+}
+
+#quick2:hover .hidden2{
+	display: block;
+}
+#quick2:hover .visible2{
+	display: none;
+}
+
+#quick3:hover .hidden3{
+	display: block;
+}
+#quick3:hover .visible3{
+	display: none;
+}
+
+#quick4:hover .hidden4{
+	display: block;
+}
+#quick4:hover .visible4{
+	display: none;
+}
+
+#quick5:hover .hidden5{
+	display: block;
+}
+#quick5:hover .visible5{
+	display: none;
+}
+
