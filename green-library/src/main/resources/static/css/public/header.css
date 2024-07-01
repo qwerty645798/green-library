@@ -2,7 +2,7 @@ body{
 	margin:0;
 }
 header{
-	position: fixed;
+/* 	position: fixed; */
 	display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +49,8 @@ header{
     cursor: pointer;
 }
 .headerBottom{
-	position: fixed;
+/* 	position: fixed; */
+top: 0px;
     display: flex;
     justify-content: center;
 /*     background-color:#155734; */
@@ -89,7 +90,8 @@ header{
     cursor: pointer;
 }
 .subMenu{/*테스트용*/
-	position: fixed;
+/* 	position: fixed; */
+	position: absolute;
     display: flex;
     flex-direction: row;
     
@@ -157,7 +159,11 @@ header{
 }
 .fixUp{
 	position: fixed;
-	top: 0px;
+/* 	top: 0px; */
+	z-index: 50;
+}
+.tops{
+	top: 50px;
 }
 
 a#myPage{
