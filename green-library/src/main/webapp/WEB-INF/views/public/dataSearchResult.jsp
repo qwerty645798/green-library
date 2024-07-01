@@ -58,7 +58,7 @@
 <div class="first_container">
 	<div class="text_box">
 		<div class="text_box1">
-			&nbsp;${inputCategory}:<b style="margin:auto 10px; color:dodgerblue;">'${inputText}'</b> 으로 검색한 결과 : <b style="margin:auto 10px; color:dodgerblue;">${items.size()}개</b> 
+			&nbsp;[ ${inputCategory} : <b style="margin:auto 10px; color:dodgerblue;">'${inputText}'</b> ] 으로 검색한 결과 : <b style="margin:auto 10px; color:dodgerblue;">${items.size()}개</b> 
 		</div>
 		<div class="text_box2">
 			 <form id="itemsPerPageForm" action="/dataSearchResult" method="GET">
