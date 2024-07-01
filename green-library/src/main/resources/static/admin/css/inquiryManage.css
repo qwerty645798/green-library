@@ -59,11 +59,13 @@
     background-color: #ffffff;
     border-radius: 0 5px 5px 0;
 }
+
 select:focus,
 input:focus,
 button:focus {
     outline: none;
 }
+
 /* 검색 결과물 */
 .totalContainer .outputBoard {
     background-color: #77a0c9;
@@ -97,16 +99,14 @@ button:focus {
 .totalContainer .outputBoard .results .btnWrap {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: right;
     gap: 20px;
 }
 
-.totalContainer .outputBoard .results .btnWrap input {
-    color: var(--button-default-color);
-    border: 1px solid #2c3e50;
-    width: 130px;
-    height: 36px;
-    border-radius: 3px;
+.totalContainer .outputBoard .results .btnWrap label {
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .totalContainer .outputBoard .results .btnWrap .deleteBtn {
@@ -139,7 +139,7 @@ button:focus {
     border-bottom: 1px solid #c7c7c7;
 }
 
-.totalContainer .outputBoard .dashBoard table tr:first-child {
+.totalContainer .outputBoard .dashBoard table thead {
     background-color: #77a0c9;
 }
 
@@ -210,18 +210,20 @@ button:focus {
     width: 140px;
     max-width: 140px;
     text-align: center;
-
 }
 
 /* 작성 버튼 */
 .totalContainer .outputBoard .dashBoard table td:last-child {
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    padding-left: 20px;
+    gap: 20px;
+    border-right: 0;
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child input {
     display: flex;
-    width: 100px;
+    width: 70px;
     box-sizing: border-box;
     background-color: #ffffff;
     background-size: contain;
@@ -235,6 +237,11 @@ button:focus {
 
 .totalContainer .outputBoard .dashBoard table td:last-child .correction {
     background-image: url('../assets/imgs/write.png');
+}
+
+.totalContainer .outputBoard .dashBoard table td:last-child .see {
+    background-image: url('../assets/imgs/see.png');
+    background-size: 50px;
 }
 
 /* paging */

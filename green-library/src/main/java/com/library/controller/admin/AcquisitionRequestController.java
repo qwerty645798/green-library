@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -28,11 +29,12 @@ public class AcquisitionRequestController {
         return "admin/adminBook/buyBook/bookBuy";
     }
 
-//    검색
+    //    검색
     @GetMapping("/search")
     public ResponseEntity<List<WishlistDTO>> searchBooks(
             @RequestParam(value = "searchType", required = false) String searchType,
-            @RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
+            @RequestParam(value = "searchKeyword", required = false) String searchKeyword,
+            @RequestParam(value = "completeKind", required = false) String completeKind) {
 
         List<WishlistDTO> wishBooks;
 
@@ -46,6 +48,55 @@ public class AcquisitionRequestController {
                 default -> acquisitionRequestService.findAcquisitionByTotal(searchKeyword);
             };
         }
+
+        if (completeKind != null && !completeKind.equals("all")) {
+            wishBooks = filterByCompleteKind(wishBooks, completeKind);
+        }
+
         return ResponseEntity.ok(wishBooks);
+    }
+
+    private List<WishlistDTO> filterByCompleteKind(List<WishlistDTO> wishBooks, String completeKind) {
+        List<WishlistDTO> filteredList = new ArrayList<>();
+        System.out.println(filteredList.getClass());
+//        complete null error
+        for (WishlistDTO book : wishBooks) {
+            Character complete = book.getComplete();
+//char type
+            switch (completeKind.toLowerCase()) {
+                case "wait":
+                    if (complete.equals('W')) {
+                        filteredList.add(book);
+                    }
+                    break;
+                case "accept":
+                    if (complete.equals('Y')) {
+                        filteredList.add(book);
+                    }
+                    break;
+                case "refuse":
+                    if (complete.equals('N')) {
+                        filteredList.add(book);
+                    }
+                    break;
+            }
+        }
+
+        return filteredList;
+    }
+
+
+    //    승인
+    @PostMapping("/acceptBooks")
+    public ResponseEntity<String> acceptBooks(@RequestBody List<String> bookIds) {
+        acquisitionRequestService.acceptsAcquisition(bookIds);
+        return ResponseEntity.ok("승인");
+    }
+
+    //    거부
+    @PostMapping("/refuseBooks")
+    public ResponseEntity<String> refuseBooks(@RequestBody List<String> bookIds) {
+        acquisitionRequestService.deleteAcquisition(bookIds);
+        return ResponseEntity.ok("거부 승인");
     }
 }

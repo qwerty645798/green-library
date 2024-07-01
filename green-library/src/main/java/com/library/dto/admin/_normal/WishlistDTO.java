@@ -26,7 +26,6 @@ public class WishlistDTO {
     private Character complete;
     @NotNull
     private String userId;
-//    어 장르없다
     private String genreFullname;
 }
 

@@ -7,7 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>announcement</title>
+    <meta name="csrf-token" content="${_csrf.token}">
+    <title>공지 게시판</title>
     <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/public/adminFooter.css">
@@ -135,9 +136,9 @@
             data: { "searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue },
             contentType: 'application/json; charset=utf-8',
             success: function (response) {
-                console.log(typeof searchType + ", " + typeof inputText + ", " + typeof + selectValue);
                 let responseText = '';
                 if (response) {
+
                     let len = response.length;
                     totalPage = Math.ceil(len / selectValue);
                     if (len > 0) {
@@ -152,8 +153,11 @@
                             responseText += "<td>" + response[i].contents + "</td>";
                             responseText += "<td>" + response[i].writerId + "</td>";
                             responseText += "<td>" + response[i].writeDate + "</td>";
-                            responseText += "<td>" + response[i].fileName + "</td>";
-                            responseText += "<td><input type='button' class='correction'></td></tr>";
+                            if((response[i].fileName).toLowerCase() == 'null')
+                            {responseText += "<td>" +' '+ "</td>";}
+                            else
+                            {responseText += "<td>" + response[i].fileName + "</td>";}
+                            responseText += "<td><input type='button' class='correction' onclick='updateAnnounce(" + response[i].announcementId + ")'></td></tr>";
                         }
                     } else {
                         totalPage = currentPage;
@@ -172,11 +176,13 @@
         $('#selectAllCheckbox').prop('checked', false);
     }
 
+    // 삭제
     function deleteAnnounce() {
-        let announceId = [];
+        let announceIds = [];
+        let maxNum = $('input[name="selectedBooks"]');
 
         $('input[name="selectedBooks"]:checked').each(function () {
-            var announceId = $(this).closest('tr').find('td:eq(1)').text().trim(); // 각 체크박스가 속한 행의 announceId 가져오기
+            let announceId = $(this).closest('tr').find('td:eq(1)').text().trim(); // 각 체크박스가 속한 행의 announceId 가져오기
             announceIds.push(announceId);
         });
 
@@ -189,18 +195,48 @@
             $.ajax({
                 url: '/Announcement/deleteAnnounce',
                 type: 'POST',
-                data: {announceIds: announceIds},
-                traditional: true, // 배열 데이터 전송을 위한 설정
+                contentType: 'application/json',
+                data: JSON.stringify(announceIds),
+                traditional: true,
+                beforeSend: function (xhr) {
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                },
                 success: function (response) {
                     alert('선택한 공지가 성공적으로 삭제되었습니다.');
-                    // 삭제 후에는 다시 검색을 실행하여 목록을 업데이트합니다.
                     searchBtnEvt();
+                    clearCheckboxes();
+                    if(currentPage == totalPage && announceIds.length >= maxNum.length)
+                        currentPage--;
                 },
                 error: function () {
                     alert('공지 삭제를 실패하였습니다.');
                 }
             });
         }
+    }
+
+    // 생성
+    function createAnnounce() {
+        window.location.href = '/Announcement/writingAnnounce';
+    }
+
+//     수정
+    function updateAnnounce(announceId) {
+        $.ajax({
+            url: '/Announcement/updateBtnClick/' + announceId,
+            type: 'POST',
+            beforeSend: function (xhr) {
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+            },
+            success: function (response) {
+                window.location.href = '/Announcement/updateAnnounce?announceId=' + encodeURIComponent(announceId);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('접속에 실패했습니다. 다시 시도해주세요.');
+            }
+        });
     }
 </script>
 </body>

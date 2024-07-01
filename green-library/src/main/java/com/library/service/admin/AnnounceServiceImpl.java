@@ -4,15 +4,16 @@ import com.library.dto.admin._normal.AnnouncementDTO;
 import com.library.repository.admin.AnnouncementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class AnnounceServiceImpl implements AnnounceService {
 
     @Autowired
     private AnnouncementRepository announcementRepository;
+    private static final String UPLOAD_DIR = "/static/documents";
 
 
     // 모든 공지 조회
@@ -40,20 +41,56 @@ public class AnnounceServiceImpl implements AnnounceService {
     }
 
     // 공지 생성
+
     @Override
-    public void createAnnounce(AnnouncementDTO announcement) {
-        announcementRepository.createAnnounce(announcement);
+    public void createAnnounceWithoutFile(String announceTitle, String adminId,String announceContent){
+        announcementRepository.createAnnounceWithoutFile(announceTitle, adminId,announceContent);
     }
 
-    // 공지 수정
     @Override
-    public void updateAnnounce(AnnouncementDTO announcement) {
-        announcementRepository.updateAnnounce(announcement);
+    public void createAnnounce(String announceTitle, String adminId, String announceContent, MultipartFile file) {
+        announcementRepository.createAnnounce(announceTitle, adminId, announceContent, file);
+    }
+
+//    @Override
+//    public void createAnnounce(AnnouncementDTO announcement) throws IOException {
+//        announcementRepository.createAnnounce(announcement);
+//        try {
+//            String fileName = saveFile(announcement.getFile());
+//            announcement.setFileName(fileName);
+//
+//            announcementRepository.createAnnounce(announcement);
+//        } catch (IOException e) {
+//            throw new IOException("파일 업로드 중 오류가 발생했습니다.");
+//        }
+//    }
+
+//    private String saveFile(MultipartFile file) throws IOException {
+//        if (file == null || file.isEmpty()) {
+//            return null;
+//        }
+//
+//        String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+//        byte[] bytes = file.getBytes();
+//        Path path = Paths.get(UPLOAD_DIR + fileName);
+//        Files.write(path, bytes);
+//
+//        return fileName;
+//    }
+    // 공지 수정
+@Override
+public void updateAnnounceWithoutFile(String announceTitle, String adminId, String announceContent, String aNull) {
+announcementRepository.updateAnnounceWithoutFile(announceTitle, adminId, announceContent, aNull);
+}
+
+    @Override
+    public void updateAnnounce(String announceTitle, String adminId, String announceContent, MultipartFile file) {
+        announcementRepository.updateAnnounce(announceTitle, adminId, announceContent, file);
     }
 
     // 공지 삭제
     @Override
-    public void deleteAnnounce(int id) {
+    public void deleteAnnounce(List<String> id) {
         announcementRepository.deleteAnnounce(id);
     }
 

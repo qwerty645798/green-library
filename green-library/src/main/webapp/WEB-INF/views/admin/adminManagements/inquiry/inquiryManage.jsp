@@ -72,20 +72,6 @@
                     </tr>
                     </thead>
                     <tbody id="inquiryListTBody">
-                    <c:forEach var="item" items="${inquiry}">
-                        <tr>
-                            <td><input type='checkbox' name='selectedBooks' id=''></td>
-                            <td>${item.inquiryId}</td>
-                            <td>${item.inquiryTitle}</td>
-                            <td>${item.contents}</td>
-                            <td>${item.userId}</td>
-                            <td>${item.inquiryDate}</td>
-                            <td><input type='checkbox' name='' id='' disabled
-                                       <c:if test="${item.responseTF == 1}">checked</c:if>></td>
-                            <td><input type='button' class='correction' onclick='createResponse(${item.inquiryId})'>
-                            </td>
-                        </tr>
-                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -193,9 +179,10 @@
                             responseText += "<td>" + response[i].userId + "</td>";
                             responseText += "<td>" + response[i].inquiryDate + "</td>";
                             responseText += "<td><input type='checkbox' disabled " + (response[i].responseTF == 1 ? "checked" : "") + "></td>";
-                            if (response[i].responseTF != 1) responseText += "<td><input type='button' class='correction' onclick='createResponse(" + response[i].inquiryId + ")'/></td>";
-                            else responseText += "<td><input type='button' class='see' onclick='viewDetail(" + response[i].inquiryId + ")'/></td>";
-                            responseText += "</tr>"
+                            responseText += "<td><input type='button' class='see' onclick='viewDetail(" + response[i].inquiryId + ")'/>";
+                            if (response[i].responseTF != 1)
+                                responseText += "<input type='button' class='correction' onclick='createResponse(" + response[i].inquiryId + ")'/>";
+                            responseText += "</td></tr>"
                         }
                     } else {
                         totalPage = currentPage;
@@ -254,13 +241,12 @@
     // 생성 함수
     function createResponse(inquiryId) {
         $.ajax({
-            url: '/Inquiry/createBtnClick/' + inquiryId, // 요청할 URL 수정
+            url: '/Inquiry/createBtnClick/' + inquiryId,
             type: 'POST',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
             },
             success: function (response) {
-                // Ajax 요청 성공 시 다른 페이지로 이동
                 window.location.href = '/Inquiry/WriteInquiry?inquiryId=' + encodeURIComponent(inquiryId);
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -269,16 +255,16 @@
         });
     }
 
-//     조회 함수
-    function viewDetail(inquiryId){
+    // 조회 함수
+    function viewDetail(inquiryId) {
         $.ajax({
-            url: '/Inquiry/viewBtnClick/' + inquiryId, // 요청할 URL 수정
+            url: '/Inquiry/viewBtnClick/' + inquiryId,
             type: 'POST',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
             },
             success: function (response) {
-                // Ajax 요청 성공 시 다른 페이지로 이동
+                // Ajax 요청 성공 시 조회 페이지로 이동
                 window.location.href = '/Inquiry/DetailInquiry?inquiryId=' + encodeURIComponent(inquiryId);
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -286,6 +272,7 @@
             }
         });
     }
+
 </script>
 </body>
 

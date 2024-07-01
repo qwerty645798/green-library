@@ -3,15 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inquiryDetail</title>
+    <meta name="csrf-token" content="${_csrf.token}">
+    <title>답변 작성</title>
     <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/public/adminHeader.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/public/adminFooter.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/public/style.css">
-    <link rel="stylesheet" type="text/css" href="/admin/css/inquiryDetail.css">
+    <link rel="stylesheet" type="text/css" href="/admin/css/inquiryWrite.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -19,46 +21,54 @@
 <jsp:include page="../../public/adminHeader.jsp"></jsp:include>
 <main>
     <section class="banner">
-        <h3>문의 상세</h3>
-        <p>home > management > inquiry > detail</p>
+        <h3>질의 응답</h3>
+        <p>home > management > inquiry > write</p>
     </section>
     <section class="viewContainer">
-        <div class="btnWrap">
-            <input class="modiBtn" type="button" value="답변">
-            <input class="deleteBtn" type="button" value="삭제">
-        </div>
-        <table class="announcementInfo">
-            <tr>
-                <th>번호</th>
-                <td id="writdIdx">${inquiry.inquiryId}</td>
-            </tr>
+        <table class="usersWriteForm">
             <tr>
                 <th>제목</th>
-                <td id="writdTitle">${inquiry.inquiryTitle}</td>
+                <td id="writedTitle">${inquiry.inquiryTitle}</td>
             </tr>
             <tr>
                 <th>작성자</th>
-                <td id="writerId">${inquiry.userId}</td>
+                <td id="userId">${inquiry.userId}</td>
             </tr>
             <tr>
                 <th>작성일</th>
-                <td id="writeDate">${inquiry.inquiryDate}</td>
+                <td id="userDate">${inquiry.inquiryDate}</td>
             </tr>
             <tr>
                 <th>내용</th>
-                <td id="contents">${inquiry.contents}</td>
+                <td id="usersContents">
+                    ${inquiry.contents}
+                </td>
             </tr>
         </table>
-        <div class="boardNav">
-            <div class="prevNav">
-                <span class="tit">이전글</span><span class="con" id="prevCon"></span>
-            </div>
-            <div class="nextNav">
-                <span class="tit">다음글</span><span class="con" id="nextCon"></span>
-            </div>
-        </div>
-        <div class="board-btn">
-            <a href="/Inquiry" class="listBtn">목록</a>
+        <!-- 응답테이블 -->
+        <table class="inquiryInfo">
+            <tr>
+                <th>번호</th>
+                <td id="writdIdx"></td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td id="writerId">작성자 ID</td>
+            </tr>
+            <tr>
+                <th>작성일</th>
+                <td id="writeDate">작성일</td>
+            </tr>
+            <tr>
+                <th>내용 <span>*</span></th>
+                <td id="contents">
+                    <textarea name="" id="responseContents"></textarea>
+                </td>
+            </tr>
+        </table>
+        <div class="btnWrap">
+            <input type="button" value="목록" onclick="goToList()">
+            <input class="deleteBtn" type="button" value="등록" onclick="uploadBtn(${inquiry.inquiryId})">
         </div>
     </section>
 </main>
@@ -66,54 +76,40 @@
 <script>
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    $(document).ready(function () {
-        prevPage(${inquiry.inquiryId});
-        nextPage(${inquiry.inquiryId});
-    });
-
-    function prevPage(inquiryId) {
-        $.ajax({
-            url: '/Inquiry/prevInquiry',
-            type: 'GET',
-            data: { inquiryId: inquiryId },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
-            },
-            success: function (data) {
-                if (data && data.inquiryTitle && data.inquiryId) {
-                    $("#prevCon").text(data.inquiryTitle);
-                    $("#prevCon").attr("href", "/Inquiry/Detail?inquiryId=" + data.inquiryId);
-                } else {
-                    $("#prevCon").text("이전글이 없습니다.");
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error("오류 발생: " + error);
-            }
-        });
+    function goToList(){
+        window.location.href='/Inquiry';
     }
 
-    function nextPage(inquiryId) {
-        $.ajax({
-            url: '/Inquiry/nextInquiry',
-            type: 'GET',
-            data: { inquiryId: inquiryId },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
-            },
-            success: function (data) {
-                if (data && data.inquiryTitle && data.inquiryId) {
-                    $("#nextCon").text(data.inquiryTitle);
-                    $("#nextCon").attr("href", "/Inquiry/Detail?inquiryId=" + data.inquiryId);
-                } else {
-                    $("#nextCon").text("다음글이 없습니다.");
+    function uploadBtn(inquiryId) {
+        let responseContents = document.getElementById('responseContents').value;
+
+        if (!responseContents || responseContents.trim() === '') {
+            console.log(responseContents)
+            alert('내용을 입력해 주세요.');
+            return; // 내용이 비어 있으면 함수 종료
+        }
+
+        if (confirm('등록하시겠습니까?')) {
+            $.ajax({
+                url: '/Inquiry/UploadInquiry',
+                type: 'POST',
+                data: { inquiryId: inquiryId, responseContents: responseContents },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                },
+                success: function (data) {
+                    alert('등록이 완료되었습니다.');
+                    window.location.href = '/Inquiry';
+                },
+                error: function (xhr, status, error) {
+                    console.error("오류 발생: " + error);
+                    alert('등록에 실패했습니다. 다시 시도해주세요.');
                 }
-            },
-            error: function (xhr, status, error) {
-                console.error("오류 발생: " + error);
-            }
-        });
+            });
+        }
     }
+
+
 </script>
 
 </body>

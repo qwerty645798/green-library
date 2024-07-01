@@ -44,14 +44,14 @@ public class AcquisitionRequestServiceImpl implements AcquisitionRequestService 
 
     //    구매승인
     @Override
-    public WishlistDTO acceptsAcquisition(int requestId) {
+    public WishlistDTO acceptsAcquisition(List<String> requestId) {
         acquisitionRequestRepository.acceptsAcquisition(requestId);
         return null;
     }
 
     //    구매거절
     @Override
-    public WishlistDTO deleteAcquisition(int requestId) {
+    public WishlistDTO deleteAcquisition(List<String> requestId) {
         acquisitionRequestRepository.deleteAcquisition(requestId);
         return null;
     }

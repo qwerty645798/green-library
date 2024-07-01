@@ -70,6 +70,7 @@ public class InquiryController {
         return "admin/adminManagements/inquiry/inquiryWrite";
     }
 
+
     // 질의 답변 등록 처리
     @PostMapping("/UploadInquiry")
     @ResponseBody
@@ -97,7 +98,7 @@ public class InquiryController {
 
     // 확인페이지 이동
     @GetMapping("/DetailInquiry")
-    public String DetailInquiry(@RequestParam("inquiryId") int inquiryId, Model model) {
+    public String detailInquiry(@RequestParam("inquiryId") int inquiryId, Model model) {
         InquiryDTO inquiry = inquiryService.getInquiryById(inquiryId);
         model.addAttribute("inquiry", inquiry);
         return "admin/adminManagements/inquiry/inquiryDetail";
@@ -105,18 +106,22 @@ public class InquiryController {
 
         @GetMapping("/prevInquiry")
         public ResponseEntity<InquiryDTO> getPreviousInquiry(@RequestParam("inquiryId") int inquiryId) {
-        try {
+            try {
+                InquiryDTO prevInquiry = inquiryService.previousInquiry(inquiryId);
+                return new ResponseEntity<>(prevInquiry, HttpStatus.OK);
 
         }catch (Exception e){
             return null;
         }
-            InquiryDTO prevInquiry = inquiryService.previousInquiry(inquiryId);
-            return new ResponseEntity<>(prevInquiry, HttpStatus.OK);
         }
 
         @GetMapping("/nextInquiry")
         public ResponseEntity<InquiryDTO> getNextInquiry(@RequestParam("inquiryId") int inquiryId) {
+        try {
             InquiryDTO nextInquiry = inquiryService.nextInquiry(inquiryId);
             return new ResponseEntity<>(nextInquiry, HttpStatus.OK);
+        }catch (Exception e){
+            return null;
+        }
         }
     }

@@ -1,6 +1,7 @@
 package com.library.repository.admin;
 
 import com.library.dto.admin._normal.AnnouncementDTO;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -20,12 +21,15 @@ public interface AnnouncementRepository {
 
     // 공지사항 생성
     void createAnnounce(AnnouncementDTO announcement);
-
+    void createAnnounceWithoutFile(String announceTitle, String adminId, String announceContent);
+    void createAnnounce(String announceTitle, String adminId, String announceContent, MultipartFile file);
     // 공지사항 수정
-    void updateAnnounce(AnnouncementDTO announcement);
+
+    void updateAnnounce(String announceTitle, String adminId, String announceContent, MultipartFile file);
+    void updateAnnounceWithoutFile(String announceTitle, String adminId, String announceContent, String aNull);
 
     // 공지사항 삭제
-    void deleteAnnounce(int announceId);
+    void deleteAnnounce(List<String> announceId);
 
     // 특정 공지사항 조회
     AnnouncementDTO getAnnounceById(int announceId);
@@ -34,6 +38,6 @@ public interface AnnouncementRepository {
     String previousAnnounce(int announceId);
 
     // 다음 공지 제목 조회
-    String nextAnnounce(int announceId);
 
+    String nextAnnounce(int announceId);
 }

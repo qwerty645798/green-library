@@ -134,7 +134,7 @@ button:focus {
     border-bottom: 1px solid #c7c7c7;
 }
 
-.totalContainer .outputBoard .dashBoard table tr:first-child {
+.totalContainer .outputBoard .dashBoard table thead {
     background-color: #77a0c9;
 }
 
@@ -215,7 +215,7 @@ button:focus {
 .totalContainer .outputBoard .dashBoard table td:last-child {
     display: flex;
     gap: 20px;
-    border: 0;
+    border-right: 0;
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child input {
@@ -229,6 +229,10 @@ button:focus {
     border-radius: 3px;
 
     border: 0.5px solid #dadada;
+}
+
+.totalContainer .outputBoard .dashBoard table td:last-child .see {
+    background-image: url("../assets/imgs/see.png");
 }
 
 .totalContainer .outputBoard .dashBoard table td:last-child .correction {

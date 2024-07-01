@@ -22,8 +22,8 @@ public interface AcquisitionRequestService {
     List<WishlistDTO> findAcquisitionByPublish(String genre);
 
     //    구매승인
-    WishlistDTO acceptsAcquisition(int requestId);
+    WishlistDTO acceptsAcquisition(List<String> requestId);
 
     //    구매거절
-    WishlistDTO deleteAcquisition(int requestId);
+    WishlistDTO deleteAcquisition(List<String> requestId);
 }

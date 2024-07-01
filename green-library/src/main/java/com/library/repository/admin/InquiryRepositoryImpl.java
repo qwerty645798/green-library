@@ -175,7 +175,7 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     // 문의 상세 정보 조회 및 답변 번호 포함
     @Override
     public InquiryDTO getInquiryById(int inquiryId) {
-        String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE " +
+        String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE, CONTENTS, USER_ID, INQUIRY_DATE, RESPONSETF " +
                 "FROM INQUIRIES WHERE INQUIRY_ID = ? ";
 
         // 질의 정보 조회
@@ -186,6 +186,7 @@ public class InquiryRepositoryImpl implements InquiryRepository {
             inquiryDTO.setContents(rs.getString("CONTENTS"));
             inquiryDTO.setUserId(rs.getString("USER_ID"));
             inquiryDTO.setInquiryDate(rs.getDate("INQUIRY_DATE"));
+            setResponse(rs, inquiryDTO);
             return inquiryDTO;
         }, inquiryId);
     }
@@ -237,7 +238,7 @@ public class InquiryRepositoryImpl implements InquiryRepository {
 
     @Override
     public InquiryDTO getNextInquiry(int inquiryId) {
-        String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE FROM (SELECT INQUIRY_ID, INQUIRY_TITLE, ROW_NUMBER() OVER (ORDER BY INQUIRY_ID ASC) AS rnum FROM INQUIRIES WHERE INQUIRY_ID > ?) WHERE rnum = 1";
+        String sql = "SELECT INQUIRY_ID, INQUIRY_TITLE FROM (SELECT INQUIRY_ID, INQUIRY_TITLE, RESPONSETF, ROW_NUMBER() OVER (ORDER BY INQUIRY_ID ASC) AS rnum FROM INQUIRIES WHERE INQUIRY_ID > ?) WHERE rnum = 1";
         return jdbcTemplate.queryForObject(sql, (ResultSet rs, int rowNum) -> {
             InquiryDTO inquiryDTO = new InquiryDTO();
             inquiryDTO.setInquiryId(rs.getInt("INQUIRY_ID"));

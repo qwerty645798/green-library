@@ -5,6 +5,7 @@ import java.util.Date;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -15,9 +16,9 @@ public class AnnouncementDTO {
     @NotNull
     private String writerId;
     private Date writeDate;
+    private MultipartFile file;
     private String fileName;
     private String contents;
     private int viewCount;
     private int total_count;
-
 }

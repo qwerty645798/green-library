@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="${_csrf.token}">
     <title>수서관리</title>
     <link rel="stylesheet" type="text/css" href="/admin/css/public/reset.css">
     <link rel="stylesheet" type="text/css" href="/admin/css/public/style.css">
@@ -48,8 +49,14 @@
                     <option value="10">10개씩</option>
                     <option value="15" selected>15개씩</option>
                 </select>
+                <div class="radioWrap">
+                    <label><input type="radio" name="completeKinds" id="waitItem" value="wait" checked/>승인 대기</label>
+                    <label><input type="radio" name="completeKinds" id="acceptItem" value="accept"/> 승인 사항</label>
+                    <label><input type="radio" name="completeKinds" id="refuseItem" value="refuse"/> 거부사항</label>
+                    <label><input type="radio" name="completeKinds" id="showAll" value="all"/>전체</label>
+                </div>
                 <div class="btnWrap">
-                    <input class="acceptBtn" type="button" value="승인" id="acceptBook" onclick="accptBooks()">
+                    <input class="acceptBtn" type="button" value="승인" id="acceptBook" onclick="acceptBooks()">
                     <input class="deleteBtn" type="button" value="거부" id="refuseBook" onclick="refuseBooks()">
                 </div>
             </div>
@@ -82,10 +89,10 @@
 <jsp:include page="../../public/adminFooter.jsp"></jsp:include>
 
 <script>
-    let currentPage = 1;
-    let totalPage = currentPage;
-
     $(document).ready(function () {
+        // 초기화
+        currentPage = 1;
+        totalPage = currentPage;
         searchBtnEvt();
 
         // 검색 버튼 클릭 시
@@ -120,6 +127,12 @@
                 searchBtnEvt();
             }
         });
+
+        // 라디오 버튼 변경 시
+        $('input[name="completeKinds"]').change(function () {
+            currentPage = 1;
+            searchBtnEvt();
+        });
     });
 
     function searchBtnEvt() {
@@ -129,11 +142,20 @@
         const totalPageElem = $('#totalPage');
         const selectValue = $('#resultSelect').val();
         const total = document.getElementById('total');
+        const completeKind = $('input[name="completeKinds"]:checked').val();
+
+        console.log(completeKind);
+
 
         $.ajax({
             url: '/BuyBook/search',
             type: 'GET',
-            data: {"searchType": searchType, "searchKeyword": inputText, "pageSize": selectValue},
+            data: {
+                "searchType": searchType,
+                "searchKeyword": inputText,
+                "pageSize": selectValue,
+                "completeKind": completeKind // 라디오 버튼 값 전달
+            },
             success: function (response) {
                 if (response) {
                     let responseText = '';
@@ -153,9 +175,9 @@
                         responseText += "<td>" + response[i].wishPublisher + "</td>";
                         responseText += "<td>" + response[i].wishPublication + "</td>";
                         responseText += "<td>" + response[i].wishPrice + "</td>";
-                        responseText += "<td><input type='checkbox' disabled " + (response[i].complete == 1 ? "checked" : "") + "></td>";
+                        responseText += "<td><input type='checkbox' disabled " + ((response[i].complete == 'W') ? "" : "checked") + "></td>";
                         responseText += "<td><input type='button' class='correction' onclick='modifyBook(" + response[i].bookId + ")'>";
-                        responseText += "<input type='button' class='delete' onclick='returnBook(" + response[i].bookId + ")'></td></tr>";
+                        responseText += "</tr>";
                     }
                     buyListTBody.html(responseText);
                     total.innerHTML = "result : " + len + "개";
@@ -168,6 +190,77 @@
             }
         });
     }
+
+    // 승인 함수
+    function acceptBooks() {
+        let bookIds = [];
+
+        $('input[name="selectedBooks"]:checked').each(function () {
+            let bookId = $(this).closest('tr').find('td:eq(1)').text().trim();
+            bookIds.push(bookId);
+        });
+
+        if (bookIds.length === 0) {
+            alert('목록을 선택해주세요.');
+            return;
+        }
+
+        if (confirm('선택한 사항을 승인하시겠습니까?')) {
+            $.ajax({
+                url: '/BuyBook/acceptBooks',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(bookIds),
+                beforeSend: function (xhr) {
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                },
+                success: function (response) {
+                    alert('선택한 사항들이 승인되었습니다.');
+                    searchBtnEvt();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('승인에 실패하였습니다.');
+                }
+            });
+        }
+    }
+
+    // 거부 함수
+    function refuseBooks() {
+        let bookIds = [];
+
+        $('input[name="selectedBooks"]:checked').each(function () {
+            let bookId = $(this).closest('tr').find('td:eq(1)').text().trim();
+            bookIds.push(bookId);
+        });
+
+        if (bookIds.length === 0) {
+            alert('목록을 선택해주세요.');
+            return;
+        }
+
+        if (confirm('선택한 사항을 거부하시겠습니까?')) {
+            $.ajax({
+                url: '/BuyBook/refuseBooks',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(bookIds),
+                beforeSend: function (xhr) {
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                },
+                success: function (response) {
+                    alert('선택한 사항들이 성공적으로 거부되었습니다.');
+                    searchBtnEvt();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('거부에 실패하였습니다.');
+                }
+            });
+        }
+    }
+
 </script>
 </body>
 

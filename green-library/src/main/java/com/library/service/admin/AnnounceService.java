@@ -1,41 +1,41 @@
 package com.library.service.admin;
 
 import com.library.dto.admin._normal.AnnouncementDTO;
-import com.library.repository.admin.AnnouncementRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-public interface AnnounceService {
+ public interface AnnounceService {
 
     // 모든 공지 조회
-    public List<AnnouncementDTO> allAnnounceManage();
+     List<AnnouncementDTO> allAnnounceManage();
 
 //    전체에서 조회
     List<AnnouncementDTO> findAnnounceByTotal(String total);
 
     // 제목으로 조회
-    public List<AnnouncementDTO> findAnnounceByTitle(String title);
+     List<AnnouncementDTO> findAnnounceByTitle(String title);
 
     // 내용으로 조회
-    public List<AnnouncementDTO> findAnnounceByContents(String contents);
+     List<AnnouncementDTO> findAnnounceByContents(String contents);
 
     // 공지 생성
-    public void createAnnounce(AnnouncementDTO announcement);
-
+//     void createAnnounce(AnnouncementDTO announcement) throws IOException;
+     void createAnnounceWithoutFile(String announceTitle, String adminId,String announceContent);
+    void createAnnounce(String announceTitle, String adminId, String announceContent, MultipartFile file);
     // 공지 수정
-    public void updateAnnounce(AnnouncementDTO announcement);
+    void updateAnnounceWithoutFile(String announceTitle, String adminId, String announceContent, String aNull);
+     void updateAnnounce(String announceTitle, String adminId, String announceContent, MultipartFile file);
 
     // 공지 삭제
-    public void deleteAnnounce(int id);
+     void deleteAnnounce(List<String> ids);
 
     // 특정 도서 상세 조회
-    public AnnouncementDTO getAnnounceById(int id);
+     AnnouncementDTO getAnnounceById(int id);
 
     // 이전 도서 제목 조회
-    public String previousAnnounce(int id);
+     String previousAnnounce(int id);
 
     // 다음 도서 제목 조회
-    public String nextAnnounce(int id);
-}
+     String nextAnnounce(int id);
+ }
