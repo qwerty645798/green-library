@@ -56,7 +56,7 @@ dd{
 /*     box-sizing: border-box; */
     width: 1240px;
 	height: 0px;
-	padding: 0;
+	padding: 0px;
 	margin: 0;
     overflow: hidden;
     background-color:#e7f3e8;
@@ -80,8 +80,12 @@ p{
 
 
 .transition{
-	transition: height 200ms ease-in-out;/* , padding 300ms ease-in-out; */
+	transition: height 200ms ease-in-out, padding 300ms ease-in-out;
+	 
 }
+/* .transition2{ */
+/* 	transition: padding 300ms ease-in-out; */
+/* } */
 
 
 

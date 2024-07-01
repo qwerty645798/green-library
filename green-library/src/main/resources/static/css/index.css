@@ -235,11 +235,11 @@ select:focus{
 	align-items: center;
 /*     width: 1260px; */
 	width: 600px;
-    height: 300px;
+    height: 480px;
     margin-right: 30px;
     left: 0;
     
-/*     border: 2px solid red; */
+    border: 2px solid skyblue;
 }
 .infoBoard2 img{
 	width: 50px;
@@ -278,10 +278,7 @@ select:focus{
 .infoBoard2 table:last-child{
 	border-bottom: 1px solid #a0cab0;
 }
-/* .infoBoard2 table td:first-child{ */
-/* 	background: pink; */
-/* 	border-radius: 10px; */
-/* } */
+
 .infoBoard2 table td:nth-child(2){
 	width: 400px;
 }
@@ -290,7 +287,7 @@ select:focus{
 }
 .infoBoard3{
 	width: 600px;
-	height: 300px;
+	height: 480px;
 	margin-left: 30px;
 	border: 2px solid skyblue;
 }

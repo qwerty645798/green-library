@@ -21,7 +21,6 @@
     </div>
 </div>
 
-<!-- zindex를 전부 background 위로 올린다면 -->
 
 <div class="title_container">
 	<h1>도서관 비전</h1>

@@ -18,9 +18,14 @@
 
     <div class="bannerBgr">
         <div class="Banner">
-            <div class="pageTitle">이용 안내</div> <div class="pageRoute">홈 > 이용안내</div>
+            <div class="pageTitle">자료 이용 안내</div> <div class="pageRoute">홈 > 이용안내</div>
         </div>
     </div>
+    
+<div class="title_container">
+	<h1>도서관 이용 규칙 안내</h1>
+</div>
+	<hr class="hr1">
 
 <div class="useTable">
 

@@ -40,7 +40,6 @@
                 </select>
                 <input type="text" name="search" onkeypress="checkEnter(event)">
                 <img src="/images/searchBtn.png" onclick="lets_search()">
-<!--                 <input type="button" value="자료 찾기"> -->
             </div>
         
     </div>
@@ -170,7 +169,7 @@
 				<c:set var="annoList" value="${fn:length(announce)}"/>
 
 				<c:choose>
-					<c:when test="annoList>=6}">
+					<c:when test="annoList>=9}">
 						<c:forEach var="num" begin="${annoList}" end="${annoList-5}">
 						<table>
 							<tr>
@@ -182,7 +181,7 @@
 						</c:forEach>
 					</c:when>
 					<c:when test="${annoList<6}">
-						<c:forEach var="num" begin="0" end="5">
+						<c:forEach var="num" begin="0" end="8">
 						<table>
 							<tr>
 					        	<td>${announce[num].writerId}</td>
