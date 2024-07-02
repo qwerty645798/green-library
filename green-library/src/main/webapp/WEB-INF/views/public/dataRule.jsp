@@ -29,7 +29,22 @@
 	
 	
 	
-	<jsp:include page="../public/navBar.jsp" />
+	<jsp:include page="../public/navBarUse.jsp" />
+	
+	<div class="icon_container">
+	<div class="icon_box">
+	<img src="/images/calendarColor.png">
+	대출 기간 <br> 14일~21일
+	</div>
+	<div class="icon_box">
+	<img src="/images/bookGreen.png">
+	대출가능 권수 <br> 1인당 5권
+	</div>
+	<div class="icon_box">
+	<img src="/images/bookReturn.png">
+	대출 반납 <br> 도서관 또는 반납함
+	</div>
+	</div>
 	
 
 <div class="useTable">
@@ -62,9 +77,9 @@
             <td class="useTableItem">대출 반납</td>
             <td>
                 <ul>
-                    <li>대출 중인 책일 경우 회원에 한해 대출 예약이 가능합니다. </li>
-                    <li>대출 예약 후, 본인의 차례가 왔을 때 3일 내에 대출하지 않으시면 예약이 취소되고 다음 사람에게로 차례가 넘어갑니다.</li>
-                    <li>한 도서당 3명까지만 가능합니다. 1인당 한 번에 5권까지만 예약할 수 있습니다.</li>
+                    <li>도서관 또는 반납함에 반납하실 수 있습니다. </li>
+                    <li>반납함은 도서관 운영시간 이후에만 운영되며, 반납함에 반납하신 도서는 다음날 반납 처리됩니다.</li>
+                    <li>정해진 기간 내에 반납하지 않으시면 불이익이 있을 수 있습니다. 자세한 건 대출 연체 및 정지 부분 참고.</li>
                 </ul>
                 
                 

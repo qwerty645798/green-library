@@ -1,22 +1,26 @@
 
-.htwo{
-	display:flex;
-	justify-content: center;
-	margin-top: 70px;
-}
-h2{
+.title_container{
+	display: flex;
 	width: 1260px;
-	margin: 30px 0 30px 0;
-	text-align: left;
+	align-items: center;
+	margin: 0 auto;
+	margin-top:20px;	
+	
+	font-size:24pt;
 }
-hr{
+h1{
+	margin-top: 50px;
+	font-size: 20pt;
+	font-weight: bold;
+}
+.hr1{
 	width: 1260px;
 	border: 2px solid #a0cab0;
 }
 .container{
 	display:flex;
 	justify-content:center;
-	margin: 30px 0 0 0;
+	margin: 50px 0 0 0;
 }
 .main{
 	display:flex;

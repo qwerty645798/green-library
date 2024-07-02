@@ -25,6 +25,14 @@
     </div>
 </div>
 
+<div class="title_container">
+	<h1>새로 들어온 책</h1>
+</div>
+	<hr class="hr1">
+	
+
+<jsp:include page="../public/navBarSearch.jsp"/>
+
 <main>
 
 <c:set var="itemsPerPage" value="8"/>

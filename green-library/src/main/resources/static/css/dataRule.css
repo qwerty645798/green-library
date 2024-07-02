@@ -1,3 +1,31 @@
+
+
+.icon_container{
+	display:flex;
+	justify-content: center;
+}
+.icon_box{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 250px;
+	height: 300px;
+	margin: 70px 70px 0 70px;
+	font-size: 15pt;
+	font-weight: bold;
+	text-align: center;
+	background: aliceblue;
+	
+	border: 5px solid #a0cab0;
+	border-radius: 10px;
+}
+.icon_box img{
+	width: 120px;
+	height: 120px;
+	margin-bottom: 50px;
+}
+
 .title_container{
 	display: flex;
 	width: 1260px;
@@ -22,13 +50,12 @@ h1{
     justify-content: center;
     align-items: center;
     height: 800px;
-    margin-top: 150px;
-    margin-bottom: 300px;
+    margin-top: 100px;
 }
 table{
     width: 1000px;
     height: 500px;
-    margin: 100px;
+/*     margin: 100px; */
     border-collapse: collapse;
 }
 tr, td{
@@ -66,40 +93,5 @@ td:not(.useTableItem){
 }
 
 
-.navBar{
-	position: fixed;
-	top: 300px;
-	left: 60px;
-	width: 240px;
-	height: 500px;
-	
-	border: 2px solid red;
-}
-.navTitle{
-	font-size: 15pt;
-	padding: 10px;
-}
-.navBar a{
-	color: black;
-	text-decoration: none;
-}
-.navBar ul{
-	width: 200px;
-	padding: 0px;
-	margin: 0px;
-	font-size: 15pt;
-	background: lemonchiffon;
-	list-style-type: none;
-}
-.navBar ul li{
-	padding: 20px;
-}
-.navBar ul li:hover{
-	background: orange;
-	cursor: pointer;
-}
 
-.curPlace{
-	background: green;
-}
 

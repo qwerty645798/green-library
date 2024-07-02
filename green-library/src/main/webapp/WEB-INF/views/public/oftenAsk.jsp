@@ -21,6 +21,8 @@
             </div>
         </div>
         
+        <jsp:include page="../public/navBarNews.jsp"/>
+        
         <div class="title_container">
 			<h1>자주 묻는 질문</h1>
 		</div>

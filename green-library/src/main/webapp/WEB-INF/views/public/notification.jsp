@@ -41,6 +41,8 @@
 	<h1>공지사항</h1>
 </div>
 	<hr class="hr1">
+	
+	<jsp:include page="../public/navBarNews.jsp"/>
 
 <main>
 

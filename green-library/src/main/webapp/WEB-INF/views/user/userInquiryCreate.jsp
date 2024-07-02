@@ -24,6 +24,8 @@
     </div>
 </div>
 
+<jsp:include page="../public/navBarMypage.jsp"/>
+
 <main>
 
 <form action="inquiryCreate" method="post" onsubmit="return validateForm()">

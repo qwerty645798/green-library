@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 250px 0 300px 0;
+    padding: 100px 0 300px 0;
     background-image:url("/images/woodLeaf.jpg");
     background-size: cover;
 }

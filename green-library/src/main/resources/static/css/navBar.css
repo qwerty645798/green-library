@@ -4,35 +4,37 @@
 	position: fixed;
 	top: 300px;
 	left: 60px;
-	width: 240px;
-	height: 500px;
+	width: 200px;
+	height: 402px;
 	
-	border: 2px solid red;
+	border: 2px solid #a0cab0;
 }
 .navTitle{
 	font-size: 15pt;
-	padding: 10px;
+	font-weight: bold;
+	padding: 20px;
+}
+.curPlace{
+	background: #64b883;
+	color: white;
 }
 .navBar a{
-	color: black;
+/* 	color: black; */
 	text-decoration: none;
 }
 .navBar ul{
 	width: 200px;
+	height: 335px;
 	padding: 0px;
 	margin: 0px;
 	font-size: 15pt;
-	background: lemonchiffon;
+	font-weight: bold;
+	background: aliceblue;
 	list-style-type: none;
 }
 .navBar ul li{
 	padding: 20px;
-}
-.navBar ul li:hover{
-	background: orange;
 	cursor: pointer;
 }
 
-.curPlace{
-	background: green;
-}
+
