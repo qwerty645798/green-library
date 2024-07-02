@@ -85,9 +85,9 @@ function renderTable() {
                     actionTd.innerHTML = '<input type="button" class="btn" value="연장" onclick="window.open(\'bookLoanExtension\', \'_blank\', \'noopener,noreferrer\');">';
                 }
             } else if (currentCondition === "reserve") {
-                actionTd.innerHTML = '<input type="button" value="취소" onclick="confirmAction(\'cancelReserve\', \'' + currentData[i]["reservationId"] + '\')">';
+                actionTd.innerHTML = '<input type="button" class="btn" value="취소" onclick="confirmAction(\'cancelReserve\', \'' + currentData[i]["reservationId"] + '\')">';
             } else if (currentCondition === "interest") {
-                actionTd.innerHTML = '<input type="button" value="제거" onclick="confirmAction(\'deleteInterest\', \'' + currentData[i]["interestId"] + '\')">';
+                actionTd.innerHTML = '<input type="button" class="btn" value="제거" onclick="confirmAction(\'deleteInterest\', \'' + currentData[i]["interestId"] + '\')">';
             }
             tr.appendChild(actionTd);
 
@@ -137,7 +137,6 @@ function confirmAction(action, id) {
 }
 
 function submitForm(action, id) {
-    console.log(id);
     const csrfToken = document.querySelector('input[name="_csrf"]').value;
 
     const formData = new FormData();

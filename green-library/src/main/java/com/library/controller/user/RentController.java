@@ -104,11 +104,11 @@ public class RentController {
 	
 	@PostMapping("/reserveBook")
     public String reserveBook(@RequestParam(name = "auth", defaultValue = "abc") String userId, 
-    		@RequestParam(name="bookId", required = false) int bookId ) {
+    		@RequestParam(name="bookId", required = false) int bookId, RedirectAttributes redirectAttributes ) {
     	
     	bookDetailService.makeReservation(bookId, userId);
     	bookDetailService.changeAvailability(bookId);
-    	
+    	redirectAttributes.addFlashAttribute("message", "예약이 완료되었습니다.");
     	return "redirect:/bookDetail?bookId=" + bookId;
     }
 	

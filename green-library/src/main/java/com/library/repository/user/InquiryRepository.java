@@ -32,4 +32,10 @@ public interface InquiryRepository {
 
 	UserInquiryDetailDTO getInquiryDetail(String userId, String id);
 
+	int insertInterest(String user_id, String book_id);
+
+	int deleteInterest(String userId, String bookId);
+
+	void getUserInterest(String userId, int bookId);
+
 }
