@@ -16,7 +16,9 @@ function extendEachBook(book_sel, rentHistory, returnDate, more=false){
     const dayDiff = timeDiff / (1000 * 3600 * 24);
 	
 	if (dayDiff > 14) {
-        alert("이미 한 번 연장하셨으므로 추가 연장이 불가능합니다.");
+		if(!more){
+			alert("이미 한 번 연장하셨으므로 추가 연장이 불가능합니다.");	
+		}
         return false;
     } else {
 		if (!more) {
@@ -34,6 +36,8 @@ function extendAllCheckedbox() {
         alert("책을 선택해 주십시오.");
         return false;
     }
+    
+    let hasUnextendable = false;
 
     for (const checkbox of chxboxes) {
         const hiddenField = document.createElement("input");
@@ -48,11 +52,16 @@ function extendAllCheckedbox() {
         const returnDate = bookContainer.getAttribute('data-return-date');
 
         if (!extendEachBook(bookId, rentHistory, returnDate, true)) {
-            alert("연장 불가능한 책이 선택되어 있습니다.");//경고창 두 번 뜨는게 거슬리면 이거 삭제
-            return false;
+            hasUnextendable = true;
         }
     }
+    
+    if (hasUnextendable) {
+        alert("연장 불가능한 책이 선택되어 있습니다.");
+        return false;
+    } else {
+        alert("선택하신 책들의 대출이 연장되었습니다.");
+        return true;
+    }
 
-    alert("선택하신 책들의 대출이 연장되었습니다.");
-    return true;
 }
