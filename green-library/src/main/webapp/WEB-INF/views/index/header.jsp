@@ -56,17 +56,17 @@
                 <ul id="subMenu1" class="menuBar">
                   <li><a href="/vision">
                   도서관 비전</a></li>
+                  <li><a href="/wayToCome">
+                  오시는 길</a></li>
+                  <li><a href="/facilityInfo">
+                  부대시설 소개</a></li>
                 </ul>
               
                 <ul id="subMenu2" class="menuBar">
-                  <li><a href="/wayToCome">
-                  오시는 길</a></li>
                   <li><a href="/placeUsetime">
                   이용시간 안내</a></li>
                   <li><a href="/dataRule">
                   자료이용 안내</a></li>
-                  <li><a href="/facilityInfo">
-                  부대시설 소개</a></li>
                   <li><a href="/user/hopeBookApply">
                   희망도서 신청</a></li>
                 </ul>
@@ -92,10 +92,8 @@
                 <ul id="subMenu5" class="menuBar">
                   <li><a href="/user/userInfo">
                   내 프로필</a></li>
-                  <li><a href="/user/bookLoanExtension">
-                  대출 연장</a></li>
-                  <li><a href="/userAgreement">
-                  약관 재동의</a></li>
+                  <!-- <li><a href="/userAgreement">
+                  약관 재동의</a></li> -->
                   <li><a href="/user/myWritten">
                   내가 쓴 글</a></li>
                   <li><a href="/user/userInquiryCreate">

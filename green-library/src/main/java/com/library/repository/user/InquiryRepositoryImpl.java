@@ -169,21 +169,55 @@ public class InquiryRepositoryImpl implements InquiryRepository {
     }
     
     @Override
+    public void getUserInterest(String userId, int bookId) {
+    	String sql = "SELECT interest_id FROM interested_books WHERE user_id = ? AND book_id = ?";
+        jdbcTemplate.queryForObject(sql, String.class, userId, bookId);
+    }
+    
+    @Override
 	public int deleteRentHistory(String id) {
         String sql = "DELETE FROM rents WHERE rent_num = ?";
         return jdbcTemplate.update(sql, id);
     }
 	
-	@Override
-	public int cancelReserve(String id) {
-        String sql = "DELETE FROM reservations WHERE reservation_id = ?";
-        return jdbcTemplate.update(sql, id);
+    @Override
+    public int cancelReserve(String reservationId) {
+        // 1. 예약 취소
+        String deleteSql = "DELETE FROM reservations WHERE reservation_id = ?";
+        int result = jdbcTemplate.update(deleteSql, reservationId);
+
+        if (result > 0) {
+            // 2. book_id 가져오기
+            String selectBookIdSql = "SELECT book_id FROM reservations WHERE reservation_id = ?";
+            int bookId = jdbcTemplate.queryForObject(selectBookIdSql, Integer.class, reservationId);
+
+            // 3. 동일한 책에 대해 다른 예약이 있는지 확인
+            String checkReservationSql = "SELECT COUNT(*) FROM reservations WHERE book_id = ?";
+            int reservationCount = jdbcTemplate.queryForObject(checkReservationSql, Integer.class, bookId);
+            // 4. 해당 책이 대출 중인지 확인
+            String checkRentSql = "SELECT COUNT(*) FROM rents WHERE book_id = ? AND returned = '0'";
+            int rentCount = jdbcTemplate.queryForObject(checkRentSql, Integer.class, bookId);
+
+            // 5. 다른 예약이 없고 대출 중이 아니라면 availability 값을 0으로 업데이트
+            if (reservationCount == 0 && rentCount == 0) {
+                String updateAvailabilitySql = "UPDATE books SET availability = '0' WHERE book_id = ?";
+                jdbcTemplate.update(updateAvailabilitySql, bookId);
+            }
+        }
+
+        return result;
     }
 	
 	@Override
 	public int deleteInterest(String id) {
         String sql = "DELETE FROM interested_books WHERE interest_id = ?";
         return jdbcTemplate.update(sql, id);
+    }
+	
+	@Override
+	public int deleteInterest(String userId, String bookId) {
+        String sql = "DELETE FROM interested_books WHERE user_id = ? and book_id = ?";
+        return jdbcTemplate.update(sql, userId, bookId);
     }
 	
 	@Override
@@ -233,5 +267,11 @@ public class InquiryRepositoryImpl implements InquiryRepository {
             }
         }, id, userId);
     }
+	
+	@Override
+	public int insertInterest(String user_id, String book_id) {
+	    String sql = "INSERT INTO interested_books (interest_id, user_id, book_id) VALUES (interest_idx.NEXTVAL, ?, ?)";
+	    return jdbcTemplate.update(sql, user_id, book_id);
+	}
 
 }
