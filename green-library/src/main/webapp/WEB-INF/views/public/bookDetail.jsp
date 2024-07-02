@@ -64,7 +64,7 @@
 							<c:choose>
 								<c:when test="${!canReserve}">
 									<div style="display:flex; justify-content:center;">
-										<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
+										<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button" >&nbsp;
 										<c:if test="${checkInterest}">
 											<form action="/user/deleteInterestEasy" method="post">
 												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
