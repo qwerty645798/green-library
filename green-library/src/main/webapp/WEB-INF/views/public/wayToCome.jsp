@@ -19,7 +19,7 @@
 		</div>
 	</nav>
 	
-	<jsp:include page="../public/navBarUse.jsp" />
+	<jsp:include page="../public/navBarIntro.jsp"/>
 	
 	<div class="title_container">
 		<h1>그린도서관 오시는 길</h1>

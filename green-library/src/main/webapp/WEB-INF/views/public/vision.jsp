@@ -21,6 +21,8 @@
     </div>
 </div>
 
+<jsp:include page="../public/navBarIntro.jsp"/>
+
 
 <div class="title_container">
 	<h1>도서관 비전</h1>

@@ -13,13 +13,13 @@
 <div class="navBar">
 	<div class="navTitle">바로 가기</div>
 		<ul class="useList">
-			<li>이용 시간 안내</li>
-			<li>자료 이용 안내</li>
-			<li>희망도서 신청</li>
+			<li>도서관 비전</li>
+			<li>오시는 길</li>
+			<li>부대시설 소개</li>
 		</ul>
 	</div>
 	
-	<script src="/js/navBarUse.js" type="text/javascript"></script>
+	<script src="/js/navBarIntro.js" type="text/javascript"></script>
 
 </body>
 </html>
