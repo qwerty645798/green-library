@@ -22,11 +22,11 @@
 		</div>
 	</nav>
 	
-	<div class="htwo">
-	<h2>문의 세부내역</h2>
-	</div>
+	<div class="title_container">
+	<h1>문의 세부 내역</h1>
+</div>
+	<hr class="hr1">
 	
-			<hr>
 			
 			<jsp:include page="../public/navBarMypage.jsp"/>
 	

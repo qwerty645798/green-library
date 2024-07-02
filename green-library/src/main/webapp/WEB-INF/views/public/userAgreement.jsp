@@ -14,10 +14,16 @@
 	<jsp:include page="../index/header.jsp" />
 	<nav class="bannerBgr">
 		<div class="Banner">
-			<div class="pageTitle">회원정보수정</div>
-			<div class="pageRoute">홈 > 회원정보수정</div>
+			<div class="pageTitle">개인정보 약관 동의</div>
+			<div class="pageRoute">홈 > 개인정보 약관 동의</div>
 		</div>
 	</nav>
+	
+	<div class="title_container">
+	<h1>개인정보 약관 동의 및 재동의</h1>
+</div>
+	<hr class="hr1">
+	
 	
 	<jsp:include page="../public/navBarMypage.jsp"/>
 	

@@ -28,6 +28,12 @@
     </div>
 </div>
 
+<div class="title_container">
+	<h1>희망도서 신청 내역</h1>
+</div>
+	<hr class="hr1">
+	
+
 <jsp:include page="../public/navBarMypage.jsp"/>
 
 <main>

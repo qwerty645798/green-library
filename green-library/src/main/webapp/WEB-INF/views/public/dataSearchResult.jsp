@@ -30,6 +30,12 @@
     </div>
 </div>
 
+<div class="title_container">
+	<h1>검색 결과</h1>
+</div>
+	<hr class="hr1">
+	
+
 <jsp:include page="../public/navBarSearch.jsp"/>
 
 <main>

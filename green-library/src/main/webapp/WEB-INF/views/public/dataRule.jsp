@@ -41,7 +41,7 @@
 	대출가능 권수 <br> 1인당 5권
 	</div>
 	<div class="icon_box">
-	<img src="/images/bookGreen.png">
+	<img src="/images/bookReturn.png">
 	대출 반납 <br> 도서관 또는 반납함
 	</div>
 	</div>

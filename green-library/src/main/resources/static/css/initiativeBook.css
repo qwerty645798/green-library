@@ -1,5 +1,25 @@
 @charset "utf-8";
 
+
+.title_container{
+	display: flex;
+	width: 1260px;
+	align-items: center;
+	margin: 0 auto;
+	margin-top:20px;	
+	
+	font-size:24pt;
+}
+h1{
+	margin-top: 50px;
+	font-size: 20pt;
+	font-weight: bold;
+}
+.hr1{
+	width: 1260px;
+	border: 2px solid #a0cab0;
+}
+
 .page{
 	margin-top: 100px;
 }

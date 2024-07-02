@@ -24,6 +24,11 @@
         </div>
          <!-- 배너 끝 -->
          
+<div class="title_container">
+	<h1>희망도서 신청하기</h1>
+</div>
+	<hr class="hr1">
+         
          <jsp:include page="../public/navBarUse.jsp" />
             
         <div class="hopeBookPage1">

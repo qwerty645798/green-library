@@ -28,6 +28,12 @@
     </div>
 </div>
 
+<div class="title_container">
+	<h1>사람들이 많이 찾는 책</h1>
+</div>
+	<hr class="hr1">
+	
+
 <jsp:include page="../public/navBarSearch.jsp"/>
 
 <main>

@@ -25,6 +25,12 @@
     </div>
 </div>
 
+<div class="title_container">
+	<h1>일반 검색 및 주제별 검색</h1>
+</div>
+	<hr class="hr1">
+	
+
 <jsp:include page="../public/navBarSearch.jsp"/>
 
 <main>
