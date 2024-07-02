@@ -5,7 +5,7 @@ navRouteli = Array.from(navRouteli);
 
 let imHere = window.location.href.split("/");
 
-//도서관 이용. 바로가기 리스트
+//마이페이지. 바로가기 리스트
 navRouteli[0].onclick = () => window.location.href = "/user/userInfo";
 navRouteli[1].onclick = () => window.location.href = "/user/bookLoanExtension";
 navRouteli[2].onclick = () => window.location.href = "/userAgreement";
@@ -21,12 +21,13 @@ if(imHere[4]=="bookLoanExtension"){
 if(imHere[3]=="userAgreement"){
 	navRouteli[2].classList.add("curPlace");
 }
-if(imHere[4]=="myWritten"){
+if(imHere[4]=="myWritten"||
+imHere[4].includes("userInquiryDetail")||
+imHere[4].includes("wishBook"))
+{
 	navRouteli[3].classList.add("curPlace");
 }
-if(imHere[4]=="userInquiryCreate"||
-imHere[4].includes("userInquiryDetail")||
-imHere[4].includes("wishBook")
+if(imHere[4]=="userInquiryCreate"
 ){
 	navRouteli[4].classList.add("curPlace");
 }
