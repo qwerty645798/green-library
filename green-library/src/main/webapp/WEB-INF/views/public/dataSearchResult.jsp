@@ -107,7 +107,10 @@
                     <div class="book_table">
                         <table>
                             <tr>
-                                <th>&nbsp;도서명<img src="/images/searchBtn.png"></th>
+                                <th>&nbsp;도서명
+                                <a href="bookDetail?bookId=${item.bookId}">
+                                <img src="/images/searchBtnGreen.png">
+                                </a></th>
                                 <td>${item.title}</td>
                                 <th>재고현황</th>
                                 <td>${item.availability}</td>

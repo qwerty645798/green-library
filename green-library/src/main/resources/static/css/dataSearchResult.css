@@ -1,6 +1,10 @@
 @charset "utf-8";
 
-
+.book_table img{
+	position: relative;
+	top: 4px;
+	cursor: pointer;
+}
 
 
 
