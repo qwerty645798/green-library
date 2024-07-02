@@ -19,18 +19,21 @@ public interface InquiryService {
 
 	List<UserInterestDTO> getUserInterest(String userId);
 
-
 	void deleteRentHistory(String userId, String id);
-
 
 	void cancelReserve(String id);
 
 	void deleteInterest(String id);
 
-
+	void deleteInterest(String userId, String bookId);
+	
 	boolean checkRentCondition(String userId, String id);
 
 	UserCountDTO getUserCount(String userId);
 
 	UserInquiryDetailDTO getInquiryDetail(String userId, String id);
+
+	void insertInterest(String user_id, String book_id);
+
+	boolean getUserInterest(String userId, int bookId);
 }

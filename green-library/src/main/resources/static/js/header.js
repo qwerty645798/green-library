@@ -11,7 +11,8 @@
 	function accordian(){
     for(let i=0;i<5;i++){
 
-        subMenuTop[i].onclick = () => {
+        subMenuTop[i].onclick = (e) => {
+			e.preventDefault();
             if(!subMenu.classList.contains("menuopen")){
                 subMenu.style.height =  menuHeight + "px";
 				subMenu.classList.add("menuopen");

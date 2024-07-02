@@ -14,7 +14,11 @@
 <link rel="stylesheet" type="text/css" href="/css/public/nav.css">
 
 <script src="/js/bookDetail.js"></script>
-					                
+<script>
+	let message = "${message}";
+	if(message)
+		alert(message);
+</script>			                
 </head>
 <body>
 
@@ -52,36 +56,70 @@
 				</tr>
 				<tr>
 					<th>대출 상태</th>
-					
 					<td colspan="3">&nbsp;&nbsp;${book.availability}</td>
 				</tr>
 				<tr>
 					<td colspan="4" align="center" style="border:none;">
 						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
-						<c:choose>
-							<c:when test="${!canReserve}">
-								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
-							</c:when>
-							<c:otherwise>
-								<form action="reserveBook" method="post">
-									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-									<input type="hidden" name="bookId" value="${book.bookId}">
-									<input type="hidden" name="userId" value="${userId}">
-									<input type="submit" value="대출 예약" class="reserve_button">
-								</form>
-							</c:otherwise>
-						</c:choose>
+							<c:choose>
+								<c:when test="${!canReserve}">
+									<div style="display:flex; justify-content:center;">
+										<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
+										<c:if test="${checkInterest}">
+											<form action="/user/deleteInterestEasy" method="post">
+												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+												<input type="hidden" name="bookId" value="${book.bookId}">
+												<input type="submit" value="관심 도서 제거" class="reserve_button" id="interest">
+											</form>
+										</c:if>
+										<c:if test="${!checkInterest}">
+											<form action="/user/insertInterest" method="post">
+												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+												<input type="hidden" name="bookId" value="${book.bookId}">
+												<input type="submit" value="관심 도서 추가" class="reserve_button" id="interest">
+											</form>
+										</c:if>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div style="display:flex; justify-content:center;">
+										<form action="/user/reserveBook" method="post">
+											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+											<input type="hidden" name="bookId" value="${book.bookId}">
+											<input type="hidden" name="userId" value="${userId}">
+											<input type="submit" value="대출 예약" class="reserve_button">
+										</form>
+										<c:if test="${checkInterest}">
+											<form action="/user/deleteInterestEasy" method="post">
+												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+												<input type="hidden" name="bookId" value="${book.bookId}">
+												<input type="submit" value="관심 도서 제거" class="reserve_button" id="interest">
+											</form>
+										</c:if>
+										<c:if test="${!checkInterest}">
+											<form action="/user/insertInterest" method="post">
+												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+												<input type="hidden" name="bookId" value="${book.bookId}">
+												<input type="submit" value="관심 도서 추가" class="reserve_button" id="interest">
+											</form>
+										</c:if>
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</c:if>
 						
 						<c:if test="${empty sessionScope.SPRING_SECURITY_CONTEXT}">
-						<c:choose>
-							<c:when test="${!canReserve}">
-								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
-							</c:when>
-							<c:otherwise>
-								<input type="button" onclick="Reservation()" value="대출 예약" class="reserve_button">
-							</c:otherwise>
-						</c:choose>
+							<c:choose>
+								<c:when test="${!canReserve}">
+									<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
+								</c:when>
+								<c:otherwise>
+									<div>
+										<input type="button" onclick="Reservation()" value="대출 예약" class="reserve_button">
+										<input type="button" onclick="Reservation()" value="관심 도서 추가" class="reserve_button">
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</c:if>
 					</td>
 				</tr>		
@@ -99,8 +137,7 @@
 
 </main>
 
- <jsp:include page="../index/footer.jsp" />
-
+<jsp:include page="../index/footer.jsp" />
 
 </body>
-</html> 
+</html>

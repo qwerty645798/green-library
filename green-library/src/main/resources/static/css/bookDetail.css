@@ -70,7 +70,7 @@
 /*	width: 150px;*/
 /*	height: 30px;*/
 	
-	width: 700px;
+	width: 300px;
 	height: 40px;
 	border: none;
 	border-radius: 5px;	
@@ -78,6 +78,7 @@
 	cursor: pointer;
 	text-align: center;
 	font-size: 14pt;
+	margin: auto 30px;
 }
 .hidden{
 	display: none;
