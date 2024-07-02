@@ -25,6 +25,7 @@ public class InquiryServiceImpl implements InquiryService{
 	@Qualifier("UserInquiryRepository")
 	InquiryRepository inquiryRepository;
 	
+	// 대출상태 점검
 	@Override
 	public boolean checkRentCondition(String userId, String id) {
 		try {
@@ -38,6 +39,7 @@ public class InquiryServiceImpl implements InquiryService{
         }
 	}
 	
+	// 전체 대출기록 불러오기
 	@Override
 	public List<UserRentHistoryDTO> getUserRentHistory(String userId) {
 		try {
@@ -47,6 +49,7 @@ public class InquiryServiceImpl implements InquiryService{
         }
 	}
 	
+	// 대출중인 도서목록
 	@Override
 	public List<UserBorrowDTO> getUserBorrow(String userId) {
 		try {
@@ -56,6 +59,7 @@ public class InquiryServiceImpl implements InquiryService{
         }
 	}
 	
+	// 예약내역 
 	@Override
 	public List<UserReserveDTO> getUserReserve(String userId) {
 		try {
@@ -65,6 +69,7 @@ public class InquiryServiceImpl implements InquiryService{
         }
 	}
 	
+	// 관심목록
 	@Override
 	public List<UserInterestDTO> getUserInterest(String userId) {
 		try {
@@ -74,9 +79,20 @@ public class InquiryServiceImpl implements InquiryService{
         }
 	}
 	
+	// 관심목록에 있는지 조회
+	@Override
+	public boolean getUserInterest(String userId, int bookId) {
+		try {
+            inquiryRepository.getUserInterest(userId, bookId);
+            return true;
+		} catch (DataAccessException e) {
+			return false;
+		}
+	}
+	
+	// 대출기록 제거
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-
 	public void deleteRentHistory(String userId, String id) {
 		try {
 			if(checkRentCondition(userId, id)) {
@@ -91,6 +107,7 @@ public class InquiryServiceImpl implements InquiryService{
         }
 	}
 	
+	// 예약 취소
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public void cancelReserve(String id) {
@@ -104,6 +121,22 @@ public class InquiryServiceImpl implements InquiryService{
         }
 	}
 	
+	// 관심도서 추가
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public void insertInterest(String user_id, String book_id) {
+		try {
+			int rowsAffected = inquiryRepository.insertInterest(user_id, book_id);
+			if (rowsAffected == 0) {
+				throw new DatabaseException(
+						"Failed to insert interested book for user with user: " + user_id);
+			}
+		} catch (DataAccessException e) {
+            throw new DatabaseException("Database error occurred while inserting interest with user: " + user_id, e);
+        }
+	}
+	
+	// 관심도서 제거
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public void deleteInterest(String id) {
@@ -116,8 +149,22 @@ public class InquiryServiceImpl implements InquiryService{
             throw new DatabaseException("Database error occurred while removing interest with id: " + id, e);
         }
 	}
-
 	
+	// 관심도서 제거
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public void deleteInterest(String userId, String bookId) {
+		try {
+			int rowsAffected = inquiryRepository.deleteInterest(userId, bookId);
+            if (rowsAffected == 0) {
+	            throw new DatabaseException("Failed to delete interest with user: " + userId);
+	        }
+        } catch (DataAccessException e) {
+            throw new DatabaseException("Database error occurred while removing interest with user: " + userId, e);
+        }
+	}
+
+	// 현재 빌린회수, 예약회수 불러오기
 	@Override
 	public UserCountDTO getUserCount(String userId) {
 		try {
@@ -127,8 +174,13 @@ public class InquiryServiceImpl implements InquiryService{
         }
 	}
 	
+	// 문의세부내역
 	@Override 
 	public UserInquiryDetailDTO getInquiryDetail(String userId, String id) {
+		try {
             return inquiryRepository.getInquiryDetail(userId, id);
+		} catch (DataAccessException e) {
+		    throw new DatabaseException("Database error occurred while inquirying inquiry detail with id: " + userId, e);
+		}
 	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,11 +21,16 @@ import com.library.service.assets.BookDetailService;
 import com.library.service.assets.DataSearchResultService;
 import com.library.service.assets.InitiativeBookService;
 import com.library.service.assets.PopularBookService;
+import com.library.service.user.InquiryService;
 
 @Controller("AssetsBookController")
 public class BookController {
 
 	@Autowired private BookDetailService bookDetailService;
+	
+	@Autowired
+	@Qualifier("UserInquiryService")
+	private InquiryService inquiryService;
   
 	@GetMapping("/bookDetail") public String
 	bookDetail(@RequestParam(name="bookId", required = false) int bookId, Model model ) {
@@ -36,6 +42,9 @@ public class BookController {
 			  String userId = authentication.getName();
 			  model.addAttribute("userId", userId);
 			  
+			  boolean interest = inquiryService.getUserInterest(userId, bookId);
+			  model.addAttribute("checkInterest",interest);
+			  
 			  int reservationCount = bookDetailService.reservationsCount(userId);
 			  model.addAttribute("reservationCount", reservationCount);
 		  }					 
@@ -45,6 +54,8 @@ public class BookController {
 		  
 		  boolean canReserve = bookDetailService.canReserveBook(bookId, authentication.getName());
 	      model.addAttribute("canReserve", canReserve);
+	      
+	      
 	        
 		  return "public/bookDetail"; 
 	}

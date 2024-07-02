@@ -164,6 +164,22 @@ public class UserController {
         
         return response;
     }
+    
+    @PostMapping("/insertInterest")
+    public String insertInterest(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("bookId") String bookId, RedirectAttributes redirectAttributes) {
+    	
+    	inquiryService.insertInterest(userId, bookId);
+    	redirectAttributes.addFlashAttribute("message", "관심목록에 추가되었습니다.");
+        return "redirect:/bookDetail?bookId=" + bookId;
+    }
+    
+    @PostMapping("/deleteInterestEasy")
+    public String deleteInterestEasy(@RequestParam(name = "auth", defaultValue = "abc") String userId, @RequestParam("bookId") String bookId, RedirectAttributes redirectAttributes) {
+    	
+    	inquiryService.deleteInterest(userId, bookId);
+    	redirectAttributes.addFlashAttribute("message", "관심목록에서 제거되었습니다.");
+    	return "redirect:/bookDetail?bookId=" + bookId;
+    }
 
     @PostMapping("/deleteInterest")
     @ResponseBody
