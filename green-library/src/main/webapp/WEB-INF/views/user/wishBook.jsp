@@ -28,6 +28,8 @@
     </div>
 </div>
 
+<jsp:include page="../public/navBarMypage.jsp"/>
+
 <main>
 
 

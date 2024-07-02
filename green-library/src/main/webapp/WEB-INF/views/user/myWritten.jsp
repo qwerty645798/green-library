@@ -32,6 +32,8 @@
     </div>
 </div>
 
+<jsp:include page="../public/navBarMypage.jsp"/>
+
 
 <main>
 	<div class="container">

@@ -26,6 +26,8 @@
     </div>
 </div>
 
+<jsp:include page="../public/navBarNews.jsp"/>
+
 
 <main>
 

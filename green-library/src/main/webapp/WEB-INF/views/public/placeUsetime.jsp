@@ -21,7 +21,7 @@
         </div>
     </div>
     
-    <jsp:include page="../public/navBar.jsp" />
+    <jsp:include page="../public/navBarUse.jsp" />
     
     <div class="title_container">
 		<h1>그린도서관 이용 시간 안내</h1>

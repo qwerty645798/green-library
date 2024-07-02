@@ -29,7 +29,7 @@
 	
 	
 	
-	<jsp:include page="../public/navBar.jsp" />
+	<jsp:include page="../public/navBarUse.jsp" />
 	
 
 <div class="useTable">

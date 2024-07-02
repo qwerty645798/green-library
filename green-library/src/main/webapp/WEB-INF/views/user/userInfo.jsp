@@ -30,6 +30,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<jsp:include page="../public/navBarMypage.jsp"/>
 
 	<div class="outContainer">
 		<div class="innerContainer">

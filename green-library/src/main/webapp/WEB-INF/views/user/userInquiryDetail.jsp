@@ -27,6 +27,8 @@
 	</div>
 	
 			<hr>
+			
+			<jsp:include page="../public/navBarMypage.jsp"/>
 	
 	<main class="container">
 		<div class="main">

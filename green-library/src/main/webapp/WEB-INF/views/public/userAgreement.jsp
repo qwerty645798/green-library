@@ -18,6 +18,9 @@
 			<div class="pageRoute">홈 > 회원정보수정</div>
 		</div>
 	</nav>
+	
+	<jsp:include page="../public/navBarMypage.jsp"/>
+	
 	<div class="container">
 		<main>
 			<form action="userJoin" method="get" id="myForm">

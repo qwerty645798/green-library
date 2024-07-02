@@ -24,7 +24,7 @@
         </div>
          <!-- 배너 끝 -->
          
-         <jsp:include page="../public/navBar.jsp" />
+         <jsp:include page="../public/navBarUse.jsp" />
             
         <div class="hopeBookPage1">
             <div class="hopeBookPage2">

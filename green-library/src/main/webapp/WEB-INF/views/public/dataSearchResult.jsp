@@ -30,6 +30,8 @@
     </div>
 </div>
 
+<jsp:include page="../public/navBarSearch.jsp"/>
+
 <main>
 
 <div class="zero_container">

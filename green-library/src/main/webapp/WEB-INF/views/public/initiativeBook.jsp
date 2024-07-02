@@ -25,6 +25,8 @@
     </div>
 </div>
 
+<jsp:include page="../public/navBarSearch.jsp"/>
+
 <main>
 
 <c:set var="itemsPerPage" value="8"/>
