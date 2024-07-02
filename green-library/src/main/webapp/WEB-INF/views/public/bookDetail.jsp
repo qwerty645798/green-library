@@ -60,7 +60,7 @@
 						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
 						<c:choose>
 							<c:when test="${!canReserve}">
-								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button hidden" disabled>&nbsp;
+								<input type="button" onclick="cantReservation()" value="대출 예약" class="reserve_button">&nbsp;
 							</c:when>
 							<c:otherwise>
 								<form action="reserveBook" method="post">
