@@ -41,9 +41,9 @@ public class InitiativeBookRepository {
                 
                 if (book.getAvailability() != null) {
                     if (book.getAvailability().equals("1")) {
-                        book.setAvailability("대출/예약가능");
+                        book.setAvailability("대출가능");
                     } else {
-                        book.setAvailability("대출/예약불가");
+                        book.setAvailability("대출불가");
                     }
                 } else {
                     book.setAvailability("알수없음");

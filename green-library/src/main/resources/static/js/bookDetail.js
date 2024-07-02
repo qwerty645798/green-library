@@ -4,6 +4,6 @@
         window.location.href = "userLogin";
     }
     function cantReservation(){
-    	alert("대출/예약이 불가합니다.");
+    	alert("대출이 불가합니다.");
     }
     
