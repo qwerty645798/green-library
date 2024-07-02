@@ -6,14 +6,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/css/navBar.css" type="text/css" rel="stylesheet">
-<script src="/js/navBar.js" type="text/javascript"></script>
+
 </head>
 <body>
 
 <div class="navBar">
 	<div class="navTitle">바로 가기</div>
 		<ul class="useList">
-			<li><a href="/wayToCome">
+			<li class="curPlace"><a href="/wayToCome">
 			오시는 길
 			</a></li>
 			<li><a href="/placeUsetime">
@@ -30,6 +30,8 @@
 			</a></li>
 		</ul>
 	</div>
+	
+	<script src="/js/navBar.js" type="text/javascript"></script>
 
 </body>
 </html>
